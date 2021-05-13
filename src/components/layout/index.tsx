@@ -14,7 +14,6 @@ type LayoutProps = {
     desktop: boolean;
   };
   token?: string;
-  categories: any[];
 };
 
 export const Layout: React.FC<LayoutProps> = ({

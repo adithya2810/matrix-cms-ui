@@ -2,16 +2,26 @@ import React from "react";
 import App, { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 import "@styles/global.scss";
-import { appWithTranslation } from "@i18n";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "helper/apollo";
+import { Layout } from "@components/layout";
+import { useDeviceType } from "helper/useDeviceType";
 
-export default function  ExtendedApp({ Component, pageProps }: AppProps): JSX.Element {
+export default function ExtendedApp({
+  Component,
+  pageProps,
+  userAgent,
+}): JSX.Element {
+  const deviceType = useDeviceType(userAgent);
   const apolloClient = useApollo(pageProps);
   return (
-    <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Layout deviceType={deviceType}>
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </Layout>
+    </>
   );
 }
 

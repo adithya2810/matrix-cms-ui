@@ -1,12 +1,19 @@
 import React from "react";
-
-import { Container, Header, Main, Footer, Cards } from "@components";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 const Home: React.FC = () => {
+  const router = useRouter();
+  React.useEffect(() => {
+    router.replace('/home');
+  })
   return (
-    <Container>
-      <Main />
-    </Container>
+    // <Container>
+    //   <Main />
+    // </Container>
+    <Head>
+      <title>Matrix</title>
+    </Head>
   );
 };
 

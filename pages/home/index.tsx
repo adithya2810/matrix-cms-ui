@@ -4,7 +4,7 @@ function HomePage() {
 
     return (
         <>
-            <div className=" text-primary-light " > Home Page</div>
+            <h1 className=" text-primary-light " > Home Page</h1>
         </>
     )
 }

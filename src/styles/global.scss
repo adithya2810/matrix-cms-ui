@@ -110,7 +110,15 @@ h6 {
 
 .footer{
   height: 340px;
+  width: "100%";
   @screen sm {
-    height: 387;
+    height: 339px;
+  }
+}
+
+.footer-menu {
+  height: 92px;
+  @screen sm {
+    height: 189px;
   }
 }

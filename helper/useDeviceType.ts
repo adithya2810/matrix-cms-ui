@@ -1,4 +1,5 @@
 import MobileDetect from "mobile-detect";
+
 export function useDeviceType(userAgent) {
   const md = new MobileDetect(userAgent);
   let mobile = false,

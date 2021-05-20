@@ -1,8 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: -apple-system, "Manrope", BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1 {
+  @apply font-extralight ;
+  font-size: 190px;
+  @screen sm {
+    @apply font-light;
+    font-size: 60px;
+  }
+}
+
+h2 {
+  @apply font-medium;
+  font-size: 140px;
+  @screen sm {
+    @apply font-medium;
+    font-size: 45px;
+  }
+}
+
+h3 {
+  @apply font-light;
+  font-size: 100px;
+  @screen sm {
+    @apply font-light;
+    font-size: 25px;
+  }
+}
+
+h4 {
+  @apply font-light;
+  font-size: 85px;
+  @screen sm {
+    @apply font-light;
+    font-size: 20px;
+  }
+}
+
+h5 {
+  @apply font-light;
+  font-size: 54px;
+  @screen sm {
+    @apply font-normal;
+    font-size: 16px;
+  }
+}
+
+h6 {
+  @apply font-semibold;
+  font-size: 32px;
+  @screen sm {
+    @apply font-normal;
+    font-size: 16px;
+  }
+}
+
+.sub-h1 {
+  @apply font-light;
+  font-size: 28px;
+  @screen sm {
+    @apply font-medium;
+    font-size: 18px;
+  }
+
+}
+
+.sub-h2 {
+  @apply font-medium;
+  font-size: 18px;
+  @screen sm {
+    @apply font-medium;
+    font-size: 14px;
+  }
+}
+
+.body1{
+  @apply font-normal;
+  font-size: 20px;
+  @screen sm {
+    @apply font-normal;
+    font-size: 14px;
+  }
+}
+
+.body2{
+  @apply font-medium;
+  font-size: 15px;
+  @screen sm {
+    @apply font-normal;
+    font-size: 14px;
+  }
+}
+
+.caption{
+  @apply font-light;
+  font-size: 12px;
+  @screen sm {
+    @apply font-medium;
+    font-size: 11px;
+  }
+}
+
+.footer{
+  height: 340px;
+  width: "100%";
+  @screen sm {
+    height: 339px;
+  }
+}
+
+.footer-top{
+  height: 270px;
+  @screen sm {
+    height: 339px;
+  }
+}
+
+.footer-menu {
+  height: 92px;
+  @screen sm {
+    height: 189px;
+  }
 }

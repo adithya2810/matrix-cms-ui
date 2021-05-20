@@ -1,56 +1,40 @@
+
 import React from "react";
-import Image from "next/image";
+import FooterMenu from "./footerMenu";
+import Button from "@components/button/PrimaryButtonIconRight";
+import { PRIVACY_POLICY } from "../../../constants"
 
 export const Footer: React.FC = () => {
   return (
-    <div className="text-center py-5 bg-gray-800">
-      <a
-        href="https://github.com/pankod"
-        target="_blank"
-        className="block mb-3"
-      >
-        <Image
-          src="/icons/pankod-icon.svg"
-          alt="pankod"
-          width="140"
-          height="28"
-        />
-      </a>
+    <div className="flex  justify-end flex-col text-secondary w-full align-bottom">
+      <div className="bg-accent-dark footer-top flex laptop:justify-between sm:flex-col sm:pl-11 sm:pr-11 sm:pt-11">
+        <div className="laptop:flex laptop:mt-16 p-0.5 laptop:ml-56">
+          <h6 className="laptop:w-48 font-normal leading-9 text-4xl tracking-wider p-0.5"> Let's stay engaged</h6>
+          <span className="p-1 ml-4">
+            <h6 className="sub-h2 font-medium text-lg leading-6">Sign up for the Matric Moments series</h6>
+            <input className="mt-2 text-secondary bg-accent p-0.5 pl-3 w-full" style={{ color: "#FBF9F5" }} type="email" placeholder="Your email address goes here" />
+            <Button title="Subscribe" url="/icons/arrow.svg" onClick={() => console.log("subscribe")} />
+          </span>
+        </div>
+        <div className=" laptop:mt-16 p-0.5 laptop:mr-52 sm:flex sm:justify-between sm:mt-7">
+          <div>
+          <h6 className="sub-h2 font-medium text-lg"> Matrix Partner Us </h6>
+          <h6 className=" sub-h2 font-medium text-lg"> Matrix Partner China</h6>
+          </div>
+          <div className="flex mt-2">
+            <a className="p-4 pl-0"><img src="/icons/linkedin.svg" /></a>
+            <a className="p-4 "> <img src="/icons/twitter.svg" /></a>
+          </div>
+        </div>
+      </div>
+      <div className=" laptop:flex justify-between footer-menu bg-primary align-middle sm:pl-11 sm:pt-6">
+        <FooterMenu />
+        <div className=" text-secondary flex items-center sm:mt-2 sm:grid sm:grid-cols-2 sm:gap-0">
+          <span className="caption p-1 w-28 text-sm sm:mt-2" >PRIVACY POLICY</span>
+          <p className="caption p-0.5 laptop:ml-20 laptop:mr-40 ">{PRIVACY_POLICY} </p>
+        </div>
+      </div>
 
-      <ul className="flex justify-center list-none p-0 m-0">
-        <li className="mx-3">
-          <Image
-            src="/icons/github-icon.svg"
-            alt="github"
-            width="28"
-            height="29"
-          />
-        </li>
-        <li className="mx-3">
-          <Image
-            src="/icons/twitter-icon.svg"
-            alt="nextjs"
-            width="28"
-            height="28"
-          />
-        </li>
-        <li className="mx-3">
-          <Image
-            src="/icons/youtube-icon.svg"
-            alt="youtube"
-            width="28"
-            height="29"
-          />
-        </li>
-        <li className="mx-3">
-          <Image
-            src="/icons/linkedin-icon.svg"
-            alt="linkedin"
-            width="28"
-            height="32"
-          />
-        </li>
-      </ul>
     </div>
   );
 };

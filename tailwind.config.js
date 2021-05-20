@@ -20,6 +20,9 @@ module.exports = {
       cta: {
         DEFAULT: "#5DE2A1",
       },
+      input:{
+        DEFAULT: "#FBF9F5"
+      }
     },
     fontFamily: {
       sans: ["Manrope", "Helvetica", "Arial", "sans-serif"],
@@ -58,7 +61,11 @@ module.exports = {
       "9xl": "7rem",
       "10xl": "8rem",
     },
-    extend: {},
+    extend: {
+      lineHeight:{
+        '4.5':'1.125rem'
+      }
+    },
   },
   variants: {
     extend: {},

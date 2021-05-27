@@ -5,6 +5,7 @@ import { Header } from "@components/header";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { useEffect } from "react";
+import { Menu } from "../../modules/menu";
 
 type LayoutProps = {
   className?: string;
@@ -30,10 +31,11 @@ export const Layout: React.FC<LayoutProps> = ({
   }, []);
 
   return (
-    <div className="flex flex-col h-screen w-full h-full">
-      <Header />
+    <div className="flex flex-col w-full h-full">
+      {/* <Header />
       <div className="flex-grow">{children}</div>
-      <Footer />
+      <Footer /> */}
+      <Menu />
     </div>
   );
 };

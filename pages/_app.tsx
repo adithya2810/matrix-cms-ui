@@ -6,6 +6,7 @@ import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "helper/apollo";
 import { Layout } from "@components/layout";
 import { useDeviceType } from "helper/useDeviceType";
+import { Menu } from "../src/modules"
 
 export default function ExtendedApp({
   Component,
@@ -18,7 +19,8 @@ export default function ExtendedApp({
     <>
       <Layout deviceType={deviceType}>
         <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
+          <Component {...pageProps} className="invisible"/>
+          <Menu/>
         </ApolloProvider>
       </Layout>
     </>

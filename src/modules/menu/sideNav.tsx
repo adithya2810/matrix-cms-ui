@@ -5,7 +5,7 @@ import { socialMedia } from "../../../constants/socialMedia";
 
 
 
-export const SideNav: React.FC<Props> = () => {
+export const SideNav: React.FC = () => {
 
     const [selectedIndex,setSelectedIndex] = React.useState(0);
 

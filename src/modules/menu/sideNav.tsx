@@ -19,7 +19,7 @@ export const SideNav: React.FC = () => {
             <div>
                 {navMenu.primary.map((menuItem: any,index) => {
                     return (
-                        <NavItem title={menuItem.name} className={!isSelected(index) ? "opacity-50" : "opacity-100"} key={menuItem.key} onClick={() => setSelectedIndex(index)} selected={!isSelected(index)} />
+                        <NavItem title={menuItem.name} className={!isSelected(index) ? "opacity-50" : "opacity-100"} key={menuItem.key} id={menuItem.key} onClick={() => setSelectedIndex(index)} selected={!isSelected(index)} />
                     )
                 })}
             </div>
@@ -37,7 +37,7 @@ export const SideNav: React.FC = () => {
         <div className=" mr-16">
             <h6 className="font-medium text-xs leading-3 mt-4">NEVER MISS OUT AN UPDATE </h6>
             <p className="text-lg leading-6 mt-4">Sign up to our newsletter to be updated with how unique *people around the world are creating a difference</p>
-            <input className="mt-4 bg-primary" placeholder="Your email address goes here" />
+            <input className="mt-4 bg-primary w-full" placeholder="Your email address goes here" />
             <div className="flex mt-7">
                 {
                     socialMedia.map((item) => {

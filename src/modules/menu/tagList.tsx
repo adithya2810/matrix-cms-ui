@@ -13,7 +13,6 @@ export const TagList: React.FC<Props> = ({ title, tagList, onItemClick,className
     const [selected, setSelected] = React.useState([]);
 
     const isSelected = (id) => {
-        console.log(selected);
         if (selected.indexOf(id) > -1) {
             return true;
         }

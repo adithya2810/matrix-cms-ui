@@ -15,14 +15,17 @@ export default function ExtendedApp({
 }): JSX.Element {
   const deviceType = useDeviceType(userAgent);
   const apolloClient = useApollo(pageProps);
+  const [menu,setMenu]= React.useState(false);
+
   return (
     <>
-      <Layout deviceType={deviceType}>
+      <Layout visiblity={!menu} deviceType={deviceType} toggle={()=>setMenu(!menu)} >
         <ApolloProvider client={apolloClient}>
           <Component {...pageProps} className="invisible"/>
-          <Menu/>
+          
         </ApolloProvider>
       </Layout>
+      <Menu visiblity={menu} toggle={()=>setMenu(!menu)}/>
     </>
   );
 }

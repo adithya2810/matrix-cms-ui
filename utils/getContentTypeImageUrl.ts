@@ -4,5 +4,5 @@ export default function (type){
     switch (type){
 
     }
-    return ""
+    return "/icons/video.svg"
 }

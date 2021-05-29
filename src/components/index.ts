@@ -7,3 +7,5 @@ export { Footer } from "./footer";
 export { Container } from "./container";
 export { Image } from "./image";
 export { Tag } from "./tag";
+export { NavItem } from "./navItem";
+export {ContentItem} from "./contentItem";

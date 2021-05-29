@@ -1,9 +1,10 @@
 import React from "react";
 import { Image } from "@components";
+import { ContentButton } from "@components/button/ContentButton";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
 
 
-export type Props{
+export type Props = {
     image_url: string;
     title: string;
     author: string;
@@ -14,18 +15,19 @@ export type Props{
 }
 
 
-const ContentItem: React.FC<Props> = ({ image_url, title, author, onClick, content_id, content_type, read_duration }) => {
-    return (<div>
+export const ContentItem: React.FC<Props> = ({ image_url, title, author, onClick, content_id, content_type, read_duration }) => {
+    return (<div className="relative mb-11 ml-0">
         <Image src={image_url} alt="content-image" className="" />
-        <div>
-            <h5>{title}</h5>
-            <div>
-                <span>{author}</span>
-                <span>{read_duration}</span>
+        <div className="content-item-desc absolute top-4 p-3" style={{ top: "2.5rem", left: "9.5rem" }}>
+            <h5 className="text-lg font-medium leading-6 text-primary-dark ml-2 p-0.5">{title}</h5>
+            <div className="flex justify-between ml-2 pl-0.5 pt-0.5">
+                <span className="font-normal text-xs leading-3  text-primary-dark opacity-50">BY {" " + author}</span>
+                <span className="font-normal text-xs leading-3  text-primary-dark opacity-50 mr-1">{read_duration + " READ"}</span>
             </div>
-            <div>
-                <button onClick={() => onClick(content_id)} />
-                <Image src={getContentTypeImageUrl(content_type)} alt="content type image" className=" " />
+            <div className="flex justify-between mt-3">
+                {/* <button onClick={() => onClick(content_id)} /> */}
+                <ContentButton title={"Visit "+ content_type} className="h-8 w-36"/>
+                <Image src={getContentTypeImageUrl(content_type)} alt="content type image" className="mr-1" />
             </div>
         </div>
     </div>)

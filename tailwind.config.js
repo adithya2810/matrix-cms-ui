@@ -20,6 +20,9 @@ module.exports = {
       cta: {
         DEFAULT: "#5DE2A1",
       },
+      blue:{
+        DEFAULT: "#007BFF",
+      },
       input:{
         DEFAULT: "#FBF9F5"
       }

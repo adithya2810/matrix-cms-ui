@@ -5,20 +5,40 @@ import { Tag } from "@components";
 export type Props = {
     title: string;
     tagList: any;
-    selectedMap: Map<string, boolean>
-    onItemClick: (id) => void
+    onItemClick: (selected: any) => void;
+    className : string;
 }
 
-export const TagList: React.FC<Props> = ({ title, tagList, onItemClick, selectedMap }: Props) => {
+export const TagList: React.FC<Props> = ({ title, tagList, onItemClick,className="" }: Props) => {
+    const [selected, setSelected] = React.useState([]);
 
+    const isSelected = (id) => {
+        console.log(selected);
+        if (selected.indexOf(id) > -1) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    const toggle = (id) => {
+        if (isSelected(id) === true) {
+            const index = selected.indexOf(id);
+            setSelected(selected.splice(index+1, 1));
+        } else {
+            setSelected([...selected, id])
+        }
+        onItemClick(selected)
+    }
     return (
-        <div>
-            <div>{title}</div>
-            <div>
+        <div className={`w-full ${className}`}>
+            <div className="font-light text-xs leading-3 tracking-wider p-2 text-blue">{title}</div>
+            <div className=" flex flex-row flex-wrap text-primary-dark">
                 {
                     tagList.map((tag) => {
-                        return (<Tag id={tag.id} title={tag.title} selected={selectedMap.has(tag.id)} onClick={() => {
-                            onItemClick(tag.id)
+                        return (<Tag id={title+tag.id} key={tag.id} className="ml-3 mb-3" title={tag.title} selected={isSelected(tag.id)} onClick={() => {
+                            toggle(tag.id)
                         }} />)
                     })
                 }

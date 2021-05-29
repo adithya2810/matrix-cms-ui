@@ -15,11 +15,15 @@ type LayoutProps = {
     desktop: boolean;
   };
   token?: string;
+  toggle? : ()=>void,
+  visiblity: boolean;
 };
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
-  deviceType: { mobile, tablet, desktop }
+  deviceType: { mobile, tablet, desktop },
+  visiblity,
+  toggle
 }) => {
   useEffect(() => {
     Router.events.on("routeChangeStart", (url) => {
@@ -29,13 +33,12 @@ export const Layout: React.FC<LayoutProps> = ({
     Router.events.on("routeChangeError", () => NProgress.done());
     NProgress.configure({ showSpinner: false });
   }, []);
-
+  const className = visiblity? "visible" : "invisible";
   return (
-    <div className="flex flex-col w-full h-full">
-      {/* <Header />
+    <div className={`flex flex-col w-full h-full ${className}`}>
+      <Header toggle={toggle}/>
       <div className="flex-grow">{children}</div>
-      <Footer /> */}
-      <Menu />
+      <Footer />
     </div>
   );
 };

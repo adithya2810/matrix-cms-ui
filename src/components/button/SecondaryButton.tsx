@@ -8,5 +8,5 @@ export type Props = {
 }
 
 export const SecondaryButton: React.FC<Props> = ({ title, onClick, className }) => {
-    return (<button className={`text-lg leading-6 font-medium underline text-blue  ${className}`} > {title}</button>);
+    return (<button className={`text-lg leading-6 font-medium underline text-accent-dark  ${className}`} > {title}</button>);
 }

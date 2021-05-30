@@ -1,7 +1,7 @@
 import React from "react";
 import { SideNav } from "./sideNav";
 import { Tag, Image } from "@components";
-import { ContentButton } from "@components/button/ContentButton";
+import Button from "@components/button/PrimaryButtonIconRight";
 import { ContentList } from "../content/contentList";
 import { TagList } from "./tagList";
 
@@ -60,21 +60,21 @@ export const Menu: React.FC<Props> = ({visiblity,toggle}) => {
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
         </div>
         <div className="menu-tags h-full pl-24 " style={{ marginLeft: 263 }}>
-          <TagList title="SECTORAL" tagList={tagList} className="mt-28 pr-11" onItemClick={(items) => {
+          <TagList title="SECTORAL" tagList={tagList} className="mt-28 pr-11 opacity-100" onItemClick={(items) => {
             console.log(items);
           }} />
 
-          <TagList title="NON-SECTORAL" tagList={tagList} className="pr-11" onItemClick={(items) => {
+          <TagList title="NON-SECTORAL" tagList={tagList} className="pr-11 opacity-100" onItemClick={(items) => {
             console.log(items);
           }} />
         </div>
         <div className="flex-grow flex flex-col">
           <div className="mt-11 flex items-center self-end" onClick={()=>toggle()}>
-            <h6 className="sub-h1 pr-1 menu-text text-blue ">Close</h6>
+            <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
             <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
           </div>
           <ContentList />
-          <ContentButton title={"Visit " + "Blog Page"} className="menu-content-nav-button ml-20 mb-12" textClassName="menu-content-nav-button-text" />
+          <Button title={"Visit " + "Blog Page"} className="menu-content-nav-button ml-20 mb-12" textClassName="menu-content-nav-button-text" />
         </div>
       </div>
       <SideNav />

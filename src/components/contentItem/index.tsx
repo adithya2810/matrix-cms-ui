@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "@components";
-import { ContentButton } from "@components/button/ContentButton";
+import Button from "@components/button/PrimaryButtonIconRight";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
 
 
@@ -26,7 +26,7 @@ export const ContentItem: React.FC<Props> = ({ image_url, title, author, onClick
             </div>
             <div className="flex justify-between mt-3">
                 {/* <button onClick={() => onClick(content_id)} /> */}
-                <ContentButton title={"Visit "+ content_type} className="h-8 w-36"/>
+                <Button title={"Read More"} className="h-8 w-36 text-accent" url="" />
                 <Image src={getContentTypeImageUrl(content_type)} alt="content type image" className="mr-1" />
             </div>
         </div>

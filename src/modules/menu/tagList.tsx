@@ -32,7 +32,7 @@ export const TagList: React.FC<Props> = ({ title, tagList, onItemClick,className
     }
     return (
         <div className={`w-full ${className}`}>
-            <div className="font-light text-xs leading-3 tracking-wider p-2 text-blue">{title}</div>
+            <div className="font-light text-xs leading-3 tracking-wider p-2 text-accent-dark">{title}</div>
             <div className=" flex flex-row flex-wrap text-primary-dark">
                 {
                     tagList.map((tag) => {

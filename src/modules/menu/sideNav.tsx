@@ -39,7 +39,7 @@ export const SideNav: React.FC = () => {
             
             <span className="ml-4">
                 <h6 className="font-medium text-3xl  mt-4">Let's stay engaged </h6>
-                <h6 className="sub-h2 font-normal text-xs leading-3 capitalize pt-1 pb-1">Sign up for the Matric Moments series</h6>
+                <h6 className="font-normal text-xs leading-3 capitalize pt-1 pb-2">SIGN UP FOR THE MATRIX MOMENTS SERIES</h6>
                 <input className="mt-2 text-secondary bg-accent p-0.5 pl-3 w-full" style={{ color: "#FBF9F5" }} type="email" placeholder="Your email address goes here" />
                 <Button title="Subscribe" url="/icons/arrow.svg" onClick={() => console.log("subscribe")} />
             </span>

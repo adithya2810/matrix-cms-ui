@@ -6,6 +6,7 @@ import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "helper/apollo";
 import { Layout } from "@components/layout";
 import { useDeviceType } from "helper/useDeviceType";
+import { Menu } from "../src/modules"
 
 export default function ExtendedApp({
   Component,
@@ -14,13 +15,17 @@ export default function ExtendedApp({
 }): JSX.Element {
   const deviceType = useDeviceType(userAgent);
   const apolloClient = useApollo(pageProps);
+  const [menu,setMenu]= React.useState(false);
+
   return (
     <>
-      <Layout deviceType={deviceType}>
+      <Layout visiblity={!menu} deviceType={deviceType} toggle={()=>setMenu(!menu)} >
         <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
+          <Component {...pageProps} className="invisible"/>
+          
         </ApolloProvider>
       </Layout>
+      <Menu visiblity={menu} toggle={()=>setMenu(!menu)}/>
     </>
   );
 }

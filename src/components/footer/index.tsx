@@ -13,17 +13,17 @@ export const Footer: React.FC = () => {
           <span className="p-1 ml-4">
             <h6 className="sub-h2 font-medium text-lg leading-6">Sign up for the Matric Moments series</h6>
             <input className="mt-2 text-secondary bg-accent p-0.5 pl-3 w-full" style={{ color: "#FBF9F5" }} type="email" placeholder="Your email address goes here" />
-            <Button title="Subscribe" url="/icons/arrow.svg" onClick={() => console.log("subscribe")} />
+            <Button title="Subscribe" url="/icons/arrow.svg"  className={"p-1 text-cta"} onClick={() => console.log("subscribe")} />
           </span>
         </div>
-        <div className=" laptop:mt-16 p-0.5 laptop:mr-52 sm:flex sm:justify-between sm:mt-7">
+        <div className=" laptop:mt-16 p-0.5 laptop:mr-52 sm:flex sm:justify-between ">
           <div>
           <h6 className="sub-h2 font-medium text-lg"> Matrix Partner Us </h6>
           <h6 className=" sub-h2 font-medium text-lg"> Matrix Partner China</h6>
           </div>
-          <div className="flex mt-2">
-            <a className="p-4 pl-0"><img src="/icons/linkedin.svg" /></a>
-            <a className="p-4 "> <img src="/icons/twitter.svg" /></a>
+          <div className="flex mt-2 laptop:mt-8 items-start p-0.5">
+            <a className=" pl-0"><img src="/icons/linkedin.svg" /></a>
+            <a className=" pl-9"> <img src="/icons/twitter.svg" /></a>
           </div>
         </div>
       </div>

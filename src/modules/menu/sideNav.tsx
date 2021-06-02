@@ -15,7 +15,7 @@ export const SideNav: React.FC = () => {
         else false;
     }
 
-    return (<div className="z-30 absolute -bottom-0 bg-accent-dark text-secondary  flex flex-col justify-between" style={{ marginTop: 143, width: 548, paddingLeft: 82, paddingTop: 61, height: 824 }}>
+     return (<div className="side-nav z-30 absolute -bottom-0 bg-accent-dark text-secondary  flex flex-col justify-between" >
         <div className="block">
             <div>
                 {navMenu.primary.map((menuItem: any, index) => {

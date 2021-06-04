@@ -4,28 +4,24 @@ import "tailwindcss/tailwind.css";
 import "@styles/global.scss";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "helper/apollo";
-import { Layout } from "@components/layout";
 import { useDeviceType } from "helper/useDeviceType";
-import { Menu } from "../src/modules"
+import { Root } from "../src/modules/root"
 
 export default function ExtendedApp({
   Component,
   pageProps,
   userAgent,
 }): JSX.Element {
-  const deviceType = useDeviceType(userAgent);
   const apolloClient = useApollo(pageProps);
-  const [menu,setMenu]= React.useState(false);
+  const deviceType = useDeviceType(userAgent);
 
   return (
     <>
-      <Layout visiblity={!menu} deviceType={deviceType} toggle={()=>setMenu(!menu)} >
-        <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} className="invisible"/>
-          
-        </ApolloProvider>
-      </Layout>
-      <Menu visiblity={menu} toggle={()=>setMenu(!menu)}/>
+      <ApolloProvider client={apolloClient}>
+        <Root deviceType={deviceType} >
+          <Component {...pageProps} />
+        </Root>
+      </ApolloProvider>
     </>
   );
 }

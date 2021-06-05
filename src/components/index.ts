@@ -9,3 +9,4 @@ export { Image } from "./image";
 export { Tag } from "./tag";
 export { NavItem } from "./navItem";
 export {ContentItem} from "./contentItem";
+export { Founder } from "./founder";

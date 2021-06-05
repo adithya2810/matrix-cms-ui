@@ -173,6 +173,7 @@ h6 {
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
+  width: fit-content;
 }
 
 .menu-primary-nav-text {
@@ -182,7 +183,6 @@ h6 {
   font-size: 55px;
   line-height: 64px;
   letter-spacing: -0.01em;
-  color: #ffffff;
 }
 
 .menu-secondary-nav-text {
@@ -259,4 +259,10 @@ h6 {
   text-align: center;
   letter-spacing: -0.03em;
   text-align: center;
+}
+
+
+.home-content-tab{
+  font-size: 85px;
+  line-height: 95px;
 }

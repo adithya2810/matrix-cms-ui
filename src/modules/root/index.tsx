@@ -37,9 +37,9 @@ export const Root: React.FC<Props> = ({
   console.log(navMenuState, "from root");
   return (
     <>
-      <div className={`flex flex-col w-full h-full ${className}`}>
+      <div className={`flex flex-col flex-grow w-full h-full overflow-y-auto ${className}`}>
         <Header toggle={appConfigMutation.toogleMenu} />
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow" >{children}</div>
         <Footer />
       </div>
       <Menu />

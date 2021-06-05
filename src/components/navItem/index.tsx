@@ -10,12 +10,12 @@ export type Props = {
     className?: string;
 }
 
-export const NavItem: React.FC<Props> = ({ title, selected, id, onClick , className=""}) => {
+export const NavItem: React.FC<Props> = ({ title, selected, id, onClick, className = "" }) => {
     return (
-        <div className={`flex justify-between menu-primary-nav-text opacity-50 ${className}`} style={{ marginBottom: 25 }} onClick={() => onClick(id)}>
-            <span className="menu-primary-nav-text">{title}</span>
+        <div className={`flex justify-between menu-primary-nav-text opacity-50 ${className} text-primary-dark`} style={{ marginBottom: 25 }} onClick={() => onClick(id)}>
+            <span >{title}</span>
             {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
-            {selected ? (<span className="menu-primary-nav-icon" > {">"} </span>) : (<Image src={"/icons/sideNavButton.svg"} alt="nav button" className="-mr-5 opacity-100" />)}
+            {!selected ? (<span className="menu-primary-nav-icon" > {">"} </span>) : (<Image src={"/icons/sideNavButton.svg"} alt="nav button" className="-mr-5 opacity-100" />)}
         </div>)
 
 }

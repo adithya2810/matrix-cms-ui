@@ -16,7 +16,7 @@ const data = [
         image_url: "/icons/content1.svg",
         title: "From both sides of the table : Kunal Bahl unplugged",
         author: "TARUN DAVDA",
-        content_id: "abcdef",
+        content_id: "abcdefg",
         content_type: "blog",
         read_duration: "4 MIN"
     }

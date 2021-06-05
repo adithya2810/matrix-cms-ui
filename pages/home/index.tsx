@@ -1,11 +1,16 @@
 import React from "react";
+import { Founder } from "@components";
+import ContentItemWithTags from "@components/contentItem/contentItemWithTags";
+import Home from "../../src/modules/home";
 
 function HomePage() {
 
     return (
-        <>
-            <h1 className=" text-primary-light " > Home Page</h1>
-        </>
+        <div>
+
+            <Founder />
+            <Home />
+        </div>
     )
 }
 

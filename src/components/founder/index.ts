@@ -1,1 +1,1 @@
-export { Founder } from "./founder";
+export { Founder } from "./Founder";

@@ -16,6 +16,7 @@ export type Props = {
     content_type?: string;
     read_duration?: string;
     tags?: Array<any>;
+    style: any
 }
 
 

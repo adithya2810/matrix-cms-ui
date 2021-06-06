@@ -12,11 +12,12 @@ export type Props = {
     content_id: string;
     content_type: string;
     read_duration: string;
+    style?: any;
 }
 
 
-export const ContentItem: React.FC<Props> = ({ image_url, title, author, onClick, content_id, content_type, read_duration }) => {
-    return (<div className="relative mb-11 ml-0 bg-secondary-light">
+export const ContentItem: React.FC<Props> = ({ image_url, title, author, onClick, content_id, content_type, read_duration, style = {} }) => {
+    return (<div className="relative mb-11 ml-0 bg-secondary-light" style={style}>
         <Image src={image_url} alt="content-image" className="" />
         <div className="content-item-desc bg-secondary-light absolute top-4 p-3" style={{ top: "2.5rem", left: "9.5rem" }}>
             <h5 className="text-lg font-medium leading-6 text-primary-dark ml-2 p-0.5">{title}</h5>

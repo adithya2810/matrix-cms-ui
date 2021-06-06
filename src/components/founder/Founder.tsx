@@ -2,10 +2,10 @@ import React from "react";
 import { Image } from "@components";
 
 export type Props = {
-  names: Array<string>;
-  background_url: string;
-  tags: Array<string>;
-  logo: string;
+  names?: Array<string>;
+  background_url?: string;
+  tags?: Array<string>;
+  logo?: string;
   className?: string;
   style?: any;
 };

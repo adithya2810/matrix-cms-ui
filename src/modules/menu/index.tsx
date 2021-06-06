@@ -56,7 +56,7 @@ export const Menu: React.FC = () => {
 
   const className = navMenuState.menu ? "visible" : "invisible"
   return (
-    <div className={`bg-secondary z-30   flex  h-full w-full flex-grow absolute top-0 sm:overflow-auto  laptop:overflow-hidden ${className}`}>
+    <div className={`bg-secondary z-30 overflow-y-auto   flex  h-full w-full flex-grow absolute top-0 ${className}`}>
       <div className="flex justify-between bg-secondary-light flex-grow">
         <div>
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />

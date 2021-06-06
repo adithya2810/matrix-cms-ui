@@ -1,11 +1,5 @@
 export const socialMedia = [
   {
-    name: "Facebook",
-    link: "",
-    key: "facebook",
-    imageUrl: "/icons/facebook.svg",
-  },
-  {
     name: "LinkedIn",
     link: "",
     key: "linkedin",

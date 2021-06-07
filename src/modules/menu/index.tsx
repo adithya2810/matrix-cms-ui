@@ -56,12 +56,12 @@ export const Menu: React.FC = () => {
 
   const className = navMenuState.menu ? "visible" : "invisible"
   return (
-    <div className={`bg-secondary z-30 overflow-y-auto   flex  h-full w-full flex-grow absolute top-0 ${className}`}>
+    <div className={`bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{height:1053}}>
       <div className="flex justify-between bg-secondary-light flex-grow">
         <div>
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
         </div>
-        <div className="sm:hidden menu-tags h-full pl-24" style={{ marginLeft: 263 }}>
+        <div className="sm:hidden menu-tags flex-grow pl-24" style={{ marginLeft: 263 }}>
           <TagList title="SECTORAL" tagList={tagList} className="mt-28 pr-11 opacity-100" onItemClick={(items) => {
             console.log(items);
           }} />

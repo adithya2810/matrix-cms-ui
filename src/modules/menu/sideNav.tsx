@@ -73,10 +73,10 @@ export const SideNav: React.FC = () => {
             style={{color: "#0FB6B8"}}
           />
         </span>
-        <div className="flex mt-7">
+        <div className="flex " style={{marginTop:60 , marginBottom:58}}>
           {socialMedia.map((item) => {
             return (
-              <a className="p-1 mr-10 mb-9" href={item.link}>
+              <a className="p-1 mr-10" href={item.link}>
                 <Image
                   src={item.imageUrl}
                   alt={item.name}

@@ -20,6 +20,23 @@ export type Props = {
 
 const tagList = [{}, {}, {}, {}, {}, {}];
 
+const data = {
+  image_url: "/icons/homeContentImage.svg",
+  image_caption: "MOST SEARCHED",
+  title: "Redefining wellness , one mosaic at a time",
+  author: "Sanjot Malhi",
+  designation: "Director",
+  author_image_url: "/icons/profileImage.svg",
+  content_id: "abcdef",
+  content_type: "blog",
+  tags: [
+    {
+      title: "LEADERSHIP",
+      id: "leadership",
+    },
+  ],
+};
+
 const ContentItemWithTags: React.FC<Props> = ({
   image_url,
   title,
@@ -82,9 +99,7 @@ const ContentItemWithTags: React.FC<Props> = ({
         className="absolute bg-secondary-light"
         style={{ width: 741, bottom: -61, right: 0 }}
       >
-        <div
-          style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}
-        >
+        <div style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}>
           <div
             className="text-xs text-primary-dark p-0.5 pl-0 pt-0"
             style={{ lineHeight: "14px", letterSpacing: "0.1em" }}
@@ -121,7 +136,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             </div>
           </div>
           <div className="flex flex-row flex-wrap" style={{ marginTop: 30 }}>
-            {tagList.map((item,index) => {
+            {tagList.map((item, index) => {
               return (
                 <Tag
                   key={index}
@@ -131,13 +146,13 @@ const ContentItemWithTags: React.FC<Props> = ({
                   className="text-xs opacity-80 mr-2 bg-secondary-light"
                   style={{
                     lineHeight: "14px",
-                    fontSize:"12px",
+                    fontSize: "12px",
                     letterSpacing: "0.1em",
                     height: 34,
                     color: "rgba(0, 0, 0, 0.65)",
                     border: 0,
                     background: "rgba(0, 0, 0, 0.08)",
-                    marginBottom:10,
+                    marginBottom: 10,
                   }}
                 />
               );

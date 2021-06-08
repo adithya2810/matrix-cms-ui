@@ -9,7 +9,7 @@ export type Props = {
   title?: string;
   author?: string;
   designation?: string;
-  auther_image_url?: string;
+  author_image_url?: string;
   onClick?: (id: string) => void;
   content_id?: string;
   content_type?: string;
@@ -18,33 +18,18 @@ export type Props = {
   style?: any;
 };
 
-const tagList = [{}, {}, {}, {}, {}, {}];
-
-const data = {
-  image_url: "/icons/homeContentImage.svg",
-  image_caption: "MOST SEARCHED",
-  title: "Redefining wellness , one mosaic at a time",
-  author: "Sanjot Malhi",
-  designation: "Director",
-  author_image_url: "/icons/profileImage.svg",
-  content_id: "abcdef",
-  content_type: "blog",
-  tags: [
-    {
-      title: "LEADERSHIP",
-      id: "leadership",
-    },
-  ],
-};
-
 const ContentItemWithTags: React.FC<Props> = ({
   image_url,
+  image_caption,
   title,
   author,
+  designation,
   onClick,
   content_id,
   content_type,
   read_duration,
+  author_image_url,
+  tags,
 }) => {
   return (
     <div
@@ -60,7 +45,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           style={{ width: 298, height: 253, background: "#01576E", bottom: 0 }}
         ></div>
         <Image
-          src="/icons/homeContentImage.svg"
+          src={image_url}
           alt=""
           className="absolute"
           style={{
@@ -91,7 +76,7 @@ const ContentItemWithTags: React.FC<Props> = ({
               paddingRight: 17,
             }}
           >
-            MOST SEARCHED
+            {image_caption}
           </div>
         </div>
       </div>
@@ -104,39 +89,38 @@ const ContentItemWithTags: React.FC<Props> = ({
             className="text-xs text-primary-dark p-0.5 pl-0 pt-0"
             style={{ lineHeight: "14px", letterSpacing: "0.1em" }}
           >
-            4 MIN READ{" "}
+            {read_duration} READ{" "}
           </div>
           <div
             className="text-primary-dark mt-3"
             style={{ fontSize: "28px", lineHeight: "34px" }}
           >
-            Redefining wellness, one mosaic at a time{" "}
+            {title}
           </div>
           <div className="flex items-center mt-4 pt-1">
             <Image
-              src="/icons/video.svg"
+              src={getContentTypeImageUrl(content_type)}
               height={38}
               width={22}
               alt="Writer Image"
             />
             <div className="flex " style={{ marginLeft: 30 }}>
-              <Image src="/icons/profileImage.svg" alt="profileImage" />
+              <Image src={author_image_url} alt="profileImage" />
               <div style={{ marginLeft: 18 }}>
                 <div className="font-medium text-lg leading-6 text-primary-dark">
-                  {" "}
-                  Sanjot Malhi{" "}
+                  {author}
                 </div>
                 <div
                   className="mt-0.5 font-light text-xs "
                   style={{ lineHeight: "14px" }}
                 >
-                  DIRECTOR
+                  {designation}
                 </div>
               </div>
             </div>
           </div>
           <div className="flex flex-row flex-wrap" style={{ marginTop: 30 }}>
-            {tagList.map((item, index) => {
+            {tags.map((item, index) => {
               return (
                 <Tag
                   key={index}

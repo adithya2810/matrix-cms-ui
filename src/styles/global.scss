@@ -8,10 +8,6 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-#__next {
-  height: 100vh;
-}
-
 h1 {
   @apply font-extralight;
   font-size: 190px;
@@ -148,10 +144,10 @@ h6 {
   align-items: center;
   padding: 10px 14px;
   height: 41px;
-  background: #083A4A;
-  border: 1px solid #083A4A;
+  background: #083a4a;
+  border: 1px solid #083a4a;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -166,13 +162,14 @@ h6 {
   align-items: center;
   padding: 10px 14px;
   height: 41px;
-  border: 1px solid #083A4A;
+  border: 1px solid #083a4a;
   box-sizing: border-box;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
+  width: fit-content;
 }
 
 .menu-primary-nav-text {
@@ -182,7 +179,6 @@ h6 {
   font-size: 55px;
   line-height: 64px;
   letter-spacing: -0.01em;
-  color: #ffffff;
 }
 
 .menu-secondary-nav-text {
@@ -230,7 +226,7 @@ h6 {
 .menu-tags {
   width: 740px;
   opacity: 0.5;
-  border: 2px solid #083A4A;
+  border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;
 }
@@ -251,7 +247,7 @@ h6 {
   letter-spacing: -0.03em;
 }
 
-.menu-content-nav-button-text{
+.menu-content-nav-button-text {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -259,4 +255,40 @@ h6 {
   text-align: center;
   letter-spacing: -0.03em;
   text-align: center;
+}
+
+//menu side nav
+.side-nav{
+   height: 937px;
+   margin-top: 143px;
+   width: 548px;
+   padding-left:82px ;
+   padding-top:61px ;
+}
+
+// home content tabs
+
+.home-content-tab {
+  font-size: 85px;
+  line-height: 95px;
+}
+
+.home-content-container {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  margin: 60px;
+}
+
+.home-content-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.home-content-side-nav-container {
+  min-width: 663px;
+   padding-left: 80px ;
+
+}
+
+.home-content-side-nav-container:after {
+  opacity: 0.5;
 }

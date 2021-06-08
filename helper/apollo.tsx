@@ -4,6 +4,7 @@ import type { GetServerSidePropsContext } from 'next';
 import type { IncomingMessage } from 'http';
 import { ApolloClient, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import {appConfigVar} from "../models/AppConfig";
 
 interface PageProps {
   props?: Record<string, any>;
@@ -39,7 +40,20 @@ const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            appConfig: {
+              read() {
+                return appConfigVar();
+              }
+            }
+
+          }
+        }
+      }
+    }),
   });
 };
 

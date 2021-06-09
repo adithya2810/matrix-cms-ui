@@ -54,7 +54,7 @@ export const Menu: React.FC = () => {
 
   console.log(navMenuState);
 
-  const className = navMenuState.menu ? "visible" : "invisible"
+  const className = navMenuState.menu ? "visible" : "invisible hidden"
   return (
     <div className={`bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{height:1053}}>
       <div className="flex justify-between bg-secondary-light flex-grow">

@@ -45,7 +45,6 @@ export const FounderDetail: React.FC<Props> = ({
           position: "absolute",
           left: 15,
           bottom: 15,
-          background: "red",
           display: "flex",
           flexDirection: "column",
         }}

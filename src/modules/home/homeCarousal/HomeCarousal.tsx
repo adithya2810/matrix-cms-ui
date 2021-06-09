@@ -84,7 +84,7 @@ const HomeCarousal = () => {
         </div>
         <div
           className="absolute bg-accent"
-          style={{ bottom: 33, left: 269, height: 238, width: 564 }}
+          style={{ bottom: 33, left: 269, height: 246, width: 564 }}
         >
           <span
             className="text-secondary font-medium text-lg leading-6 text-center h-full flex justify-center items-center"

@@ -4,17 +4,18 @@ import Button from "@components/button/PrimaryButtonIconRight";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
 
 export type Props = {
-  image_url?: string;
-  image_caption?: string;
-  title?: string;
-  author?: string;
-  designation?: string;
-  author_image_url?: string;
+  image_url: string;
+  image_caption: string;
+  title: string;
+  author: string;
+  designation: string;
+  author_image_url: string;
   onClick?: (id: string) => void;
-  content_id?: string;
-  content_type?: string;
-  read_duration?: string;
+  content_id: string;
+  content_type: string;
+  read_duration: string;
   tags?: Array<any>;
+  className?: string;
   style?: any;
 };
 
@@ -30,11 +31,13 @@ const ContentItemWithTags: React.FC<Props> = ({
   read_duration,
   author_image_url,
   tags,
+  className = "",
+  style = { marginBottom: 62 },
 }) => {
   return (
     <div
-      className="relative"
-      style={{ height: 313, width: 1035, marginBottom: 62 }}
+      className={`${className} relative`}
+      style={{ height: 313, width: 1035, ...style }}
     >
       <div
         className="relative"

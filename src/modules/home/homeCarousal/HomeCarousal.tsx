@@ -36,7 +36,7 @@ const HomeCarousal = () => {
       >
         <div className="flex">
           <Image
-            src="/icons/rightArrow.large.svg"
+            src="/icons/leftArrow.svg"
             alt={"right Icon"}
             height={73}
             width={37}
@@ -69,7 +69,8 @@ const HomeCarousal = () => {
             >
               Tech-enabled
               <br />
-              Student housing Platform
+              <span className="font-bold"> Student housing</span> <br />
+              Platform
             </div>
           </div>
           <FounderDetail style={{ marginTop: 36, marginLeft: 103 }} />
@@ -106,6 +107,7 @@ const HomeCarousal = () => {
           }}
           contentList={data}
           className="absolute bottom-0 right-0 text-primary-dark"
+          header={<span>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
         />
       </div>
     </div>

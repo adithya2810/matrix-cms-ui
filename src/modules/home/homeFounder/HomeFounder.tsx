@@ -3,7 +3,7 @@ import { Founder } from "@components";
 
 const HomeFounder = () => {
   return (
-    <div style={{ marginTop: 64.56, marginLeft: 82 }}>
+    <div style={{ marginLeft: 82 }}>
       <Founder />
     </div>
   );

@@ -5,7 +5,7 @@ import HomeFounder from "./homeFounder";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-secondary-light">
+    <div className="bg-secondary-light home-container">
       <HomeFounder/> 
       <HomeCarousal />
       <h4

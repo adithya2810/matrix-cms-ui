@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import '../modules/menu/menu.module.scss';
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, "Manrope", BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    height: 100%;
+  font-family: -apple-system, 'Manrope', BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  height: 100%;
 }
 
 #__next {
@@ -114,7 +116,7 @@ h6 {
 
 .footer {
   height: 340px;
-  width: "100%";
+  width: '100%';
   @screen sm {
     height: 339px;
   }
@@ -263,15 +265,15 @@ h6 {
 }
 
 //menu side nav
-.side-nav{
-   height: 937px;
-   margin-top: 143px;
-   width: 548px;
-   padding-left:82px ;
-   padding-top:61px ;
+.side-nav {
+  height: 937px;
+  margin-top: 143px;
+  width: 548px;
+  padding-left: 82px;
+  padding-top: 61px;
 }
 
-// home 
+// home
 
 .home-container {
   padding-top: 185px;
@@ -294,8 +296,7 @@ h6 {
 
 .home-content-side-nav-container {
   min-width: 663px;
-   padding-left: 80px ;
-
+  padding-left: 80px;
 }
 
 .home-content-side-nav-container:after {

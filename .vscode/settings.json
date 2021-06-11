@@ -43,5 +43,6 @@
     "*.min.js": true
   },
   "files.trimTrailingWhitespace": true,
-  "workbench.welcome.enabled": false
+  "workbench.welcome.enabled": false,
+  "css.customData": [".vscode/css_custom_data.json"]
 }

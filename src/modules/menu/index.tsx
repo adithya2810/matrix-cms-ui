@@ -6,7 +6,7 @@ import { ContentList } from "../content/contentList";
 import { TagList } from "./tagList";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { appConfigMutation, appConfiqQuery } from "../../../operations/appConfig";
-import { appConfigVar } from "../../../models/AppConfig"
+import styles from "./menu.module.scss";
 
 const tagList = [{
   title: "Education",
@@ -56,7 +56,7 @@ export const Menu: React.FC = () => {
 
   const className = navMenuState.menu ? "visible" : "invisible hidden"
   return (
-    <div className={`bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: 1053 }}>
+    <div className={`menu-class bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: 1053 }}>
       <div className="flex justify-between bg-secondary-light flex-grow">
         <div>
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />

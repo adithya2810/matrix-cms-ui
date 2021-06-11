@@ -1,22 +1,22 @@
-import React from "react";
-import ContentTabs from "./ContentTabs";
-import ContentList from "./HomeContentList";
+import React from 'react';
+import ContentTabs from './ContentTabs';
+import ContentList from './HomeContentList';
 
 const homeContentTabs = [
   {
-    name: "Blogs",
-    id: "blogs",
-    link: "",
+    name: 'Blogs',
+    id: 'blogs',
+    link: '',
   },
   {
-    name: "Podcast",
-    id: "podcast",
-    link: "",
+    name: 'Podcast',
+    id: 'podcast',
+    link: '',
   },
   {
-    name: "VideoCasts",
-    id: "videocasts",
-    link: "",
+    name: 'VideoCasts',
+    id: 'videocasts',
+    link: '',
   },
 ];
 
@@ -32,10 +32,7 @@ const HomeContent: React.FC = () => {
   };
 
   return (
-    <div
-      className="flex"
-      style={{ marginLeft: 80, height: 1400, marginBottom: 107 }}
-    >
+    <div className="home-content-container">
       <ContentTabs
         tabList={homeContentTabs}
         selectedTab={selectedTab}

@@ -1,0 +1,34 @@
+.founder-container {
+  width: 615.94px;
+  height: 863.91px;
+  @apply relative;
+  @screen sm {
+    height: 407px;
+    @apply w-full;
+  }
+}
+
+.founder-background {
+  width: 571px;
+  height: 762px;
+  @apply bg-accent-dark;
+  @apply absolute;
+  bottom: 50px;
+  left: 0px;
+}
+
+.founder-content {
+  width: 594px;
+  height: 788px;
+  bottom: 65px;
+  left: 15px;
+  @apply absolute;
+  @apply flex;
+  @apply flex-col;
+}
+
+.founder-timer {
+  left: 38px;
+  bottom: 254px;
+  @apply absolute;
+}

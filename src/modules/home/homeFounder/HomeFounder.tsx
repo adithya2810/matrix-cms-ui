@@ -1,9 +1,9 @@
-import React from "react";
-import { Founder } from "@components";
+import React from 'react';
+import { Founder } from '@components';
 
 const HomeFounder = () => {
   return (
-    <div style={{ marginLeft: 82 }}>
+    <div className="hidden" style={{ marginLeft: 82 }}>
       <Founder />
     </div>
   );

@@ -1,6 +1,6 @@
-import { title } from "process";
-import React from "react";
-import { Image } from "@components";
+import { title } from 'process';
+import React from 'react';
+import { Image } from '@components';
 
 export type Props = {
   title: string;
@@ -16,7 +16,7 @@ export const NavItem: React.FC<Props> = ({
   selected,
   id,
   onClick,
-  className = "",
+  className = '',
   arrow = true,
 }) => {
   return (
@@ -27,14 +27,14 @@ export const NavItem: React.FC<Props> = ({
     >
       <span>{title}</span>
       {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
-      { (selected || arrow ) ? (
-        (!selected) ? (
-          <span className="menu-primary-nav-icon"> {">"} </span>
+      {selected || arrow ? (
+        !selected ? (
+          <span className="menu-primary-nav-icon sm:hidden"> {'>'} </span>
         ) : (
           <Image
-            src={"/icons/sideNavButton.svg"}
+            src={'/icons/sideNavButton.svg'}
             alt="nav button"
-            className="-mr-5 opacity-100"
+            className="-mr-5 opacity-100 sm:hidden"
           />
         )
       ) : null}

@@ -1,5 +1,6 @@
-import React from "react";
-import { NavItem } from "@components";
+import React from 'react';
+import { NavItem } from '@components';
+import useMediaQuery from '@helper/useMediaQuery';
 
 export type Props = {
   selectedTab: string;
@@ -7,18 +8,18 @@ export type Props = {
   tabList: Array<any>;
 };
 
-const ContentTabs: React.FC<Props> = ({
+const ContentTabsDeskTop: React.FC<Props> = ({
   selectedTab,
   onTabSelected,
   tabList,
 }) => {
   return (
-    <div className="home-content-side-nav-container bg-secondary items-center flex flex-col justify-center">
+    <div className="home-content-side-nav-container">
       {tabList.map(({ name, id, link }) => {
         const tabStyle =
           id === selectedTab
-            ? "opacity-100  text-accent"
-            : "opacity-40 text-primary-dark";
+            ? 'opacity-100  text-accent'
+            : 'opacity-40 text-primary-dark';
         return (
           <NavItem
             key={id}
@@ -35,4 +36,9 @@ const ContentTabs: React.FC<Props> = ({
   );
 };
 
-export default ContentTabs;
+const ContentTab: React.Fc<Props> = (props) => {
+  const isBreakpoint = useMediaQuery(650);
+  return !isBreakpoint ? <ContentTabsDeskTop {...props} /> : <div>Mobile</div>;
+};
+
+export default ContentTab;

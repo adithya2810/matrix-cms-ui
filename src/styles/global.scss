@@ -6,6 +6,11 @@ body {
   font-family: -apple-system, "Manrope", BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    height: 100%;
+}
+
+#__next {
+  height: 100%;
 }
 
 h1 {

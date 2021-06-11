@@ -4,35 +4,40 @@ import Button from "@components/button/PrimaryButtonIconRight";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
 
 export type Props = {
-  image_url?: string;
-  image_caption?: string;
-  title?: string;
-  author?: string;
-  designation?: string;
-  auther_image_url?: string;
+  image_url: string;
+  image_caption: string;
+  title: string;
+  author: string;
+  designation: string;
+  author_image_url: string;
   onClick?: (id: string) => void;
-  content_id?: string;
-  content_type?: string;
-  read_duration?: string;
+  content_id: string;
+  content_type: string;
+  read_duration: string;
   tags?: Array<any>;
+  className?: string;
   style?: any;
 };
 
-const tagList = [{}, {}, {}, {}, {}, {}];
-
 const ContentItemWithTags: React.FC<Props> = ({
   image_url,
+  image_caption,
   title,
   author,
+  designation,
   onClick,
   content_id,
   content_type,
   read_duration,
+  author_image_url,
+  tags,
+  className = "",
+  style = { marginBottom: 62 },
 }) => {
   return (
     <div
-      className="relative"
-      style={{ height: 313, width: 1035, marginBottom: 62 }}
+      className={`${className} relative`}
+      style={{ height: 313, width: 1035, ...style }}
     >
       <div
         className="relative"
@@ -43,7 +48,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           style={{ width: 298, height: 253, background: "#01576E", bottom: 0 }}
         ></div>
         <Image
-          src="/icons/homeContentImage.svg"
+          src={image_url}
           alt=""
           className="absolute"
           style={{
@@ -74,7 +79,7 @@ const ContentItemWithTags: React.FC<Props> = ({
               paddingRight: 17,
             }}
           >
-            MOST SEARCHED
+            {image_caption}
           </div>
         </div>
       </div>
@@ -82,46 +87,43 @@ const ContentItemWithTags: React.FC<Props> = ({
         className="absolute bg-secondary-light"
         style={{ width: 741, bottom: -61, right: 0 }}
       >
-        <div
-          style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}
-        >
+        <div style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}>
           <div
             className="text-xs text-primary-dark p-0.5 pl-0 pt-0"
             style={{ lineHeight: "14px", letterSpacing: "0.1em" }}
           >
-            4 MIN READ{" "}
+            {read_duration} READ{" "}
           </div>
           <div
             className="text-primary-dark mt-3"
             style={{ fontSize: "28px", lineHeight: "34px" }}
           >
-            Redefining wellness, one mosaic at a time{" "}
+            {title}
           </div>
           <div className="flex items-center mt-4 pt-1">
             <Image
-              src="/icons/video.svg"
+              src={getContentTypeImageUrl(content_type)}
               height={38}
               width={22}
               alt="Writer Image"
             />
             <div className="flex " style={{ marginLeft: 30 }}>
-              <Image src="/icons/profileImage.svg" alt="profileImage" />
+              <Image src={author_image_url} alt="profileImage" />
               <div style={{ marginLeft: 18 }}>
                 <div className="font-medium text-lg leading-6 text-primary-dark">
-                  {" "}
-                  Sanjot Malhi{" "}
+                  {author}
                 </div>
                 <div
                   className="mt-0.5 font-light text-xs "
                   style={{ lineHeight: "14px" }}
                 >
-                  DIRECTOR
+                  {designation}
                 </div>
               </div>
             </div>
           </div>
           <div className="flex flex-row flex-wrap" style={{ marginTop: 30 }}>
-            {tagList.map((item,index) => {
+            {tags.map((item, index) => {
               return (
                 <Tag
                   key={index}
@@ -131,13 +133,13 @@ const ContentItemWithTags: React.FC<Props> = ({
                   className="text-xs opacity-80 mr-2 bg-secondary-light"
                   style={{
                     lineHeight: "14px",
-                    fontSize:"12px",
+                    fontSize: "12px",
                     letterSpacing: "0.1em",
                     height: 34,
                     color: "rgba(0, 0, 0, 0.65)",
                     border: 0,
                     background: "rgba(0, 0, 0, 0.08)",
-                    marginBottom:10,
+                    marginBottom: 10,
                   }}
                 />
               );

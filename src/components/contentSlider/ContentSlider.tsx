@@ -4,14 +4,15 @@ import { ContentItem } from "@components/contentItem";
 export type Props = {
     className?: string
     contentList: Array<any>;
-    style: any
+    style: any,
+    header : any;
 };
 
-export const ContentSlider: React.FC<Props> = ({ contentList, className , style={}}) => {
+export const ContentSlider: React.FC<Props> = ({ contentList, className , header, style={}}) => {
     return (
         <div className={`${className}`} style={style}>
             <div >
-                <div>Insight from market disruptors & inventors </div>
+                <div>{header}</div>
                 <div></div>
             </div>
             <div className="flex">
@@ -27,6 +28,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className , style=
                             read_duration={contentItem.read_duration}
                             onClick={(id) => console.log(id)}
                             style={{width:610}}
+                            className="mr-3 mt-2 text-lg leading-6"
                         />
                     );
                 })}

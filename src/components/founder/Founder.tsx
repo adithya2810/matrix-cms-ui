@@ -40,7 +40,6 @@ export const Founder: React.FC<Props> = ({ className, style = {} }) => {
           bottom: 65,
           left: 15,
           position: "absolute",
-          background: "red",
           display: "flex",
           flexDirection: "column",
         }}

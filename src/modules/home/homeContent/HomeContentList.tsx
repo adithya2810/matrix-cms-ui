@@ -14,7 +14,7 @@ const data = {
   author_image_url: "/icons/profileImage.svg",
   content_id: "abcdef",
   content_type: "blog",
-  read_duration:"4 MIN",
+  read_duration: "4 MIN",
   tags: [
     {
       title: "LEADERSHIP",
@@ -26,8 +26,8 @@ const data = {
 const HomeContentList: React.FC<Props> = ({ contentList }) => {
   return (
     <div className="overflow-auto home-content-container">
-      {contentList.map(() => {
-        return <ContentItem {...data} />;
+      {contentList.map((contentItem, index) => {
+        return <ContentItem {...data} key={index} />;
       })}
     </div>
   );

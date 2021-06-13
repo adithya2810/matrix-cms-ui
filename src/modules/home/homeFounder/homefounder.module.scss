@@ -1,0 +1,54 @@
+.home-founder-container {
+  padding: 0px 0px 0px 64px;
+  @apply flex;
+  @apply w-full;
+}
+
+.home-founder-image-container {
+  flex-grow: 1;
+}
+
+.home-founder-carousal-container {
+  @apply flex;
+  @apply flex-col;
+  height: initial;
+  flex-grow: 2;
+  margin-left: 161px;
+}
+
+.home-founder-quotes-text {
+  @apply font-extralight;
+  font-size: 190px;
+  line-height: 175px;
+  letter-spacing: -0.025em;
+  @apply text-primary-dark;
+  @apply ease-out;
+  @apply duration-300;
+}
+
+.home-founder-quotes-text-inactive {
+  font-size: 28px;
+  line-height: 34px;
+  @apply font-normal;
+  @apply text-accent-dark;
+  width: 132px;
+  margin-left: 57px;
+  letter-spacing: 0em;
+}
+
+.home-founder-carousal-index {
+  left: -16px;
+  top: -14px;
+}
+
+.home-founder-content-slider-container {
+  background: #ebebe9;
+  border: 1px solid #ebebe9;
+  box-sizing: border-box;
+  font-size: 28px;
+  line-height: 34px;
+  padding-top: 24px;
+  padding-left: 34px;
+  margin-top: 59px;
+  height: 277px;
+}

@@ -20,10 +20,10 @@ module.exports = {
       cta: {
         DEFAULT: "#5DE2A1",
       },
-      blue:{
+      blue: {
         DEFAULT: "#007BFF",
       },
-      input:{
+      input: {
         DEFAULT: "#FBF9F5"
       }
     },
@@ -42,8 +42,8 @@ module.exports = {
 
       sm: { max: "639px" },
       // => @media (max-width: 639px) { ... }
-      laptop : {
-        min : "640px"
+      laptop: {
+        min: "640px"
       }
     },
     fontSize: {
@@ -65,8 +65,9 @@ module.exports = {
       "10xl": "8rem",
     },
     extend: {
-      lineHeight:{
-        '4.5':'1.125rem'
+      lineHeight: {
+        '3.5': '0.875rem',
+        '4.5': '1.125rem'
       }
     },
   },

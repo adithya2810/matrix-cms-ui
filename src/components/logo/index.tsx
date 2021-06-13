@@ -1,8 +1,24 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-export const Logo: React.FC = () => {
+export type Props = {
+  height?: number;
+  width?: number;
+  className?: string;
+};
+
+export const Logo: React.FC<Props> = ({
+  height = 65,
+  width = 156,
+  className = '',
+}) => {
   return (
-    <Image src="/icons/matrixLogo.svg" alt="nextjs" width="156.19px" height="65px" className="company-logo" />
+    <Image
+      src="/icons/matrixLogo.svg"
+      alt="nextjs"
+      width={width}
+      height={height}
+      className={`${className} company-logo`}
+    />
   );
 };

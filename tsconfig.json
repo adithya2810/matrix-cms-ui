@@ -21,7 +21,11 @@
       "@public": ["public"],
       "@styles/*": ["src/styles/*"],
       "@styles": ["src/styles"],
-      "@i18n": ["./i18n"]
+      "@i18n": ["./i18n"],
+      "@helper/*": ["helper/*"],
+      "@modules/*": ["src/modules/*"],
+      "@utils/*": ["utils/*"],
+      "@constants/*": ["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

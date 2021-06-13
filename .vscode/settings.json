@@ -29,7 +29,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
   // Glob patterns for excluding files and folders in searches
@@ -43,5 +43,6 @@
     "*.min.js": true
   },
   "files.trimTrailingWhitespace": true,
-  "workbench.welcome.enabled": false
+  "workbench.welcome.enabled": false,
+  "css.customData": [".vscode/css_custom_data.json"]
 }

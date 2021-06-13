@@ -1,0 +1,18 @@
+.header-logo {
+  margin-top: 43px;
+  margin-left: 62px;
+  width: 187px;
+  height: 78px;
+}
+
+.header-menu {
+  margin-top: 55px;
+  margin-right: 82px;
+}
+
+.header-menu-text {
+  @apply font-normal;
+  @apply text-accent;
+  font-size: 28px;
+  line-height: 34px;
+}

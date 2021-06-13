@@ -14,24 +14,18 @@ const FounderQuotesCarousal: React.FC<Props> = ({
   const renderQuoteList: any = () => {
     let j: number = 0;
     let arr = [];
-    console.log(currentQuoteIndex);
     for (let i = currentQuoteIndex; j < quotesList.length; j++) {
       console.log(i, quotesList[i].key);
       if (i === currentQuoteIndex) {
         arr.push(quotesList[i].quote);
       } else {
+        let index = i;
         arr.push(
           <div
             key={i}
             className="flex home-founder-quotes-text-inactive items-start"
-            onClick={() => {
-              let index = i;
-              console.log(i, 'index is', index);
-              if (index >= 1) {
-                onItemClick(index - 1);
-              } else {
-                onItemClick(index);
-              }
+            onClick={(event) => {
+              onItemClick(index);
             }}
             style={{ marginTop: 92, minWidth: 160 }}
           >

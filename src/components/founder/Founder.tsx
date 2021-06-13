@@ -1,24 +1,54 @@
 import React from 'react';
 import { Image } from '@components';
+import { TagList } from 'src/modules/menu/tagList';
 
 export type Props = {
-  names?: Array<string>;
-  background_url?: string;
-  tags?: Array<string>;
-  logo?: string;
+  names: Array<any>;
+  background_url: string;
+  tags: Array<any>;
+  logo_url: string;
   className?: string;
   style?: any;
 };
 
-export const Founder: React.FC<Props> = ({ className, style = {} }) => {
+type tagsProps = {
+  tags: Array<any>;
+};
+
+const RenderTags: React.FC<any> = ({ tags }: tagsProps) => {
+  const arr = [];
+  for (let i = 0; i < tags.length; i++) {
+    if (i !== 0) {
+      arr.push(<span key={i} className="founder-tags-seperator"></span>);
+    }
+    arr.push(
+      <span
+        key={tags[i].key}
+        className="text-secondary font-medium text-lg leading-6"
+      >
+        {tags[i].name}
+      </span>
+    );
+  }
+  return arr;
+};
+
+export const Founder: React.FC<Props> = ({
+  className,
+  style = {},
+  background_url,
+  names,
+  tags,
+  logo_url,
+}) => {
   return (
     <div className={`${className} founder-container`} style={style}>
       <div className="founder-background"></div>
       <div className="founder-content">
         <Image
-          src="/icons/Bhavish_image.svg"
+          src={background_url}
           alt="founder image"
-          style={{ flexGrow: 1 }}
+          className="founder-image"
         ></Image>
         <Image
           src="/icons/rectangle.svg"
@@ -26,49 +56,21 @@ export const Founder: React.FC<Props> = ({ className, style = {} }) => {
           className="founder-timer"
         />
 
-        <div style={{ height: 209, background: '#01576E' }}>
-          <div
-            className="text-center flex items-center"
-            style={{ height: 118, borderBottom: '1px solid #EBEBE9' }}
-          >
-            <h6
-              className="font-bold text-secondary"
-              style={{
-                fontSize: 32,
-                lineHeight: '36px',
-                letterSpacing: '0.05em',
-                marginLeft: 31,
-                marginRight: 8,
-              }}
-            >
-              BHAVISH
-            </h6>
-            <h6
-              className="font-light text-secondary"
-              style={{
-                fontSize: 32,
-                lineHeight: '36px',
-                letterSpacing: '0.05em',
-              }}
-            >
-              AGGARWAL
-            </h6>
+        <div className="founder-footer-container">
+          <div className="founder-name-container flex flex-col justify-center items-start founder-name-text">
+            {names.map((name) => {
+              return name.styled;
+            })}
           </div>
 
-          <div
-            className="flex justify-between items-center"
-            style={{ height: 88 }}
-          >
-            <div style={{ marginLeft: 31 }}>
-              <span className="text-secondary font-medium text-lg leading-6">
-                {' '}
-                Mobility
-              </span>
+          <div className="flex justify-between items-center founder-tags-container">
+            <div className="h-full flex items-center">
+              <RenderTags tags={tags} />
             </div>
             <Image
-              src={'/icons/ola.svg'}
-              alt={'ola'}
-              style={{ marginRight: 57 }}
+              src={logo_url}
+              alt={'company-logo'}
+              className="founder-logo"
             />
           </div>
         </div>

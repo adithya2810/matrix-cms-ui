@@ -15,6 +15,7 @@ export type Props = {
   style?: any;
   className?: string;
   imageClassName?: string;
+  contentClassName?: string;
 };
 
 export const ContentItem: React.FC<Props> = ({
@@ -27,6 +28,7 @@ export const ContentItem: React.FC<Props> = ({
   content_type,
   read_duration,
   imageClassName = '',
+  contentClassName = '',
   style = {},
 }) => {
   return (
@@ -37,7 +39,10 @@ export const ContentItem: React.FC<Props> = ({
         className={classNames(imageClassName, 'content-item-image')}
       />
       <div
-        className="content-item-desc bg-secondary-light absolute top-4 p-3"
+        className={classNames(
+          'content-item-desc bg-secondary-light absolute top-4 p-3',
+          contentClassName
+        )}
         style={{ top: 40, left: 185 }}
       >
         <h5 className="text-lg font-medium leading-6 text-primary-dark ml-2 p-0.5">

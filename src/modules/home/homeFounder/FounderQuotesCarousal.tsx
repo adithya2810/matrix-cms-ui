@@ -6,54 +6,17 @@ export type Props = {
   onItemClick?: (index: number) => void;
 };
 
-const _quoteList = [
-  {
-    quote: (
-      <>
-        <div key="123456">We are </div>{' '}
-        <span key="6789" className="text-accent">
-          founders
-        </span>{' '}
-        <div key="13456">first</div>
-      </>
-    ),
-    key: 1,
-  },
-  {
-    quote: (
-      <span>
-        We <span className="text-accent">partner</span> closely
-      </span>
-    ),
-    key: 2,
-  },
-  {
-    quote: (
-      <span>
-        We <span className="text-accent">invest</span> early
-      </span>
-    ),
-    key: 3,
-  },
-  {
-    quote: (
-      <span>
-        We <span className="text-accent">commit</span> personally
-      </span>
-    ),
-    key: 4,
-  },
-];
-
 const FounderQuotesCarousal: React.FC<Props> = ({
-  quotesList = _quoteList,
-  currentQuoteIndex = 0,
+  quotesList,
+  currentQuoteIndex,
   onItemClick,
 }) => {
   const renderQuoteList: any = () => {
     let j: number = 0;
     let arr = [];
+    console.log(currentQuoteIndex);
     for (let i = currentQuoteIndex; j < quotesList.length; j++) {
+      console.log(i, quotesList[i].key);
       if (i === currentQuoteIndex) {
         arr.push(quotesList[i].quote);
       } else {
@@ -61,7 +24,15 @@ const FounderQuotesCarousal: React.FC<Props> = ({
           <div
             key={i}
             className="flex home-founder-quotes-text-inactive items-start"
-            onClick={() => onItemClick(i)}
+            onClick={() => {
+              let index = i;
+              console.log(i, 'index is', index);
+              if (index >= 1) {
+                onItemClick(index - 1);
+              } else {
+                onItemClick(index);
+              }
+            }}
             style={{ marginTop: 92, minWidth: 160 }}
           >
             <div className="relative">
@@ -73,8 +44,7 @@ const FounderQuotesCarousal: React.FC<Props> = ({
           </div>
         );
       }
-
-      ++i;
+      i++;
       i = i % quotesList.length;
     }
     return arr;

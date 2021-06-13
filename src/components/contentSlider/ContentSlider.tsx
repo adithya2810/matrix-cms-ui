@@ -24,10 +24,7 @@ export const ContentSlider: React.FC<Props> = ({
       <div>
         <div>{header}</div>
       </div>
-      <div
-        className="content-slider-list overflow-auto w-full"
-        style={{ marginTop: 24 }}
-      >
+      <div className="content-slider-list overflow-auto w-full">
         <div
           className={classNames(contentListClassName, 'flex')}
           style={{ width: 800 }}

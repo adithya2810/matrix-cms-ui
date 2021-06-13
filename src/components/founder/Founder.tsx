@@ -15,7 +15,7 @@ type tagsProps = {
   tags: Array<any>;
 };
 
-const RenderTags: React.FC<any> = ({ tags }: tagsProps) => {
+const RenderTags = (tags) => {
   const arr = [];
   for (let i = 0; i < tags.length; i++) {
     if (i !== 0) {
@@ -64,9 +64,7 @@ export const Founder: React.FC<Props> = ({
           </div>
 
           <div className="flex justify-between items-center founder-tags-container">
-            <div className="h-full flex items-center">
-              <RenderTags tags={tags} />
-            </div>
+            <div className="h-full flex items-center">{RenderTags(tags)}</div>
             <Image
               src={logo_url}
               alt={'company-logo'}

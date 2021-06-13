@@ -1,29 +1,17 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
-const useMediaQuery = (width) => {
-  const [targetReached, setTargetReached] = useState(false);
+const useMediaQuery = (mediaQuery) => {
+  const [matches, setMatches] = useState(
+    () => window.matchMedia(mediaQuery).matches
+  );
+  useLayoutEffect(() => {
+    const mediaQueryList = window.matchMedia(mediaQuery);
+    const listener = e => setMatches(e.matches);
+    mediaQueryList.addListener(listener);
+    return () => mediaQueryList.removeListener(listener);
+  }, [mediaQuery]);
 
-  const updateTarget = useCallback((e) => {
-    if (e.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addListener(updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) {
-      setTargetReached(true);
-    }
-
-    return () => media.removeListener(updateTarget);
-  }, []);
-
-  return targetReached;
+  return matches;
 };
 
 export default useMediaQuery;

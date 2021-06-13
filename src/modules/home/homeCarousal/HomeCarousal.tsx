@@ -26,9 +26,9 @@ const HomeCarousal = () => {
     '/icons/backgroundCarousalImage.png'
   );
   return (
-    <div className="relative hidden" style={{ height: 1080 }}>
+    <div className="relative" style={{ height: 1080 }}>
       <div
-        className="absolute h-full w-full flex flex-col"
+        className=" h-full w-full flex flex-col"
         style={{
           backgroundImage: `url(${backgroundUrl})`,
           backgroundSize: 'cover',
@@ -82,38 +82,30 @@ const HomeCarousal = () => {
             style={{ marginLeft: 103 }}
           />
         </div>
-        <div
-          className="absolute bg-accent"
-          style={{ bottom: 33, left: 269, height: 246, width: 564 }}
-        >
-          <span
-            className="text-secondary font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
-            style={{ writingMode: 'vertical-lr', width: 56 }}
+        <div className="relative flex-grow" style={{ marginLeft: 269 }}>
+          <div
+            className=" absolute bg-accent top-0 left-0"
+            style={{ height: 246, width: 564 }}
           >
-            {' '}
-            Hospitality Sector{' '}
-          </span>
-        </div>
-        <ContentSlider
-          style={{
-            left: 325,
-            background: '#EBEBE9',
-            border: '1px solid #EBEBE9',
-            boxSizing: 'border-box',
-            fontSize: 28,
-            lineHeight: '34px',
-            paddingTop: 24,
-            paddingLeft: 34,
-          }}
-          contentList={data}
-          className="absolute bottom-0 right-0 text-primary-dark"
-          header={
-            <span>
-              Dive into the <span className="text-accent">Matrix Moments</span>{' '}
-              series
+            <span
+              className="text-secondary font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
+              style={{ writingMode: 'vertical-lr', width: 56 }}
+            >
+              {' '}
+              Hospitality Sector{' '}
             </span>
-          }
-        />
+          </div>
+          <ContentSlider
+            contentList={data}
+            className="home-carousal-slider-container text-primary-dark"
+            header={
+              <span>
+                Dive into the{' '}
+                <span className="text-accent">Matrix Moments</span> series
+              </span>
+            }
+          />
+        </div>
       </div>
     </div>
   );

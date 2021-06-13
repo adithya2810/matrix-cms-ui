@@ -4,6 +4,12 @@
 
 // component styles
 @import '../components/founder/founder.component.scss';
+@import '../components/contentSlider/contentslider.component.scss';
+@import '../components/contentItem/contentitem.component.scss';
 
 // modules
+//home
 @import '../modules/home/homeContent/homecontent.module.scss';
+@import '../modules/home/home.module.scss';
+@import '../modules/home/homeFounder/homefounder.module.scss';
+@import '../modules/home/homeCarousal/homecarousal.module.scss';

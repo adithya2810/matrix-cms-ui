@@ -1,0 +1,13 @@
+.home-carousal-slider-container {
+  background: #ebebe9;
+  border: 1px solid #ebebe9;
+  box-sizing: border-box;
+  font-size: 28px;
+  line-height: 34px;
+  padding-top: 24px;
+  padding-left: 34;
+  @apply absolute;
+  top: 5px;
+  left: 56px;
+  width: calc(100% - 56px);
+}

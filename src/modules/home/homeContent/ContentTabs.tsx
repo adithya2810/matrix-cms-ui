@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavItem } from '@components';
-import useMediaQuery from '@helper/useMediaQuery';
+import { MOBILE_BREAKPOINT } from '@constants/index';
 
 export type Props = {
   selectedTab: string;
@@ -14,7 +14,7 @@ const ContentTabsDeskTop: React.FC<Props> = ({
   tabList,
 }) => {
   return (
-    <div className="home-content-side-nav-container">
+    <div className="home-content-side-nav-container hidden laptop:visible">
       {tabList.map(({ name, id, link }) => {
         const tabStyle =
           id === selectedTab
@@ -36,9 +36,41 @@ const ContentTabsDeskTop: React.FC<Props> = ({
   );
 };
 
-const ContentTab: React.Fc<Props> = (props) => {
-  const isBreakpoint = useMediaQuery(650);
-  return !isBreakpoint ? <ContentTabsDeskTop {...props} /> : <div>Mobile</div>;
+// selected prop will be passed
+const MenuItem = ({ text, selected }) => {
+  return <div className={`menu-item ${selected ? 'active' : ''}`}>{text}</div>;
+};
+
+// All items component
+// Important! add unique key
+export const Menu = (list, selected) =>
+  list.map((el) => {
+    const { name } = el;
+
+    return <MenuItem text={name} key={name} selected={selected} />;
+  });
+
+const ContentTabMobile: React.FC<Props> = ({
+  tabList,
+  onTabSelected,
+  selectedTab,
+}) => {
+  const menuItems = Menu(tabList, selectedTab);
+  return (
+    <div className="home-content-side-nav-container hidden sm:visible">
+      {menuItems}
+    </div>
+  );
+};
+
+const ContentTab: React.FC<Props> = (props) => {
+  //const isBreakpoint = useMediaQuery(MOBILE_BREAKPOINT);
+  return (
+    <>
+      <ContentTabsDeskTop {...props} />
+      {/* <ContentTabMobile {...props} /> */}
+    </>
+  );
 };
 
 export default ContentTab;

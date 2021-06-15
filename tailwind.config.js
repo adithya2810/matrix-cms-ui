@@ -28,7 +28,17 @@ module.exports = {
       },
       input: {
         DEFAULT: "#FBF9F5"
-      }
+      },
+      white: {
+        DEFAULT: "#FFFFFF"
+      },
+      black: {
+        DEFAULT: "#000000"
+      },
+      grey: {
+        DEFAULT: "#EBEBE9",
+        dark: '#C9D0D1'
+      },
     },
     fontFamily: {
       sans: ["Manrope", "Helvetica", "Arial", "sans-serif"],

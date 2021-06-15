@@ -20,7 +20,7 @@ export default function ExtendedApp({
     <>
       <ApolloProvider client={apolloClient}>
         <Root deviceType={deviceType}>
-          <Component {...pageProps} />
+          <Component {...pageProps} deviceType={deviceType} />
         </Root>
       </ApolloProvider>
     </>

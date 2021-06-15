@@ -41,9 +41,9 @@ export const Root: React.FC<Props> = ({ children }) => {
   return (
     <>
       <div className={`flex flex-col flex-grow w-full h-full  ${className}`}>
-        <Header toggle={appConfigMutation.toogleMenu} />
+        {/* <Header toggle={appConfigMutation.toogleMenu} /> */}
         <div className="flex-grow">{children}</div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
       <Menu />
     </>

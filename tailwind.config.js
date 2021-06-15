@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: ["./pages/**/*.tsx", "./src/**/*.tsx"],
   darkMode: false, // or 'media' or 'class'
@@ -12,6 +14,7 @@ module.exports = {
         light: "#FFFFFF",
         DEFAULT: "#EBEBE9",
       },
+      white: colors.white,
       accent: {
         light: "#0EAEB1",
         DEFAULT: "#01576E",
@@ -56,6 +59,7 @@ module.exports = {
       "2xl": "1.5rem",
       "3xl": "1.875rem",
       "4xl": "2.25rem",
+      "4sm": "2rem",
       "5xl": "3rem",
       "6xl": "4rem",
       "7xl": "5rem",
@@ -66,7 +70,6 @@ module.exports = {
     },
     extend: {
       lineHeight: {
-        '3.5': '0.875rem',
         '4.5': '1.125rem'
       }
     },

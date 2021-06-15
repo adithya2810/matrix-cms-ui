@@ -15,7 +15,7 @@ type LayoutProps = {
     desktop: boolean;
   };
   token?: string;
-  toggle? : ()=>void,
+  toggle?: () => void,
   visiblity: boolean;
 };
 
@@ -25,11 +25,11 @@ export const Layout: React.FC<LayoutProps> = ({
   visiblity,
   toggle
 }) => {
-  
-  const className = visiblity? "visible" : "invisible";
+
+  const className = visiblity ? "visible" : "invisible";
   return (
     <div className={`flex flex-col w-full h-full ${className}`}>
-      <Header toggle={toggle}/>
+      <Header toggle={toggle} />
       <div className="flex-grow">{children}</div>
       <Footer />
     </div>

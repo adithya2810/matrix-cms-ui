@@ -11,3 +11,4 @@ export { NavItem } from "./navItem";
 export { ContentItem } from "./contentItem";
 export { Founder } from "./founder";
 export { ContentSlider } from "./contentSlider/ContentSlider";
+export { Banner } from "./banner"

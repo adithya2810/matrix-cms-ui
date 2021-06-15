@@ -1,4 +1,4 @@
- const footermenu = [
+const footermenu = [
   {
     key: "footer_about",
     name: "About",
@@ -17,7 +17,7 @@
   {
     key: "footer_advisory_team",
     name: "Advisory Team",
-    link: "",
+    link: "/advisoryTeam",
   },
   {
     key: "footer_contact",

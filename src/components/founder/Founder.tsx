@@ -85,7 +85,7 @@ export const Founder: React.FC<Props> = ({ className, style = {} }) => {
             </h6>
           </div>
 
-          <div className="flex justify-between items-center" style={{height:88}}>
+          <div className="flex justify-between items-center" style={{ height: 88 }}>
             <div style={{ marginLeft: 31 }}>
               <span className="text-secondary font-medium text-lg leading-6"> Mobility</span>
             </div>

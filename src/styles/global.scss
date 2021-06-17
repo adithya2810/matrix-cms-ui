@@ -379,9 +379,7 @@ h6 {
 
 /************Media Query***************/
 @media (max-width:1787px) {
-  .hero-txt {
-    font-size: 4rem;
-  }
+
 
   .position-bottom {
     bottom: -140px;
@@ -423,55 +421,103 @@ h6 {
   color: #01576E;
 }
 
-.h-800 {
-  height: 806px;
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 29rem;
+  perspective: 1000px;
 }
 
-.hover-to-show-image img {
-  transition: transform 250ms;
-  transform: translateY(60px);
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.hover-to-show-text {
-  display: none;
-  transition: all .2s ease-in-out;
-  padding-left: 48px;
-  padding-right: 50px;
-  padding-bottom: 20px;
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.hover-to-show-text p {
-  font-size: 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #000;
-  margin-bottom: 15px;
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.hover-to-show-text .web-url {
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background-color: #FBF9F5;
+  transform: rotateY(180deg);
+}
+
+.web-url {
   color: #01576E;
-  font-size: 32px;
+  font-size: 20px;
   letter-spacing: 5px;
-  line-height: 36px;
+  line-height: 15px;
 }
 
-.hover-to-show-image:hover .hover-to-show-text {
-  opacity: 1;
-  transition: all .2s ease-in-out;
-  background-color: #FBF9F5;
+.flip-card-front img {
+  object-fit: cover;
+}
+
+@media (max-width: 639px) {
+  .flip-card {
+    height: 20rem;
+  }
+
+  .pl-3p {
+    padding-left: 2.063rem;
+    padding-right: 2.063rem;
+  }
+
+  .pt-19p {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
 
 }
 
-
-.hover-to-show-image:hover {
-  background-color: #FBF9F5;
-  cursor: pointer;
+@media screen and (max-width:639px) and (min-width:483px) {
+  .tabination {
+    top: -44px !important;
+  }
 }
 
-.hover-to-show-image:hover img {
+@media screen and (max-width:767px) and (min-width:640px) {
+  .pl-3p {
+    padding-left: 2.063rem;
+    padding-right: 2.063rem;
+  }
 
-  transform: translateY(-10px) scale(0.8);
+  .pt-19p {
+    padding-top: 1.45rem;
+    padding-bottom: 1.45rem;
+  }
 }
 
+@media screen and (max-width:992px) and (min-width:768px) {
+  .pl-3p {
+    padding-left: 2.063rem;
+    padding-right: 2.063rem;
+  }
+}
 
 // -------------- tabination styles --- start ---
 

@@ -11,8 +11,8 @@ export const Banner: React.FC<Props> = ({ title, subTitle }) => {
     <div className="w-full bg-cover bg-center c-bg relative">
       <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
         <div className="text-center">
-          <h1 className="text-white hero-txt font-bold sm:text-5xl">{title}</h1>
-          <p className="text-white text-3xl">{subTitle}</p>
+          <h1 className="text-white text-5xl font-bold md:text-4xl sm:text-2xl">{title}</h1>
+          <p className="text-white text-3xl md:text-xl">{subTitle}</p>
           <div className="flex w-full relative position-bottom">
 
             {/* <div className="content-center m-auto">

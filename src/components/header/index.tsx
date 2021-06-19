@@ -8,7 +8,7 @@ export type Props = {
 
 export const Header: React.FC<Props> = ({ toggle }) => {
   return (
-    <div className="absolute flex w-full z-20 justify-between items-start laptop:pl-8 mt-11 sm:ml-7">
+    <div className="absolute flex w-full z-20 justify-between items-start laptop:pl-8 mt-11">
       <Logo />
       <div className="flex  items-center justify-start mt-2 text-accent " onClick={() => toggle()}>
         <h6 className="sub-h1 pr-1 menu-text">Menu</h6>

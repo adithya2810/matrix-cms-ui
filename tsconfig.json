@@ -17,17 +17,11 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@components": ["src/components"],
-      "@modules/*": ["src/modules/*"],
-      "@modules": ["src/modules"],
       "@public/*": ["public/*"],
       "@public": ["public"],
       "@styles/*": ["src/styles/*"],
       "@styles": ["src/styles"],
-      "@i18n": ["./i18n"],
-      "@helper/*": ["helper/*"],
-      "@modules/*": ["src/modules/*"],
-      "@utils/*": ["utils/*"],
-      "@constants/*": ["constants/*"]
+      "@i18n": ["./i18n"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

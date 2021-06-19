@@ -14,11 +14,11 @@ const Home: React.FC = () => {
       <div style={{ position: 'relative' }}>
         <div className="content-center m-auto tabination">
           <button onClick={() => setTabination('currentTeam')}
-            className={tabination === 'currentTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base" : "text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
+            className={tabination === 'currentTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base focus:outline-none" : "focus:outline-none text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
             INVESTMENTS
           </button>
           <button onClick={() => setTabination('pastTeam')}
-            className={tabination === 'pastTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base" : "text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
+            className={tabination === 'pastTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base focus:outline-none" : "focus:outline-none text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
             OPERATIONS
           </button>
         </div>

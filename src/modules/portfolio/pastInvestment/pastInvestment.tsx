@@ -3,7 +3,7 @@ import React from "react";
 const PastInvestment = () => {
 
   return (
-    <div>Portfolio Past Investment</div>
+    <div></div>
   );
 };
 

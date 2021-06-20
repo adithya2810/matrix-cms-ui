@@ -7,7 +7,7 @@ const footermenu = [
   {
     key: "footer_portfolio",
     name: "Portfolio",
-    link: "",
+    link: "/portfolio",
   },
   {
     key: "footer_blog",

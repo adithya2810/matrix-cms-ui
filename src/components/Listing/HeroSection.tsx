@@ -8,7 +8,7 @@ type propsType = {
 const HeroSection: FC<propsType> = ({ title, pageType }) => {
   return (
     <>
-      <div className={`listing-hero-section`}>
+      <div className={`listing-hero-section overlay`}>
         <div className="title section">{title}</div>
         <div className="info">
           <p className="body1">

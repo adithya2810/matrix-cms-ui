@@ -1,5 +1,5 @@
 import PageTitle from '@components/PageTitle';
-import MatrixMoments from '@modules/MatrixMoments/index';
+import Blogs from '@modules/Blogs/index';
 import React, { FC } from 'react';
 
 type deviceType = {
@@ -10,13 +10,13 @@ type propsType = {
   deviceType: deviceType;
 };
 
-const MatrixMomentsPage: FC<propsType> = (props) => {
+const BlogsPage: FC<propsType> = (props) => {
   return (
     <>
       <PageTitle>Matrix Moments</PageTitle>
-      <MatrixMoments {...props} />
+      <Blogs {...props} />
     </>
   );
 };
 
-export default MatrixMomentsPage;
+export default BlogsPage;

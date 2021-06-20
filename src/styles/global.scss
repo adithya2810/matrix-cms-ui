@@ -73,20 +73,24 @@ h4 {
 h5 {
   @apply font-light;
   font-size: 54px;
+  line-height: 62px;
 
   @screen sm {
     @apply font-normal;
     font-size: 16px;
+    line-height: 24px;
   }
 }
 
 h6 {
   @apply font-semibold;
   font-size: 32px;
+  line-height: 24px;
 
   @screen sm {
     @apply font-normal;
     font-size: 16px;
+    line-height: 14px;
   }
 }
 
@@ -545,7 +549,31 @@ h6 {
   text-align: center;
 }
 
-// -------------- tabination styles --- end ---
+// -------------- tabination styles --- start ---
+
+.control-dots {
+  @screen laptop {
+    text-align: start !important;
+    padding: 0 75px 84px !important;
+  }
+  @screen sm {
+    padding: 40px 0 !important;
+  }
+}
+
+.overlay {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0.8;
+    z-index: -1;
+  }
+}
 
 .listing {
   .listing-hero-section {
@@ -565,18 +593,6 @@ h6 {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.7);
-      opacity: 0.8;
-      z-index: -1;
-    }
-
     .info {
       position: absolute;
       bottom: 0;

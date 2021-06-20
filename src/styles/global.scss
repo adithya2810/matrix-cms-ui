@@ -76,20 +76,24 @@ h4 {
 h5 {
   @apply font-light;
   font-size: 54px;
+  line-height: 62px;
 
   @screen sm {
     @apply font-normal;
     font-size: 16px;
+    line-height: 24px;
   }
 }
 
 h6 {
   @apply font-semibold;
   font-size: 32px;
+  line-height: 24px;
 
   @screen sm {
     @apply font-normal;
     font-size: 16px;
+    line-height: 14px;
   }
 }
 
@@ -405,9 +409,7 @@ h6 {
 
 
 /************Media Query***************/
-@media (max-width:1787px) {
-
-
+@media (max-width: 1787px) {
   .position-bottom {
     bottom: -140px;
   }
@@ -449,7 +451,6 @@ h6 {
   color: #01576E;
 }
 
-
 .flip-card {
   background-color: transparent;
   width: 100%;
@@ -489,12 +490,12 @@ h6 {
 }
 
 .flip-card-back {
-  background-color: #FBF9F5;
+  background-color: #fbf9f5;
   transform: rotateY(180deg);
 }
 
 .web-url {
-  color: #01576E;
+  color: #01576e;
   font-size: 20px;
   letter-spacing: 5px;
   line-height: 15px;
@@ -508,25 +509,20 @@ h6 {
   .flip-card {
     height: 20rem;
   }
-  .pl-3p {
-    padding-left: 2.063rem;
-    padding-right: 2.063rem;
-  }
+
   .pt-19p {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-
-
 }
 
-@media screen and (max-width:639px) and (min-width:483px) {
+@media screen and (max-width: 639px) and (min-width: 483px) {
   .tabination {
     top: -44px !important;
   }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   .tabination {
     top: -2.3rem !important;
   }
@@ -537,7 +533,7 @@ h6 {
   }
 }
 
-@media screen and (max-width:767px) and (min-width:640px) {
+@media screen and (max-width: 767px) and (min-width: 640px) {
   .pl-3p {
     padding-left: 2.063rem;
     padding-right: 2.063rem;
@@ -549,7 +545,7 @@ h6 {
   }
 }
 
-@media screen and (max-width:992px) and (min-width:768px) {
+@media screen and (max-width: 992px) and (min-width: 768px) {
   .pl-3p {
     padding-left: 2.063rem;
     padding-right: 2.063rem;
@@ -560,9 +556,35 @@ h6 {
 
 .tabination {
   position: absolute;
-  top: -83px;
+  top: -5rem;
   width: 100%;
   text-align: center;
+}
+
+// -------------- tabination styles --- start ---
+
+.control-dots {
+  @screen laptop {
+    text-align: start !important;
+    padding: 0 75px 84px !important;
+  }
+  @screen sm {
+    padding: 40px 0 !important;
+  }
+}
+
+.overlay {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0.8;
+    z-index: -1;
+  }
 }
 
 .listing {
@@ -583,18 +605,6 @@ h6 {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.7);
-      opacity: 0.8;
-      z-index: -1;
-    }
-
     .info {
       position: absolute;
       bottom: 0;

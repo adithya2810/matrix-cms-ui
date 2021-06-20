@@ -4,7 +4,7 @@ const PortfolioHero = () => {
 
   return (
     <Banner
-      title="We take pride in our partners’ achievements."
+      title="We take pride in our partners’ achievements"
       bannerImg="../../../../img/Portfolio.png"
       mobileBannerImg="../../img/portfolio-mobile-banner.png"
     />

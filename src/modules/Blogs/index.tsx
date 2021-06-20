@@ -20,9 +20,7 @@ type propsType = {
 
 const index: FC<propsType> = (props) => {
   return (
-    <div>
-      <Listing {...props} {...data} />
-    </div>
+    <Listing {...props} {...data} />
   );
 };
 

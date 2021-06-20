@@ -14,7 +14,6 @@ export default function ExtendedApp({
 }): JSX.Element {
   const apolloClient = useApollo(pageProps);
   const deviceType = useDeviceType(userAgent);
-  console.log(deviceType);
 
   return (
     <>

@@ -14,11 +14,15 @@ const Home: React.FC = () => {
       <div style={{ position: 'relative' }}>
         <div className="content-center m-auto tabination">
           <button onClick={() => setTabination('currentTeam')}
-            className={tabination === 'currentTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base focus:outline-none" : "focus:outline-none text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
+            className={tabination === 'currentTeam' ?
+              "btn-active-bg text-white pt-19p px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
+              : "focus:outline-none text-white px-8 pt-19p tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
             INVESTMENTS
           </button>
           <button onClick={() => setTabination('pastTeam')}
-            className={tabination === 'pastTeam' ? "btn-active-bg text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base focus:outline-none" : "focus:outline-none text-white pt-19p pl-3p py-2 text-3xl  md:text-2xl sm:text-base"}>
+            className={tabination === 'pastTeam' ?
+              "btn-active-bg text-white pt-19p px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
+              : "focus:outline-none text-white px-8 pt-19p tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
             OPERATIONS
           </button>
         </div>

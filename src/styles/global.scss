@@ -371,7 +371,7 @@ h6 {
 }
 
 .c-bg {
-  background-image: url(../../public/img/Portfolio.png);
+  // background-image: url(../../public/img/Portfolio.png);
   height: 28.688rem;
 }
 
@@ -494,11 +494,6 @@ h6 {
     height: 20rem;
   }
 
-  .pl-3p {
-    padding-left: 2.063rem;
-    padding-right: 2.063rem;
-  }
-
   .pt-19p {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -508,6 +503,17 @@ h6 {
 @media screen and (max-width: 639px) and (min-width: 483px) {
   .tabination {
     top: -44px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tabination {
+    top: -2.3rem !important;
+  }
+
+  .tab-btn {
+    max-width: 50%;
+    width: 100%;
   }
 }
 
@@ -534,12 +540,13 @@ h6 {
 
 .tabination {
   position: absolute;
-  top: -83px;
+  top: -5rem;
   width: 100%;
   text-align: center;
 }
 
-// -------------- tabination styles --- start ---
+// -------------- tabination styles --- end ---
+
 .listing {
   .listing-hero-section {
     background-image: url('/images/matrixMomentsLaptop.png');

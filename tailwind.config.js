@@ -28,7 +28,14 @@ module.exports = {
       },
       input: {
         DEFAULT: "#FBF9F5"
-      }
+      },
+      black: {
+        DEFAULT: "#000000"
+      },
+      grey: {
+        DEFAULT: "#EBEBE9",
+        dark: '#C9D0D1'
+      },
     },
     fontFamily: {
       sans: ["Manrope", "Helvetica", "Arial", "sans-serif"],
@@ -60,15 +67,12 @@ module.exports = {
       lg: "1.125rem",
       xl: "1.25rem",
       "2xl": "1.5rem",
-      "3md": "1.75rem",
       "3xl": "1.875rem",
       "4xl": "2.25rem",
       "4sm": "2rem",
-      "5sm": "2.8rem",
       "5xl": "3rem",
       "6xl": "4rem",
       "7xl": "5rem",
-      "7lg": "5.3125rem",
       "7xl-m": "5.5rem",
       "8xl": "6rem",
       "9xl": "7rem",

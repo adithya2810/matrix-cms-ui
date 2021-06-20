@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
 @import './index.scss';
 @import '../modules/menu/menu.module.scss';
 
@@ -20,9 +20,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, "Manrope", BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, 'Manrope', BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   height: 100%;
 }
 
@@ -56,7 +56,6 @@ h3 {
   @apply font-light;
   font-size: 100px;
 
-
   @screen sm {
     @apply font-light;
     font-size: 25px;
@@ -88,7 +87,7 @@ h5 {
 h6 {
   @apply font-semibold;
   font-size: 32px;
-  line-height: 24px;
+  line-height: 36px;
 
   @screen sm {
     @apply font-normal;
@@ -158,7 +157,7 @@ h6 {
 
 .footer {
   height: 340px;
-  width: "100%";
+  width: '100%';
 
   @screen sm {
     height: 339px;
@@ -363,7 +362,7 @@ h6 {
 }
 
 .team-member .team-member-info {
-  background: #01576E;
+  background: #01576e;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -377,7 +376,6 @@ h6 {
 }
 
 // -------------- Advisory Team Page Style ---- end ----
-
 
 .h-28r {
   height: 28.688rem;
@@ -399,14 +397,13 @@ h6 {
 }
 
 .btn-active-bg {
-  background-color: #01576E;
+  background-color: #01576e;
   color: #ffffff;
 }
 
 .txt-white {
   color: #ffffff;
 }
-
 
 /************Media Query***************/
 @media (max-width: 1787px) {
@@ -415,7 +412,7 @@ h6 {
   }
 }
 
-@media screen and (max-width:1399px) and (min-width:1032px) {
+@media screen and (max-width: 1399px) and (min-width: 1032px) {
   .hero-txt {
     font-size: 3rem;
   }
@@ -425,7 +422,7 @@ h6 {
   }
 }
 
-@media screen and (min-width:768px) and (max-width:1031px) {
+@media screen and (min-width: 768px) and (max-width: 1031px) {
   .position-bottom {
     bottom: -116px;
   }
@@ -435,7 +432,7 @@ h6 {
   }
 }
 
-@media (min-width:1788px) {
+@media (min-width: 1788px) {
   .hero-txt {
     font-size: 5.2rem;
   }
@@ -443,12 +440,10 @@ h6 {
   .position-bottom {
     bottom: -126px;
   }
-
 }
 
-
 .text-current {
-  color: #01576E;
+  color: #01576e;
 }
 
 .flip-card {
@@ -677,6 +672,21 @@ h6 {
   }
 }
 
+.blog-detail {
+  .hero-section .title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 85px;
+    line-height: 95px;
+    @screen sm {
+      font-weight: 500;
+      font-size: 45px;
+      line-height: 52px;
+      letter-spacing: -0.01em;
+    }
+  }
+}
+
 .timer {
   position: absolute;
   top: 50%;
@@ -733,8 +743,6 @@ h6 {
 
 // -------------- tabination styles --- end ---
 
-
-
 // -------------- advisory detail page styles --- start ---
 
 .team-member-detail {
@@ -753,7 +761,7 @@ h6 {
     .team-member-info {
       bottom: -70px;
       position: absolute;
-      background: #01576E;
+      background: #01576e;
       z-index: 16;
 
       .member-contact ul li img {
@@ -774,7 +782,7 @@ h6 {
 
   .title-white-box {
     background-color: #ffffff;
-    border: 2px solid #01576E;
+    border: 2px solid #01576e;
   }
 }
 

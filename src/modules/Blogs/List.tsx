@@ -8,7 +8,6 @@ type deviceType = {
 };
 
 type propsType = {
-  pageType: String;
   deviceType: deviceType;
 };
 

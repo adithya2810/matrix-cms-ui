@@ -71,7 +71,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
           </div>
         </div>
       </div>
-      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20 mb-10'>EARLY STATGE INVESTORS</h6>
+      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20 mb-10'>EARLY STAGE INVESTORS</h6>
       <div className='flex sm:mx-8 ml-20 text-accent justify-evenly items-end mb-5 sm:mb-20'>
         <div>
           <div><Seed /></div>

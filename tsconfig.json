@@ -25,7 +25,6 @@
       "@styles": ["src/styles"],
       "@i18n": ["./i18n"],
       "@helper/*": ["helper/*"],
-      "@modules/*": ["src/modules/*"],
       "@utils/*": ["utils/*"],
       "@constants/*": ["constants/*"]
     }

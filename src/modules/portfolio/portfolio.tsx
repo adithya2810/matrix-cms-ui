@@ -26,7 +26,7 @@ const Portfolio: React.FC = () => {
           <PastInvestment />
         }
       </div>
-    </div>
+    </div >
   );
 };
 

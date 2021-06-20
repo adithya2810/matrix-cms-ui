@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 html,
 body {
@@ -535,4 +536,55 @@ h6 {
   text-align: center;
 }
 
-// -------------- tabination styles --- start ---
+// -------------- tabination styles --- end ---
+
+
+
+// -------------- advisory detail page styles --- start ---
+
+.team-member-detail {
+  .member-profile-img {
+    position: relative;
+    z-index: 15;
+
+    img {
+      position: relative;
+      z-index: 15;
+      width: 100%;
+    }
+  }
+
+  .team-detail-overlay {
+    .team-member-info {
+      bottom: -70px;
+      position: absolute;
+      background: #01576E;
+      z-index: 16;
+
+      .member-contact ul li img {
+        width: 31px;
+      }
+    }
+  }
+}
+
+.member-position {
+  position: absolute;
+  right: -3rem;
+  bottom: 22rem;
+  z-index: 17;
+  width: 20rem;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+
+  .title-white-box {
+    background-color: #ffffff;
+    border: 2px solid #01576E;
+  }
+}
+
+.member-more-detail {
+  font-family: 'Poppins', sans-serif;
+}
+
+// -------------- advisory detail page styles --- end ---

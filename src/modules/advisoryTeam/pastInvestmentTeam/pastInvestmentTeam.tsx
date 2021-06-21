@@ -56,7 +56,7 @@ const PastInvestmentTeam = () => {
   return (
 
     <figure className="rounded-xl p-8">
-      <div className="team-member grid grid-cols-4 gap-4 md:grid-cols-1 lg:grid-cols-4">
+      <div className="team-member cursor-pointer grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {teams.map((t: any, index) => (
           <div key={t.index} style={{ position: 'relative' }}>
             <div className="overflow-hidden shadow-xl card team-hover" >

@@ -114,6 +114,7 @@ h6 {
   @apply font-medium;
   font-size: 18px;
   font-weight: 500;
+
   @screen sm {
     @apply font-medium;
     font-size: 14px;
@@ -340,7 +341,6 @@ h6 {
 .home-content-side-nav-container {
   min-width: 663px;
   padding-left: 80px;
-
 }
 
 .home-content-side-nav-container:after {
@@ -505,6 +505,7 @@ h6 {
   object-fit: cover;
 }
 
+
 @media (max-width: 639px) {
   .flip-card {
     height: 20rem;
@@ -514,22 +515,33 @@ h6 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-}
 
-@media screen and (max-width: 639px) and (min-width: 483px) {
-  .tabination {
-    top: -44px !important;
+  .hide-mobile {
+    display: none;
   }
 }
 
 @media screen and (max-width: 767px) {
   .tabination {
-    top: -2.3rem !important;
+    top: -5.1rem !important;
   }
 
   .tab-btn {
     max-width: 50%;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 639px) and (min-width: 483px) {
+  .tabination {
+    top: -2.3rem !important;
+  }
+}
+
+
+@media (max-width: 482px) {
+  .tabination {
+    top: -2.3rem !important;
   }
 }
 
@@ -552,6 +564,12 @@ h6 {
   }
 }
 
+@media screen and (max-width:1024px) {
+  .hide-tab {
+    display: none;
+  }
+}
+
 // -------------- tabination styles --- start ---
 
 .tabination {
@@ -568,6 +586,7 @@ h6 {
     text-align: start !important;
     padding: 0 75px 84px !important;
   }
+
   @screen sm {
     padding: 40px 0 !important;
   }
@@ -590,9 +609,11 @@ h6 {
 .listing {
   .listing-hero-section {
     background-image: url('/images/matrixMomentsLaptop.png');
+
     @screen sm {
       background-image: url('/images/matrixMomentsMobile.png');
     }
+
     position: relative;
     z-index: -1;
     width: 100%;
@@ -605,6 +626,7 @@ h6 {
     align-items: center;
     justify-content: center;
     color: #ffffff;
+
     .info {
       position: absolute;
       bottom: 0;
@@ -615,6 +637,7 @@ h6 {
       align-items: center;
       background: #083a4a;
       padding: 20px;
+
       @screen sm {
         width: 225px;
         left: auto;
@@ -625,15 +648,18 @@ h6 {
     @screen sm {
       height: 436px;
       justify-content: flex-start;
+
       .title {
         width: 300px;
       }
     }
   }
+
   .image-shadow {
     box-shadow: -6px 10px 0px 0px #01576e;
     -webkit-box-shadow: -6px 10px 0px 0px #01576e;
     -moz-box-shadow: -6px 10px 0px 0px #01576e;
+
     @screen sm {
       box-shadow: -6px -10px 0px 0px #01576e;
       -webkit-box-shadow: -6px -10px 0px 0px #01576e;
@@ -645,6 +671,7 @@ h6 {
 .section {
   position: relative;
   padding: 0 75px;
+
   @screen sm {
     padding: 0 30px;
   }
@@ -667,6 +694,7 @@ h6 {
 
     background: #fbf9f5;
   }
+
   span:nth-child(2) {
     position: absolute;
     top: 0;
@@ -674,6 +702,7 @@ h6 {
     width: 6px;
     background: #fbf9f5;
   }
+
   span:nth-child(3) {
     position: absolute;
     bottom: 0;
@@ -681,6 +710,7 @@ h6 {
     height: 6px;
     background: #fbf9f5;
   }
+
   span:nth-child(4) {
     position: absolute;
     bottom: 0;
@@ -688,6 +718,7 @@ h6 {
     width: 6px;
     background: #fbf9f5;
   }
+
   span:nth-child(5) {
     position: absolute;
     bottom: 0px;
@@ -699,6 +730,7 @@ h6 {
     z-index: -1;
   }
 }
+
 // -------------- tabination styles --- end ---
 
 
@@ -751,3 +783,22 @@ h6 {
 }
 
 // -------------- advisory detail page styles --- end ---
+
+//--------------- Contact Page --------------------------//
+
+.main-txt,
+.bbc {
+  color: #01576E;
+}
+
+.map-info {}
+
+.bg-overlay{
+  width: 230px;
+    height: 100%;
+    position: absolute;
+    background: #083A4A;
+    bottom: 15px;
+    left: 15px;
+    z-index: -1;
+}

@@ -1,8 +1,20 @@
-import React from "react";
+import React, { FC } from 'react';
 import Individual from "../../src/modules/advisoryTeam/individualMember";
 
-function AdvisoryIndividual() {
-  return <Individual />;
-}
+type deviceType = {
+  mobile: Boolean;
+};
+
+type propsType = {
+  deviceType: deviceType;
+};
+
+const AdvisoryIndividual: FC<propsType> = (props) => {
+  return (
+    <>
+      <Individual {...props} />
+    </>
+  );
+};
 
 export default AdvisoryIndividual;

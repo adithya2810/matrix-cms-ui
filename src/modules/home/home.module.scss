@@ -1,0 +1,16 @@
+.home-container {
+  padding-top: 185px;
+}
+
+.home-content-container-title {
+  margin: 119px 0px 120px 116px;
+  font-size: 85px;
+  line-height: 95px;
+  @apply font-extralight;
+  @apply text-primary-dark;
+  @screen sm {
+    @apply font-normal;
+    font-size: 25px;
+    line-height: 28px;
+  }
+}

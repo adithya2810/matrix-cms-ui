@@ -1,0 +1,82 @@
+.founder-container {
+  min-width: 615.94px;
+  height: 863.91px;
+  @apply relative;
+  @screen sm {
+    height: 407px;
+    @apply w-full;
+  }
+}
+
+.founder-background {
+  width: 571px;
+  height: 762px;
+  @apply bg-accent-dark;
+  @apply absolute;
+  bottom: 50px;
+  left: 0px;
+}
+
+.founder-image {
+  height: calc(100% - 209px);
+}
+
+.founder-content {
+  width: 594px;
+  height: 788px;
+  bottom: 65px;
+  left: 15px;
+  @apply absolute;
+  @apply flex;
+  @apply flex-col;
+}
+
+.founder-timer {
+  left: 38px;
+  bottom: 254px;
+  @apply absolute;
+}
+
+.founder-name-container {
+  height: 118px;
+  border-bottom: 1px solid #ebebe9;
+  padding-left: 31px;
+}
+
+.founder-name-text {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 0.05em;
+  @apply text-secondary;
+}
+
+.founder-tags-container {
+  height: 88px;
+  padding-left: 31px;
+}
+
+.founder-tags-seperator {
+  width: 0px;
+  height: 39px;
+  margin: 0px 24px;
+  border: 1px solid #fbf9f5;
+}
+
+.founder-footer-container {
+  height: 209;
+  background: #01576e;
+}
+
+.founder-logo {
+  margin-right: 57px;
+}
+
+.slide-header {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 190px;
+  line-height: 175px;
+  letter-spacing: -0.025em;
+  color: #000000;
+}

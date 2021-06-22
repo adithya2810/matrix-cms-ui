@@ -1,0 +1,13 @@
+.content-slider {
+  min-width: 610px;
+  height: 180px;
+}
+
+.content-slider-list {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.content-slider-list::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

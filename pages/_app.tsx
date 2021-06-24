@@ -2,7 +2,7 @@ import React from 'react';
 import App, { AppProps } from 'next/app';
 import 'tailwindcss/tailwind.css';
 import '@styles/global.scss';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from 'helper/apollo';
 import { useDeviceType } from 'helper/useDeviceType';

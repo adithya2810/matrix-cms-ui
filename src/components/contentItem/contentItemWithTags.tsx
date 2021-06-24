@@ -32,29 +32,29 @@ const ContentItemWithTags: React.FC<Props> = ({
   author_image_url,
   tags,
   className = "",
-  style = { marginBottom: 62 },
+  style = { marginBottom: 40 },
 }) => {
+  console.log(tags)
   return (
     <div
       className={`${className} relative`}
-      style={{ height: 313, width: 1035, ...style }}
+      style={{ ...style }}
     >
       <div
         className="relative"
-        style={{ top: 0, left: 0, height: 313, width: 329.06 }}
+        style={{ top: 0, left: 0, height: 250, width: 250 }}
       >
         <div
           className="absolute"
-          style={{ width: 298, height: 253, background: "#01576E", bottom: 0 }}
+          style={{ width: 250, height: 250, background: "#01576E", bottom: 0 }}
         ></div>
         <Image
           src={image_url}
           alt=""
           className="absolute"
           style={{
-            height: 255,
-            width: 315,
-            background: "red",
+            height: 250,
+            width: 250,
             left: 6,
             bottom: 6,
           }}
@@ -70,7 +70,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           }}
         >
           <div
-            className="text-xl font-normal text-secondary-light text-center"
+            className="text-base font-normal text-secondary-light text-center"
             style={{
               lineHeight: "30px",
               paddingTop: 6,
@@ -85,7 +85,7 @@ const ContentItemWithTags: React.FC<Props> = ({
       </div>
       <div
         className="absolute bg-secondary-light"
-        style={{ width: 741, bottom: -61, right: 0 }}
+        style={{ width: "70%", bottom: -60, left: 220 }}
       >
         <div style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}>
           <div
@@ -96,7 +96,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           </div>
           <div
             className="text-primary-dark mt-3"
-            style={{ fontSize: "28px", lineHeight: "34px" }}
+            style={{ fontSize: "24px", lineHeight: "26px" }}
           >
             {title}
           </div>
@@ -107,10 +107,10 @@ const ContentItemWithTags: React.FC<Props> = ({
               width={22}
               alt="Writer Image"
             />
-            <div className="flex " style={{ marginLeft: 30 }}>
-              <Image src={author_image_url} alt="profileImage" />
-              <div style={{ marginLeft: 18 }}>
-                <div className="font-medium text-lg leading-6 text-primary-dark">
+            <div className="flex " style={{ marginLeft: 20 }}>
+              <Image src={author_image_url} alt="profileImage" style={{ maxWidth: 50, borderRadius: "50%" }} />
+              <div style={{ marginLeft: 15 }}>
+                <div className="font-medium text-base leading-6 text-primary-dark">
                   {author}
                 </div>
                 <div
@@ -127,8 +127,8 @@ const ContentItemWithTags: React.FC<Props> = ({
               return (
                 <Tag
                   key={index}
-                  title="LEADERSHIP"
-                  id="leadership"
+                  title={item.title}
+                  id={item.id}
                   selected={false}
                   className="text-xs opacity-80 mr-2 bg-secondary-light"
                   style={{

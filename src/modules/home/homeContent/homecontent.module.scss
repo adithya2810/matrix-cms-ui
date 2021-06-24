@@ -1,6 +1,5 @@
 .home-content-container {
-  height: 1400px;
-  margin: 0px 0px 107px 80px;
+  height: 1000px;
   @apply flex;
   @screen sm {
     @apply flex-col;
@@ -23,8 +22,8 @@
 }
 
 .home-content-side-nav-container {
-  min-width: 663px;
-  padding-left: 80px;
+  min-width: 500px;
+  padding-left: 40px;
   @apply bg-secondary;
   @apply items-center;
   @apply flex;
@@ -38,4 +37,9 @@
 
 .home-content-side-nav-container:after {
   opacity: 0.5;
+}
+
+.home-content-container {
+  display: flex;
+  flex-direction: column;
 }

@@ -11,16 +11,16 @@ export type Props = {
 };
 
 export const FounderDetail: React.FC<Props> = ({
+  names,
+  background_url,
   className = "",
   style = {},
 }) => {
   return (
     <div
-      className=""
+      className="heroSlider02-founderSection"
       style={{
         ...{
-          width: 650,
-          height: 744,
           position: "relative",
         },
         ...style,
@@ -29,8 +29,8 @@ export const FounderDetail: React.FC<Props> = ({
       <div
         className=""
         style={{
-          width: 620,
-          height: 711,
+          width: "100%",
+          height: "100%",
           position: "absolute",
           background: "#083A4A",
           bottom: 0,
@@ -40,17 +40,15 @@ export const FounderDetail: React.FC<Props> = ({
       <div
         className=""
         style={{
-          width: 638,
-          height: 732,
-          position: "absolute",
+          width: "100%",
+          height: "100%",
+          position: "relative",
           left: 15,
           bottom: 15,
-          display: "flex",
-          flexDirection: "column",
         }}
       >
         <Image
-          src="/icons/founderDetail.jpg"
+          src={background_url}
           alt="founder detail"
           style={{ flexGrow: 1 }}
         ></Image>
@@ -69,34 +67,36 @@ export const FounderDetail: React.FC<Props> = ({
               <h6
                 className="font-bold text-secondary"
                 style={{
-                  fontSize: 32,
-                  lineHeight: "36px",
+                  fontSize: 28,
+                  lineHeight: "30px",
                   letterSpacing: "0.05em",
-                  marginLeft: 31,
+                  marginLeft: 20,
                   marginRight: 8,
                 }}
               >
-                ANINYA
+
+                {names[0]}
               </h6>
               <h6
                 className="font-light text-secondary"
                 style={{
-                  fontSize: 32,
-                  lineHeight: "36px",
+                  fontSize: 28,
+                  lineHeight: "30px",
                   letterSpacing: "0.05em",
                 }}
               >
-                DUTTA
+
+                {names[1]}
               </h6>
             </div>
             <div className="flex">
               <h6
                 className="font-bold text-secondary"
                 style={{
-                  fontSize: 32,
-                  lineHeight: "36px",
+                  fontSize: 28,
+                  lineHeight: "30px",
                   letterSpacing: "0.05em",
-                  marginLeft: 31,
+                  marginLeft: 20,
                   marginRight: 8,
                 }}
               >
@@ -105,14 +105,21 @@ export const FounderDetail: React.FC<Props> = ({
               <h6
                 className="font-light text-secondary"
                 style={{
-                  fontSize: 32,
-                  lineHeight: "36px",
+                  fontSize: 28,
+                  lineHeight: "30px",
                   letterSpacing: "0.05em",
                 }}
               >
                 DALMIA
               </h6>
             </div>
+          </div>
+          <div className="founder-field-container" style={{ height: "88px" }}>
+            <div>
+              <span className="text-secondary font-medium text-lg leading-6 tags">Mobility</span>
+            </div>
+            <img src="/icons/ola.svg" alt="ola" />
+
           </div>
         </div>
       </div>

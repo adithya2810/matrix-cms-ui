@@ -16,6 +16,11 @@
 @import '../modules/home/homeCarousal/homecarousal.module.scss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+//Slick Slider
+
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 html,
 body {
   margin: 0;
@@ -24,6 +29,19 @@ body {
     'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   height: 100%;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+.page-center {
+  float: none;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 #__next {
@@ -87,7 +105,7 @@ h5 {
 h6 {
   @apply font-semibold;
   font-size: 32px;
-  line-height: 36px;
+  line-height: 24px;
 
   @screen sm {
     @apply font-normal;
@@ -283,8 +301,8 @@ h6 {
 }
 
 .content-item-desc {
-  width: 345px;
-  height: 145px;
+  width: 60%;
+  height: auto;
 }
 
 .menu-content-nav-button {
@@ -320,8 +338,8 @@ h6 {
 // home content tabs
 
 .home-content-tab {
-  font-size: 85px;
-  line-height: 95px;
+  font-size: 60px;
+  line-height: 70px;
 }
 
 .home-content-container {
@@ -329,17 +347,13 @@ h6 {
   /* Internet Explorer 10+ */
   scrollbar-width: none;
   /* Firefox */
-  margin: 60px;
+  padding: 40px;
+  flex: 0 calc(100% - 500px);
 }
 
 .home-content-container::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
-}
-
-.home-content-side-nav-container {
-  min-width: 663px;
-  padding-left: 80px;
 }
 
 .home-content-side-nav-container:after {
@@ -500,7 +514,6 @@ h6 {
   object-fit: cover;
 }
 
-
 @media (max-width: 639px) {
   .flip-card {
     height: 20rem;
@@ -533,7 +546,6 @@ h6 {
   }
 }
 
-
 @media (max-width: 482px) {
   .tabination {
     top: -2.3rem !important;
@@ -559,7 +571,7 @@ h6 {
   }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
   .hide-tab {
     display: none;
   }
@@ -672,21 +684,6 @@ h6 {
   }
 }
 
-.blog-detail {
-  .hero-section .title {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 85px;
-    line-height: 95px;
-    @screen sm {
-      font-weight: 500;
-      font-size: 45px;
-      line-height: 52px;
-      letter-spacing: -0.01em;
-    }
-  }
-}
-
 .timer {
   position: absolute;
   top: 50%;
@@ -796,17 +793,18 @@ h6 {
 
 .main-txt,
 .bbc {
-  color: #01576E;
+  color: #01576e;
 }
 
-.map-info {}
+.map-info {
+}
 
-.bg-overlay{
+.bg-overlay {
   width: 230px;
-    height: 100%;
-    position: absolute;
-    background: #083A4A;
-    bottom: 15px;
-    left: 15px;
-    z-index: -1;
+  height: 100%;
+  position: absolute;
+  background: #083a4a;
+  bottom: 15px;
+  left: 15px;
+  z-index: -1;
 }

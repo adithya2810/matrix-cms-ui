@@ -11,3 +11,17 @@
 .content-slider-list::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+
+.heroSlider02-outerWarp {
+  display: flex !important;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+ul.slick-dots {
+  bottom: auto !important;
+  top: -35px !important;
+  text-align: right;
+}

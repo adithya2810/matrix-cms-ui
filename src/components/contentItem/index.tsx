@@ -27,16 +27,12 @@ export const ContentItem: React.FC<Props> = ({
   style = {},
 }) => {
   return (
-    <div
-      className={`${className} relative mb-11 ml-0`}
-      style={style}
-    >
+    <div className={`${className} relative mb-8 ml-0`} style={style} >
       <Image src={image_url} alt="content-image" className="" />
-      <div
-        className="content-item-desc bg-secondary-light absolute top-4 p-3"
-        style={{ top: "2.5rem", left: "9.5rem" }}
+      <div className="content-item-desc bg-secondary-light absolute p-3"
+        style={{ bottom: "-1rem", left: "9.5rem" }}
       >
-        <h5 className="text-lg font-medium leading-6 text-primary-dark ml-2 p-0.5">
+        <h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
           {title}
         </h5>
         <div className="flex justify-between ml-2 pl-0.5 pt-0.5">
@@ -51,7 +47,7 @@ export const ContentItem: React.FC<Props> = ({
           {/* <button onClick={() => onClick(content_id)} /> */}
           <Button
             title={"Read More"}
-            className="h-8 w-36 text-accent"
+            className="h-8 w-36 text-accent text-base"
             url="/icons/rightArrowGray.svg"
           />
           <Image

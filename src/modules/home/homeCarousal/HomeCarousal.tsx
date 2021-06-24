@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, ContentSlider } from "@components";
 import { FounderDetail } from "@components/founder/FounderDetail";
 import Slider from "react-slick";
@@ -82,7 +82,11 @@ const HomeCarousal = () => {
     "/icons/backgroundCarousalImage.png"
   );
 
-  const componentDidMount = async () => {
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  const fetchData = async () => {
     const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
     const json = await response.json();
 
@@ -98,8 +102,6 @@ const HomeCarousal = () => {
     })
     setFeatureData(featureTwoData)
   }
-
-  componentDidMount();
 
   var settings = {
     dots: false,

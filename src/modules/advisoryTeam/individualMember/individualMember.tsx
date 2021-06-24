@@ -3,17 +3,14 @@ import { Image } from '@components';
 import Link from 'next/link';
 import Icon from './Icon';
 
-type deviceType = {
-  mobile: Boolean;
+export type Props = {
+  advisoryDetail: any;
 };
 
-type propsType = {
-  deviceType: deviceType;
-};
 
-const memberContent = [{}, {}, {}]
+const IndividualMember: FC<Props> = ({ advisoryDetail }) => {
 
-const IndividualMember: FC<propsType> = (props) => {
+  const memberContent = [{}, {}, {}]
   return (
     <div className="team_detail py-40 px-12 sm:py-0 sm:px-0">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
@@ -22,7 +19,7 @@ const IndividualMember: FC<propsType> = (props) => {
             <div className="shadow-xl card">
               <div className="member-profile-img ml-12 sm:ml-0">
                 <Image src="../../image/Rajat_Agrawal1.png" alt="Rajat Agrawal" className="team-member-img sm:hidden md:hidden lg:hidden" />
-                <Image src="../../image/Rajat_Agrawal.jpg" alt="Rajat Agrawal" className="team-member-img sm:block md:block lg:block hidden"/>
+                <Image src="../../image/Rajat_Agrawal.jpg" alt="Rajat Agrawal" className="team-member-img sm:block md:block lg:block hidden" />
                 <div className="sm:hidden" style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>
               </div>
               <div className="team-detail-overlay sm:hidden">
@@ -149,13 +146,13 @@ const IndividualMember: FC<propsType> = (props) => {
                 className="max-w-xl p-8 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
                 style={{
                   background: 'white',
-                  width: props.deviceType?.mobile ? '93%' : '100%',
+                  width: '100%',
                 }}
               >
                 <div className="caption text-accent-dark mb-4 sm:mb-2">4 MIN READ</div>
                 <div className="sub-h1">Oziva unplugged: building India’s leading clean, plant-based nutrition brand</div>
                 <div className="flex mt-6 mb-6 items-center">
-                  <Icon {...props} iconType={'mic'} />
+                  {/* <Icon iconType={'mic'} /> */}
                   <div className="flex pl-5 sm:pl-0">
                     <img
                       className="mr-6 sm:w-12 md:h-16"

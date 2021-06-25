@@ -7,12 +7,14 @@ type deviceType = {
 
 type propsType = {
   deviceType: deviceType;
+  advisoryDetail: any;
 };
 
-const AdvisoryIndividual= ({ advisoryDetail }) => {
+const AdvisoryIndividual: FC<propsType> = (props: propsType) => {
+
   return (
     <>
-      <Individual advisoryDetail={advisoryDetail} />
+      <Individual {...props} />
     </>
   );
 };

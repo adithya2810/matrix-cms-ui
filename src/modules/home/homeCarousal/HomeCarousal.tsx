@@ -53,21 +53,21 @@ import "slick-carousel/slick/slick-theme.css";
 const heroSlider02_Data = [
   {
     id: "01",
-    title: "Tech-enabled Student housing Platform",
+    title: "Tech-enabled <span>Student housing</span> Platform",
     founderImage: '/icons/founderDetail.jpg',
     name: ["ANINYA", "DUTTA"],
     background_url: "/icons/backgroundCarousalImage.png"
   },
   {
     id: "02",
-    title: "Tech-enabled Student housing Platform",
+    title: "Tech-enabled <span>Student housing</span> Platform",
     founderImage: '/icons/rohit.jpg',
     name: ["ROHIT.", " M.A"],
     background_url: "/icons/jonathan-borba.png"
   },
   {
     id: "03",
-    title: "Tech-enabled Student housing Platform",
+    title: "Tech-enabled <span>Student housing</span> Platform",
     founderImage: '/icons/founder4.jpg',
     name: ["Mr. ", "LAKSHIPATHY"],
     background_url: "/icons/floriane-vita.png"
@@ -103,9 +103,12 @@ const HomeCarousal = () => {
 
   var settings = {
     dots: false,
-    autoplay: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: true,
     infinite: true,
+    fade: true,
+    pauseOnHover: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -135,59 +138,36 @@ const HomeCarousal = () => {
   };
 
   return (
-    <div className="relative heroSlider02Outer" style={{ height: 900 }}>
+    <div className="relative blogSliderOuter heroSlider02Outer">
       <Slider {...settings}>
         {heroSlider02_Data.map(slider => {
           return (
-            <div>
-              <div key={slider.id}
+            <div key={slider.id}>
+              <div
                 className="h-full w-full flex flex-col imageOverlay relative"
                 style={{
                   backgroundImage: `url(${slider.background_url})`,
                   backgroundSize: "cover",
-                  height: 900
                 }}
               >
                 <div className="page-center">
                   <div className="heroSlider02-outerWarp">
                     <div className="heroSlider02-contentSection" style={{ flex: "0 45%" }}>
-                      <div
-                        style={{
-                          fontWeight: 300,
-                          fontSize: "80px",
-                          lineHeight: "120px",
-                          letterSpacing: "-0.01em",
-                          opacity: 0.35,
-                          marginTop: 50,
-                        }}
-                      >
+                      <div className="heroSlider02-slide-indicator desktop">
                         {" "}
                         {slider.id}/05
                       </div>
-                      <div
-                        className="text-secondary-light"
-                        style={{
-                          fontWeight: 500,
-                          fontSize: "60px",
-                          lineHeight: "70px",
-                          opacity: 1,
-                          marginTop: 50,
-                        }}
-                      >
-                        {slider.title}
-                        {/* Tech-enabled
-                <br />
-                <span className="font-bold"> Student housing</span> <br />
-                Platform */}
+                      <div className="text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
                     </div>
                     <FounderDetail
                       names={slider.name}
                       background_url={slider.founderImage}
-                      style={{
-                        marginTop: 30, flex: "0 45%", position: "relative",
-                      }}
                     />
+                    <div className="heroSlider02-slide-indicator mobile">
+                      {" "}
+                      {slider.id}/05
+                    </div>
                   </div>
                 </div>
               </div>
@@ -196,30 +176,16 @@ const HomeCarousal = () => {
       </Slider>
 
       <div
-        className="absolute bg-accent"
-        style={{ bottom: 40, left: 150, height: 246, width: 564 }}
-      >
-        <span
-          className="text-secondary font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
-          style={{ writingMode: "vertical-lr", width: 56 }}
+        className="absolute bg-accent hospatalitySector">
+        <span className="text-secondary hospatalitySector-text font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
         >
           {" "}
           Hospitality Sector{" "}
         </span>
       </div>
       <ContentSlider
-        style={{
-          left: 200,
-          background: "#EBEBE9",
-          border: "1px solid #EBEBE9",
-          boxSizing: "border-box",
-          fontSize: 28,
-          lineHeight: "34px",
-          paddingTop: 24,
-          paddingLeft: 34,
-        }}
         contentList={featureData}
-        className="absolute bottom-0 right-0 text-primary-dark"
+        className="absolute md:relative bottom-0 right-0 text-primary-dark  contentItemOuter-w85"
         header={<span>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
       />
     </div>

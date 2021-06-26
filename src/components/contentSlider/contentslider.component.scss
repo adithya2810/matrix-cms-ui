@@ -12,16 +12,36 @@
   display: none; /* Safari and Chrome */
 }
 
-.heroSlider02-outerWarp {
-  display: flex !important;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
+.contentItemOuter-w50 {
+  background: #ebebe9;
+  border: 1px solid #ebebe9;
+  box-sizing: border-box;
+  font-size: 22px;
+  line-height: 24px;
+  padding-top: 20px;
+  padding-left: 30px;
+  width: 50%;
 }
 
-ul.slick-dots {
-  bottom: auto !important;
-  top: -35px !important;
-  text-align: right;
+.contentItemOuter-w85 {
+  background: #ebebe9;
+  border: 1px solid #ebebe9;
+  box-sizing: border-box;
+  font-size: 22px;
+  line-height: 24px;
+  padding-top: 20px;
+  padding-left: 30px;
+  width: 85%;
+}
+
+@media screen and (max-width: 768px) {
+  .contentItemOuter-w50 {
+    width: 100%;
+  }
+
+  .contentItemOuter-w85 {
+    width: calc(100% - 20px);
+    margin-left: auto;
+    margin-top: -80px;
+  }
 }

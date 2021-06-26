@@ -3,7 +3,7 @@ import menu from "../../../constants/footerMenu";
 
 
 const FooterMenu: React.FC = () => {
-  return (<div className="sm:grid sm:grid-cols-2 sm:gap-y-0.5  bg-primary   sub-h2 laptop:flex laptop:items-center laptop:pl-56 ">
+  return (<div className="sm:grid sm:grid-cols-2 sm:gap-y-0.5  bg-primary   sub-h2 laptop:flex laptop:items-center ">
     {
       menu.map((item: any, index: number) => {
         return (<span key={index} className="p-1.5">

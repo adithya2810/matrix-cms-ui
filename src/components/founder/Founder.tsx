@@ -54,6 +54,7 @@ const data = [
   },
 ];
 
+
 export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
@@ -85,35 +86,58 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         read_duration: blogData.readtime,
       }
     })
-    setFeatureData(featureOneData)
-    console.log(featureData)
+    setFeatureData(featureOneData);
   }
+
 
   const settingsMain = {
     dots: false,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     infinite: true,
-    fade: false,
-    pauseOnHover: true,
+    fade: true,
+    pauseOnHover: false,
     asNavFor: '.slider-nav',
     speed: 1000,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    afterChange: (state) => afterChangeHandler(state)
   };
 
   const settingsThumbs = {
     dots: false,
     arrows: false,
-    autoplay: false,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     fade: false,
     pauseOnHover: false,
     asNavFor: '.slider-for',
     speed: 1000,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1.35,
+          slidesToScroll: 1,
+          infinite: false,
+          loop: true
+        }
+      }
+    ]
+    //afterChange: (state) => afterChangeHandler(state)
   };
+
+  function afterChangeHandler(currentSlide) {
+    console.log(currentSlide);
+    goTo(currentSlide);
+  }
+
+  function goTo(index) {
+  }
 
 
 
@@ -122,14 +146,20 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
       <Slider {...settingsMain}
         asNavFor={nav2}
         ref={slider => (setSlider1(slider))}>
-        {props.foundersData.map((founder) => {
+        {props.foundersData.map((founder, index) => {
           return <div className="founderSection-outerWarp" key={founder.id}>
             <div className={`founderSection-leftOuter founder-container`}>
               <div className="founder-background"></div>
               <div className="founder-content">
                 <Image src={founder.background_url} alt="founder image" style={{ flexGrow: 1 }} />
-                <Image src="/icons/rectangle.svg" alt={"reactangle"} className="absolute" style={{ left: 38, bottom: 254 }} />
-                <div className="founder-footer-container">
+
+                <div className="founder-footer-container relative">
+                  <svg className="absolute founderRectangle" xmlns="http://www.w3.org/2000/svg" width="56.167" height="56" viewBox="0 0 56.167 56">
+                    <g transform="translate(0.167)">
+                      <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
+                      <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
+                    </g>
+                  </svg>
                   <div className="founder-name-container">
                     <h6 className="founder-name-text" >
                       <strong>{founder.name[0]} </strong> {founder.name[1]}
@@ -138,7 +168,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                   <div className="founder-field-container" style={{ height: 88 }}>
                     <div>
                       {founder.tags.map(tag => {
-                        return <span className="text-secondary font-medium text-lg leading-6 tags"> {tag}</span>
+                        return <span className="text-secondary font-medium text-lg leading-6 tags" key={tag}> {tag}</span>
                       })}
                     </div>
                     <Image src={founder.logo} alt={"ola"} />
@@ -146,8 +176,22 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                 </div>
               </div>
             </div>
-            <div className="founderSection-rightOuter">
-              <h1 className="founderTitle">{founder.title}</h1>
+            <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
+              <h1 className="founderTitle" dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
+
+              <div className="founderTitleSliderBox">
+                {props.foundersData.map((founder, indexTitleSlider) => (
+
+                  (index !== indexTitleSlider) &&
+                  <div className={`heroSlider01-thumbnailInner heroTitleSlider${indexTitleSlider + 1}`} key={founder.id}>
+                    <span className="thumbnailIndex">{founder.id}</span>
+                    <div className="heroSlider01-thumbnailText" dangerouslySetInnerHTML={{ __html: founder.title }}></div>
+                  </div>
+
+                ))}
+              </div>
+
+
             </div>
           </div>
         })}
@@ -161,7 +205,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
             return (
               <div className="heroSlider01-thumbnailInner" key={founder.id}>
                 <span className="thumbnailIndex">{founder.id}</span>
-                <div className="heroSlider01-thumbnailText">{founder.title}</div>
+                <div className="heroSlider01-thumbnailText" dangerouslySetInnerHTML={{ __html: founder.title }}></div>
               </div>
             )
           })}
@@ -171,14 +215,6 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
       <ContentSlider
         style={{
           right: 0,
-          background: "#EBEBE9",
-          border: "1px solid #EBEBE9",
-          boxSizing: "border-box",
-          fontSize: 22,
-          lineHeight: "24px",
-          paddingTop: 20,
-          paddingLeft: 30,
-          width: "50%"
         }}
         setting={{
           dots: true,
@@ -187,10 +223,20 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
           infinite: false,
           speed: 500,
           slidesToShow: 1.5,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          initialSlide: 1,
+          responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 1.1,
+                infinite: true,
+              }
+            }
+          ]
         }}
         contentList={featureData}
-        className="absolute bottom-0 right-0 text-primary-dark"
+        className="blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50"
         header={<span>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
       />
     </React.Fragment>

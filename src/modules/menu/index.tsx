@@ -56,8 +56,8 @@ export const Menu: React.FC = () => {
 
   const className = navMenuState.menu ? "visible" : "invisible hidden"
   return (
-    <div className={`bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{height:1053}}>
-      <div className="flex justify-between bg-secondary-light flex-grow">
+    <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: 1053 }}>
+      <div className="siteMenuWrapper flex justify-between bg-secondary-light flex-grow">
         <div>
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
         </div>
@@ -71,7 +71,7 @@ export const Menu: React.FC = () => {
           }} />
         </div>
         <div className="flex-grow flex flex-col">
-          <div className="mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
+          <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
             <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
           </div>

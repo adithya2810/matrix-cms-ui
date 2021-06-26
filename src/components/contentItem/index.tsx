@@ -28,7 +28,7 @@ export const ContentItem: React.FC<Props> = ({
 }) => {
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
-      <Image src={image_url} alt="content-image" className="" />
+      <Image src={image_url} alt="content-image" className="contentItemImage" />
       <div className="content-item-desc bg-secondary-light absolute p-3"
         style={{ bottom: "-1rem", left: "9.5rem" }}
       >
@@ -39,11 +39,11 @@ export const ContentItem: React.FC<Props> = ({
           <span className="font-normal text-xs leading-3  text-primary-dark opacity-50">
             BY {" " + author}
           </span>
-          <span className="font-normal text-xs leading-3  text-primary-dark opacity-50 mr-1">
+          <span className="read_duration font-normal text-xs leading-3  text-primary-dark opacity-50 mr-1">
             {read_duration + " READ"}
           </span>
         </div>
-        <div className="flex justify-between mt-3">
+        <div className="flex justify-between mt-3 contentButtonWrap">
           {/* <button onClick={() => onClick(content_id)} /> */}
           <Button
             title={"Read More"}

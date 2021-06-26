@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 export type Props = {
   className?: string
   contentList: Array<any>;
-  style: any,
+  style?: any,
   header: any;
   setting?: any
 };
@@ -25,7 +25,16 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
       infinite: false,
       speed: 500,
       slidesToShow: 2.5,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1.1,
+            infinite: true,
+          }
+        }
+      ]
     };
   }
 
@@ -34,7 +43,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
 
     <div className={`${className}`} style={style}>
       <div >
-        <div>{header}</div>
+        <div className="contentItemHeader">{header}</div>
         <div></div>
       </div>
       <div>

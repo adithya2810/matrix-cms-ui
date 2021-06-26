@@ -27,38 +27,22 @@ export const FounderDetail: React.FC<Props> = ({
       }}
     >
       <div
-        className=""
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          background: "#083A4A",
-          bottom: 0,
-          left: 0,
-        }}
-      ></div>
-      <div
-        className=""
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "relative",
-          left: 15,
-          bottom: 15,
-        }}
-      >
+        className="heroSlider02-founderImage-background"></div>
+      <div className="heroSlider02-founderImage">
         <Image
           src={background_url}
           alt="founder detail"
+          className="founderImage"
           style={{ flexGrow: 1 }}
         ></Image>
-        <Image
-          src="/icons/rectangle.svg"
-          alt={"reactangle"}
-          className="absolute"
-          style={{ left: 38, bottom: 253 }}
-        />
-        <div style={{ height: 232, background: "#01576E" }}>
+
+        <div className="rectangleBoxIn" style={{ height: 232, background: "#01576E" }}>
+          <svg className="absolute founderRectangle" xmlns="http://www.w3.org/2000/svg" width="56.167" height="56" viewBox="0 0 56.167 56">
+            <g transform="translate(0.167)">
+              <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
+              <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
+            </g>
+          </svg>
           <div
             className="text-center flex  flex-col justify-center"
             style={{ height: 118, borderBottom: "0.89491px solid #EBEBE9" }}

@@ -1,3 +1,31 @@
+.pageBannerOuter {
+  min-height: calc(100vh - 145px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pageBannerOuter>div,
+.pageBannerOuter>div>div,
+.pageBannerOuter>div>div>.slick-slider,
+.pageBannerOuter>div>div>div>div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pageBannerOuter .slick-track {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.pageBannerOuter .slick-track .slick-slide {
+  display: flex;
+  align-items: center;
+}
+
 .home-founder-container {
   padding: 0px 0px 0px 64px;
   @apply flex;

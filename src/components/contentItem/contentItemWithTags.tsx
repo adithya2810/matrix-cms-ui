@@ -37,11 +37,11 @@ const ContentItemWithTags: React.FC<Props> = ({
   console.log(tags)
   return (
     <div
-      className={`${className} relative`}
+      className={`${className} relative contentWithTagbox`}
       style={{ ...style }}
     >
       <div
-        className="relative"
+        className="relative contentWithTagImgbox"
         style={{ top: 0, left: 0, height: 250, width: 250 }}
       >
         <div
@@ -60,7 +60,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           }}
         ></Image>
         <div
-          className="absolute flex items-center"
+          className="absolute flex items-center contentCategoryBox"
           style={{
             background: "#01576E",
             height: 42,
@@ -84,7 +84,7 @@ const ContentItemWithTags: React.FC<Props> = ({
         </div>
       </div>
       <div
-        className="absolute bg-secondary-light"
+        className="absolute bg-secondary-light contentWithTagWrap"
         style={{ width: "70%", bottom: -60, left: 220 }}
       >
         <div style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}>

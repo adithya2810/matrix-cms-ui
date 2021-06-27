@@ -3,7 +3,11 @@ import PortfolioHero from './portfolioHero';
 import PastInvestment from './pastInvestment';
 import CurrentInvestment from './currentInvestment';
 
-const Portfolio: React.FC = () => {
+export type Props = {
+  portfolio: any;
+};
+
+const Portfolio: React.FC<Props> = ({ portfolio }) => {
   const [tabination, setTabination] = useState('currentInvest');
   return (
     <div>
@@ -20,7 +24,7 @@ const Portfolio: React.FC = () => {
           </button>
         </div>
         {tabination === 'currentInvest' &&
-          <CurrentInvestment />
+          <CurrentInvestment portfolio={portfolio} />
         }
         {tabination === 'pastInvest' &&
           <PastInvestment />

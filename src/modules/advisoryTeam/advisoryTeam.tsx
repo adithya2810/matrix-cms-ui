@@ -3,7 +3,12 @@ import InvestmentTeam from './investmentTeam';
 import PastInvestmentTeam from './pastInvestmentTeam'
 import MainBanner from './topBanner/mainBanner';
 
-const Home: React.FC = () => {
+export type Props = {
+  invesmentTeam: any;
+  operationsTeam: any;
+};
+
+const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam }) => {
 
   const [tabination, setTabination] = useState('currentTeam');
 
@@ -28,10 +33,10 @@ const Home: React.FC = () => {
         </div>
 
         {tabination === 'currentTeam' &&
-          <InvestmentTeam />
+          <InvestmentTeam invesmentTeam={invesmentTeam} />
         }
         {tabination === 'pastTeam' &&
-          <PastInvestmentTeam />
+          <PastInvestmentTeam operationsTeam={operationsTeam} />
         }
       </div>
     </>

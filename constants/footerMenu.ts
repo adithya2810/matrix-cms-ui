@@ -15,7 +15,7 @@ const footermenu = [
     link: "",
   },
   {
-    key: "footer_advisory_team",
+    key: "footer_advisory_team5",
     name: "Advisory Team",
     link: "/advisoryTeam",
   },
@@ -27,7 +27,7 @@ const footermenu = [
   {
     key: "footer_careers",
     name: "Careers",
-    link: "",
+    link: "/careers",
   },
 ];
 

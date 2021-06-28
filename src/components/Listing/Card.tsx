@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import Icon from '@components/Icon';
+import Icon from './Icon';
 
 type deviceType = {
   mobile: Boolean;
 };
 
 type propsType = {
+  pageType: String;
   deviceType: deviceType;
 };
 

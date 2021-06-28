@@ -152,7 +152,6 @@ h6 {
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
-  cursor: pointer;
 }
 
 .tag {
@@ -170,7 +169,6 @@ h6 {
   line-height: 24px;
   letter-spacing: -0.01em;
   width: fit-content;
-  cursor: pointer;
 }
 
 .menu-primary-nav-text {
@@ -192,6 +190,15 @@ h6 {
   color: #ffffff;
 }
 
+.menu-secondary-nav-text1 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .menu-primary-nav-icon {
   width: 33px;
   height: 64px;
@@ -202,6 +209,14 @@ h6 {
   font-size: 55px;
   line-height: 64px;
   text-align: right;
+}
+
+.menu-primary-nav-icon1 {
+
+  opacity: 0.75;
+  font-size: 80px;
+  font-weight: 100;
+  color:#083A4A;
 }
 
 .menu-secondary-nav-icon {
@@ -230,12 +245,11 @@ h6 {
   border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;
-  max-height: 100%;
-  overflow: auto;
 }
 
-.menu-tags::-webkit-scrollbar {
-  display: none;
+.content-item-desc {
+  width: 345px;
+  height: 145px;
 }
 
 .menu-content-nav-button {

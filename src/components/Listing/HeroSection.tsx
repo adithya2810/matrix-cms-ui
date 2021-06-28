@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const HeroSection: FC = () => {
+type propsType = {
+  title: ReactNode;
+  pageType: String;
+};
+
+const HeroSection: FC<propsType> = ({ title, pageType }) => {
   return (
     <>
       <div className={`listing-hero-section overlay`}>
-        <div className="title section">
-          <h2>
-            The Matrix <br /> Moments Series
-          </h2>
-        </div>
+        <div className="title section">{title}</div>
         <div className="info">
           <p className="body1">
             Use the filter panel to find your specific topic of interest

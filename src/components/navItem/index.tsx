@@ -22,12 +22,12 @@ export const NavItem: React.FC<Props> = ({
   return (
     <div
       className={`${className} flex justify-between menu-primary-nav-text text-primary-dark`}
-      style={{ marginBottom: 20 }}
+      style={{ marginBottom: 25 }}
       onClick={() => onClick(id)}
     >
-      <span style={{ cursor: 'pointer' }}>{title}</span>
+      <span>{title}</span>
       {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
-      {(selected || arrow) ? (
+      { (selected || arrow ) ? (
         (!selected) ? (
           <span className="menu-primary-nav-icon"> {">"} </span>
         ) : (

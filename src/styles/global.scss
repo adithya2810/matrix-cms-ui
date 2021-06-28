@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 @import './index.scss';
 @import '../modules/menu/menu.module.scss';
 
@@ -16,32 +16,14 @@
 @import '../modules/home/homeCarousal/homecarousal.module.scss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-//Slick Slider
-
-@import 'slick-carousel/slick/slick.css';
-@import 'slick-carousel/slick/slick-theme.css';
-
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, 'Manrope', BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: -apple-system, "Manrope", BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   height: 100%;
-}
-
-*:focus {
-  outline: 0 !important;
-}
-
-.page-center {
-  float: none;
-  max-width: 1480px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 0 30px;
 }
 
 #__next {
@@ -73,6 +55,7 @@ h2 {
 h3 {
   @apply font-light;
   font-size: 100px;
+
 
   @screen sm {
     @apply font-light;
@@ -175,52 +158,27 @@ h6 {
 
 .footer {
   height: 340px;
-  width: '100%';
+  width: "100%";
 
   @screen sm {
     height: 339px;
   }
 }
 
-// .footer-top {
-//   height: 270px;
-
-//   @screen sm {
-//     height: 339px;
-//   }
-// }
-
-.footer-menu {
-  min-height: 92px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0px;
+.footer-top {
+  height: 270px;
 
   @screen sm {
-    height: auto;
+    height: 339px;
   }
 }
 
-.footer-section-col01-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-}
+.footer-menu {
+  height: 92px;
 
-.footer-col01-left-section {
-  display: flex;
-  align-items: center;
-}
-
-.footer-section-col01-outer {
-  padding: 60px 0;
-}
-
-.footer-section-col02-inner {
-  display: flex;
+  @screen sm {
+    height: 189px;
+  }
 }
 
 .menu-text {
@@ -326,8 +284,8 @@ h6 {
 }
 
 .content-item-desc {
-  width: 60%;
-  height: auto;
+  width: 345px;
+  height: 145px;
 }
 
 .menu-content-nav-button {
@@ -363,8 +321,8 @@ h6 {
 // home content tabs
 
 .home-content-tab {
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 85px;
+  line-height: 95px;
 }
 
 .home-content-container {
@@ -372,13 +330,17 @@ h6 {
   /* Internet Explorer 10+ */
   scrollbar-width: none;
   /* Firefox */
-  padding: 40px;
-  flex: 0 calc(100% - 500px);
+  margin: 60px;
 }
 
 .home-content-container::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
+}
+
+.home-content-side-nav-container {
+  min-width: 663px;
+  padding-left: 80px;
 }
 
 .home-content-side-nav-container:after {
@@ -401,7 +363,7 @@ h6 {
 }
 
 .team-member .team-member-info {
-  background: #01576e;
+  background: #01576E;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -416,13 +378,19 @@ h6 {
 
 // -------------- Advisory Team Page Style ---- end ----
 
+
 .h-28r {
   height: 28.688rem;
 }
 
 .c-bg {
   // background-image: url(../../public/img/Portfolio.png);
-  height: 28.688rem;
+  height: 619px;
+}
+
+.c-bg1 {
+  // background-image: url(../../public/img/Portfolio.png);
+  height: 413px;
 }
 
 .pt-19p {
@@ -436,13 +404,14 @@ h6 {
 }
 
 .btn-active-bg {
-  background-color: #01576e;
+  background-color: #01576E;
   color: #ffffff;
 }
 
 .txt-white {
   color: #ffffff;
 }
+
 
 /************Media Query***************/
 @media (max-width: 1787px) {
@@ -451,7 +420,7 @@ h6 {
   }
 }
 
-@media screen and (max-width: 1399px) and (min-width: 1032px) {
+@media screen and (max-width:1399px) and (min-width:1032px) {
   .hero-txt {
     font-size: 3rem;
   }
@@ -461,7 +430,7 @@ h6 {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1031px) {
+@media screen and (min-width:768px) and (max-width:1031px) {
   .position-bottom {
     bottom: -116px;
   }
@@ -471,7 +440,7 @@ h6 {
   }
 }
 
-@media (min-width: 1788px) {
+@media (min-width:1788px) {
   .hero-txt {
     font-size: 5.2rem;
   }
@@ -479,10 +448,12 @@ h6 {
   .position-bottom {
     bottom: -126px;
   }
+
 }
 
+
 .text-current {
-  color: #01576e;
+  color: #01576E;
 }
 
 .flip-card {
@@ -539,6 +510,7 @@ h6 {
   object-fit: cover;
 }
 
+
 @media (max-width: 639px) {
   .flip-card {
     height: 20rem;
@@ -571,6 +543,7 @@ h6 {
   }
 }
 
+
 @media (max-width: 482px) {
   .tabination {
     top: -2.3rem !important;
@@ -596,7 +569,7 @@ h6 {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
   .hide-tab {
     display: none;
   }
@@ -765,6 +738,8 @@ h6 {
 
 // -------------- tabination styles --- end ---
 
+
+
 // -------------- advisory detail page styles --- start ---
 
 .team-member-detail {
@@ -783,7 +758,7 @@ h6 {
     .team-member-info {
       bottom: -70px;
       position: absolute;
-      background: #01576e;
+      background: #01576E;
       z-index: 16;
 
       .member-contact ul li img {
@@ -804,7 +779,7 @@ h6 {
 
   .title-white-box {
     background-color: #ffffff;
-    border: 2px solid #01576e;
+    border: 2px solid #01576E;
   }
 }
 
@@ -818,144 +793,17 @@ h6 {
 
 .main-txt,
 .bbc {
-  color: #01576e;
+  color: #01576E;
 }
 
 .map-info {}
 
-.bg-overlay {
+.bg-overlay{
   width: 230px;
-  height: 100%;
-  position: absolute;
-  background: #083a4a;
-  bottom: 15px;
-  left: 15px;
-  z-index: -1;
-}
-
-@media screen and (max-width: 768px) {
-  .footer-section-col02-inner {
-    display: block;
-  }
-
-  .headerOuter-warpper {
-    margin: 25px 0;
-  }
-
-  .founder-container {
-    flex: 0 100%;
-    order: 1;
-    max-width: 350px;
-    margin: 0 auto;
-  }
-
-  .founderSection-rightOuter {
-    flex: 0 100%;
-    order: 0;
-    max-width: 500px;
-    margin-bottom: 150px;
-  }
-
-  .founderTitle {
-    font-size: 80px;
-    line-height: 80px;
-  }
-
-  .heroSlider01-thumbnailOuter {
-    bottom: auto;
-    top: 200px;
-    width: 90%;
-  }
-}
-
-
-/**********Footer************/
-@media only screen and (max-width: 1080px) {
-  .footer-menu span a.text-secondary {
-    margin-right: 10px;
-    font-size: 16px;
-  }
-
-  .footer-menu span a.text-secondary {
-    margin-right: 10px;
-    font-size: 16px;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div {
-    margin: 0 auto;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div:first-child {
-    padding: 10px;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div:last-child>p {
-    padding-left: 10px;
-  }
-}
-
-
-@media only screen and (max-width: 767px) {
-  .footer-col01-left-section {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .footer-col01-left-section>span.p-1.ml-4 {
-    margin: 0px;
-    padding: 0px;
-    display: block;
-    width: 100%;
-  }
-
-  .footer-section-col01-inner {
-    width: 100%;
-    flex-wrap: wrap;
-    margin: 0 auto;
-  }
-
-  .footer-col01-left-section~div {
-    width: 100%;
-    padding-top: 28px;
-    margin: 0px;
-  }
-
-  .footer-col01-left-section>h6 {
-    font-size: 22px;
-    width: 100%;
-    padding: 0px;
-    padding-bottom: 35px;
-  }
-
-  .footer-col01-left-section>span.p-1.ml-4 input {
-    height: 42px;
-  }
-
-  .footer-col01-left-section~div h6:first-child {
-    padding-bottom: 10px;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0px !important;
-    margin-bottom: 12px;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div span {
-    padding: 0px !important;
-    padding-bottom: 8px !important;
-  }
-
-  .footer-menu>div>.footer-section-col02-inner>div:last-child>p {
-    padding-left: 0px;
-  }
-
+    height: 100%;
+    position: absolute;
+    background: #083A4A;
+    bottom: 15px;
+    left: 15px;
+    z-index: -1;
 }

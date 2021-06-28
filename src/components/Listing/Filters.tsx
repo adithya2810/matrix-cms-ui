@@ -38,8 +38,11 @@ const Filters = ({ deviceType }) => {
   };
 
   useEffect(() => {
-    if (isFilterBoxOpen) document.addEventListener('click', handleClickEvent);
-    return () => document.removeEventListener('click', handleClickEvent);
+    let clickEvent;
+    if (isFilterBoxOpen)
+      clickEvent = document.addEventListener('click', handleClickEvent);
+
+    return () => document.removeEventListener('click', clickEvent);
   }, [isFilterBoxOpen]);
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
@@ -90,21 +93,24 @@ const Filters = ({ deviceType }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
-                }`}
+              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${
+                inputText ? 'bg-accent' : 'bg-input'
+              }`}
             >
               {inputText ? SearchIcon : SearchAccentIcon}
               <input
-                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent ${inputText ? 'bg-accent text-white' : 'bg-input  text-accent'
-                  }`}
+                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent ${
+                  inputText ? 'bg-accent text-white' : 'bg-input  text-accent'
+                }`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Search knowledgebase..."
               />
             </div>
             <div
-              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
-                }`}
+              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${
+                inputText ? 'bg-input' : 'bg-accent-dark'
+              }`}
               style={{ height: deviceType.mobile ? 400 : 570 }}
             >
               <ul className="sub-h1 text-white">

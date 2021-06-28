@@ -30,13 +30,8 @@ export const navMenu = {
     {
       key: "footer_careers",
       name: "Careers",
-      link: "",
+      link: "/careers",
     },
-    {
-      key: "footer_media",
-      name: "Media",
-      link: "",
-    }
   ],
 };
 

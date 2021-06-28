@@ -11,11 +11,11 @@ export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBann
 
   return (
     <>
-      <div className="sm:hidden w-full bg-cover bg-center c-bg relative" style={{ backgroundImage: `url(${bannerImg})` }}>
+      <div className="sm:hidden w-full bg-cover bg-center c-bg relative" style={{ backgroundImage: `url(${bannerImg})`, marginTop:'8rem' }}>
         <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
           <div className="text-center">
-            <h4 className="text-white text-7lg md:leading-10 font-bold xl:text-4xl sm:text-2xl">{title}</h4>
-            <p className="text-white sub-h1 md:text-xl">{subTitle}</p>
+            <h1 className="text-white text-7lg md:leading-10 font-bold xl:text-4xl sm:text-2xl">{title}</h1>
+            <p className="text-white text-3md md:text-xl">{subTitle}</p>
             <div className="flex w-full relative position-bottom">
 
               {/* <div className="content-center m-auto">
@@ -31,7 +31,7 @@ export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBann
         </div>
       </div>
 
-      <div className="sm:block hidden w-full bg-cover bg-center c-bg relative" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${mobileBannerImg})` }}>
+      <div className="sm:block hidden w-full bg-cover bg-center c-bg1 relative" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${mobileBannerImg})` }}>
         <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
           <div className="p-8">
             <h1 className="text-white leading-tight text-5sm font-medium sm:text-left">{title}</h1>

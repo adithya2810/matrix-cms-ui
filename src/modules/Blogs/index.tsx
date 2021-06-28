@@ -1,10 +1,14 @@
-import React, { FC, ReactNode } from 'react';
-import HeroSection from './HeroSection';
-import AppliedFilters from './AppliedFilters';
-import List from './List';
-import Pagination from '../../components/Pagination';
-import Filters from './Filters';
+import React, { FC } from 'react';
+import Listing from '@components/Listing';
 
+const data = {
+  pageType: 'matrix_moments',
+  title: (
+    <h2>
+      The Matrix <br /> Moments Series
+    </h2>
+  ),
+};
 
 type deviceType = {
   mobile: Boolean;
@@ -14,16 +18,9 @@ type propsType = {
   deviceType: deviceType;
 };
 
-
 const index: FC<propsType> = (props) => {
   return (
-    <div className="listing">
-      <HeroSection {...props} />
-      <AppliedFilters />
-      <List {...props} />
-      <Filters {...props} />
-      <Pagination />
-    </div>
+    <Listing {...props} {...data} />
   );
 };
 

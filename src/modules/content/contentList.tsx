@@ -1,9 +1,12 @@
 import React from "react";
-import { ContentItem } from "@components";
+import { ContentItem, NewsEventContentItem } from "@components";
 import { SecondaryButton } from "@components/button/SecondaryButton";
 
 export type Props = {
-  blogData?: Array<any>;
+  blogData: Array<any>;
+  isNewsEvent: boolean;
+  header: string;
+  newsEventData?: Array<any>
 }
 
 const data = [
@@ -25,33 +28,52 @@ const data = [
   }
 ]
 
-export const ContentList: React.FC<Props> = ({ blogData }) => {
+export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData }) => {
 
-  return (<div className="ml-20 mt-14 flex-grow sm:hidden">
-    <div className="flex justify-between">
+  return (<div className="ml-8 flex-grow sm:hidden seperator">
+    <div className="flex justify-between ">
       <div className="mb-3">
-        <span className="font-light text-3xl leading-8 tracking-tighter text-primary"> {"RELEVANT CONTENT"} </span>
-        <span className="ml-5 pl-1 text-accent">{blogData.length}</span>
+        <span className="font-light text-3xl leading-8 tracking-tighter text-primary"> {header} </span>
+        <span className="ml-5 pl-1 text-accent">({blogData.length})</span>
       </div>
 
       <SecondaryButton title="View All RESULTS" className=" mr-6 text-accent-dark" />
     </div>
-    <div className="mt-4 flex-grow overflow-auto menuBlogInfoBox">
-      {
-        blogData.map((contentItem, index) => {
-          return (<ContentItem
-            key={contentItem.content_id + index}
-            image_url={contentItem.image_url}
-            title={contentItem.title}
-            author={contentItem.author}
-            content_id={contentItem.content_id}
-            content_type={contentItem.content_type}
-            read_duration={contentItem.read_duration}
-            onClick={(id) => console.log(id)}
-          />)
-        })
-      }
-    </div>
+    {!isNewsEvent &&
+      <div className="mt-4 flex-grow overflow-auto menuBlogInfoBox">
+        {
+          blogData.map((contentItem, index) => {
+            return (<ContentItem
+              key={contentItem.content_id + index}
+              image_url={contentItem.image_url}
+              title={contentItem.title}
+              author={contentItem.author}
+              content_id={contentItem.content_id}
+              content_type={contentItem.content_type}
+              read_duration={contentItem.read_duration}
+              onClick={(id) => console.log(id)}
+            />)
+          })
+        }
+      </div>
+    }
+    {isNewsEvent &&
+      <div className="mt-4 flex-grow overflow-auto menuBlogInfoBox">
+        {
+          blogData.map((newsEvent, index) => {
+            if (index < 5) {
+              return (<NewsEventContentItem
+                key={index}
+                image_url={newsEvent.image_url}
+                title={newsEvent.title}
+                date={newsEvent.created_date}
+                onClick={(id) => console.log(id)}
+              />)
+            }
+          })
+        }
+      </div>
+    }
 
   </div>)
 }

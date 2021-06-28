@@ -9,6 +9,7 @@ export { Image } from "./image";
 export { Tag } from "./tag";
 export { NavItem } from "./navItem";
 export { ContentItem } from "./contentItem";
+export { NewsEventContentItem } from "./contentItem/newsAndEventContentList"
 export { Founder } from "./founder";
 export { ContentSlider } from "./contentSlider/ContentSlider";
 export { Banner } from "./banner"

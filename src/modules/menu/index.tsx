@@ -54,7 +54,9 @@ export const Menu: React.FC = () => {
   const [nonSectorialList, SetNonSectorialList] = useState([]);
   const [selectedTag, setSelectedTag] = useState([]);
   const [blogData, setBlogData] = useState([]);
-  const [menuIndex, setMenuIndex] = useState(null)
+  const [menuIndex, setMenuIndex] = useState(null);
+  const [newsInfoList, setNewsInfoList] = useState([]);
+  const [eventInfoList, setEventInfoList] = useState([])
 
   useEffect(() => {
     if (menuIndex == 2) {
@@ -63,15 +65,27 @@ export const Menu: React.FC = () => {
   }, [selectedTag])
 
 
-  const onChangeMenu = (index) => {
+  const onChangeMenu = (menuType, index) => {
     setMenuIndex(index)
-    if (index == 2) {
+    if (index == 2 && menuType == "PRIMARY_MENU") {
       getTagList();
       getReleventBlogs(selectedTag);
+
+      setNewsInfoList([]);
+      setEventInfoList([]);
+    } else if (index == 3 && menuType == "SECONDARY_MENU") {
+      getEventInfo();
+      getNewsInfo();
+
+      setsectorialList([]);
+      SetNonSectorialList([]);
+      setBlogData([]);
     } else {
       setsectorialList([]);
       SetNonSectorialList([]);
       setBlogData([]);
+      setNewsInfoList([]);
+      setEventInfoList([]);
     }
   }
 
@@ -140,6 +154,37 @@ export const Menu: React.FC = () => {
       });
     setBlogData(blogList);
   }
+
+  const getNewsInfo = async () => {
+    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos?_sort=date:desc');
+    const json = await response.json();
+
+    const newsList = json.map(news => {
+      return {
+        title: news.title,
+        created_date: news.createdAt,
+        image_url: news.imageurl
+      }
+    });
+    console.log(newsList)
+    setNewsInfoList(newsList);
+  }
+
+  const getEventInfo = async () => {
+    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events?_sort=Event_date:desc');
+    const json = await response.json();
+
+    const eventList = json.map(event => {
+      return {
+        title: event.name,
+        created_date: event.createdAt,
+        image_url: event.cover_image_url
+      }
+    });
+    console.log(eventList)
+    setEventInfoList(eventList);
+  }
+
   const { data: { appConfig: navMenuState } } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);
 
   console.log(navMenuState);
@@ -164,12 +209,12 @@ export const Menu: React.FC = () => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={blogData} />
+            <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} />
             <Button title={"Visit " + "Blog Page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
           </div>
         }
 
-        {sectorialList.length == 0 && nonSectorialList.length == 0 &&
+        {sectorialList.length == 0 && nonSectorialList.length == 0 && newsInfoList.length == 0 && eventInfoList.length == 0 &&
           <div className="sm:hidden menuNotSelected flex-grow pl-24" style={{ marginLeft: 263 }}>
             <h1>Select our <br></br>
               options to
@@ -178,8 +223,26 @@ export const Menu: React.FC = () => {
           </div>
         }
 
+        {newsInfoList.length > 0 &&
+          <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
+            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} />
+            <Button title={"View " + "News page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+          </div>
+        }
+
+        {eventInfoList.length > 0 &&
+          <div className="flex-grow flex flex-col">
+            <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
+              <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+            </div>
+            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} />
+            <Button title={"View " + "Events page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+          </div>
+        }
+
       </div>
-      <SideNav onMenuClicked={(index) => onChangeMenu(index)} />
+      <SideNav onMenuClicked={(menuType, index) => onChangeMenu(menuType, index)} />
     </div >
   );
 };

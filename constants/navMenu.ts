@@ -32,6 +32,11 @@ export const navMenu = {
       name: "Careers",
       link: "",
     },
+    {
+      key: "footer_media",
+      name: "Media",
+      link: "",
+    }
   ],
 };
 

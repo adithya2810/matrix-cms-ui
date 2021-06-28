@@ -5,24 +5,40 @@ import { socialMedia } from "../../../constants/socialMedia";
 import Button from "@components/button/PrimaryButtonIconRight";
 
 export type Props = {
-  onMenuClicked: (selected: any) => void;
+  onMenuClicked: (menuType: string, selected: any) => void;
 }
 
 export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
   const [selectedIndex, setSelectedIndex] = React.useState(null);
+  const [secSelectedIndex, setSecSelectedIndex] = React.useState(null);
+  const [menuType, setMenuType] = React.useState(null);
 
-  useEffect(() => {
-    menuClicked(selectedIndex);
-  }, [])
+  // useEffect(() => {
+  //   menuClicked(selectedIndex);
+  // }, [])
 
   const isSelected = (index: number) => {
     if (index == selectedIndex) return true;
     else return false;
   };
 
-  const menuClicked = (index) => {
-    setSelectedIndex(index)
-    onMenuClicked(index);
+  const isSecondaryMenu = (index) => {
+    if (menuType == "SECONDARY_MENU" && index == secSelectedIndex) return true;
+    else return false;
+  };
+
+  const menuClicked = (menu, index) => {
+    setMenuType(menu);
+    if (menu == "PRIMARY_MENU") {
+      setSelectedIndex(index)
+      onMenuClicked("PRIMARY_MENU", index);
+      setSecSelectedIndex(null)
+    } else if (menu == "SECONDARY_MENU") {
+      onMenuClicked("SECONDARY_MENU", index);
+      setSecSelectedIndex(index)
+      setSelectedIndex(null)
+    }
+
   }
 
 
@@ -45,7 +61,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
                 arrow={true}
                 key={menuItem.key}
                 id={menuItem.key}
-                onClick={() => menuClicked(index)}
+                onClick={() => menuClicked("PRIMARY_MENU", index)}
                 selected={isSelected(index)}
               />
             );
@@ -53,15 +69,25 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
         </div>
 
         <div>
-          {navMenu.secondary.map((menuItem: any) => {
+          {navMenu.secondary.map((menuItem: any, index) => {
             return (
               <div
                 key={menuItem.key}
                 className="flex justify-between"
                 style={{ marginBottom: 21 }}
+                onClick={() => menuClicked("SECONDARY_MENU", index)}
               >
                 <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
-                <span className="menu-secondary-nav-icon"> {">"} </span>
+                {isSecondaryMenu(index) ?
+                  <Image
+                    src={"/icons/sideNavButton.svg"}
+                    alt="nav button"
+                    className="-mr-5 opacity-100"
+                    style={{ maxHeight: 50 }}
+                  />
+                  :
+                  <span className="menu-secondary-nav-icon"> {">"} </span>
+                }
               </div>
             );
           })}

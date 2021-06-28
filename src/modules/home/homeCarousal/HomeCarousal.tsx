@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, ContentSlider } from "@components";
 import { FounderDetail } from "@components/founder/FounderDetail";
+import Carousel from "react-slick";
 
 const data = [
   {
@@ -19,13 +20,73 @@ const data = [
     content_type: "blog",
     read_duration: "4 MIN",
   },
+
 ];
+
+const heros = [{
+  firstName: 'ROHIT',
+  lastName: 'M.A.',
+  firstName1: null,
+  lastName1: null,
+  caption: 'At Cloudnine, we believe that a child is life’s greatest gift and pregnancy is one of the most magical experiences nature can offer. ',
+  logo: '/icons/Cloudnine.svg',
+  image: '/icons/Rohit_Treatment.svg',
+  heading: ['Leading chain of ', 'maternity hospitals', ''],
+  bg: ''
+}, {
+  firstName: 'ANINDYA',
+  lastName: 'DUTTA',
+  firstName1: 'SANDEEP',
+  lastName1: 'DALMIA',
+  caption: 'Stanza Living provides fully-managed shared living accommodations to students and young professionals.',
+  logo: '/icons/Stanza.svg',
+  image: '/icons/Anindya.svg',
+  heading: ['Tech-enabled ', 'student housing', 'platform'],
+  bg: ''
+}, {
+  firstName: 'Asish',
+  lastName: 'MOHAPATRA',
+  firstName1: null,
+  lastName1: null,
+  caption: 'OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,',
+  logo: '/icons/OfBusiness.svg',
+  image: '/icons/Asish.svg',
+  heading: ['SME', 'lending', '']
+}, {
+  firstName: 'Mr.',
+  lastName: 'LAKSHIPATHY',
+  firstName1: null,
+  lastName1: null,
+  caption: 'A specialized financial services company funding the people who were perceived to be unfundable',
+  logo: '/icons/mx.svg',
+  image: '/icons/Laxmipathy.svg',
+  heading: ['Credit led', 'B2B marketplace', '']
+}, {
+  firstName: 'CHAKRADHAR',
+  lastName: 'GADE',
+  firstName1: 'NITIN',
+  lastName1: 'KAUSHAL',
+  caption: 'Country Delight aims to bring back the basics of Milk. It promises natural, fresh and unadulterated milk directly to the doorstep of the consumer.',
+  logo: '/icons/Country.svg',
+  heading: ['D2C', 'dairy & fresh foods', 'brand'],
+  image: '/icons/Chakradhar.svg'
+}, {
+  firstName: 'Bhavish',
+  lastName: 'AGGARWAL',
+  firstName1: null,
+  lastName1: null,
+  caption: 'Ola is India’s largest mobility platform and one of the world’s largest ride-hailing companies, serving 250+ cities across India, Australia, New Zealand, and the UK.',
+  logo: '/icons/ola.svg',
+  image: '/icons/Bhavish_image.svg',
+  heading: ['India’s leading', 'mobility', 'player']
+},]
 
 const HomeCarousal = () => {
   const [backgroundUrl, setBackgroundUrl] = React.useState(
     "/icons/backgroundCarousalImage.png"
   );
   return (
+    // <Carousel>
     <div className="relative" style={{ height: 1080 }}>
       <div
         className="absolute h-full w-full flex flex-col"
@@ -111,6 +172,7 @@ const HomeCarousal = () => {
         />
       </div>
     </div>
+    // </Carousel>
   );
 };
 

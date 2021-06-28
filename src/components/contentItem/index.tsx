@@ -2,6 +2,7 @@ import React from "react";
 import { Image } from "@components";
 import Button from "@components/button/PrimaryButtonIconRight";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
+import { url } from 'inspector';
 
 export type Props = {
   image_url: string;
@@ -28,7 +29,7 @@ export const ContentItem: React.FC<Props> = ({
 }) => {
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
-      <Image src={image_url} alt="content-image" className="contentItemImage" />
+      <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>
       <div className="content-item-desc bg-secondary-light absolute p-3"
         style={{ bottom: "-1rem", left: "9.5rem" }}
       >

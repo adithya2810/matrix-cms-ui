@@ -78,7 +78,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     const json = await response.json();
     const featureOneData = json.map(blogData => {
       return {
-        image_url: "/icons/content1.svg",
+        image_url: blogData.cover_desktop,
         title: blogData.name,
         author: blogData.author[0].name,
         content_id: blogData.content_type.id,
@@ -132,7 +132,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   };
 
   function afterChangeHandler(currentSlide) {
-    console.log(currentSlide);
+    // console.log(currentSlide);
     goTo(currentSlide);
   }
 

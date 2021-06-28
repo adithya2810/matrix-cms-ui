@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { navMenu } from "../../../constants";
 import { NavItem, Image } from "@components";
 import { socialMedia } from "../../../constants/socialMedia";
 import Button from "@components/button/PrimaryButtonIconRight";
 
-export const SideNav: React.FC = () => {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+export type Props = {
+  onMenuClicked: (selected: any) => void;
+}
+
+export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
+  const [selectedIndex, setSelectedIndex] = React.useState(null);
+
+  useEffect(() => {
+    menuClicked(selectedIndex);
+  }, [])
 
   const isSelected = (index: number) => {
     if (index == selectedIndex) return true;
     else return false;
   };
+
+  const menuClicked = (index) => {
+    setSelectedIndex(index)
+    onMenuClicked(index);
+  }
+
 
   return (
     <div
@@ -31,7 +45,7 @@ export const SideNav: React.FC = () => {
                 arrow={true}
                 key={menuItem.key}
                 id={menuItem.key}
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => menuClicked(index)}
                 selected={isSelected(index)}
               />
             );

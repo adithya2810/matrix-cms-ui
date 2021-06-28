@@ -54,7 +54,7 @@ const HomeContent: React.FC = () => {
     console.log(json)
     const featureData = json.map(blogData => {
       return {
-        image_url: "/icons/homeContentImage.svg",
+        image_url: blogData.cover_desktop || "/icons/homeContentImage.svg",
         image_caption: "MOST SEARCHED",
         title: blogData.name,
         author: blogData.author.length > 0 ? blogData.author[0].name : "Sanjot Malhi",

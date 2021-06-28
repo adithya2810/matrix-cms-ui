@@ -88,7 +88,7 @@ const HomeCarousal = () => {
 
     const featureTwoData = json.map(blogData => {
       return {
-        image_url: "/icons/content1.svg",
+        image_url: blogData.cover_desktop,
         title: blogData.name,
         author: blogData.author[0].name,
         content_id: blogData.content_type.id,

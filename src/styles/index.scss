@@ -152,6 +152,7 @@ h6 {
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.01em;
+  cursor: pointer;
 }
 
 .tag {
@@ -169,6 +170,7 @@ h6 {
   line-height: 24px;
   letter-spacing: -0.01em;
   width: fit-content;
+  cursor: pointer;
 }
 
 .menu-primary-nav-text {
@@ -228,6 +230,12 @@ h6 {
   border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.menu-tags::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-content-nav-button {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, ContentSlider } from "@components";
 import { FounderDetail } from "@components/founder/FounderDetail";
-import Carousel from "react-slick";
 
 const data = [
   {

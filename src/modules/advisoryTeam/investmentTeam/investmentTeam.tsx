@@ -16,7 +16,7 @@ const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
       <div className="team-member cursor-pointer grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {invesmentTeam?.map((t: any, index) => (
           <div key={t._id} style={{ position: 'relative' }}>
-            <Link href={'/advisoryTeam/' + t.slug} passHref>
+            <Link href={'/advisoryTeam/' + (t.slug !== undefined ? t.slug : '')} passHref>
               <div className="overflow-hidden shadow-xl card team-hover" >
                 <Image src={t.image_url} alt={t.name} className="team-member-img" />
                 <div className="team-overlay">

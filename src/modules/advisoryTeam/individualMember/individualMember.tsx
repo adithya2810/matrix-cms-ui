@@ -107,23 +107,7 @@ const IndividualMember: FC<propsType> = (props) => {
 
           <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
             <h3 className="text-4xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
-            {/* <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">
-              Born to a family of entrepreneurs and having worked across several different sectors, Rajat understands the nuances of building a successful company tempered by the unique realities of the Indian business ecosystem.
-            </p>
-            <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">
-              Rajat is driven to invest in passionate entrepreneurs, helping them build scalable and admirable companies.
-            </p>
-            <h3 className="text-4xl leading-none font-semibold text-black pt-16 sm:text-lg sm:pt-5 sm:uppercase">About</h3>
-            <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">
-              From a young age, Rajat has always been determined to pursue excellence. A Gold Medalist in school, a Silver Medalist at IIT, and, again, a Gold Medalist at Indian School of Business, Rajat's academic record speaks for itself. Post IIT, Rajat joined McKinsey as a management consultant, where over a five-year stint he worked on developing insights for multiple sectors, specializing in telecom and IT services.
-            </p>
-            <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">
-              During his stint at McKinsey, Rajat worked on several topics that are relevant for start-ups - for example, setting up a lean organization, institutionalizing a strong performance management system, leveraging technology to drive sales force effectiveness, maximizing marketing RoI, fundamentally achieving a lower cost base and many more.
-            </p>
-            <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">
-              Additionally, Rajat has spent time helping streamline his own family business (a SME in Delhi) and has hands-on experience in operations, sales and marketing.
-            </p> */}
-            <p className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">{e.description}</p>
+            <div className="text-4xl leading-snug font-normal text-black pt-16 sm:text-lg sm:pt-5">{e.description.replace('Brief', '')}</div>
           </div>
         </div>
       ))}

@@ -59,7 +59,7 @@ const HomeContent: React.FC = () => {
         title: blogData.name,
         author: blogData.author.length > 0 ? blogData.author[0].name : "Sanjot Malhi",
         designation: blogData.author.length > 0 ? blogData.author[0].designation : "Director",
-        author_image_url: blogData.length > 0 ? blogData.author[0].image_url : "/icons/profileImage.svg",
+        author_image_url: blogData.author.length > 0 ? blogData.author[0].image_url : "/icons/profileImage.svg",
         content_id: blogData.content_type.id,
         content_type: blogData.content_type.name,
         read_duration: blogData.readtime,

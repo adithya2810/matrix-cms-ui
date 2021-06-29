@@ -132,6 +132,7 @@
 @media only screen and (max-width: 945px) {
   .siteMenuOuterWrap {
     height: auto !important;
+    min-height: 100% !important;
 
     .siteMenuWrapper.flex {
       flex-wrap: wrap;
@@ -356,6 +357,7 @@
 
 @media only screen and (max-width: 639px) {
   .siteMenuOuterWrap {
+
     .sm\:hidden {
       display: block;
     }
@@ -390,6 +392,7 @@
       margin-left: 0px;
       margin-right: 0px;
     }
+
   }
 }
 

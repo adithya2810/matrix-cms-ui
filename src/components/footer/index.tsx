@@ -36,9 +36,8 @@ export const Footer: React.FC = () => {
         <div className="page-center">
           <div className="footer-section-col02-inner laptop:flex laptop:items-center ">
             <FooterMenu />
-            <div className="text-secondary flex items-center sm:mt-2 sm:grid sm:grid-cols-2 sm:gap-0  laptop:ml-20 ">
+            <div className="privacyMenuWrap text-secondary flex items-center sm:mt-2 sm:grid sm:grid-cols-2 sm:gap-0  laptop:ml-20 ">
               <span className="caption p-1 w-28 text-sm sm:mt-2" >PRIVACY POLICY</span>
-              <p className="caption p-0.5">{PRIVACY_POLICY} </p>
             </div>
           </div>
         </div>

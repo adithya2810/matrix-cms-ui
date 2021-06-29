@@ -54,21 +54,21 @@ const heroSlider02_Data = [
   {
     id: "01",
     title: "Tech-enabled <span>Student housing</span> Platform",
-    founderImage: '/icons/founderDetail.jpg',
+    founderImage: '/icons/founder3-edited.png',
     name: ["ANINYA", "DUTTA"],
     background_url: "/icons/backgroundCarousalImage.png"
   },
   {
     id: "02",
     title: "Tech-enabled <span>Student housing</span> Platform",
-    founderImage: '/icons/rohit.jpg',
+    founderImage: '/icons/rohit-edited.png',
     name: ["ROHIT.", " M.A"],
     background_url: "/icons/jonathan-borba.png"
   },
   {
     id: "03",
     title: "Tech-enabled <span>Student housing</span> Platform",
-    founderImage: '/icons/founder4.jpg',
+    founderImage: '/icons/founder4-edited.png',
     name: ["Mr. ", "LAKSHIPATHY"],
     background_url: "/icons/floriane-vita.png"
   }

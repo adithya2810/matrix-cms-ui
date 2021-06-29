@@ -1,9 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import { Image } from "@components";
 
 export const Logo: React.FC = () => {
+
+ const siteLogo = '/icons/matrixLogo.svg';
+
   return (
     // <Image src="/icons/matrixLogo_White.svg" alt="nextjs" width="156.19px" height="65px" className="company-logo" />
-    <Image src="/icons/matrixLogo.svg" alt="nextjs" width="156.19px" height="65px" className="company-logo" />
+    <Image src={siteLogo} alt="nextjs" width="156.19px" height="65px" className="company-logo noMargin" />
   );
 };

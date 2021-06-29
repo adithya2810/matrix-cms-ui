@@ -22,7 +22,7 @@
   height: 100%;
   @apply bg-accent-dark;
   @apply absolute;
-  bottom: -50px;
+  bottom: -20px;
   left: 0px;
 }
 
@@ -96,7 +96,7 @@
 
 .founderTitle {
   font-weight: 200;
-  font-size: calc(42px + 4.5vw);
+  font-size: calc(46px + 4.5vw);
   line-height: 1.1;
   letter-spacing: -0.025em;
   color: #000000;
@@ -164,10 +164,17 @@ span.thumbnailIndex {
   left: 0;
 }
 
+.pageBannerOuter .founderTitle br {
+  display: none;
+}
+
+.heroSlider01-thumbnailText br {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .heroSlider02-founderImage img.founderImage {
-    width: 100%;
-    height: 350px;
+    height: auto;
   }
 }
 
@@ -226,10 +233,15 @@ span.thumbnailIndex {
 }
 
 
+
 @media screen and (max-width: 1366px) {
   .pageBannerOuter {
     .founderTitle {
       font-size: calc(51px + 5vw);
+    }
+
+    .heroSlide3 .founderTitle>span~br {
+      display: block;
     }
 
     .founderSection-rightOuter {
@@ -287,7 +299,7 @@ span.thumbnailIndex {
     }
 
     .heroSlider01-thumbnailOuter {
-      bottom: 210px;
+      bottom: 235px;
     }
   }
 }
@@ -441,6 +453,10 @@ span.thumbnailIndex {
       order: 2;
     }
 
+    .heroSlide3 .founderTitle>span~br {
+      display: none;
+    }
+
     .heroSlider01-thumbnailOuter {
       display: none;
     }
@@ -581,13 +597,19 @@ span.thumbnailIndex {
     }
 
     .slick-list .slick-track .slick-slide>div>div .content-item-desc {
-      bottom: -10px !important;
-      right: 0px !important;
-      left: 6rem !important;
+      bottom: 0px !important;
+      right: -110px !important;
+      left: auto !important;
       position: relative;
-      width: calc(100% - 6rem);
+      width: calc(100% - 110px);
       display: flex;
       flex-direction: column;
+      margin-top: 34px;
+    }
+    .itemCoverImage {
+        position: absolute;
+        width: 160px;
+        height: 130px;
     }
 
     .contentItemOuter-w85 {
@@ -621,7 +643,7 @@ span.thumbnailIndex {
     }
 
     .hospatalitySector {
-      bottom: 260px;
+      bottom: 275px;
     }
 
     .contentCategoryBox {

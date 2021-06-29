@@ -29,7 +29,7 @@
 }
 
 .imageOverlay {
-  height: 900px;
+  min-height: 900px;
 }
 
 .heroSlider02-outerWarp {
@@ -38,6 +38,7 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
+  padding-bottom: 320px;
 }
 
 ul.slick-dots {
@@ -55,7 +56,7 @@ ul.slick-dots {
 }
 
 .heroSlider02Outer {
-  height: 900px;
+  min-height: 900px;
 }
 
 .heroSlider02-slide-indicator {
@@ -95,10 +96,11 @@ ul.slick-dots {
 }
 
 .hospatalitySector {
-  bottom: 40px;
-  left: 150px;
-  height: 246px;
+  bottom: 50px;
+  height: 200px;
   width: 500px;
+  left: auto;
+  right: calc(85% - 440px);
 }
 
 .hospatalitySector-text {
@@ -110,11 +112,13 @@ ul.slick-dots {
   .heroSlider02-outerWarp {
     display: block;
     width: 100%;
+    padding-bottom: 0px;
   }
 
   .heroSlider02Outer,
   .imageOverlay {
     height: auto;
+    min-height: initial;
   }
 
   .mobile {
@@ -216,4 +220,12 @@ ul.slick-dots {
 
   }
 
+}
+
+
+@media screen and (max-width: 480px) {
+  .hospatalitySector {
+    bottom: 78px !important;
+    position: relative;
+  }
 }

@@ -840,7 +840,8 @@ h6 {
   color: #01576e;
 }
 
-.map-info {}
+.map-info {
+}
 
 .bg-overlay {
   width: 230px;
@@ -856,7 +857,7 @@ h6 {
   margin-left: auto;
 }
 
-.noMargin{
+.noMargin {
   margin: 0px !important;
 }
 
@@ -866,7 +867,7 @@ h6 {
   }
 
   .headerOuter-warpper {
-    margin: 25px 0;
+    padding: 25px 0;
   }
 
   .founder-container {
@@ -907,22 +908,22 @@ h6 {
     font-size: 16px;
   }
 
-  .footer-menu>div>.footer-section-col02-inner {
+  .footer-menu > div > .footer-section-col02-inner {
     flex-direction: column;
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div {
+  .footer-menu > div > .footer-section-col02-inner > div {
     margin: 0 auto;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div:first-child {
+  .footer-menu > div > .footer-section-col02-inner > div:first-child {
     padding: 10px;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div:last-child>p {
+  .footer-menu > div > .footer-section-col02-inner > div:last-child > p {
     padding-left: 10px;
   }
 }
@@ -933,7 +934,7 @@ h6 {
     width: 100%;
   }
 
-  .footer-col01-left-section>span.p-1.ml-4 {
+  .footer-col01-left-section > span.p-1.ml-4 {
     margin: 0px;
     padding: 0px;
     display: block;
@@ -946,40 +947,40 @@ h6 {
     margin: 0 auto;
   }
 
-  .footer-col01-left-section~div {
+  .footer-col01-left-section ~ div {
     width: 100%;
     padding-top: 28px;
     margin: 0px;
   }
 
-  .footer-col01-left-section>h6 {
+  .footer-col01-left-section > h6 {
     font-size: 22px;
     width: 100%;
     padding: 0px;
     padding-bottom: 35px;
   }
 
-  .footer-col01-left-section>span.p-1.ml-4 input {
+  .footer-col01-left-section > span.p-1.ml-4 input {
     height: 42px;
   }
 
-  .footer-col01-left-section~div h6:first-child {
+  .footer-col01-left-section ~ div h6:first-child {
     padding-bottom: 10px;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div {
+  .footer-menu > div > .footer-section-col02-inner > div {
     width: 100%;
     margin: 0 auto;
     padding: 0px !important;
     margin-bottom: 12px;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div span {
+  .footer-menu > div > .footer-section-col02-inner > div span {
     padding: 0px !important;
     padding-bottom: 8px !important;
   }
 
-  .footer-menu>div>.footer-section-col02-inner>div:last-child>p {
+  .footer-menu > div > .footer-section-col02-inner > div:last-child > p {
     padding-left: 0px;
   }
 }

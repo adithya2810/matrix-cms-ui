@@ -1043,3 +1043,115 @@ textarea {
   left: 15px;
   z-index: -1;
 }
+.news-body {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  color: #083a4a;
+  margin-top: 13px;
+  font-size: 13px;
+}
+.read-or-hide {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #01576e;
+  float: right;
+  cursor: pointer;
+}
+@media screen and (max-width: 650px) {
+  .news-container {
+    margin: 15vh 5vw !important;
+  }
+  .news-header {
+    font-size: 24px !important;
+    line-height: 27px !important;
+  }
+  .news-description {
+    margin: 30px 20px !important;
+    font-size: 4.5vw !important;
+  }
+  .tags-block,
+  .news-container > a {
+    display: none !important;
+  }
+}
+.tags-block {
+  margin-top: 150px;
+}
+.tags-block > p {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.tags-caption {
+  line-height: 14px;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #01576e;
+  margin: 30px 10px;
+}
+.tags-list > div {
+  margin-bottom: 30px;
+}
+.tags-list > div > span {
+  justify-content: space-between;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #000000;
+  padding: 5px 8px;
+  border: 1px solid #01576e;
+  margin: 0 20px 20px 0;
+}
+.news-container {
+  margin: 20vh 2.5vw;
+}
+.news-header {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  line-height: 99px;
+  letter-spacing: -0.01em;
+  color: #01576e;
+}
+.news-description {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vw;
+  line-height: 144%;
+  margin-top: 63px;
+  color: #000000;
+}
+.tags-view-more {
+  float: right;
+  padding-right: 80px;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
+.news-container > a {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.01em;
+  color: #000000;
+  margin-bottom: 40px;
+}

@@ -22,7 +22,7 @@ const footermenu = [
   {
     key: "footer_contact",
     name: "Contact",
-    link: "",
+    link: "/contact",
   },
   {
     key: "footer_careers",

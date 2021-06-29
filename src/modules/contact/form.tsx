@@ -12,6 +12,7 @@ const ContactForm: React.FC = () => {
     city: "MUMBAI",
     address: ['601-602, Ceejay House,', 'Dr Annie Besant Road, Worli,', 'Mumbai 400018', '+91-22-67680000']
   }]
+
   return (
     <div className="relative m-auto w-11/12	" style={{ marginTop: 100, marginBottom: 150 }}>
       <div className="row">
@@ -92,3 +93,4 @@ const ContactForm: React.FC = () => {
   )
 }
 export default ContactForm;
+

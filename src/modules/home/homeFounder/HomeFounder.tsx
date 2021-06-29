@@ -39,7 +39,7 @@ const founderData = [
 
 const HomeFounder = () => {
   return (
-    <div className="pageBannerOuter" style={{ "position": "relative" }}>
+    <div className="pageBannerOuter" style={{ position: "relative", paddingTop: 130 }}>
       <div className="page-center">
         <div className="heroSlider01-outerWarp">
           <Founder foundersData={founderData} />

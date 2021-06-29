@@ -23,6 +23,11 @@
   padding: 30px 0;
 }
 
+.headerOuter-warpper.transparentMenu {
+  position: fixed;
+  z-index: 999999;
+}
+
 .headerInner-warpper {
   display: flex;
   flex-wrap: wrap;

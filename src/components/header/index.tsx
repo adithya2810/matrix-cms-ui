@@ -8,7 +8,7 @@ export type Props = {
 
 export const Header: React.FC<Props> = ({ toggle }) => {
   return (
-    <div className="headerOuter-warpper"> {/*flex w-full z-20 justify-between items-start laptop:pl-8 mt-11 sm:mt-0 sm:p-5 */}
+    <div className="headerOuter-warpper transparentMenu"> {/*flex w-full z-20 justify-between items-start laptop:pl-8 mt-11 sm:mt-0 sm:p-5 */}
       <div className="page-center">
         <div className="headerInner-warpper">
           <Logo />

@@ -5,7 +5,7 @@ export default function (type) {
     case 'Video':
       return "/icons/video.svg";
     case 'Article':
-      return "/icons/icon_Podcast_Black.svg";
+      return "/icons/artical.svg";
     default:
       return "/icons/video.svg"
   }

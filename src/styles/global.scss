@@ -232,6 +232,7 @@ h6 {
   font-weight: 400;
   font-size: 28px;
   line-height: 34px;
+  cursor: pointer;
 }
 
 .tag-selected {
@@ -318,6 +319,10 @@ h6 {
   height: 65px;
   margin-top: 44px;
   margin-left: 84px;
+}
+
+.menuCloseButton {
+  margin-top: 44px;
 }
 
 .menu-tags {

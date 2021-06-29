@@ -190,6 +190,7 @@ h6 {
   line-height: 34px;
   letter-spacing: -0.01em;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .menu-primary-nav-icon {
@@ -222,6 +223,10 @@ h6 {
   height: 65px;
   margin-top: 44px;
   margin-left: 84px;
+}
+
+.menuCloseButton {
+  margin-top: 44px;
 }
 
 .menu-tags {

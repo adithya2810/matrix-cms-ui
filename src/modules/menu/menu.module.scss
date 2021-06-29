@@ -44,12 +44,12 @@
 }
 
 .menuNotSelected h1 {
-  font-size: 11vw;
+  font-size: 8vw;
   font-weight: 200;
   line-height: 1em;
   letter-spacing: -0.025em;
   color: #ebebe9;
-  margin-top: 120px;
+  margin-top: 40px;
 }
 
 @media only screen and (max-width: 1080px) {
@@ -190,6 +190,10 @@
       margin-left: 40px;
     }
 
+    .menuCloseButton {
+      margin-top: 25px;
+    }
+
     .siteSidenavMenuWrap.side-nav {
       margin-top: 90px;
       height: calc(100% - 90px);
@@ -251,6 +255,10 @@
       margin-left: 25px;
     }
 
+    .menuCloseButton {
+      margin-top: 20;
+    }
+
     .menu-primary-nav-icon {
       width: 20px;
       height: 30px;
@@ -292,6 +300,7 @@
       width: auto;
       height: auto;
       line-height: 30px;
+      cursor: pointer;
     }
 
     .menuCloseButton {
@@ -357,7 +366,6 @@
 
 @media only screen and (max-width: 639px) {
   .siteMenuOuterWrap {
-
     .sm\:hidden {
       display: block;
     }
@@ -392,7 +400,6 @@
       margin-left: 0px;
       margin-right: 0px;
     }
-
   }
 }
 

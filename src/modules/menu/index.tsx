@@ -215,7 +215,11 @@ export const Menu: React.FC = () => {
         }
 
         {sectorialList.length == 0 && nonSectorialList.length == 0 && newsInfoList.length == 0 && eventInfoList.length == 0 &&
-          <div className="sm:hidden menuNotSelected flex-grow pl-24" style={{ marginLeft: 263 }}>
+          <div className="sm:hidden menuNotSelected flex-grow pl-8" style={{ marginLeft: 263 }}>
+            <div className="menuCloseButton mt-11 flex items-center justify-end" onClick={() => appConfigMutation.toogleMenu()}>
+              <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+            </div>
             <h1>Select our <br></br>
               options to
               explore the

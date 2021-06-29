@@ -38,7 +38,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Manrope", "Helvetica", "Arial", "sans-serif"],
+      sans: ["Manrope", "Helvetica", "Arial", "sans-serif", "Poppins"],
     },
     screens: {
       xl: { max: "1279px" },

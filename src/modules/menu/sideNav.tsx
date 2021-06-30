@@ -1,21 +1,27 @@
-import React, { useEffect } from "react";
+import React, { Fragment, ReactComponentElement, useEffect } from "react";
 import { navMenu } from "../../../constants";
 import { NavItem, Image } from "@components";
 import { socialMedia } from "../../../constants/socialMedia";
 import Button from "@components/button/PrimaryButtonIconRight";
 
 export type Props = {
-  onMenuClicked: (menuType: string, selected: any) => void;
+  menuIndex: number;
+  onMenuClicked: (menuType: string, selected: any, index: number) => void;
 }
 
-export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
+export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) => {
   const [selectedIndex, setSelectedIndex] = React.useState(null);
   const [secSelectedIndex, setSecSelectedIndex] = React.useState(null);
   const [menuType, setMenuType] = React.useState(null);
+  const [mediaToggle, setMediaTogglee] = React.useState(false);
 
-  // useEffect(() => {
-  //   menuClicked(selectedIndex);
-  // }, [])
+
+  useEffect(() => {
+    if (menuIndex < 0) {
+      setSecSelectedIndex(null)
+      setSelectedIndex(null)
+    }
+  }, [menuIndex])
 
   const isSelected = (index: number) => {
     if (index == selectedIndex) return true;
@@ -27,18 +33,22 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
     else return false;
   };
 
-  const menuClicked = (menu, index) => {
+  const menuClicked = (menu, id, index) => {
     setMenuType(menu);
     if (menu == "PRIMARY_MENU") {
       setSelectedIndex(index)
-      onMenuClicked("PRIMARY_MENU", index);
+      onMenuClicked("PRIMARY_MENU", id, index);
       setSecSelectedIndex(null)
     } else if (menu == "SECONDARY_MENU") {
-      onMenuClicked("SECONDARY_MENU", index);
+      onMenuClicked("SECONDARY_MENU", id, index);
       setSecSelectedIndex(index)
       setSelectedIndex(null)
     }
 
+  }
+
+  const toggle = (index) => {
+    setSecSelectedIndex(index)
   }
 
 
@@ -61,21 +71,21 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
                 arrow={true}
                 key={menuItem.key}
                 id={menuItem.key}
-                onClick={() => menuClicked("PRIMARY_MENU", index)}
+                onClick={() => menuClicked("PRIMARY_MENU", menuItem.key, index)}
                 selected={isSelected(index)}
               />
             );
           })}
         </div>
 
-        <div>
+        <div className="desktop">
           {navMenu.secondary.map((menuItem: any, index) => {
             return (
               <div
                 key={menuItem.key}
                 className="flex justify-between"
                 style={{ marginBottom: 21 }}
-                onClick={() => menuClicked("SECONDARY_MENU", index)}
+                onClick={() => menuClicked("SECONDARY_MENU", menuItem.key, index)}
               >
                 <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
                 {isSecondaryMenu(index) ?
@@ -87,6 +97,39 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked }: Props) => {
                   />
                   :
                   <span className="menu-secondary-nav-icon"> {">"} </span>
+                }
+              </div>
+            );
+          })}
+        </div>
+        <div className="mobile">
+          {navMenu.secondary.map((menuItem: any, index) => {
+            return (
+              <div
+                key={menuItem.key + 1}
+                className="flex justify-between flex-wrap"
+                style={{ marginBottom: 20 }}
+                onClick={() => toggle(index)}
+              >
+                <h5 className="menu-secondary-nav-text"> {menuItem.name} </h5>
+                {isSecondaryMenu(index) ?
+                  <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
+                  :
+                  <span className="menu-secondary-nav-icon"> {">"} </span>
+                }
+                {menuItem.subMenu.length > 0 &&
+                  <div className="subMenuOuter flex-wrap flex flex-col">
+                    {menuItem.subMenu.map(menu => {
+                      return (
+                        <div className="flex-wrap flex justify-between" style={{ marginTop: 20 }}
+                          onClick={() => menuClicked("SECONDARY_MENU", menu.key, index)}>
+                          <h5 className="menu-secondary-nav-text" key={menu.key + 1}>{menu.name}</h5>
+                          <span className="menu-secondary-nav-icon"> {">"} </span>
+                        </div>
+                      )
+                    })}
+
+                  </div>
                 }
               </div>
             );

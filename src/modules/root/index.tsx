@@ -22,7 +22,8 @@ export type Props = {
   token?: string;
 };
 
-export const Root: React.FC<Props> = ({ children }) => {
+export const Root: React.FC<Props> = ({ children, deviceType }) => {
+  console.log(deviceType)
   const {
     data: { appConfig: navMenuState },
   } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);

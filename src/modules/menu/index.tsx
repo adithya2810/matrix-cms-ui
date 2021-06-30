@@ -7,6 +7,7 @@ import { TagList } from "./tagList";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { appConfigMutation, appConfiqQuery } from "../../../operations/appConfig";
 import { appConfigVar } from "../../../models/AppConfig"
+import { MobileMenu } from './mobileMenu'
 
 const tagList = [{
   title: "Education",
@@ -65,28 +66,34 @@ export const Menu: React.FC = () => {
   }, [selectedTag])
 
 
-  const onChangeMenu = (menuType, index) => {
+  const onChangeMenu = (menuType, menuID, index) => {
     setMenuIndex(index)
-    if (index == 2 && menuType == "PRIMARY_MENU") {
+    setsectorialList([]);
+    SetNonSectorialList([]);
+    setBlogData([]);
+    setNewsInfoList([]);
+    setEventInfoList([]);
+
+    if (menuID == "footer_blog" && menuType == "PRIMARY_MENU") {
       getTagList();
       getReleventBlogs(selectedTag);
-
-      setNewsInfoList([]);
-      setEventInfoList([]);
-    } else if (index == 3 && menuType == "SECONDARY_MENU") {
+    } else if (menuID == "footer_media" && menuType == "SECONDARY_MENU") {
       getEventInfo();
       getNewsInfo();
-
-      setsectorialList([]);
-      SetNonSectorialList([]);
-      setBlogData([]);
-    } else {
-      setsectorialList([]);
-      SetNonSectorialList([]);
-      setBlogData([]);
-      setNewsInfoList([]);
-      setEventInfoList([]);
+    } else if (menuID == "footer_news" && menuType == "SECONDARY_MENU") {
+      getNewsInfo();
+    } else if (menuID == "footer_event" && menuType == "SECONDARY_MENU") {
+      getEventInfo();
     }
+  }
+
+  const intialValue = () => {
+    setsectorialList([]);
+    SetNonSectorialList([]);
+    setBlogData([]);
+    setNewsInfoList([]);
+    setEventInfoList([]);
+    setMenuIndex(-1)
   }
 
 
@@ -118,6 +125,7 @@ export const Menu: React.FC = () => {
   }
 
   const getSelectedTag = (id) => {
+    console.log(id)
     if (selectedTag.indexOf(id) > -1) {
       setSelectedTag(selectedTag.filter(item => item != id));
     } else {
@@ -166,7 +174,6 @@ export const Menu: React.FC = () => {
         image_url: news.imageurl
       }
     });
-    console.log(newsList)
     setNewsInfoList(newsList);
   }
 
@@ -181,7 +188,6 @@ export const Menu: React.FC = () => {
         image_url: event.cover_image_url
       }
     });
-    console.log(eventList)
     setEventInfoList(eventList);
   }
 
@@ -192,9 +198,14 @@ export const Menu: React.FC = () => {
   const className = navMenuState.menu ? "visible" : "invisible hidden"
   return (
     <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: 1053 }}>
+
       <div className="siteMenuWrapper flex justify-between bg-secondary-light flex-grow">
         <div>
           <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
+          <div className="menuCloseButton mt-11  items-center self-end pt-2 hidden lg:flex" onClick={() => appConfigMutation.toogleMenu()}>
+            <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
+            <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+          </div>
         </div>
         {(sectorialList.length > 0 || nonSectorialList.length > 0) &&
           <div className="sm:hidden menu-tags flex-grow pl-24" style={{ marginLeft: 263 }}>
@@ -215,14 +226,14 @@ export const Menu: React.FC = () => {
         }
 
         {sectorialList.length == 0 && nonSectorialList.length == 0 && newsInfoList.length == 0 && eventInfoList.length == 0 &&
-          <div className="sm:hidden menuNotSelected flex-grow pl-8" style={{ marginLeft: 263 }}>
+          <div className="sm:hidden menuNotSelected flex-grow pl-12">
             <div className="menuCloseButton mt-11 flex items-center justify-end" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <h1>Select our <br></br>
-              options to
-              explore the
+              options to<br></br>
+              explore the<br></br>
               content :)</h1>
           </div>
         }
@@ -246,7 +257,23 @@ export const Menu: React.FC = () => {
         }
 
       </div>
-      <SideNav onMenuClicked={(menuType, index) => onChangeMenu(menuType, index)} />
+
+
+      <div className="siteMenu-mobileWrapper">
+        <MobileMenu
+          sectorialList={sectorialList}
+          nonSectorialList={nonSectorialList}
+          blogData={blogData}
+          selectedTags={selectedTag}
+          newsInfoList={newsInfoList}
+          eventInfoList={eventInfoList}
+          onItemClick={getSelectedTag}
+          closeMenu={intialValue}
+        >
+
+        </MobileMenu>
+      </div>
+      <SideNav menuIndex={menuIndex} onMenuClicked={(menuType, menuId, index) => onChangeMenu(menuType, menuId, index)} />
     </div >
   );
 };

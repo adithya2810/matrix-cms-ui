@@ -48,17 +48,9 @@ const ContentItemWithTags: React.FC<Props> = ({
           className="absolute"
           style={{ width: 250, height: 250, background: "#01576E", bottom: 0 }}
         ></div>
-        <Image
-          src={image_url}
-          alt=""
-          className="absolute"
-          style={{
-            height: 250,
-            width: 250,
-            left: 6,
-            bottom: 6,
-          }}
-        ></Image>
+        <div className="blogCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
+        </div>
+
         <div
           className="absolute flex items-center contentCategoryBox"
           style={{

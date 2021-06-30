@@ -52,7 +52,42 @@
   margin-top: 40px;
 }
 
+.siteMenu-mobileWrapper {
+  display: none;
+}
+
+.subMenuOuter.flex-wrap {
+  flex: 0 100%;
+}
+
+.inverted {
+  transform: rotate(-90deg);
+}
+
 @media only screen and (max-width: 1080px) {
+  .siteMenu-mobileWrapper {
+    display: block;
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+  }
+
+  .mobile-menuTags {
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
+  }
+
+  .mobile-menuBlogs {
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
+  }
+
+  .siteMenuWrapper {
+    display: none;
+  }
+
   .siteMenuOuterWrap {
     .menu-secondary-nav-text {
       font-size: 20px;
@@ -111,7 +146,8 @@
     }
 
     .siteSidenavMenuWrap.side-nav {
-      width: 280px;
+      width: 90%;
+      max-width: 90%;
     }
 
     .siteMenuWrapper > div:first-child {
@@ -132,7 +168,7 @@
 @media only screen and (max-width: 945px) {
   .siteMenuOuterWrap {
     height: auto !important;
-    min-height: 100% !important;
+    min-height: 750px !important;
 
     .siteMenuWrapper.flex {
       flex-wrap: wrap;
@@ -183,6 +219,10 @@
       margin: 0px;
     }
 
+    .menuNotSelected h1 {
+      margin-top: 80px;
+    }
+
     .company-logo {
       width: 130px;
       height: 56px;
@@ -190,14 +230,9 @@
       margin-left: 40px;
     }
 
-    .menuCloseButton {
-      margin-top: 25px;
-    }
-
     .siteSidenavMenuWrap.side-nav {
       margin-top: 90px;
       height: calc(100% - 90px);
-      width: 30%;
     }
 
     .siteMenuWrapper > .flex.flex-col .ml-20.mt-14,
@@ -255,10 +290,6 @@
       margin-left: 25px;
     }
 
-    .menuCloseButton {
-      margin-top: 20;
-    }
-
     .menu-primary-nav-icon {
       width: 20px;
       height: 30px;
@@ -269,8 +300,7 @@
 
     .siteSidenavMenuWrap.side-nav {
       margin-top: 80px;
-      height: calc(100% - 90px);
-      width: 170px;
+      height: 100%;
     }
 
     .menu-secondary-nav-icon {
@@ -370,16 +400,6 @@
       display: block;
     }
 
-    .content-item-desc {
-      width: calc(100% - 10px);
-      height: auto;
-      bottom: 0px !important;
-      left: 5px !important;
-      position: relative;
-      margin-top: 100px;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-    }
-
     .menuCloseButton ~ div > .flex {
       flex-direction: column;
       text-align: center;
@@ -409,6 +429,18 @@
       font-size: 14px;
       line-height: 1.2;
       padding-bottom: 10px;
+    }
+
+    .itemCoverImage {
+      margin-bottom: 100px;
+    }
+
+    .content-item-desc {
+      width: calc(100% - 50px);
+      bottom: -80px !important;
+      left: 40px !important;
+      margin-top: 100px;
+      box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 25%);
     }
 
     .content-item-desc > .flex.justify-between:not(.contentButtonWrap) {
@@ -447,6 +479,14 @@
 
     .company-logo {
       margin-left: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .siteMenuOuterWrap {
+    .siteMenuWrapper.flex {
+      flex-wrap: inherit;
     }
   }
 }

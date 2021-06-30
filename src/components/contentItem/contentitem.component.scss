@@ -10,3 +10,14 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.blogCoverImage {
+  height: 250px;
+  width: 250px;
+  left: 6px;
+  bottom: 6px;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

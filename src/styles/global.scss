@@ -721,6 +721,14 @@ h6 {
       -webkit-box-shadow: -6px -10px 0px 0px #01576e;
       -moz-box-shadow: -6px -10px 0px 0px #01576e;
     }
+
+    &:hover {
+      transition-duration: 200ms;
+      box-shadow: none;
+      + div {
+        display: none;
+      }
+    }
   }
 }
 
@@ -731,6 +739,35 @@ h6 {
   @screen sm {
     padding: 0 30px;
   }
+}
+
+.blog-detail {
+  .hero-section .title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 85px;
+    line-height: 95px;
+    @screen sm {
+      font-weight: 500;
+      font-size: 45px;
+      line-height: 52px;
+      letter-spacing: -0.01em;
+    }
+  }
+}
+
+.blog-content {
+  iframe {
+    width: 100%;
+    height: 523px;
+    @screen sm {
+      height: 158px;
+    }
+  }
+}
+
+.filters-overflow::-webkit-scrollbar {
+  display: none;
 }
 
 .timer {

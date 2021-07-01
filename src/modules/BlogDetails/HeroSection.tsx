@@ -8,11 +8,12 @@ type deviceType = {
 };
 
 type propsType = {
+  blogDetails: any;
   deviceType: deviceType;
 };
 
-const HeroSection: FC<propsType> = ({ deviceType }) => {
-  const imgPath = !deviceType.mobile ? '../../images/blog-details/1-laptop.png' : '../../images/about-us/1-mobile.png'
+const HeroSection: FC<propsType> = ({ deviceType, blogDetails }) => {
+  const imgPath = !deviceType.mobile ? blogDetails?.cover_desktop : blogDetails?.cover_image_mobile
 
   return (
     <>
@@ -20,7 +21,7 @@ const HeroSection: FC<propsType> = ({ deviceType }) => {
         <div className="laptop:grid laptop:grid-cols-11 w-full">
           <div className="col-span-3" />
           <div className="col-span-8 title text-white laptop:mt-24 sm:mt-14">
-            The Hack Job – hacking the way to growth and profits!
+            {blogDetails?.name}
           </div>
         </div>
       </div>

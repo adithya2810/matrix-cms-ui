@@ -28,12 +28,12 @@ const SearchMoreLaptop = ({ deviceType }) => {
   return (
     <>
       {/* Mask */}
-      {isSearchBoxOpen && (
+      {isSearchBoxOpen && !!inputText.length && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
       <div className="fixed bottom-8 left-8 right-8 z-50">
-        {isSearchBoxOpen &&
+        {isSearchBoxOpen && !!inputText.length &&
           <>
             <div
               className="laptop:hidden flex justify-end"
@@ -70,18 +70,18 @@ const SearchMoreLaptop = ({ deviceType }) => {
           className="closed duration-300 w-28 cursor-pointer sm:flex sm:w-full"
         >
           <div
+            onClick={handleFilter}
             className="search h-24 sm:h-12 sm:w-12  bg-accent-dark flex justify-center items-center">
             {SearchIcon}
           </div>
-          <div className={`search laptop:hidden w-auto h-24 sm:h-12 flex items-center bg-accent`}>
+          {isSearchBoxOpen && <div className={`search laptop:hidden w-auto h-24 sm:h-12 flex items-center bg-accent`}>
             <input
               className={`w-full px-3  body1 border-none outline-none  bg-accent text-white`}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="search for more blogs"
-              onFocus={handleFilter}
               onBlur={handleFilter}
             />
-          </div>
+          </div>}
           <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />

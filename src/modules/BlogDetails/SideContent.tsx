@@ -7,12 +7,14 @@ type deviceType = {
 };
 
 type propsType = {
+  blogDetails: any;
   deviceType: deviceType;
+  relatedVideos: any,
 };
 
 
 
-const SideContent: FC<propsType> = ({ deviceType: { mobile } }) => {
+const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relatedVideos }) => {
   const profileImage = `../../images/blog-details/blog-profile-${mobile ? 'mobile' : 'laptop'}.png`
   const videoImage = `../../images/blog-details/video-${mobile ? 'mobile' : 'laptop'}.png`
   return (
@@ -23,13 +25,17 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile } }) => {
         </div>
         <div className='laptop:p-10 sm:p-4'>
           <div className="flex items-center laptop:mb-5 sm:mb-2.5">
-            <img src={profileImage} alt="profileImage" className='laptop:mr-5 sm:mr-2.5' />
+            <img
+              alt="profileImage"
+              className='laptop:mr-5 sm:mr-2.5'
+              src={blogDetails?.author?.[0]?.image_url}
+              style={!mobile ? { height: 67, width: 67, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }} />
             <div>
-              <h6>Avnish Bajaj</h6>
-              <div className="caption">FOUNDER & MANAGIN DIRECTOR</div>
+              <h6 className='mb-2'>{blogDetails?.author?.[0]?.name}</h6>
+              <div className="caption">{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>
-          <div className="sub-h2">Avnish Bajaj is an angel investor, mentor and a highly successful technology entrepreneur. He is the Co-founder and Managing Director of Matrix Partners India.</div>
+          <div className="sub-h2">{blogDetails?.author?.[0]?.description}</div>
         </div>
       </div>
       <div className="tags flex gap-2 laptop:py-6 sm:py-3">
@@ -38,7 +44,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile } }) => {
         <div className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">D2C <span className='body2 opacity-80'>(13)</span></div>
       </div>
       {!mobile &&
-        <RelatedVideos mobile={mobile} />
+        <RelatedVideos mobile={mobile} relatedVideos={relatedVideos} />
       }
     </div>
   )

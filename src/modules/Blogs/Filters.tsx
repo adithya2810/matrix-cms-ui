@@ -10,10 +10,47 @@ import {
   TwitterMobile,
   FilterMobile,
   SearchAccentLaptop,
+  DownArrow,
+  UpArrow,
+  SelectAllLaptop,
+  SelectNoneLaptop
 } from '@components/Icons';
 import React, { useEffect, useRef, useState } from 'react';
 
-const Filters = ({ deviceType }) => {
+
+const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
+
+
+const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
+
+  const [inputText, setInputText] = useState('');
+  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
+  const filterRef = useRef(null);
+  const [openedFilter, setOpenedFilter] = useState('')
+  const [moments, setMoments] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
+  const [topics, setTopics] = useState([])
+  const [authors, setAuthors] = useState([])
+  const [formats, setFormats] = useState(['Audio', 'Video', 'Article'])
+  const [filters, setFilters] = useState(() => initialFilters)
+
+
+  useEffect(() => {
+    fetchFiltersMetaData();
+  }, [])
+
+  const fetchFiltersMetaData = async () => {
+    try {
+      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags`)
+      const resJsonTopics = await resTopics.json();
+      setTopics(resJsonTopics.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
+      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people`)
+      const resJsonAuthors = await resAuthors.json();
+      setAuthors(resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const SearchAccentIcon = deviceType.mobile ? (
     <SearchAccentMobile />
@@ -28,9 +65,6 @@ const Filters = ({ deviceType }) => {
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
   const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
 
-  const [inputText, setInputText] = useState('');
-  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
-  const filterRef = useRef(null);
 
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
@@ -43,6 +77,14 @@ const Filters = ({ deviceType }) => {
   }, [isFilterBoxOpen]);
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
+
+  const getTag = ({ isSelected, setSelected, tagName, tagNumber }) => {
+    return <div onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-3 laptop:py-2 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`}>{tagName} <span>{!!tagNumber && `(${tagNumber})`}</span></div>
+  }
+
+  const handleApplyFilters = () => {
+
+  }
 
   return (
     <>
@@ -107,28 +149,121 @@ const Filters = ({ deviceType }) => {
                 }`}
               style={{ height: deviceType.mobile ? 400 : 570 }}
             >
-              <ul className="sub-h1 text-white">
-                <li className="py-4 sm:py-3  cursor-pointer hover:text-accent-light transition-colors duration-100">
-                  <span className="mr-6">^</span>Matrix Moments
+              <ul className="sub-h1 text-white" >
+
+                {/* matrix moments */}
+                <li className="py-4 sm:py-3  flex items-center ">
+                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
+                  {
+                    openedFilter === 'moments' &&
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                      All
+                    <div onClick={e => {
+                        e.stopPropagation();
+                        setFilters({ ...filters, moments: filters.moments.length === moments.length ? [] : moments.map(m => m.slug) })
+                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.moments.length === moments.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                    </span>
+                  }
                 </li>
-                <li className="py-4 sm:py-3  cursor-pointer hover:text-accent-light transition-colors duration-100">
-                  <span className="mr-6">^</span>Topics
+                {
+                  openedFilter === 'moments' &&
+                  <div className='flex flex-wrap '>
+                    {moments.map(t => getTag({ isSelected: filters.moments.includes(t.slug), setSelected: _ => setFilters({ ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug] }), ...t }))}
+                  </div>
+                }
+
+
+                {/* Topics */}
+                <li className="py-4 sm:py-3  flex items-center">
+                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
+                  {
+                    openedFilter === 'topics' &&
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                      All
+                    <div onClick={e => {
+                        e.stopPropagation();
+                        setFilters({ ...filters, topics: filters.topics.length === topics.length ? [] : topics.map(m => m.slug) })
+                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.topics.length === topics.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                    </span>
+                  }
                 </li>
-                <li className="py-4 sm:py-3  cursor-pointer hover:text-accent-light transition-colors duration-100">
-                  <span className="mr-6">^</span>Authors
+                {
+                  openedFilter === 'topics' &&
+                  <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                    {topics.map(t => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t }))}
+                  </div>
+                }
+
+
+                {/* Authors */}
+                <li className="py-4 sm:py-3  flex items-center">
+                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
+                  {
+                    openedFilter === 'authors' &&
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                      All
+                    <div onClick={e => {
+                        e.stopPropagation();
+                        setFilters({ ...filters, authors: filters.authors.length === authors.length ? [] : authors.map(m => m.slug) })
+                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.authors.length === authors.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                    </span>
+                  }
                 </li>
-                <li className="py-4 sm:py-3  cursor-pointer hover:text-accent-light transition-colors duration-100">
-                  <span className="mr-6">^</span>Content Format
+                {
+                  openedFilter === 'authors' &&
+                  <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                    {authors.map(t => getTag({ isSelected: filters.authors.includes(t.slug), setSelected: _ => setFilters({ ...filters, authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug] }), ...t }))}
+                  </div>
+                }
+
+
+
+
+                {/* Content Format */}
+                <li className="py-4 sm:py-3  flex items-center">
+                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
+                  {
+                    openedFilter === 'formats' &&
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                      All
+                    <div onClick={e => {
+                        e.stopPropagation();
+                        setFilters({ ...filters, formats: filters.formats.length === formats.length ? [] : formats })
+                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.formats.length === formats.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                    </span>
+                  }
                 </li>
-                <li className="py-4 sm:py-3  cursor-pointer hover:text-accent-light transition-colors duration-100">
-                  <span className="mr-6">^</span>Sort By
+                {
+                  openedFilter === 'formats' &&
+                  <div className='flex flex-wrap'>
+                    {formats.map(t => getTag({ isSelected: filters.formats.includes(t), setSelected: _ => setFilters({ ...filters, formats: filters.formats.includes(t) ? filters.formats.filter(m => m !== t) : [...filters.formats, t] }), tagNumber: 0, tagName: t }))}
+                  </div>
+                }
+
+
+
+
+
+                <li className="py-4 sm:py-3  flex items-center">
+                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
                 </li>
+                {openedFilter === 'sort' && <div className='flex flex-wrap'>
+                  {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}
+                  {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0 })}
+                </div>}
               </ul>
-              <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
-                <div className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
+              <div className="bg-accent-dark px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
+                <div onClick={() => {
+                  setFilters(initialFilters);
+                  fetchBlogsData();
+                  setIsFilterBoxOpen(false)
+                }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
-                <div className="sub-h2 text-white cursor-pointer hover:opacity-80">
+                <div onClick={_ => {
+                  fetchBlogsDataWithFilters(filters)
+                  setIsFilterBoxOpen(false)
+                }} className="sub-h2 text-white cursor-pointer hover:opacity-80">
                   Apply
                 </div>
               </div>

@@ -1,15 +1,19 @@
-import { MicLaptop, MicMobile } from '@components/Icons';
+import { MicLaptop, MicMobile, ArticleLaptop, ArticleMobile, VideoMobile, VideoLaptop } from '@components/Icons';
 import React from 'react';
 
 const MobileIcons = {
-  mic: <MicMobile />,
+  Audio: <MicMobile />,
+  video: <VideoMobile />,
+  article: <ArticleMobile />,
 };
 const LaptopIcons = {
-  mic: <MicLaptop />,
+  Audio: <MicLaptop />,
+  video: <VideoLaptop />,
+  article: <ArticleLaptop />,
 };
 
 const Icon = ({ deviceType, iconType }) => {
-  if (deviceType.mobile) return MobileIcons[iconType];
-  else return LaptopIcons[iconType];
+  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.article;
+  else return LaptopIcons[iconType] || LaptopIcons.article;
 };
 export default Icon;

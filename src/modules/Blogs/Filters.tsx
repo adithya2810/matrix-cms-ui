@@ -153,12 +153,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
                 {/* matrix moments */}
                 <li className="py-4 sm:py-3  flex items-center ">
-                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
+                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
                   {
                     openedFilter === 'moments' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
                       All
-                    <div onClick={e => {
+                      <div onClick={e => {
                         e.stopPropagation();
                         setFilters({ ...filters, moments: filters.moments.length === moments.length ? [] : moments.map(m => m.slug) })
                       }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.moments.length === moments.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
@@ -175,12 +175,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
                 {/* Topics */}
                 <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
+                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
                   {
                     openedFilter === 'topics' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
                       All
-                    <div onClick={e => {
+                      <div onClick={e => {
                         e.stopPropagation();
                         setFilters({ ...filters, topics: filters.topics.length === topics.length ? [] : topics.map(m => m.slug) })
                       }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.topics.length === topics.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
@@ -197,12 +197,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
                 {/* Authors */}
                 <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
+                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
                   {
                     openedFilter === 'authors' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
                       All
-                    <div onClick={e => {
+                      <div onClick={e => {
                         e.stopPropagation();
                         setFilters({ ...filters, authors: filters.authors.length === authors.length ? [] : authors.map(m => m.slug) })
                       }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.authors.length === authors.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
@@ -221,12 +221,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
                 {/* Content Format */}
                 <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
+                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
                   {
                     openedFilter === 'formats' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
                       All
-                    <div onClick={e => {
+                      <div onClick={e => {
                         e.stopPropagation();
                         setFilters({ ...filters, formats: filters.formats.length === formats.length ? [] : formats })
                       }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.formats.length === formats.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
@@ -245,7 +245,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
 
                 <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center sm:w-3 cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
+                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
                 </li>
                 {openedFilter === 'sort' && <div className='flex flex-wrap'>
                   {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}

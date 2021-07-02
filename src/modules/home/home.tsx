@@ -20,7 +20,6 @@ const Home: React.FC = () => {
         </div>
       </div>
       <HomeContent />
-      <h1>Scroll through for the latest from </h1>
     </div>
   );
 };

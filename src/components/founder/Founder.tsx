@@ -151,7 +151,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
             <div className={`founderSection-leftOuter founder-container`}>
               <div className="founder-background"></div>
               <div className="founder-content">
-                <Image src={founder.background_url} alt="founder image" style={{ flexGrow: 1 }} />
+                <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
 
                 <div className="founder-footer-container relative">
                   <svg className="absolute founderRectangle" xmlns="http://www.w3.org/2000/svg" width="56.167" height="56" viewBox="0 0 56.167 56">

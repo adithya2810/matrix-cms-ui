@@ -1,14 +1,14 @@
 .pageBannerOuter {
-  min-height: calc(100vh - 145px);
+  min-height: calc(100vh);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.pageBannerOuter>div,
-.pageBannerOuter>div>div,
-.pageBannerOuter>div>div>.slick-slider,
-.pageBannerOuter>div>div>div>div {
+.pageBannerOuter > div,
+.pageBannerOuter > div > div,
+.pageBannerOuter > div > div > .slick-slider,
+.pageBannerOuter > div > div > div > div {
   display: flex;
   flex-direction: column;
   flex-grow: 1;

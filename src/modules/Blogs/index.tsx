@@ -35,7 +35,7 @@ const index: FC<propsType> = (props) => {
   }
 
   const fetchBlogsDataWithFilters = async (filters) => {
-    const tags = filters.topics.map(t => `slug=${t}`)?.join('&')
+    const tags = filters.topics.map(t => `slug=${encodeURIComponent(t)}`)?.join('&')
     try {
       const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${tags}`)
       const data = await res.json();

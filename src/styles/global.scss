@@ -766,7 +766,8 @@ h6 {
   }
 }
 
-.filters-overflow::-webkit-scrollbar {
+.filters-overflow::-webkit-scrollbar,
+.applied-filters::-webkit-scrollbar {
   display: none;
 }
 

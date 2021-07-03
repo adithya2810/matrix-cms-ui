@@ -7,7 +7,8 @@ import { TagList } from "./tagList";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { appConfigMutation, appConfiqQuery } from "../../../operations/appConfig";
 import { appConfigVar } from "../../../models/AppConfig"
-import { MobileMenu } from './mobileMenu'
+import { MobileMenu } from './mobileMenu';
+import { navMenu } from "../../../constants";
 
 const tagList = [{
   title: "Education",
@@ -84,6 +85,20 @@ export const Menu: React.FC = () => {
       getNewsInfo();
     } else if (menuID == "footer_event" && menuType == "SECONDARY_MENU") {
       getEventInfo();
+    }
+
+    if (menuID != "footer_blog" && menuType == "PRIMARY_MENU") {
+      let navItemIndex = navMenu.primary.findIndex(a => a.key == menuID);
+      if (navItemIndex < 0) return;
+      let navPageLink = navMenu.primary[navItemIndex].link;
+      location.href = navPageLink;
+    }
+
+    if (menuID != "footer_media" && menuType == "SECONDARY_MENU") {
+      let navItemIndex = navMenu.secondary.findIndex(a => a.key == menuID);
+      if (navItemIndex < 0) return;
+      let navPageLink = navMenu.secondary[navItemIndex].link;
+      location.href = navPageLink;
     }
   }
 

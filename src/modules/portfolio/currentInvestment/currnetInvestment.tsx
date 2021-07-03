@@ -20,7 +20,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
               <div className="flip-card-inner ">
                 <div className="flip-card-front">
                   {/* <img className="w-6/12" src="../../img/ant-wak.png" alt="" /> */}
-                  <Image src={e.logo_url} alt={e.name} className="p-20" />
+                  <Image src={e.logo_url} alt={e.name} className="p-20"/>
                 </div>
                 <div className="flip-card-back text-left p-4">
                   <Image src={e.logo_url} alt={e.name} className="sm:hidden md:hidden lg:hidden pb-5" />

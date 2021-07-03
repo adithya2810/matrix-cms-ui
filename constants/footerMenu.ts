@@ -2,7 +2,7 @@ const footermenu = [
   {
     key: "footer_about",
     name: "About",
-    link: "",
+    link: "/about-us",
   },
   {
     key: "footer_portfolio",
@@ -12,7 +12,7 @@ const footermenu = [
   {
     key: "footer_blog",
     name: "Blog",
-    link: "",
+    link: "/blogs",
   },
   {
     key: "footer_advisory_team",
@@ -22,7 +22,7 @@ const footermenu = [
   {
     key: "footer_contact",
     name: "Contact",
-    link: "",
+    link: "/contact",
   },
   {
     key: "footer_careers",

@@ -147,13 +147,13 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
             <div
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
                 }`}
-              style={{ height: deviceType.mobile ? 400 : 570 }}
+              style={{ height: deviceType.mobile ? 300 : 570 }}
             >
               <ul className="sub-h1 text-white" >
 
                 {/* matrix moments */}
-                <li className="py-4 sm:py-3  flex items-center ">
-                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
+                <li className="py-4 sm:py-2  flex items-center ">
+                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
                   {
                     openedFilter === 'moments' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
@@ -174,8 +174,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
 
                 {/* Topics */}
-                <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
+                <li className="py-4 sm:py-2  flex items-center">
+                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-2'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
                   {
                     openedFilter === 'topics' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
@@ -196,8 +196,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
 
                 {/* Authors */}
-                <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
+                <li className="py-4 sm:py-2  flex items-center">
+                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-2'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
                   {
                     openedFilter === 'authors' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
@@ -220,8 +220,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
 
                 {/* Content Format */}
-                <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
+                <li className="py-4 sm:py-2  flex items-center">
+                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-2'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
                   {
                     openedFilter === 'formats' &&
                     <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
@@ -244,8 +244,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
 
 
-                <li className="py-4 sm:py-3  flex items-center">
-                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
+                <li className="py-4 sm:py-2  flex items-center">
+                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-2'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
                 </li>
                 {openedFilter === 'sort' && <div className='flex flex-wrap'>
                   {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}

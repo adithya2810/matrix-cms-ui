@@ -9,7 +9,7 @@ export type Props = {
 
 
 const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
-
+  
   return (
 
     <figure className="rounded-xl p-8">

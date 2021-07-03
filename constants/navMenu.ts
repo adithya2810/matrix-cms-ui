@@ -3,30 +3,30 @@ export const navMenu = {
     {
       key: "footer_about",
       name: "About",
-      link: "",
+      link: "/about-us",
     },
     {
       key: "footer_portfolio",
       name: "Portfolio",
-      link: "",
+      link: "/portfolio",
     },
     {
       key: "footer_blog",
       name: "Blog",
-      link: "",
+      link: "/blogs",
     },
   ],
   secondary: [
     {
       key: "footer_advisory_team",
       name: "Advisory Team",
-      link: "",
+      link: "/advisoryTeam",
       subMenu: []
     },
     {
       key: "footer_contact",
       name: "Contact",
-      link: "",
+      link: "/contact",
       subMenu: []
     },
     {

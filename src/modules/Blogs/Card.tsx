@@ -24,7 +24,7 @@ const Card: FC<propsType> = (props) => {
           alt="image"
         />
         <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0">
-          Pinned
+          {props.data?.displaytag}
         </div>
       </div>
       <div

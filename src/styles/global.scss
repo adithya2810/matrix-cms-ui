@@ -1117,6 +1117,12 @@ textarea {
 .news-container {
   margin: 20vh 2.5vw;
 }
+.event-container {
+  margin: 150px 0 30px 0;
+}
+.event-container > img {
+  width: 100vw;
+}
 .news-header {
   font-family: Manrope;
   font-style: normal;
@@ -1154,4 +1160,125 @@ textarea {
   letter-spacing: -0.01em;
   color: #000000;
   margin-bottom: 40px;
+}
+@media screen and (max-width: 650px) {
+  .event-container {
+    margin-top: 90px !important;
+  }
+  .go-back,
+  .event-heading {
+    display: none;
+  }
+  .right-event,
+  .left-event {
+    padding: 30px !important;
+  }
+  .right-event > p {
+    font-size: 18px !important;
+  }
+  .enevt-sub-card {
+    float: none !important;
+    width: 150px !important;
+  }
+  .enevt-sub-card > div {
+    margin-right: 15px !important;
+  }
+  .enevt-sub-card > span {
+    margin-right: 9px !important;
+  }
+  .enevt-sub-card > div > img {
+    height: 25px !important;
+    width: 14px !important;
+  }
+  .enevt-sub-card > span > img {
+    height: 27px !important;
+    width: 27px !important;
+  }
+  .event-username {
+    font-size: 12px !important;
+    line-height: 14px !important;
+  }
+  .event-user-role {
+    font-size: 5px !important;
+    line-height: 10px !important;
+  }
+  .event-grid {
+    display: grid !important;
+    grid-template-columns: auto auto !important;
+  }
+  .event-heading-1 {
+    display: block !important;
+    font-size: 24px;
+    line-height: 47px;
+    letter-spacing: -0.01em;
+    color: #01576e;
+    margin: 19px;
+  }
+}
+.event-heading-1 {
+  display: none;
+}
+.go-back {
+  padding: 100px 90px 0 60px;
+}
+.go-back > a {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.01em;
+  color: #000000;
+  margin-bottom: 40px;
+  float: right;
+}
+.left-event {
+  flex: 35%;
+  padding: 0 90px 0 60px;
+}
+.right-event {
+  flex: 65%;
+  padding: 0 140px 150px 100px;
+}
+.right-event > p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 144%;
+  color: #000000;
+}
+.event-heading {
+  font-size: 90px;
+  line-height: 120px;
+  text-align: right;
+  letter-spacing: -0.01em;
+  color: #01576e;
+}
+.enevt-sub-card {
+  display: flex;
+  width: 250px;
+  float: right;
+  margin-top: 38px;
+}
+.enevt-sub-card > div {
+  margin-right: 24px;
+}
+.enevt-sub-card > span {
+  margin-right: 15px;
+}
+.event-username {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+}
+.event-user-role {
+  font-family: Manrope;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #000000;
 }

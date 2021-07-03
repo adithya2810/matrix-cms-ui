@@ -31,7 +31,7 @@ const getPagination = (currentPage, totalPages, push) => {
   }
   return rangeWithDots.reduce((acc, n) => {
     if (n < 10) n = '0' + n;
-    acc.push(<div onClick={_ => +n && push(`/matrix-moments?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage === +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{n}</div>)
+    acc.push(<div onClick={_ => +n && window.location.replace(`/news?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage === +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{n}</div>)
     return acc
   }, []);
 }
@@ -41,8 +41,8 @@ const Pagination = () => {
   const { query: { page }, push } = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
 
-  const handlePrevPage = _ => currentPage !== 1 && push(`/matrix-moments?page=${currentPage - 1}`)
-  const handleNextPage = _ => currentPage !== totalPages && push(`/matrix-moments?page=${currentPage + 1}`)
+  const handlePrevPage = _ => currentPage !== 1 && window.location.replace(`/news?page=${currentPage - 1}`)
+  const handleNextPage = _ => currentPage !== totalPages && window.location.replace(`/news?page=${currentPage + 1}`)
 
   useEffect(() => {
     setCurrentPage(+page || 1)

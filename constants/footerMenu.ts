@@ -27,7 +27,7 @@ const footermenu = [
   {
     key: "footer_careers",
     name: "Careers",
-    link: "",
+    link: "careers",
   },
 ];
 

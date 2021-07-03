@@ -64,12 +64,12 @@ const Filters = ({ deviceType }) => {
             <div className="search h-24 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-96 sm:h-12 sm:flex-grow    bg-accent-dark">
+            {/* <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-96 sm:h-12 sm:flex-grow    bg-accent-dark">
               <div className="sub-h1 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4">
                 Filters
               </div>
               {FilterIcon}
-            </div>
+            </div> */}
             <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
@@ -93,24 +93,21 @@ const Filters = ({ deviceType }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${
-                inputText ? 'bg-accent' : 'bg-input'
-              }`}
+              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
+                }`}
             >
               {inputText ? SearchIcon : SearchAccentIcon}
               <input
-                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent ${
-                  inputText ? 'bg-accent text-white' : 'bg-input  text-accent'
-                }`}
+                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent ${inputText ? 'bg-accent text-white' : 'bg-input  text-accent'
+                  }`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Search knowledgebase..."
               />
             </div>
             <div
-              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${
-                inputText ? 'bg-input' : 'bg-accent-dark'
-              }`}
+              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
+                }`}
               style={{ height: deviceType.mobile ? 400 : 570 }}
             >
               <ul className="sub-h1 text-white">

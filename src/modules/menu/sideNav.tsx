@@ -63,6 +63,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
             return (
               <NavItem
                 title={menuItem.name}
+                link={menuItem.link}
                 className={
                   !isSelected(index)
                     ? " text-secondary-light opacity-50"
@@ -111,7 +112,9 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
                 style={{ marginBottom: 20 }}
                 onClick={() => toggle(index)}
               >
-                <h5 className="menu-secondary-nav-text"> {menuItem.name} </h5>
+                <a href={menuItem.link}>
+                  <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
+                </a>
                 {isSecondaryMenu(index) ?
                   <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
                   :

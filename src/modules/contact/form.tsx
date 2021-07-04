@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactForm: React.FC = () => {
   return (
-    <div className="relative m-auto w-11/12	">
+    <div className="relative m-auto w-11/12	py-40">
       <div className="grid grid-cols-12">
         <div className="col-span-8">
           <h1 className="main-txt text-4xl lg:text-3xl tablet:text-2xl md:text-2xl sm:text-xl font-bold">Vist our India Advisory Team Offices</h1>

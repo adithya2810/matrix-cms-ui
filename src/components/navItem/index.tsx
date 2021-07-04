@@ -4,6 +4,7 @@ import { Image } from "@components";
 
 export type Props = {
   title: string;
+  link: string;
   id: string;
   onClick: (id: string) => void;
   selected: boolean;
@@ -15,6 +16,7 @@ export const NavItem: React.FC<Props> = ({
   title,
   selected,
   id,
+  link,
   onClick,
   className = "",
   arrow = true,
@@ -25,8 +27,10 @@ export const NavItem: React.FC<Props> = ({
       style={{ marginBottom: 20 }}
       onClick={() => onClick(id)}
     >
-      <span style={{ cursor: 'pointer' }}>{title}</span>
-      {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
+      <a href={link}>
+        <span style={{ cursor: 'pointer' }}>{title}</span>
+        {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
+      </a>
       {(selected || arrow) ? (
         (!selected) ? (
           <span className="menu-primary-nav-icon"> {">"} </span>

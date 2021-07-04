@@ -21,6 +21,7 @@ const ContentTabs: React.FC<Props> = ({
             : "opacity-40 text-primary-dark";
         return (
           <NavItem
+            link={link}
             key={id}
             title={name}
             id={id}

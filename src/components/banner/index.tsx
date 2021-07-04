@@ -12,7 +12,7 @@ export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBann
   return (
     <>
       <div className="sm:hidden w-full bg-cover bg-center c-bg relative" style={{ backgroundImage: `url(${bannerImg})` }}>
-        <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
+        <div className="flex border-b-4 border-accent border-solid items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
           <div className="text-center">
             <h4 className="text-white text-7lg md:leading-10 font-bold xl:text-4xl sm:text-2xl">{title}</h4>
             <p className="text-white sub-h1 md:text-xl">{subTitle}</p>

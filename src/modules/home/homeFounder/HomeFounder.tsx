@@ -5,7 +5,12 @@ import { relative } from 'path';
 const founderData = [
   {
     id: "01",
-    name: ["Bhavish", "AGGARWAL"],
+    name: [
+      {
+        firstName: "Bhavish",
+        lastName: "AGGARWAL"
+      }
+    ],
     title: "We are <span>founders</span><br> first",
     background_url: '/icons/Bhavish_image.png',
     tags: ["Mobility", "Electric Cars"],
@@ -13,27 +18,76 @@ const founderData = [
   },
   {
     id: "02",
-    name: ["ROHIT.", " M.A"],
+    name: [
+      {
+        firstName: "ROHIT",
+        lastName: " M.A."
+      }
+    ],
     title: "We <span>partner</span><br> closely",
     background_url: '/icons/rohit-edited.png',
-    tags: ["Mobility", "Electric Cars"],
-    logo: "/icons/ola.svg",
+    tags: ["Healthcare"],
+    logo: "/icons/Cloudninelogo.svg",
   },
   {
     id: "03",
-    name: ["ANINDYA ", "DUTTA"],
+    name: [
+      {
+        firstName: "ANINDYA ",
+        lastName: "DUTTA"
+      },
+      {
+        firstName: "SANDEEP  ",
+        lastName: "DALMIA"
+      }
+    ],
     title: "We <span>invest</span><br> early",
     background_url: '/icons/founder3-edited.png',
-    tags: ["Mobility", "Electric Cars"],
-    logo: "/icons/ola.svg",
+    tags: ["Student Housing Platform"],
+    logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
   },
   {
     id: "04",
-    name: ["Asish ", "MOHAPATRA"],
-    title: "We <span>partner</span><br> closely",
+    name: [
+      {
+        firstName: "Asish ",
+        lastName: "MOHAPATRA"
+      }
+    ],
+    title: "We <span>commit </span><br> personally",
+    background_url: '/icons/Asish_Treatment.png',
+    tags: ["Fintech", "SME Lending"],
+    logo: "/icons/OfBusiness Logo 1.svg",
+  },
+  {
+    id: "05",
+    name: [
+      {
+        firstName: "Mr.  ",
+        lastName: "LAKSHIPATHY"
+      }
+    ],
+    title: "We are <span>founders</span><br> first",
     background_url: '/icons/founder4-edited.png',
-    tags: ["Mobility", "Electric Cars"],
-    logo: "/icons/ola.svg",
+    tags: ["Fintech", "NBFC"],
+    logo: "/icons/mx-logos-five-star 1.svg",
+  },
+  {
+    id: "06",
+    name: [
+      {
+        firstName: "CHAKRADHAR ",
+        lastName: "GADE"
+      },
+      {
+        firstName: "NITIN ",
+        lastName: "KAUSHAL"
+      }
+    ],
+    title: "We <span>commit </span><br> personally",
+    background_url: '/icons/Chakradhar_Nitin.png',
+    tags: ["D2C", "Food"],
+    logo: "/icons/Country Delight 1.svg",
   }
 ]
 

@@ -53,24 +53,95 @@ import "slick-carousel/slick/slick-theme.css";
 const heroSlider02_Data = [
   {
     id: "01",
-    title: "Tech-enabled <span>Student housing</span> Platform",
-    founderImage: '/icons/founder3-edited.png',
-    name: ["ANINYA", "DUTTA"],
-    background_url: "/icons/backgroundCarousalImage.png"
+    name: [
+      {
+        firstName: "Bhavish",
+        lastName: "AGGARWAL"
+      }
+    ],
+    title: "India’s leading <span>mobility</span> player",
+    founderImage: '/icons/Bhavish_image.png',
+    background_url: '/icons/raybay.png',
+    tagsDetails: "Ola is India’s largest mobility platform and one of the world’s largest ride-hailing companies, serving 250+ cities across India, Australia, New Zealand, and the UK.",
+    logo: "/icons/ola.svg",
   },
   {
     id: "02",
-    title: "Tech-enabled <span>Student housing</span> Platform",
+    name: [
+      {
+        firstName: "ROHIT",
+        lastName: " M.A."
+      }
+    ],
+    title: "Leading chain of  <span>maternity hospitals</span>",
     founderImage: '/icons/rohit-edited.png',
-    name: ["ROHIT.", " M.A"],
-    background_url: "/icons/jonathan-borba.png"
+    background_url: '/icons/jonathan-borba.png',
+    tagsDetails: "At Cloudnine, we believe that a child is life’s greatest gift and pregnancy is one of the most magical experiences nature can offer.",
+    logo: "/icons/Cloudninelogo.svg",
   },
   {
     id: "03",
-    title: "Tech-enabled <span>Student housing</span> Platform",
+    name: [
+      {
+        firstName: "ANINDYA ",
+        lastName: "DUTTA"
+      },
+      {
+        firstName: "SANDEEP  ",
+        lastName: "DALMIA"
+      }
+    ],
+    title: "Tech-enabled   <span>student housing</span><br> platform",
+    founderImage: '/icons/founder3-edited.png',
+    background_url: '/icons/backgroundCarousalImage.png',
+    tagsDetails: "Stanza Living provides fully-managed shared living accommodations to students and young professionals.",
+    logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
+  },
+  {
+    id: "04",
+    name: [
+      {
+        firstName: "Asish ",
+        lastName: "MOHAPATRA"
+      }
+    ],
+    title: "<span>SME </span><br> lending",
+    founderImage: '/icons/Asish_Treatment.png',
+    background_url: '/icons/andreas-kind.png',
+    tagsDetails: "OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,",
+    logo: "/icons/OfBusiness Logo 1.svg",
+  },
+  {
+    id: "05",
+    name: [
+      {
+        firstName: "Mr.  ",
+        lastName: "LAKSHIPATHY"
+      }
+    ],
+    title: "<span>Credit led </span><br> B2B marketplace",
     founderImage: '/icons/founder4-edited.png',
-    name: ["Mr. ", "LAKSHIPATHY"],
-    background_url: "/icons/floriane-vita.png"
+    background_url: '/icons/floriane-vita.png',
+    tagsDetails: "A specialized financial services company funding the people who were perceived to be unfundable",
+    logo: "/icons/mx-logos-five-star 1.svg",
+  },
+  {
+    id: "06",
+    name: [
+      {
+        firstName: "CHAKRADHAR ",
+        lastName: "GADE"
+      },
+      {
+        firstName: "NITIN ",
+        lastName: "KAUSHAL"
+      }
+    ],
+    title: "D2C   <span>dairy & fresh foods</span><br>  brand",
+    founderImage: '/icons/Chakradhar_Nitin.png',
+    background_url: '/icons/pexels-nav-photography.png',
+    tagsDetails: "Country Delight aims to bring back the basics of Milk. It promises natural, fresh and unadulterated milk directly to the doorstep of the consumer.",
+    logo: "/icons/Country Delight 1.svg",
   }
 ]
 
@@ -164,12 +235,11 @@ const HomeCarousal = () => {
                       </div>
                     </div>
                     <FounderDetail
-                      names={slider.name}
-                      background_url={slider.founderImage}
+                      FounderDetail={slider}
                     />
                     <div className="heroSlider02-slide-indicator mobile">
                       {" "}
-                      {slider.id}/05
+                      {slider.id}/06
                     </div>
                   </div>
                 </div>

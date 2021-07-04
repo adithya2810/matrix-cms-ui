@@ -27,10 +27,13 @@ export const NavItem: React.FC<Props> = ({
       style={{ marginBottom: 20 }}
       onClick={() => onClick(id)}
     >
-      <a href={link}>
-        <span style={{ cursor: 'pointer' }}>{title}</span>
-        {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
-      </a>
+      {link ?
+        <a href={link}>
+          <span style={{ cursor: 'pointer' }}>{title}</span>
+          {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}
+        </a> : <span style={{ cursor: 'pointer' }}>{title}</span>
+      }
+
       {(selected || arrow) ? (
         (!selected) ? (
           <span className="menu-primary-nav-icon"> {">"} </span>

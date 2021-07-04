@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactComponentElement } from 'react';
 import { Image, ContentSlider } from "@components";
 import Slider from "react-slick";
 
@@ -161,17 +161,23 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                     </g>
                   </svg>
                   <div className="founder-name-container">
-                    <h6 className="founder-name-text" >
-                      <strong>{founder.name[0]} </strong> {founder.name[1]}
-                    </h6>
+                    {founder.name.map(name => {
+                      return <h6 className="founder-name-text" key={name.firstName + 1}>
+                        <strong>{name.firstName} </strong> {name.lastName}
+                      </h6>
+                    })}
+
                   </div>
                   <div className="founder-field-container" style={{ height: 88 }}>
                     <div>
-                      {founder.tags.map(tag => {
-                        return <span className="text-secondary font-medium text-lg leading-6 tags" key={tag}> {tag}</span>
+                      {founder.tags.map((tag, index) => {
+                        return <React.Fragment>
+                          {index > 0 && <span className="tagBorderRight"></span>}
+                          <span className="text-secondary font-medium text-lg leading-6 tags" key={tag}> {tag}</span>
+                        </React.Fragment>
                       })}
                     </div>
-                    <Image src={founder.logo} alt={"ola"} />
+                    <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 150 }} />
                   </div>
                 </div>
               </div>

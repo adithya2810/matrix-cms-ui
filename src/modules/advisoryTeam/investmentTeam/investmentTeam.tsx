@@ -12,8 +12,8 @@ const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
   
   return (
 
-    <figure className="rounded-xl p-8">
-      <div className="team-member cursor-pointer grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <figure className="rounded-xl p-10">
+      <div className="team-member p-5 cursor-pointer grid grid-cols-4 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {invesmentTeam?.map((t: any, index) => (
           <div key={t._id} style={{ position: 'relative' }}>
             <Link href={'/advisoryTeam/' + (t.slug !== undefined ? t.slug : '')} passHref>

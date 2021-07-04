@@ -372,5 +372,3 @@ export const UpArrow = _ => (
   </svg>
 
 )
-
-

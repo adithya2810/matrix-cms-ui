@@ -32,7 +32,7 @@ export const navMenu = {
     {
       key: "footer_careers",
       name: "Careers",
-      link: "",
+      link: "/careers",
       subMenu: []
     },
     {
@@ -43,12 +43,12 @@ export const navMenu = {
         {
           key: "footer_news",
           name: "News",
-          link: "",
+          link: "/news",
         },
         {
           key: "footer_event",
           name: "event",
-          link: "",
+          link: "/events",
         }
       ]
     }

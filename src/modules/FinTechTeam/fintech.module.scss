@@ -9,17 +9,36 @@
             width: 13rem;
             right: -1.5rem;
 
+            @media screen and (max-width:1650px) {
+                width: 11rem;
+                bottom: 12rem;
+                text-align: left;
+
+                h5 {
+                    font-size: 0.8rem;
+                }
+            }
+
             @media screen and (max-width:767px) {
                 width: 10rem;
                 bottom: 11rem;
                 text-align: left;
             }
 
+
             .title-white-box {
                 @media screen and (max-width:767px) {
                     padding: 4px 10px;
                 }
             }
+        }
+
+        @media screen and (max-width:1500px) {
+            padding-left: 5rem;
+        }
+
+        @media screen and (max-width:1300px) {
+            padding-left: 2rem;
         }
     }
 

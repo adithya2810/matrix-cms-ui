@@ -62,7 +62,7 @@ const BlogDetails: FC<propsType> = (props) => {
     const investmentLogo = [{}, {}, {}, {}, {}]
 
     return (
-        <div className="py-10 px-20 sm:py-0 sm:px-7 fintech-page">
+        <div className="py-44 px-20 sm:py-28 sm:px-7 fintech-page">
             <h3 className="text-accent pb-40 font-normal sm:text-5xl sm:leading-tight sm:hidden md:hidden lg:hidden">Overview of the Fintech sector</h3>
             <h3 className="text-accent pb-12 font-normal sm:text-5xl sm:leading-tight sm:block md:block lg:block hidden">Overview of<br /> the Fintech<br /> sector</h3>
 

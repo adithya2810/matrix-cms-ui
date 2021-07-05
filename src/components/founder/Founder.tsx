@@ -93,7 +93,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   const settingsMain = {
     dots: false,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     infinite: true,
     fade: true,
@@ -109,7 +109,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     dots: false,
     arrows: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     fade: false,
     pauseOnHover: false,

@@ -451,12 +451,10 @@ span.thumbnailIndex {
 @media screen and (max-width: 1080px) {
   .pageBannerOuter {
     .founderSection-outerWarp {
-      flex-direction: column-reverse;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
       width: 100% !important;
-      order: 2;
     }
 
     .heroSlide3 .founderTitle > span ~ br {
@@ -472,10 +470,10 @@ span.thumbnailIndex {
     }
 
     .founderSection-rightOuter {
-      flex: 1 auto;
+      flex: 0 100%;
       max-width: 600px;
       margin-bottom: 30px;
-      order: 1;
+      order: 0;
       margin-left: auto;
       margin-right: auto;
     }
@@ -498,6 +496,8 @@ span.thumbnailIndex {
 
     .founder-container {
       flex: 0 350px;
+      order: 1;
+      margin: 0 auto;
     }
 
     .slick-track .slick-slide > div {
@@ -685,5 +685,19 @@ span.thumbnailIndex {
     font-size: 15px;
     padding-right: 5px;
     line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .pageBannerOuter .founder-container {
+    flex: 0 100%;
+  }
+
+  .founder-footer-container {
+    padding-right: 15px;
+  }
+
+  .founder-background {
+    width: 95%;
   }
 }

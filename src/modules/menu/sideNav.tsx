@@ -85,7 +85,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
               <div
                 key={menuItem.key}
                 className="flex justify-between"
-                style={{ marginBottom: 21 }}
+                style={{ marginBottom: 10 }}
                 onClick={() => menuClicked("SECONDARY_MENU", menuItem.key, index)}
               >
                 <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
@@ -109,7 +109,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
               <div
                 key={menuItem.key + 1}
                 className="flex justify-between flex-wrap"
-                style={{ marginBottom: 20 }}
+                style={{ marginBottom: 10 }}
                 onClick={() => toggle(index)}
               >
                 <a href={menuItem.link}>
@@ -140,7 +140,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
         </div>
       </div>
       <div className=" mr-16">
-        <span className="ml-4">
+        <div >
           <h6 className="mt-4 font-normal text-secondary" style={{ fontSize: 28, lineHeight: "34px" }}>Let's stay engaged </h6>
           <h6 className="font-normal text-xs capitalize " style={{ marginTop: 10, lineHeight: "14px" }}>
             SIGN UP FOR THE MATRIX MOMENTS SERIES
@@ -158,8 +158,8 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
             className="text-lg leading-6"
             style={{ color: "#0FB6B8" }}
           />
-        </span>
-        <div className="flex " style={{ marginTop: 60, marginBottom: 58 }}>
+        </div>
+        <div className="flex " style={{}}>
           {socialMedia.map((item) => {
             return (
               <a className="p-1 mr-10" href={item.link} key={item.key}>

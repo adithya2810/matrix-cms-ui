@@ -4,16 +4,16 @@
 }
 
 .siteSidenavMenuWrap.side-nav {
-  margin-top: 132px;
+  margin-top: 95px;
   width: 30%;
   padding-left: 5vw;
-  padding-top: 45px;
-  max-width: 525px;
+  padding-top: 4vh;
+  max-width: 30vw;
 }
 
 .siteMenuWrapper > div:first-child {
   width: 30%;
-  max-width: 525px;
+  max-width: 30vw;
 }
 
 .siteMenuWrapper > .menu-tags {
@@ -167,9 +167,6 @@
 
 @media only screen and (max-width: 945px) {
   .siteMenuOuterWrap {
-    height: auto !important;
-    min-height: 750px !important;
-
     .siteMenuWrapper.flex {
       flex-wrap: wrap;
     }
@@ -186,10 +183,6 @@
     .siteSidenavMenuWrap > .mr-16 {
       margin: 0px;
       padding-right: 20px;
-    }
-
-    .siteSidenavMenuWrap > .mr-16 > .flex {
-      margin: 28px 0px 35px !important;
     }
 
     input.mt-2.text-secondary {
@@ -226,7 +219,7 @@
     .company-logo {
       width: 130px;
       height: 56px;
-      margin-top: 25px;
+      margin-top: 20px;
       margin-left: 40px;
     }
 
@@ -300,7 +293,7 @@
 
     .siteSidenavMenuWrap.side-nav {
       margin-top: 80px;
-      height: 100%;
+      height: calc(100% - 80px);
     }
 
     .menu-secondary-nav-icon {

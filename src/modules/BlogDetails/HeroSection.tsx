@@ -1,0 +1,32 @@
+import React, { FC, useState, } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+
+
+
+type deviceType = {
+  mobile: Boolean;
+};
+
+type propsType = {
+  blogDetails: any;
+  deviceType: deviceType;
+};
+
+const HeroSection: FC<propsType> = ({ deviceType, blogDetails }) => {
+  const imgPath = !deviceType.mobile ? blogDetails?.cover_desktop : blogDetails?.cover_image_mobile
+
+  return (
+    <>
+      <div className='overlay hero-section bg-cover relative bg-center section flex items-center' style={{ backgroundImage: `url(${imgPath})`, height: deviceType.mobile ? 413 : 463, zIndex: 0 }}>
+        <div className="laptop:grid laptop:grid-cols-11 w-full">
+          <div className="col-span-3" />
+          <div className="col-span-8 title text-white laptop:mt-24 sm:mt-14">
+            {blogDetails?.name}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default HeroSection;

@@ -25,7 +25,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
         <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 laptop:mt-16 laptop:ml-20">
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>$1B<span className='absolute laptop:-right-5 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>$1B<span className='absolute laptop:-right-2 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black sm:hidden'>Under<br />Management</h6>
               <h6 className='text-center laptop:hidden'>Under Management</h6>
             </div>
@@ -35,7 +35,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>60<span className='absolute right-0 sm:-right-4 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>60<span className='absolute right-2 sm:-right-4 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black'>Investments</h6>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
         <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 laptop:mt-16 laptop:ml-20">
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>65<span className='absolute -right-9 sm:-right-6 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>65<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black'>IPOs</h6>
             </div>
           </div>
@@ -56,7 +56,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>110<span className='absolute -right-3 sm:-right-5 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>110<span className='absolute -right-1 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black'>Profitable<br />Acqusitions</h6>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>$5B<span className='absolute -right-8 sm:-right-5 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 70 : 100 }} className='relative text-center'>$5B<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black'>Invested</h6>
             </div>
           </div>

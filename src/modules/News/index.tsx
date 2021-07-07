@@ -5,7 +5,7 @@ const data = {
   pageType: 'matrix_moments',
   title: (
     <h2>
-      Matrix in the <br /> News
+      Matrix in the News
     </h2>
   ),
 };

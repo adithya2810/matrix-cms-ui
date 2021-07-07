@@ -75,11 +75,11 @@ const ContactForm: React.FC = () => {
           <img className='map' src='/icons/image27.svg' />
         </div>
         <div style={{ flex: '25%' }}>
-          <p className='main-txt text-3xl contact-subHeading font-bold'>USA</p>
+          <p className='main-txt text-3xl contact-subHeading font-bold'>CHINA</p>
           <hr className="under-line" style={{ width: '80%', margin: '15px 0 32px 0' }} />
           <p>BEIJING</p><br />
           <p>SHANGHAI</p><br />
-          <div className='website-link' style={{ display: 'flex' }}><a>Visit USA Website</a><img style={{ marginLeft: '15px' }} src='/icons/-_.svg' /></div>
+          <div className='website-link' style={{ display: 'flex' }}><a>Visit China Website</a><img style={{ marginLeft: '15px' }} src='/icons/-_.svg' /></div>
 
           <p className='main-txt text-3xl contact-subHeading font-bold' style={{ marginTop: 60 }}>MAURITIUS</p>
           <hr className="under-line" style={{ width: '80%', margin: '15px 0 32px 0' }} />

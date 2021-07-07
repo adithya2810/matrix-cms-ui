@@ -4,9 +4,9 @@ import Listing from '@components/Listing';
 const data = {
   pageType: 'matrix_moments',
   title: (
-    <h2>
+    <h3>
       Matrix in the News
-    </h2>
+    </h3>
   ),
 };
 

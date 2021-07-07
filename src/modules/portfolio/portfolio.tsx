@@ -27,7 +27,7 @@ const Portfolio: React.FC<Props> = ({ portfolio }) => {
           <CurrentInvestment portfolio={portfolio} />
         }
         {tabination === 'pastInvest' &&
-          <PastInvestment />
+          <PastInvestment portfolio={portfolio}/>
         }
       </div>
     </div >

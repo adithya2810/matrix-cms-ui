@@ -10,11 +10,11 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
   return (
     <div className="relative pt-20">
       <div className="w-full m-auto">
-        <h2 className="text-3xl sm:text-2xl text-center font-bold text-current">Select  Current Investments</h2>
+        <h2 className="text-3xl sm:text-2xl text-center font-bold text-current">Select Current Investments</h2>
       </div>
       <div className="grid grid-cols-4 my-24 ml-5 mr-5 lg:h-96 sm:h-auto mg:grid-cols-3 sm:grid-cols-1 gap-4">
 
-        {portfolio.map((e) => (
+        {portfolio.map((e) => e.current === true && (
           <div className="flex self-center justify-center" key={e._id}>
             <div className="flip-card">
               <div className="flip-card-inner ">

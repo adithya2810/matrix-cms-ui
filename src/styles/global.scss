@@ -66,10 +66,12 @@ h1 {
 h2 {
   @apply font-medium;
   font-size: 140px;
+  line-height: 150px;
 
   @screen sm {
     @apply font-medium;
     font-size: 45px;
+    line-height: 52px;
   }
 }
 

@@ -19,10 +19,10 @@ const AppliedFilters: FC = () => {
         <div className="sub-h2 text-accent-dark laptop:mr-32 sm:mb-5">
           Page <span className="text-accent-light"> 01 </span>/ 20
         </div>
-        <div className="justify-self-center flex gap-4 laptop:mr-8 sm:overflow-x-scroll">
+        {/* <div className="justify-self-center flex gap-4 laptop:mr-8 sm:overflow-x-scroll">
           {getFilters(['Consumer', 'Healthtech', 'distribution', 'Leadership'])}
         </div>
-        <div className="sub-h2 text-accent underline sm:hidden">Clear All</div>
+        <div className="sub-h2 text-accent underline sm:hidden">Clear All</div> */}
       </div>
       <div className="bg-accent-dark w-full h-0.5 laptop:mb-20 sm:mb-10 opacity-20" />
     </div>

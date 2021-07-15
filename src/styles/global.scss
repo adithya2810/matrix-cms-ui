@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import './index.scss';
 @import '../modules/menu/menu.module.scss';
 
@@ -285,7 +285,7 @@ h6 {
 .menu-secondary-nav-text {
   font-family: Manrope;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 2.5vh;
   line-height: 1.1em;
   letter-spacing: -0.01em;
@@ -311,7 +311,7 @@ h6 {
   margin-right: 82px;
   font-family: Manrope;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 4vh;
   line-height: 1.1em;
   letter-spacing: -0.01em;
@@ -1339,7 +1339,7 @@ textarea {
 }
 .tags-caption {
   line-height: 14px;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1521,7 +1521,7 @@ textarea {
 }
 .event-user-role {
   font-family: Manrope;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 12px;
   line-height: 17px;
   text-transform: uppercase;

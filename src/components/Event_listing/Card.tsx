@@ -20,8 +20,8 @@ const Card: FC<propsType> = (props) => {
   return (
 
     <div className="laptop:flex">
-      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3">
-        <img style={{ width: '315px', height: '255px' }}
+      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" style={{ width: '35%' }} >
+        <img style={{ height: '150px', minWidth: '100%' }}
           className="image-shadow"
           src={props.cover_image_url}
           alt="image"
@@ -29,14 +29,14 @@ const Card: FC<propsType> = (props) => {
         <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0">Pined</div>
       </div>
       <div
-        className=" p-8 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
+        className="p-4 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
         style={{
           background: 'white',
           width: props.deviceType?.mobile ? '93%' : '100%',
         }}
       >
-        <div className="caption text-accent-dark mb-4 sm:mb-2">{props.createdAt.slice(0, 10)}</div>
-        <div className="sub-h1">{props.name}</div>
+        <div className="caption text-accent-dark mb-2 sm:mb-2">{props.createdAt.slice(0, 10)}</div>
+        <div className="sub-h2">{props.name}</div>
         <p className="caption news-body">
           {props.description.slice(0, 200)}
         </p>

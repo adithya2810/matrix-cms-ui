@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-
+import axios from 'axios'
 
 const getPagination = (currentPage, totalPages, push) => {
   let current = currentPage;
@@ -37,14 +37,20 @@ const getPagination = (currentPage, totalPages, push) => {
 }
 
 const Pagination = () => {
-  const totalPages = 20;
+  // const totalPages = 2;
   const { query: { page }, push } = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
   const handlePrevPage = _ => currentPage !== 1 && window.location.replace(`/news?page=${currentPage - 1}`)
   const handleNextPage = _ => currentPage !== totalPages && window.location.replace(`/news?page=${currentPage + 1}`)
 
   useEffect(() => {
+    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count').then(res => {
+      setTotalPages(Math.round(res.data / 2))
+    }).catch(err => {
+      console.log(err);
+    })
     setCurrentPage(+page || 1)
   }, [page])
   return (

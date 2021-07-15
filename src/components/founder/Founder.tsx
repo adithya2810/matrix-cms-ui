@@ -81,9 +81,10 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         image_url: blogData.cover_desktop,
         title: blogData.name,
         author: blogData.author[0].name,
-        content_id: blogData.content_type.id,
-        content_type: blogData.content_type.name,
+        content_id: blogData.id || "",
+        content_type: blogData.type || "Video",
         read_duration: blogData.readtime,
+        blog_url: blogData.slug
       }
     })
     setFeatureData(featureOneData);
@@ -115,6 +116,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     pauseOnHover: false,
     asNavFor: '.slider-for',
     speed: 1000,
+    initialSlide: 1,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
@@ -154,7 +156,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                 <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
 
                 <div className="founder-footer-container relative">
-                  <svg className="absolute founderRectangle" xmlns="http://www.w3.org/2000/svg" width="56.167" height="56" viewBox="0 0 56.167 56">
+                  <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
                     <g transform="translate(0.167)">
                       <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
                       <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
@@ -177,7 +179,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                         </React.Fragment>
                       })}
                     </div>
-                    <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 150 }} />
+                    <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120 }} />
                   </div>
                 </div>
               </div>

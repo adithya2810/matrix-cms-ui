@@ -32,6 +32,9 @@ const ContentTabs: React.FC<Props> = ({
           />
         );
       })}
+      <div className="viewAllOuter">
+        <a href="/blogs">View All <img src="/icons/arrow_b.svg" alt="arrow" /></a>
+      </div>
     </div>
   );
 };

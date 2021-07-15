@@ -154,8 +154,14 @@ span.thumbnailIndex {
   width: 100%;
   height: 100%;
   position: relative;
-  left: 15px;
-  bottom: 15px;
+  left: 10px;
+  bottom: 10px;
+}
+
+.heroSlider02-contentSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .heroSlider02-founderImage-background {
@@ -167,9 +173,9 @@ span.thumbnailIndex {
   left: 0;
 }
 
-.pageBannerOuter .founderTitle br {
-  display: none;
-}
+// .pageBannerOuter .founderTitle br {
+//   display: none;
+// }
 
 .heroSlider01-thumbnailText br {
   display: none;
@@ -191,7 +197,7 @@ span.thumbnailIndex {
 
 @media screen and (max-width: 1518px) {
   .founderTitle {
-    font-size: calc(35px + 7vw);
+    font-size: calc(35px + 5vw);
   }
 }
 
@@ -212,7 +218,7 @@ span.thumbnailIndex {
     }
 
     .founderTitle {
-      font-size: calc(45px + 5vw);
+      font-size: calc(35px + 4vw);
     }
 
     .heroSlider01-thumbnailText {
@@ -233,7 +239,7 @@ span.thumbnailIndex {
     }
 
     .founder-background {
-      bottom: -20px;
+      bottom: -15px;
     }
   }
 }
@@ -245,7 +251,7 @@ span.thumbnailIndex {
 @media screen and (max-width: 1366px) {
   .pageBannerOuter {
     .founderTitle {
-      font-size: calc(51px + 5vw);
+      font-size: calc(31px + 4vw);
     }
 
     .founderSection-rightOuter {
@@ -299,7 +305,7 @@ span.thumbnailIndex {
     }
 
     .founder-background {
-      bottom: -20px;
+      bottom: -15px;
     }
 
     .heroSlider01-thumbnailOuter {
@@ -442,7 +448,7 @@ span.thumbnailIndex {
 @media screen and (min-height: 1080px) {
   .pageBannerOuter {
     .founderTitle {
-      font-size: calc(48px + 5vw);
+      font-size: calc(30px + 4vw);
       line-height: 1;
     }
   }
@@ -565,6 +571,7 @@ span.thumbnailIndex {
       top: 0px !important;
       position: relative;
       text-align: left;
+      right: auto;
     }
 
     .slick-dots li,

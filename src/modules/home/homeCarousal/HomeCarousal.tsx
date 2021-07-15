@@ -55,7 +55,7 @@ const heroSlider02_Data = [
     id: "01",
     name: [
       {
-        firstName: "Bhavish",
+        firstName: "BHAVISH",
         lastName: "AGGARWAL"
       }
     ],
@@ -101,7 +101,7 @@ const heroSlider02_Data = [
     id: "04",
     name: [
       {
-        firstName: "Asish ",
+        firstName: "ASISH ",
         lastName: "MOHAPATRA"
       }
     ],
@@ -160,15 +160,16 @@ const HomeCarousal = () => {
   const componentDidMount = async () => {
     const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
     const json = await response.json();
-
+    console.log(json)
     const featureTwoData = json.map(blogData => {
       return {
         image_url: blogData.cover_desktop,
         title: blogData.name,
         author: blogData.author[0].name,
-        content_id: blogData.content_type.id,
-        content_type: blogData.content_type.name,
+        content_id: blogData.id || "",
+        content_type: blogData.type || "Video",
         read_duration: blogData.readtime,
+        blog_url: blogData.slug || ''
       }
     })
     setFeatureData(featureTwoData)
@@ -229,7 +230,7 @@ const HomeCarousal = () => {
                     <div className="heroSlider02-contentSection" style={{ flex: "0 45%" }}>
                       <div className="heroSlider02-slide-indicator desktop">
                         {" "}
-                        {slider.id}/05
+                        {slider.id}/06
                       </div>
                       <div className="text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>

@@ -162,7 +162,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
         <div className="flex " style={{}}>
           {socialMedia.map((item) => {
             return (
-              <a className="p-1 mr-10" href={item.link} key={item.key}>
+              <a className="p-1 mr-6" href={item.link} key={item.key}>
                 <Image
                   src={item.imageUrl}
                   alt={item.name}

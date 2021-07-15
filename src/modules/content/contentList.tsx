@@ -51,6 +51,7 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
               content_id={contentItem.content_id}
               content_type={contentItem.content_type}
               read_duration={contentItem.read_duration}
+              blog_url={contentItem.blog_url}
               onClick={(id) => console.log(id)}
             />)
           })

@@ -36,7 +36,7 @@ export const TagList: React.FC<Props> = ({ title, tagList, onItemClick, selected
       <div className=" flex flex-row flex-wrap text-primary-dark">
         {
           tagList.map((tag) => {
-            return (<Tag id={title + tag.id} key={tag.id} className="ml-3 mb-3" title={tag.title} selected={isSelected(tag.id)} onClick={() => {
+            return (<Tag id={title + tag.id} key={tag.id} className="ml-2 mb-2" title={tag.title} selected={isSelected(tag.id)} onClick={() => {
               toggle(tag.id)
             }} />)
           })

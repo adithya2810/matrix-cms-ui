@@ -130,7 +130,7 @@ h6 {
 }
 
 .footer-menu {
-  height: 92px;
+  height: 60px;
   @screen sm {
     height: 189px;
   }
@@ -141,8 +141,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   background: #083a4a;
   border: 1px solid #083a4a;
   box-sizing: border-box;
@@ -160,8 +160,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   border: 1px solid #083a4a;
   box-sizing: border-box;
   font-style: normal;
@@ -177,7 +177,7 @@ h6 {
   width: 156.19px;
   height: 65px;
   margin-top: 44px;
-  margin-left: 84px;
+  margin-left: 4vw;
 }
 
 .menuCloseButton {
@@ -186,7 +186,6 @@ h6 {
 
 .menu-tags {
   width: 35%;
-  opacity: 0.5;
   border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;

@@ -172,9 +172,11 @@ export const Menu: React.FC = () => {
           author: blogData.blogs[0].author.name || "",
           content_id: blogData.blogs[0].id,
           content_type: blogData.blogs[0].type,
-          read_duration: blogData.blogs[0].readtime
+          read_duration: blogData.blogs[0].readtime,
+          blog_url: blogData.blogs[0].slug
         }
       });
+    console.log(json.filter(blogData => blogData.blogs.length > 0));
     setBlogData(blogList);
   }
 
@@ -237,7 +239,12 @@ export const Menu: React.FC = () => {
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} />
-            <Button title={"Visit " + "Blog Page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+            <Button
+              title={"Visit " + "Blog Page"}
+              className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
+              url="/icons/rightArrowGray.svg"
+              onClick={() => { location.href = '/blogs' }}
+            />
           </div>
         }
 

@@ -7,7 +7,7 @@ const founderData = [
     id: "01",
     name: [
       {
-        firstName: "Bhavish",
+        firstName: "BHAVISH",
         lastName: "AGGARWAL"
       }
     ],
@@ -50,7 +50,7 @@ const founderData = [
     id: "04",
     name: [
       {
-        firstName: "Asish ",
+        firstName: "ASISH ",
         lastName: "MOHAPATRA"
       }
     ],

@@ -43,7 +43,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
 
     <div className={`${className}`} style={style}>
       <div >
-        <div className="contentItemHeader">{header}</div>
+        <div className="contentItemHeader pb-2">{header}</div>
         <div></div>
       </div>
       <div>
@@ -58,6 +58,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
                 content_id={contentItem.content_id}
                 content_type={contentItem.content_type}
                 read_duration={contentItem.read_duration}
+                blog_url={contentItem.blog_url}
                 onClick={(id) => console.log(id)}
                 style={{ width: 610 }}
                 className="mr-3 mt-2 text-lg leading-6"

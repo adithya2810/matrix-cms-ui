@@ -32,7 +32,7 @@ export const Header: React.FC<Props> = ({ toggle }) => {
             <h6 className={`sub-h1 pr-1 menu-text ${isSiteBgtrans ? 'black' : 'white'}`}>Menu</h6>
             {isSiteBgtrans ?
               <img src="/icons/menu.svg" className="pl-2 text-blue" /> :
-              <img src="/icons/Symbol_All_white.svg" className="pl-2 text-blue" />
+              <img src="/icons/Symbol_All_white.svg" className="pl-2 sm:pl-2 text-blue" />
             }
 
           </div>

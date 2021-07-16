@@ -64,6 +64,24 @@
   transform: rotate(-90deg);
 }
 
+.siteMenuOuterWrap {
+  height: 100vh;
+  animation: slide 1s reverse;
+}
+
+.siteMenuOuterWrap.visible {
+  animation: slide 1s forwards;
+}
+
+@keyframes slide {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 100vh;
+  }
+}
+
 @media only screen and (max-width: 1080px) {
   .siteMenu-mobileWrapper {
     display: block;

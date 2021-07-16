@@ -64,6 +64,8 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   const [slider1, setSlider1] = useState(null);
   const [slider2, setSlider2] = useState(null);
 
+  const [timerClass, setTimerClass] = useState('timerWarp0');
+
   useEffect(() => {
     setNav1(slider1);
     setNav2(slider2);
@@ -94,7 +96,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   const settingsMain = {
     dots: false,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     infinite: true,
     fade: true,
@@ -110,7 +112,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     dots: false,
     arrows: false,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     fade: false,
     pauseOnHover: false,
@@ -134,7 +136,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   };
 
   function afterChangeHandler(currentSlide) {
-    // console.log(currentSlide);
+    setTimerClass(`timerWarp${currentSlide}`);
     goTo(currentSlide);
   }
 
@@ -186,7 +188,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
             </div>
             <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
               <h1 className="founderTitle" dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-
+              <div className="timerOuterWarp"></div>
               <div className="founderTitleSliderBox">
                 {props.foundersData.map((founder, indexTitleSlider) => (
 
@@ -244,7 +246,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
           ]
         }}
         contentList={featureData}
-        className="blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50"
+        className={`blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50 ${timerClass}`}
         header={<span>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
       />
     </React.Fragment>

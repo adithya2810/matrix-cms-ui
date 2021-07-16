@@ -38,7 +38,6 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
     };
   }
 
-
   return (
 
     <div className={`${className}`} style={style}>
@@ -67,6 +66,9 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
           })}
 
         </Slider>
+      </div>
+      <div className="timerOuter">
+        <div className="timmerInner"></div>
       </div>
     </div>
   );

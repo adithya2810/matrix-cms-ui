@@ -182,7 +182,7 @@ const HomeCarousal = () => {
     autoplaySpeed: 4000,
     arrows: true,
     infinite: true,
-    fade: true,
+    fade: false,
     pauseOnHover: false,
     speed: 500,
     slidesToShow: 1,

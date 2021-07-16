@@ -214,7 +214,7 @@ export const Menu: React.FC = () => {
 
   const className = navMenuState.menu ? "visible" : "invisible hidden"
   return (
-    <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: "100vh" }}>
+    <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`}>
 
       <div className="siteMenuWrapper flex justify-between bg-secondary-light flex-grow">
         <div>

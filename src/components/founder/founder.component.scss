@@ -22,7 +22,7 @@
   height: 100%;
   @apply bg-accent-dark;
   @apply absolute;
-  bottom: -20px;
+  bottom: 0px;
   left: 0px;
 }
 
@@ -36,8 +36,13 @@
 }
 
 .founder-content {
-  left: 15px;
   @apply relative;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.founder-content:hover {
+  transform: translate(10px, -10px);
 }
 
 .founder-timer {
@@ -154,8 +159,12 @@ span.thumbnailIndex {
   width: 100%;
   height: 100%;
   position: relative;
-  left: 10px;
-  bottom: 10px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.heroSlider02-founderImage:hover {
+  transform: translate(10px, -10px);
 }
 
 .heroSlider02-contentSection {
@@ -187,6 +196,31 @@ span.thumbnailIndex {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+}
+
+.timerWarp0 .timerOuter,
+.timerWarp1 .timerOuter,
+.timerWarp2 .timerOuter,
+.timerWarp3 .timerOuter,
+.timerWarp4 .timerOuter,
+.timerWarp5 .timerOuter {
+  position: absolute;
+  background-color: #01576e;
+  top: -5px;
+  width: 100%;
+  height: 5px;
+  left: auto;
+  right: 0;
+  animation: timer 4.2s infinite;
+}
+
+@keyframes timer {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -236,10 +270,6 @@ span.thumbnailIndex {
 
     .founder-container {
       margin-bottom: 30px;
-    }
-
-    .founder-background {
-      bottom: -15px;
     }
   }
 }
@@ -302,10 +332,6 @@ span.thumbnailIndex {
     .founder-container {
       flex: 0 375px;
       margin-bottom: 50px;
-    }
-
-    .founder-background {
-      bottom: -15px;
     }
 
     .heroSlider01-thumbnailOuter {
@@ -514,6 +540,8 @@ span.thumbnailIndex {
 
 @media screen and (max-width: 767px) {
   .pageBannerOuter {
+    padding-top: 80px !important;
+
     .founderTitle {
       font-size: 58px;
       line-height: 1;

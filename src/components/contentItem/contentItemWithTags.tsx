@@ -60,7 +60,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             background: "#01576E",
             height: 42,
             left: 0,
-            bottom: 5,
+            bottom: 0,
             textAlign: "center",
           }}
         >

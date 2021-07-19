@@ -14,8 +14,6 @@ const getFilters = (filters) => {
 
 const AppliedFilters = ({ appliedFilters }) => {
 
-  console.log({ appliedFilters })
-
   return (
     <div className="section">
       <div className="laptop:flex laptop:items-center mt-10 mb-6 sm:mt-5 sm:mb-3">

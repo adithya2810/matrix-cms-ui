@@ -23,9 +23,12 @@ const Card: FC<propsType> = (props) => {
           src={!props.deviceType?.mobile ? props.data?.cover_desktop : props.data?.cover_image_mobile}
           alt="image"
         />
-        <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0">
-          {props.data?.displaytag}
-        </div>
+        {
+          props.data?.displaytag &&
+          <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0">
+            {props.data?.displaytag}
+          </div>
+        }
       </div>
       <div
         className=" p-8 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"

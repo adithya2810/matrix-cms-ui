@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import RelatedVideos from './RelatedVideos';
 
 
@@ -15,7 +15,8 @@ type propsType = {
 
 
 const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relatedVideos }) => {
-  const profileImage = `../../images/blog-details/blog-profile-${mobile ? 'mobile' : 'laptop'}.png`
+
+  const [showMore, setShowMore] = useState(false)
   const videoImage = `../../images/blog-details/video-${mobile ? 'mobile' : 'laptop'}.png`
   return (
     <div className='col-span-3 laptop:mr-16'>
@@ -35,7 +36,11 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
               <div className="caption">{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>
-          <div className="sub-h2">{blogDetails?.author?.[0]?.description}</div>
+          {!showMore ?
+            <div className="sub-h2">{blogDetails?.author?.[0]?.description?.slice(0, 200)}<span onClick={_ => setShowMore(true)} style={{ fontWeight: 700, cursor: 'pointer' }}> ...</span></div>
+            :
+            <div className="sub-h2">{blogDetails?.author?.[0]?.description}</div>
+          }
         </div>
       </div>
       <div className="tags flex gap-2 laptop:py-6 sm:py-3">

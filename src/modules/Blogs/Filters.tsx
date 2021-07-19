@@ -82,9 +82,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
     return <div onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-3 laptop:py-2 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`}>{tagName} <span>{!!tagNumber && `(${tagNumber})`}</span></div>
   }
 
-  const handleApplyFilters = () => {
-
-  }
+  console.log({ filters });
 
   return (
     <>
@@ -93,7 +91,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:right-14 z-50 laptop:top-36 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
+      <div className="fixed laptop:right-14 z-50 laptop:top-24 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
         {!isFilterBoxOpen ? (
           // when filter box is closed state
           <div

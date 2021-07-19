@@ -36,8 +36,7 @@ const getPagination = (currentPage, totalPages, push) => {
   }, []);
 }
 
-const Pagination = () => {
-  const totalPages = 20;
+const Pagination = ({ totalPages = 0 }) => {
   const { query: { page }, push } = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
 

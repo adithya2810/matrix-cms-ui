@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import './index.scss';
 @import '../modules/menu/menu.module.scss';
 
@@ -66,10 +66,12 @@ h1 {
 h2 {
   @apply font-medium;
   font-size: 140px;
+  line-height: 150px;
 
   @screen sm {
     @apply font-medium;
     font-size: 45px;
+    line-height: 52px;
   }
 }
 
@@ -194,11 +196,11 @@ h6 {
 // }
 
 .footer-menu {
-  min-height: 92px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0px;
+  padding: 15px 0px;
 
   @screen sm {
     height: auto;
@@ -219,7 +221,7 @@ h6 {
 }
 
 .footer-section-col01-outer {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 .footer-section-col02-inner {
@@ -230,9 +232,10 @@ h6 {
   width: 73px;
   height: 34px;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 22px;
   line-height: 34px;
   cursor: pointer;
+  color: #01576e;
 }
 
 .tag-selected {
@@ -240,8 +243,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   background: #083a4a;
   border: 1px solid #083a4a;
   box-sizing: border-box;
@@ -258,8 +261,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   border: 1px solid #083a4a;
   box-sizing: border-box;
   font-style: normal;
@@ -274,67 +277,67 @@ h6 {
   font-family: Manrope;
   font-style: normal;
   font-weight: 200;
-  font-size: 55px;
-  line-height: 64px;
+  font-size: 5vh;
+  line-height: 1em;
   letter-spacing: -0.01em;
 }
 
 .menu-secondary-nav-text {
   font-family: Manrope;
   font-style: normal;
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 34px;
+  font-weight: 200;
+  font-size: 2.5vh;
+  line-height: 1.1em;
   letter-spacing: -0.01em;
   color: #ffffff;
 }
 
 .menu-primary-nav-icon {
-  width: 33px;
-  height: 64px;
-  margin-right: 82px;
-  font-family: Manrope;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 55px;
-  line-height: 64px;
-  text-align: right;
-}
-
-.menu-secondary-nav-icon {
   width: 18px;
-  height: 36px;
+  height: 4vh;
   margin-right: 82px;
   font-family: Manrope;
   font-style: normal;
   font-weight: 300;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 4vh;
+  line-height: 1.1em;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.menu-secondary-nav-icon {
+  width: 18px;
+  height: 4vh;
+  margin-right: 82px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 4vh;
+  line-height: 1.1em;
   letter-spacing: -0.01em;
   color: #ffffff;
 }
 
 .company-logo {
-  width: 156.19px;
+  max-width: 120px;
   height: 65px;
-  margin-top: 44px;
-  margin-left: 84px;
+  margin-top: 20px;
+  margin-left: 4vw;
 }
 
 .menuCloseButton {
-  margin-top: 44px;
+  margin-top: 35px;
 }
 
 .menu-tags {
   width: 35%;
-  opacity: 0.5;
   border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;
 }
 
 .content-item-desc {
-  width: 60%;
+  width: 70%;
   height: auto;
 }
 
@@ -361,7 +364,7 @@ h6 {
 
 //menu side nav
 .side-nav {
-  height: 937px;
+  height: calc(100vh - 95px);
   margin-top: 143px;
   width: 548px;
   padding-left: 82px;
@@ -907,7 +910,7 @@ h6 {
   }
 
   .headerOuter-warpper {
-    padding: 25px 0;
+    padding: 10px 0;
   }
 
   .founder-container {
@@ -1336,7 +1339,7 @@ textarea {
 }
 .tags-caption {
   line-height: 14px;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1521,7 +1524,7 @@ textarea {
 }
 .event-user-role {
   font-family: Manrope;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 12px;
   line-height: 17px;
   text-transform: uppercase;

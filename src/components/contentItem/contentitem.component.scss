@@ -4,8 +4,8 @@
 }
 
 .itemCoverImage {
-  width: 200px;
-  height: 150px;
+  width: 150px;
+  height: 120px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,10 +14,16 @@
 .blogCoverImage {
   height: 250px;
   width: 250px;
-  left: 6px;
-  bottom: 6px;
+  left: 0px;
+  bottom: 0px;
   position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: 0.3s all;
+}
+
+.contentWithTagImgbox:hover .blogCoverImage {
+  left: 5px;
+  bottom: 5px;
 }

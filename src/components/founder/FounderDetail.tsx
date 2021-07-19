@@ -31,7 +31,7 @@ export const FounderDetail: React.FC<Props> = ({
         <div className="founder-coverImage" style={{ backgroundImage: `url(${FounderDetail.founderImage})` }}></div>
 
         <div className="rectangleBoxIn" style={{ minHeight: 200, background: "#01576E" }}>
-          <svg className="absolute founderRectangle" xmlns="http://www.w3.org/2000/svg" width="56.167" height="56" viewBox="0 0 56.167 56">
+          <svg className="absolute founderRectangle" width="46" height="46" viewBox="0 0 56.167 56">
             <g transform="translate(0.167)">
               <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
               <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />

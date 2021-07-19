@@ -4,7 +4,7 @@ const HeroSection: FC = () => {
   return (
     <>
       <div className={`listing-hero-section overlay`}>
-        <div className="title section">
+        <div className="title section laptop:ml-40 laptop:mt-20">
           <h2>
             The Matrix <br /> Moments Series
           </h2>

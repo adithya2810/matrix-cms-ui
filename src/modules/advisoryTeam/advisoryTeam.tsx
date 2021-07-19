@@ -12,9 +12,14 @@ const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam }) => {
 
   const [tabination, setTabination] = useState('currentTeam');
 
+  const investmentBanner = "../../../../img/advisory-banner.png";
+  const operationsBanner = "../../../../img/advisory-banner1.jpg";
+
   return (
     <>
-      <MainBanner />
+      <MainBanner
+        banner={tabination === 'currentTeam' ? investmentBanner : operationsBanner}
+      />
 
       <div style={{ position: 'relative' }}>
         <div className="content-center m-auto tabination">

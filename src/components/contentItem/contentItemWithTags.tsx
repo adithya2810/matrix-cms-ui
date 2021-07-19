@@ -10,6 +10,7 @@ export type Props = {
   author: string;
   designation: string;
   author_image_url: string;
+  blog_url: string
   onClick?: (id: string) => void;
   content_id: string;
   content_type: string;
@@ -25,6 +26,7 @@ const ContentItemWithTags: React.FC<Props> = ({
   title,
   author,
   designation,
+  blog_url,
   onClick,
   content_id,
   content_type,
@@ -49,6 +51,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           style={{ width: 250, height: 250, background: "#01576E", bottom: 0 }}
         ></div>
         <div className="blogCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
+          <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
         </div>
 
         <div
@@ -57,7 +60,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             background: "#01576E",
             height: 42,
             left: 0,
-            bottom: 6,
+            bottom: 0,
             textAlign: "center",
           }}
         >
@@ -90,17 +93,16 @@ const ContentItemWithTags: React.FC<Props> = ({
             className="text-primary-dark mt-3"
             style={{ fontSize: "24px", lineHeight: "26px" }}
           >
-            {title}
+            <a href={`/blogs/${blog_url}`}>{title}</a>
+
           </div>
           <div className="flex items-center mt-4 pt-1">
             <Image
-              src={getContentTypeImageUrl(content_type)}
-              height={38}
-              width={22}
-              alt="Writer Image"
+              src={getContentTypeImageUrl(content_type, true)}
+              alt={content_type}
             />
             <div className="flex " style={{ marginLeft: 20 }}>
-              <Image src={author_image_url} alt="profileImage" style={{ maxWidth: 50, borderRadius: "50%" }} />
+              <Image src={author_image_url} alt="profileImage" style={{ width: 50, height: 50, borderRadius: "50%" }} />
               <div style={{ marginLeft: 15 }}>
                 <div className="font-medium text-base leading-6 text-primary-dark">
                   {author}

@@ -37,7 +37,7 @@ export const Root: React.FC<Props> = ({ children, deviceType }) => {
   }, []);
   const className = !navMenuState.menu
     ? "visible"
-    : "invisible hidden ";
+    : "invisible ";
 
   return (
     <>

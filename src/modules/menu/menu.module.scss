@@ -4,16 +4,16 @@
 }
 
 .siteSidenavMenuWrap.side-nav {
-  margin-top: 132px;
-  width: 30%;
-  padding-left: 5vw;
-  padding-top: 45px;
-  max-width: 525px;
+  margin-top: 95px;
+  width: 27%;
+  padding-left: 4vw;
+  padding-top: 4vh;
+  max-width: 27vw;
 }
 
 .siteMenuWrapper > div:first-child {
-  width: 30%;
-  max-width: 525px;
+  width: 27%;
+  max-width: 27vw;
 }
 
 .siteMenuWrapper > .menu-tags {
@@ -36,7 +36,7 @@
 }
 
 .menuBlogInfoBox {
-  max-height: 820px;
+  max-height: calc(100vh - 200px);
 }
 
 .menuBlogInfoBox::-webkit-scrollbar {
@@ -62,6 +62,25 @@
 
 .inverted {
   transform: rotate(-90deg);
+}
+
+.siteMenuOuterWrap {
+  height: 100vh;
+  animation: slide 1s reverse;
+}
+
+.siteMenuOuterWrap.visible {
+  animation: slide 1s forwards;
+  position: fixed;
+}
+
+@keyframes slide {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 100vh;
+  }
 }
 
 @media only screen and (max-width: 1080px) {
@@ -167,9 +186,6 @@
 
 @media only screen and (max-width: 945px) {
   .siteMenuOuterWrap {
-    height: auto !important;
-    min-height: 750px !important;
-
     .siteMenuWrapper.flex {
       flex-wrap: wrap;
     }
@@ -186,10 +202,6 @@
     .siteSidenavMenuWrap > .mr-16 {
       margin: 0px;
       padding-right: 20px;
-    }
-
-    .siteSidenavMenuWrap > .mr-16 > .flex {
-      margin: 28px 0px 35px !important;
     }
 
     input.mt-2.text-secondary {
@@ -226,7 +238,7 @@
     .company-logo {
       width: 130px;
       height: 56px;
-      margin-top: 25px;
+      margin-top: 20px;
       margin-left: 40px;
     }
 
@@ -300,7 +312,7 @@
 
     .siteSidenavMenuWrap.side-nav {
       margin-top: 80px;
-      height: 100%;
+      height: calc(100% - 80px);
     }
 
     .menu-secondary-nav-icon {

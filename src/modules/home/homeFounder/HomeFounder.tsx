@@ -7,11 +7,11 @@ const founderData = [
     id: "01",
     name: [
       {
-        firstName: "Bhavish",
+        firstName: "BHAVISH",
         lastName: "AGGARWAL"
       }
     ],
-    title: "We are <span>founders</span><br> first",
+    title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Bhavish_image.png',
     tags: ["Mobility", "Electric Cars"],
     logo: "/icons/ola.svg",
@@ -50,7 +50,7 @@ const founderData = [
     id: "04",
     name: [
       {
-        firstName: "Asish ",
+        firstName: "ASISH ",
         lastName: "MOHAPATRA"
       }
     ],
@@ -67,7 +67,7 @@ const founderData = [
         lastName: "LAKSHIPATHY"
       }
     ],
-    title: "We are <span>founders</span><br> first",
+    title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/founder4-edited.png',
     tags: ["Fintech", "NBFC"],
     logo: "/icons/mx-logos-five-star 1.svg",
@@ -93,7 +93,7 @@ const founderData = [
 
 const HomeFounder = () => {
   return (
-    <div className="pageBannerOuter" style={{ position: "relative", paddingTop: 110 }}>
+    <div className="pageBannerOuter" style={{ position: "relative" }}>
       <div className="page-center">
         <div className="heroSlider01-outerWarp">
           <Founder foundersData={founderData} />

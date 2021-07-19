@@ -13,6 +13,8 @@ export type Props = {
 export const Logo: React.FC<Props> = ({ src, alt, className, width, height, style = {} }) => {
 
 
+  const siteLogo = '/icons/MatrixLogoFinal_White.svg';
+
 
   return (
     // <Image src="/icons/matrixLogo_White.svg" alt="nextjs" width="156.19px" height="65px" className="company-logo" />

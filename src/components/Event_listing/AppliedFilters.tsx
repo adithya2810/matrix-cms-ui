@@ -20,7 +20,7 @@ const AppliedFilters: FC = () => {
 
   useEffect(() => {
     axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events/count').then(res => {
-      setTotalPages(Math.round(res.data / 2))
+      setTotalPages(Math.round(res.data / 10))
     }).catch(err => {
       console.log(err);
     })

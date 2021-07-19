@@ -127,10 +127,10 @@ span.tagBorderRight {
 }
 
 .heroSlider01-thumbnailText {
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 3vh;
+  line-height: 1.2em;
   color: #083a4a;
-  max-width: 150px;
+  max-width: 130px;
 }
 
 .heroSlider01-thumbnailInner {
@@ -216,7 +216,7 @@ span.thumbnailIndex {
   height: 5px;
   left: auto;
   right: 0;
-  animation: timer 4.2s infinite;
+  animation: timer 4.3s infinite;
 }
 
 @keyframes timer {
@@ -278,10 +278,6 @@ span.thumbnailIndex {
       font-size: calc(35px + 12vh);
     }
 
-    .heroSlider01-thumbnailText {
-      max-width: 185px;
-    }
-
     .founder-name-container {
       padding: 15px;
     }
@@ -314,8 +310,8 @@ span.thumbnailIndex {
     }
 
     .heroSlider01-thumbnailText {
-      font-size: 20px;
-      line-height: 22px;
+      font-size: 3.2vh;
+      line-height: 1.2em;
     }
 
     .contentItemOuter-w50 .slick-slide .content-item-desc > * {
@@ -338,10 +334,6 @@ span.thumbnailIndex {
       bottom: -10px !important;
       right: -8px !important;
       left: 8rem !important;
-    }
-
-    .heroSlider01-thumbnailText {
-      max-width: initial;
     }
 
     .heroSlider01-thumbnailInner {
@@ -460,10 +452,6 @@ span.thumbnailIndex {
   opacity: 0.35;
 }
 
-.heroSlide1 .founderTitleSliderBox > div:nth-child(2) {
-  opacity: 0.5;
-}
-
 .heroSlide2 .heroTitleSlider1 {
   order: 3;
   opacity: 0.35;
@@ -471,7 +459,7 @@ span.thumbnailIndex {
 
 .heroSlide3 .heroTitleSlider1 {
   order: 2;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .heroSlide3 .heroTitleSlider2 {
@@ -496,7 +484,6 @@ span.thumbnailIndex {
 
 .heroSlide5 .heroTitleSlider1 {
   order: 2;
-  opacity: 0.5;
 }
 
 .heroSlide5 .heroTitleSlider2 {

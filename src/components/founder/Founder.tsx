@@ -88,7 +88,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   const settingsMain = {
     dots: false,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     infinite: true,
     fade: true,

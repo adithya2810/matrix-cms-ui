@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react';
 import Link from 'next/link'
+import { Markup } from 'interweave';
+
 type deviceType = {
   mobile: Boolean;
 };
@@ -20,8 +22,8 @@ const Card: FC<propsType> = (props) => {
   return (
 
     <div className="laptop:flex">
-      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" style={{ width: '35%' }} >
-        <img style={{ height: '150px', minWidth: '100%' }}
+      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3  news-images-body" >
+        <img style={{ height: '170px', minWidth: '100%' }}
           className="image-shadow"
           src={props.cover_image_url}
           alt="image"
@@ -38,7 +40,7 @@ const Card: FC<propsType> = (props) => {
         <div className="caption text-accent-dark mb-2 sm:mb-2">{props.createdAt.slice(0, 10)}</div>
         <div className="sub-h2">{props.name}</div>
         <p className="caption news-body">
-          {props.description.slice(0, 200)}
+          <Markup content={props.description.slice(0, 200)} />
         </p>
         <div className="read-or-hide">
           <Link href={url}>Read More </Link>

@@ -1456,6 +1456,9 @@ textarea {
     color: #01576e;
     margin: 19px;
   }
+  .news-images-body {
+    width: 100% !important;
+  }
 }
 .event-heading-1 {
   display: none;
@@ -1523,4 +1526,7 @@ textarea {
   line-height: 17px;
   text-transform: uppercase;
   color: #000000;
+}
+.news-images-body {
+  width: 50%;
 }

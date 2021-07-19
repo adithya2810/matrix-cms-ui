@@ -31,7 +31,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
       {(sectorialList.length > 0 || nonSectorialList.length > 0 || sectorialList.length > 0 || nonSectorialList.length > 0 ||
         blogData.length > 0 || newsInfoList.length > 0 || eventInfoList.length > 0) &&
         <div className="flex justify-between bg-secondary-light flex-grow">
-          <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
+          <Image src="/icons/MatrixLogoFinal_White.svg" alt="company logo" className="company-logo" />
           <div className="menuCloseButton flex items-center pt-2" onClick={() => closeMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
             <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
@@ -41,7 +41,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
       {(sectorialList.length == 0 && nonSectorialList.length == 0 && sectorialList.length == 0 && nonSectorialList.length == 0 &&
         blogData.length == 0 && newsInfoList.length == 0 && eventInfoList.length == 0) &&
         <div className="flex justify-between bg-secondary-light flex-grow">
-          <Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" />
+          <Image src="/icons/MatrixLogoFinal_White.svg" alt="company logo" className="company-logo" />
           <div className="menuCloseButton flex items-center pt-2" onClick={() => appConfigMutation.toogleMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
             <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>

@@ -14,7 +14,7 @@ const homeContentTabs = [
     link: "",
   },
   {
-    name: "VideoCasts",
+    name: "Videocasts",
     id: "videocasts",
     link: "",
   },

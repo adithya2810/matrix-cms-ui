@@ -88,7 +88,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   const settingsMain = {
     dots: false,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     infinite: true,
     fade: true,
@@ -127,7 +127,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
                       <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
                     </g>
                   </svg>
-                  <div className="founder-name-container">
+                  <div className="founder-name-container" style={{ minHeight: 100 }}>
                     {founder.name.map(name => {
                       return <h6 className="founder-name-text" key={name.firstName + 1}>
                         <strong>{name.firstName} </strong> {name.lastName}
@@ -174,27 +174,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         style={{
           right: 0,
         }}
-        setting={{
-          dots: true,
-          arrows: false,
-          autoplay: true,
-          autoplaySpeed: 4000,
-          infinite: false,
-          fade: false,
-          pauseOnHover: false,
-          speed: 1000,
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-          responsive: [
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 1.1,
-                infinite: true,
-              }
-            }
-          ]
-        }}
+        slidesToShow={1.5}
         contentList={featureData}
         className={`blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50 ${timerClass}`}
         header={<span>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}

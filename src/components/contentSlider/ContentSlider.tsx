@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ContentItem } from "@components/contentItem";
 import Slider from "react-slick";
 
@@ -10,36 +10,42 @@ export type Props = {
   contentList: Array<any>;
   style?: any,
   header: any;
-  setting?: any
+  slidesToShow?: any
 };
 
-export const ContentSlider: React.FC<Props> = ({ contentList, className, header, setting, style = {} }) => {
+export const ContentSlider: React.FC<Props> = ({ contentList, className, header, slidesToShow, style = {} }) => {
+
   var settings;
-  if (setting) {
-    settings = setting;
-  } else {
-    settings = {
-      dots: true,
-      autoplay: true,
-      arrows: false,
-      autoplaySpeed: 4000,
-      infinite: false,
-      fade: false,
-      pauseOnHover: false,
-      speed: 1000,
-      slidesToShow: 2.5,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1.1,
-            infinite: true,
-          }
+  settings = {
+    dots: true,
+    autoplay: true,
+    arrows: false,
+    autoplaySpeed: 4000,
+    infinite: false,
+    fade: false,
+    pauseOnHover: false,
+    speed: 1000,
+    slidesToShow: slidesToShow || 2.58,
+    slidesToScroll: 1,
+    slickGoTo: 1,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1.1,
+          infinite: true,
         }
-      ]
-    };
-  }
+      }
+    ]
+  };
+
+  // function afterChangeHandler(currentSlide) {
+  //   if (currentSlide > 3 && slidesToShow) {
+  //     let element: HTMLElement = document.querySelector('.contentItemOuter-w50 ul.slick-dots li') as HTMLElement;
+  //     element.click();
+  //     console.log(currentSlide)
+  //   }
+  // }
 
   return (
 

@@ -20,10 +20,10 @@ export const NewsEventContentItem: React.FC<Props> = ({
   onClick
 }) => {
   return (
-    <div className={`${className} relative mb-8 ml-0`}  >
+    <div className={`${className} relative mb-12 ml-0`}  >
       <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>
       <div className="content-item-desc bg-secondary-light absolute p-3"
-        style={{ bottom: "-1rem", left: "9.5rem" }}
+        style={{ bottom: "-2rem", left: "6rem" }}
       >
         <h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
           {title}

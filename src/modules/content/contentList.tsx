@@ -7,6 +7,7 @@ export type Props = {
   isNewsEvent: boolean;
   header: string;
   newsEventData?: Array<any>
+  page_url?: string
 }
 
 const data = [
@@ -28,7 +29,7 @@ const data = [
   }
 ]
 
-export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData }) => {
+export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData, page_url }) => {
 
   return (<div className="ml-8 flex-grow sm:hidden seperator">
     <div className="flex justify-between ">
@@ -37,7 +38,11 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
         <span className="ml-5 pl-1 text-accent">({blogData.length})</span>
       </div>
 
-      <SecondaryButton title="View All RESULTS" className=" mr-6 text-accent-dark" />
+      <SecondaryButton
+        title="View All RESULTS"
+        className=" mr-6 text-accent-dark"
+        onClick={() => location.href = page_url}
+      />
     </div>
     {!isNewsEvent &&
       <div className="mt-4 flex-grow overflow-auto menuBlogInfoBox">

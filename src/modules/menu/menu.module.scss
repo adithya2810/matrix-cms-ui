@@ -36,7 +36,7 @@
 }
 
 .menuBlogInfoBox {
-  max-height: 820px;
+  max-height: calc(100vh - 200px);
 }
 
 .menuBlogInfoBox::-webkit-scrollbar {
@@ -71,6 +71,7 @@
 
 .siteMenuOuterWrap.visible {
   animation: slide 1s forwards;
+  position: fixed;
 }
 
 @keyframes slide {

@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import axios from 'axios'
+import { Markup } from 'interweave';
 
 const Details: FC = (props) => {
   const router = useRouter();
@@ -13,7 +14,6 @@ const Details: FC = (props) => {
     }
 
     axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos', { params }).then(res => {
-      debugger
       setNewsdata(res.data)
     }).catch(err => {
       console.log(err);
@@ -27,7 +27,8 @@ const Details: FC = (props) => {
         {newsdata[0]?.title}
       </p>
       <p className='news-description'>
-        {newsdata[0]?.body}
+        <Markup content={newsdata[0]?.body} />
+        {/* {$(newsdata[0]?.body)} */}
       </p>
       <div className='tags-block'>
         <p>TAGS</p>

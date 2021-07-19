@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "deepmerge": "^4.2.2",
     "graphql": "^15.5.0",
+    "interweave": "^12.8.0",
     "mobile-detect": "^1.4.5",
     "next": "^10.2.3",
     "next-compose-plugins": "^2.2.1",

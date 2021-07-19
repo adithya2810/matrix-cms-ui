@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import axios from 'axios'
 import Image from 'next/image';
+import { Markup } from 'interweave';
 
 const Details: FC = (props) => {
   const router = useRouter();
@@ -61,7 +62,7 @@ const Details: FC = (props) => {
           </div>
         </div>
         <div className='right-event'>
-          <p>{eventsdata[0]?.description}</p>
+          <p><Markup content={eventsdata[0]?.description} /></p>
         </div>
 
       </div>

@@ -220,8 +220,8 @@ export const Menu: React.FC = () => {
 
       <div className="siteMenuWrapper flex justify-between bg-secondary-light flex-grow">
         <div>
-          <a href="/home"><Image src="/icons/matrixLogo.svg" alt="company logo" className="company-logo" /></a>
 
+          <a href="/home"><Image src="/icons/MatrixLogoFinal_White.svg" alt="company logo" className="company-logo" /></a>
           <div className="menuCloseButton mt-11  items-center self-end pt-2 hidden lg:flex" onClick={() => appConfigMutation.toogleMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
             <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>

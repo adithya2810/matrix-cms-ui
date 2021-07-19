@@ -21,8 +21,8 @@ const List: FC<propsType> = (props) => {
   const [current, setCurrent] = useState(Number(router.query.page) - 1);
   useEffect(() => {
     const params = {
-      _start: current ? current * 2 : 0,
-      _limit: 2
+      _start: current ? current * 10 : 0,
+      _limit: 10
     }
     axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events', { params }).then(res => {
       setCard(res.data)

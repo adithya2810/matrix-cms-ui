@@ -189,7 +189,7 @@ export const Menu: React.FC = () => {
         title: news.title,
         created_date: news.createdAt,
         image_url: news.imageurl,
-        blog_url: news.slug
+        blog_url: `/news/${news.slug}`
       }
     });
     setNewsInfoList(newsList);
@@ -204,7 +204,7 @@ export const Menu: React.FC = () => {
         title: event.name,
         created_date: event.createdAt,
         image_url: event.cover_image_url,
-        blog_url: event.slug
+        blog_url: `/events/${event.slug}`
       }
     });
     setEventInfoList(eventList);
@@ -265,12 +265,12 @@ export const Menu: React.FC = () => {
 
         {newsInfoList.length > 0 &&
           <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
-            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/blogs/news'} />
+            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
             <Button
               title={"View " + "News page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
               url="/icons/rightArrowGray.svg"
-              onClick={() => location.href = '/blogs/news'}
+              onClick={() => location.href = '/news'}
             />
           </div>
         }
@@ -281,12 +281,12 @@ export const Menu: React.FC = () => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/blogs/events'} />
+            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
             <Button
               title={"View " + "Events page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
               url="/icons/rightArrowGray.svg"
-              onClick={() => location.href = '/blogs/events'}
+              onClick={() => location.href = '/events'}
             />
           </div>
         }

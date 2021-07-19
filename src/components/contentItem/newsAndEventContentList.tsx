@@ -31,12 +31,11 @@ export const NewsEventContentItem: React.FC<Props> = ({
           {title}
         </h5>
         <div className="flex justify-between mt-3 contentButtonWrap">
-          {/* <button onClick={() => onClick(content_id)} /> */}
           <Button
             title={"Read More"}
             className="h-8 w-36 text-accent text-base"
             url="/icons/rightArrowGray.svg"
-            onClick={() => location.href = `/blogs/${blog_url}`}
+            onClick={() => location.href = `${blog_url}`}
           />
           <div className="date">
             {date.split('T')[0]}

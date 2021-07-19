@@ -24,7 +24,7 @@ export const Header: React.FC<Props> = ({ toggle }) => {
         <div className="headerInner-warpper">
           <a href="/home">
             {isSiteBgtrans ?
-              <Logo src={siteLogoBlock} alt={"nextjs"} className="black" /> :
+              <Logo src={siteLogoWhite} alt={"nextjs"} className="black" /> :
               <Logo src={siteLogoWhite} alt={"nextjs"} className="white" />
             }
           </a>

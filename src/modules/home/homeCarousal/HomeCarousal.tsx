@@ -165,7 +165,7 @@ const HomeCarousal = () => {
       return {
         image_url: blogData.cover_desktop,
         title: blogData.name,
-        author: blogData.author[0].name,
+        author: blogData.author[0]?.name || "",
         content_id: blogData.id || "",
         content_type: blogData.type || "Video",
         read_duration: blogData.readtime,

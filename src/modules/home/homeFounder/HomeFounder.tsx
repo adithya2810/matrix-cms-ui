@@ -11,7 +11,7 @@ const founderData = [
         lastName: "AGGARWAL"
       }
     ],
-    title: "We are <span>founders</span><br> first",
+    title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Bhavish_image.png',
     tags: ["Mobility", "Electric Cars"],
     logo: "/icons/ola.svg",
@@ -67,7 +67,7 @@ const founderData = [
         lastName: "LAKSHIPATHY"
       }
     ],
-    title: "We are <span>founders</span><br> first",
+    title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/founder4-edited.png',
     tags: ["Fintech", "NBFC"],
     logo: "/icons/mx-logos-five-star 1.svg",

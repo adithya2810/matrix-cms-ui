@@ -20,10 +20,13 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
   } else {
     settings = {
       dots: true,
-      autoplay: false,
+      autoplay: true,
       arrows: false,
+      autoplaySpeed: 4000,
       infinite: false,
-      speed: 500,
+      fade: false,
+      pauseOnHover: false,
+      speed: 1000,
       slidesToShow: 2.5,
       slidesToScroll: 1,
       responsive: [

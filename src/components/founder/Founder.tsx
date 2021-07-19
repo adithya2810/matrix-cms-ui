@@ -58,18 +58,9 @@ const data = [
 export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
-
-  const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
-  const [slider1, setSlider1] = useState(null);
-  const [slider2, setSlider2] = useState(null);
-
   const [timerClass, setTimerClass] = useState('timerWarp0');
 
   useEffect(() => {
-    setNav1(slider1);
-    setNav2(slider2);
-
     componentDidMount();
 
 
@@ -79,10 +70,11 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
     const json = await response.json();
     const featureOneData = json.map(blogData => {
+      console.log(json)
       return {
         image_url: blogData.cover_desktop,
         title: blogData.name,
-        author: blogData.author[0].name,
+        author: blogData.author[0]?.name || "",
         content_id: blogData.id || "",
         content_type: blogData.type || "Video",
         read_duration: blogData.readtime,
@@ -101,39 +93,12 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     infinite: true,
     fade: true,
     pauseOnHover: false,
-    asNavFor: '.slider-nav',
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (state) => afterChangeHandler(state)
   };
 
-  const settingsThumbs = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    fade: false,
-    pauseOnHover: false,
-    asNavFor: '.slider-for',
-    speed: 1000,
-    initialSlide: 1,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1.35,
-          slidesToScroll: 1,
-          infinite: false,
-          loop: true
-        }
-      }
-    ]
-    //afterChange: (state) => afterChangeHandler(state)
-  };
 
   function afterChangeHandler(currentSlide) {
     setTimerClass(`timerWarp${currentSlide}`);
@@ -147,9 +112,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
 
   return (
     <React.Fragment>
-      <Slider {...settingsMain}
-        asNavFor={nav2}
-        ref={slider => (setSlider1(slider))}>
+      <Slider {...settingsMain}>
         {props.foundersData.map((founder, index) => {
           return <div className="founderSection-outerWarp" key={founder.id}>
             <div className={`founderSection-leftOuter founder-container`}>
@@ -188,11 +151,11 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
             </div>
             <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
               <h1 className="founderTitle" dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-              <div className="timerOuterWarp"></div>
               <div className="founderTitleSliderBox">
                 {props.foundersData.map((founder, indexTitleSlider) => (
 
-                  (index !== indexTitleSlider) &&
+                  (index != indexTitleSlider) &&
+
                   <div className={`heroSlider01-thumbnailInner heroTitleSlider${indexTitleSlider + 1}`} key={founder.id}>
                     <span className="thumbnailIndex">{founder.id}</span>
                     <div className="heroSlider01-thumbnailText" dangerouslySetInnerHTML={{ __html: founder.title }}></div>
@@ -207,34 +170,21 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         })}
       </Slider>
 
-      <div className="heroSlider01-thumbnailOuter">
-        <Slider {...settingsThumbs}
-          asNavFor={nav1}
-          ref={slider => (setSlider2(slider))}>
-          {props.foundersData.map((founder, index) => {
-            return (
-              <div className="heroSlider01-thumbnailInner" key={founder.id}>
-                <span className="thumbnailIndex">{founder.id}</span>
-                <div className="heroSlider01-thumbnailText" dangerouslySetInnerHTML={{ __html: founder.title }}></div>
-              </div>
-            )
-          })}
-        </Slider>
-      </div>
-
       <ContentSlider
         style={{
           right: 0,
         }}
         setting={{
           dots: true,
-          autoplay: false,
           arrows: false,
+          autoplay: true,
+          autoplaySpeed: 4000,
           infinite: false,
-          speed: 500,
+          fade: false,
+          pauseOnHover: false,
+          speed: 1000,
           slidesToShow: 1.5,
           slidesToScroll: 1,
-          initialSlide: 1,
           responsive: [
             {
               breakpoint: 767,

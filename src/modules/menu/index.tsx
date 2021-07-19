@@ -222,7 +222,7 @@ export const Menu: React.FC = () => {
 
           <div className="menuCloseButton mt-11  items-center self-end pt-2 hidden lg:flex" onClick={() => appConfigMutation.toogleMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-            <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+            <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
           </div>
         </div>
         {(sectorialList.length > 0 || nonSectorialList.length > 0) &&
@@ -236,7 +236,7 @@ export const Menu: React.FC = () => {
           <div className="flex-grow flex flex-col">
             <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} />
             <Button
@@ -252,7 +252,7 @@ export const Menu: React.FC = () => {
           <div className="sm:hidden menuNotSelected flex-grow pl-12">
             <div className="menuCloseButton mt-11 flex items-center justify-end" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <h1>Select our <br></br>
               options to<br></br>
@@ -272,7 +272,7 @@ export const Menu: React.FC = () => {
           <div className="flex-grow flex flex-col">
             <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} />
             <Button title={"View " + "Events page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />

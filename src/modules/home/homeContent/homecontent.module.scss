@@ -28,7 +28,7 @@
 .home-content-side-nav-container {
   min-width: 500px;
   padding-left: 40px;
-  @apply bg-secondary;
+  background: #ebebe9;
   @apply items-center;
   @apply flex;
   @apply flex-col;
@@ -49,14 +49,29 @@
   flex-direction: column;
 }
 
+.viewAllOuter {
+  width: 100%;
+  padding-top: 50px;
+}
 
+.viewAllOuter a {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #01576e;
+}
+
+.viewAllOuter a img {
+  display: inline-block;
+}
 
 @media screen and (max-width: 1080px) {
   .home-content-side-nav-container {
     min-width: 300px;
     padding-left: 20px;
 
-    &>div>img {
+    & > div > img {
       width: 50px;
     }
 
@@ -86,9 +101,7 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .homeContentSection-Outer {
-
     .contentItemOuter-w85 {
       padding: 18px 0px 10px 15px;
     }
@@ -96,10 +109,10 @@
     .homeContentSection-Inner {
       flex-direction: column;
       height: auto !important;
-      margin-bottom: 10px !important
+      margin-bottom: 10px !important;
     }
 
-    .home-content-tab>img {
+    .home-content-tab > img {
       display: none;
     }
 
@@ -124,7 +137,7 @@
 
     .home-content-side-nav-container:before {
       content: '';
-      background: #01576E;
+      background: #01576e;
       opacity: 0.2;
       width: 100%;
       position: absolute;
@@ -134,7 +147,7 @@
 
     .home-content-tab.opacity-100:after {
       content: '';
-      background: #01576E;
+      background: #01576e;
       opacity: 1;
       width: 100%;
       position: absolute;
@@ -142,7 +155,7 @@
       height: 3px;
     }
 
-    .home-content-side-nav-container>div:nth-child(2) {
+    .home-content-side-nav-container > div:nth-child(2) {
       margin: 0px 15px !important;
     }
 
@@ -184,7 +197,7 @@
       margin-bottom: 20px !important;
     }
 
-    .contentWithTagWrap>div {
+    .contentWithTagWrap > div {
       margin: 0px !important;
       padding: 15px;
     }
@@ -197,7 +210,5 @@
     .absolute.flex.items-center.contentCategoryBox {
       width: auto !important;
     }
-
   }
-
 }

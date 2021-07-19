@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               <h6 className="laptop:w-48 font-normal leading-9 text-4xl tracking-wider p-0.5"> Let's stay engaged</h6>
               <span className="p-1 ml-4">
                 <h6 className="sub-h2 font-medium text-lg leading-6">Sign up for the Matrix Moments series</h6>
-                <input className="mt-2 text-secondary bg-accent p-0.5 pl-3 w-full" style={{ color: "#FBF9F5" }} type="email" placeholder="Your email address goes here" />
+                <input className="mt-2 text-secondary bg-accent p-2 pl-3 w-full" style={{ color: "#FBF9F5" }} type="email" placeholder="Your email address goes here" />
                 <Button title="Subscribe" url="/icons/arrow.svg" className={"p-1 text-cta"} onClick={() => console.log("subscribe")} />
               </span>
             </div>

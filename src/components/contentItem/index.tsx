@@ -12,6 +12,7 @@ export type Props = {
   content_id: string;
   content_type: string;
   read_duration: string;
+  blog_url: string;
   style?: any;
   className?: string;
 };
@@ -21,6 +22,7 @@ export const ContentItem: React.FC<Props> = ({
   className = "",
   title,
   author,
+  blog_url,
   onClick,
   content_id,
   content_type,
@@ -29,12 +31,14 @@ export const ContentItem: React.FC<Props> = ({
 }) => {
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
-      <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>
+      <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
+        <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+      </div>
       <div className="content-item-desc bg-secondary-light absolute p-3"
-        style={{ bottom: "-1rem", left: "9.5rem" }}
+        style={{ bottom: "-1rem", left: "7.5rem" }}
       >
         <h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
-          {title}
+          <a href={`/blogs/${blog_url}`}>{title}</a>
         </h5>
         <div className="flex justify-between ml-2 pl-0.5 pt-0.5">
           <span className="font-normal text-xs leading-3  text-primary-dark opacity-50">
@@ -47,9 +51,10 @@ export const ContentItem: React.FC<Props> = ({
         <div className="flex justify-between mt-3 contentButtonWrap">
           {/* <button onClick={() => onClick(content_id)} /> */}
           <Button
-            title={"Read More"}
+            title={`Read More`}
             className="h-8 w-36 text-accent text-base"
             url="/icons/rightArrowGray.svg"
+            onClick={() => { location.href = `/blogs/${blog_url}` }}
           />
           <Image
             src={getContentTypeImageUrl(content_type)}

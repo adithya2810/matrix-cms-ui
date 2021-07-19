@@ -42,6 +42,7 @@ export const NavItem: React.FC<Props> = ({
             src={"/icons/sideNavButton.svg"}
             alt="nav button"
             className="-mr-5 opacity-100"
+            style={{ maxWidth: 80 }}
           />
         )
       ) : null}

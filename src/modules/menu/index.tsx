@@ -172,9 +172,11 @@ export const Menu: React.FC = () => {
           author: blogData.blogs[0].author.name || "",
           content_id: blogData.blogs[0].id,
           content_type: blogData.blogs[0].type,
-          read_duration: blogData.blogs[0].readtime
+          read_duration: blogData.blogs[0].readtime,
+          blog_url: blogData.blogs[0].slug
         }
       });
+    console.log(json.filter(blogData => blogData.blogs.length > 0));
     setBlogData(blogList);
   }
 
@@ -186,7 +188,8 @@ export const Menu: React.FC = () => {
       return {
         title: news.title,
         created_date: news.createdAt,
-        image_url: news.imageurl
+        image_url: news.imageurl,
+        blog_url: `/news/${news.slug}`
       }
     });
     setNewsInfoList(newsList);
@@ -200,7 +203,8 @@ export const Menu: React.FC = () => {
       return {
         title: event.name,
         created_date: event.createdAt,
-        image_url: event.cover_image_url
+        image_url: event.cover_image_url,
+        blog_url: `/events/${event.slug}`
       }
     });
     setEventInfoList(eventList);
@@ -210,16 +214,17 @@ export const Menu: React.FC = () => {
 
   console.log(navMenuState);
 
-  const className = navMenuState.menu ? "visible" : "invisible hidden"
+  const className = navMenuState.menu ? "visible" : "invisible"
   return (
-    <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`} style={{ height: 1053 }}>
+    <div className={`siteMenuOuterWrap bg-secondary z-30 overflow-hidden   flex  w-full flex-grow absolute top-0 ${className}`}>
 
       <div className="siteMenuWrapper flex justify-between bg-secondary-light flex-grow">
         <div>
-          <Image src="/icons/MatrixLogoFinal_White.svg" alt="company logo" className="company-logo" />
+
+          <a href="/home"><Image src="/icons/MatrixLogoFinal_White.svg" alt="company logo" className="company-logo" /></a>
           <div className="menuCloseButton mt-11  items-center self-end pt-2 hidden lg:flex" onClick={() => appConfigMutation.toogleMenu()}>
             <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-            <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+            <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
           </div>
         </div>
         {(sectorialList.length > 0 || nonSectorialList.length > 0) &&
@@ -233,10 +238,15 @@ export const Menu: React.FC = () => {
           <div className="flex-grow flex flex-col">
             <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} />
-            <Button title={"Visit " + "Blog Page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+            <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
+            <Button
+              title={"Visit " + "Blog Page"}
+              className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
+              url="/icons/rightArrowGray.svg"
+              onClick={() => { location.href = '/blogs' }}
+            />
           </div>
         }
 
@@ -244,7 +254,7 @@ export const Menu: React.FC = () => {
           <div className="sm:hidden menuNotSelected flex-grow pl-12">
             <div className="menuCloseButton mt-11 flex items-center justify-end" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
             <h1>Select our <br></br>
               options to<br></br>
@@ -255,8 +265,13 @@ export const Menu: React.FC = () => {
 
         {newsInfoList.length > 0 &&
           <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
-            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} />
-            <Button title={"View " + "News page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
+            <Button
+              title={"View " + "News page"}
+              className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
+              url="/icons/rightArrowGray.svg"
+              onClick={() => location.href = '/news'}
+            />
           </div>
         }
 
@@ -264,10 +279,15 @@ export const Menu: React.FC = () => {
           <div className="flex-grow flex flex-col">
             <div className="menuCloseButton mt-11 flex items-center self-end pt-2" onClick={() => appConfigMutation.toogleMenu()}>
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
-              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-20 sm:mr-6 text-blue" alt="close menu"></Image>
+              <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} />
-            <Button title={"View " + "Events page"} className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent" url="/icons/rightArrowGray.svg" />
+            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
+            <Button
+              title={"View " + "Events page"}
+              className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
+              url="/icons/rightArrowGray.svg"
+              onClick={() => location.href = '/events'}
+            />
           </div>
         }
 

@@ -47,7 +47,7 @@ export const navMenu = {
         },
         {
           key: "footer_event",
-          name: "event",
+          name: "Event",
           link: "/events",
         }
       ]

@@ -14,7 +14,7 @@ const homeContentTabs = [
     link: "",
   },
   {
-    name: "VideoCasts",
+    name: "Videocasts",
     id: "videocasts",
     link: "",
   },
@@ -57,12 +57,13 @@ const HomeContent: React.FC = () => {
         image_url: blogData.cover_desktop || "/icons/homeContentImage.svg",
         image_caption: "MOST SEARCHED",
         title: blogData.name,
-        author: blogData.author.length > 0 ? blogData.author[0].name : "Sanjot Malhi",
-        designation: blogData.author.length > 0 ? blogData.author[0].designation : "Director",
-        author_image_url: blogData.author.length > 0 ? blogData.author[0].image_url : "/icons/profileImage.svg",
-        content_id: blogData?.content_type ? blogData.content_type.id : "",
-        content_type: blogData?.content_type ? blogData.content_type.name : "Video",
+        author: blogData.author[0]?.name || "Sanjot Malhi",
+        designation: blogData.author[0]?.designation || "Director",
+        author_image_url: blogData.author[0]?.image_url || "/icons/profileImage.svg",
+        content_id: blogData.id || "",
+        content_type: blogData?.type || "Video",
         read_duration: blogData.readtime,
+        blog_url: blogData.slug || '',
         tags: blogData.tags.map(tag => {
           return {
             title: tag.name,

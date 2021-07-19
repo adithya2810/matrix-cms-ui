@@ -1,4 +1,5 @@
 import { RightArrowWhiteLaptop, RightArrowWhiteMobile } from '@components/Icons'
+import { useRouter } from 'next/router';
 import React, { FC } from 'react'
 
 
@@ -11,6 +12,7 @@ type propsType = {
 };
 
 const SubmitPlan: FC<propsType> = ({ deviceType: { mobile } }) => {
+  const { push } = useRouter()
   const Arrow = mobile ? RightArrowWhiteMobile : RightArrowWhiteLaptop
   return (
     <div className='laptop:bg-secondary'>
@@ -20,7 +22,7 @@ const SubmitPlan: FC<propsType> = ({ deviceType: { mobile } }) => {
           Founders are always first in our eyes, whether you have just a nascent idea or are already running a business, let us help you turn your ideas into reality and grow your business.
         </div>
         <div className='mt-40 sm:mt-24'>
-          <div style={{ fontSize: mobile ? 14 : 28 }} className="sub-h1 w-full bg-accent text-white py-6 sm:py-2 flex justify-center cursor-pointer hover:opacity-90 relative items-center">
+          <div onClick={_ => push('/contact')} style={{ fontSize: mobile ? 14 : 28 }} className="sub-h1 w-full bg-accent text-white py-6 sm:py-2 flex justify-center cursor-pointer hover:opacity-90 relative items-center">
             Submit Your Business Plan <span className='absolute right-10 sm:right-5'><Arrow /></span>
           </div>
         </div>

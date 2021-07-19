@@ -45,6 +45,7 @@ ul.slick-dots {
   bottom: auto !important;
   top: -35px !important;
   text-align: right;
+  right: 20px;
 }
 
 .imageOverlay:before {
@@ -70,7 +71,7 @@ ul.slick-dots {
 }
 
 .heroSlider02-slide-title {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 60px;
   line-height: 70px;
   opacity: 1;
@@ -96,8 +97,8 @@ ul.slick-dots {
 }
 
 .hospatalitySector {
-  bottom: 50px;
-  height: 200px;
+  bottom: 40px;
+  height: 190px;
   width: 500px;
   left: auto;
   right: calc(85% - 440px);
@@ -166,17 +167,12 @@ ul.slick-dots {
   }
 }
 
-
-
 @media screen and (max-width: 767px) {
-
-
   .heroSlider02Outer {
-
     .heroSlider02-slide-title {
       font-size: 30px;
       line-height: 1.2;
-      font-weight: 300;
+      font-weight: 200;
       max-width: 85%;
       margin: 0px auto;
       padding-top: 25px;
@@ -214,14 +210,11 @@ ul.slick-dots {
       padding: 20px;
     }
 
-    .heroSlider02-founderImage>div {
+    .heroSlider02-founderImage > div {
       height: auto !important;
     }
-
   }
-
 }
-
 
 @media screen and (max-width: 480px) {
   .hospatalitySector {

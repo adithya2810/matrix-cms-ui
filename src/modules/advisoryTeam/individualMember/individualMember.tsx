@@ -16,7 +16,7 @@ const IndividualMember: FC<propsType> = (props) => {
 
   const memberContent = [{}, {}, {}]
   return (
-    <div className="team_detail py-44 px-12 sm:py-0 sm:px-0">
+    <div className="team_detail py-56 px-12 sm:py-0 sm:px-0">
       {props.advisoryDetail.map((e: any) => (
 
         <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">

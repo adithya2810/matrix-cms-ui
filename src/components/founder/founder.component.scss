@@ -8,8 +8,8 @@
 .founder-container {
   max-width: 620px;
   @apply relative;
-  flex: 0 40%;
-  margin-bottom: 100px;
+  flex: 0 30%;
+  margin-bottom: 30px;
 
   @screen sm {
     height: 407px;
@@ -22,13 +22,13 @@
   height: 100%;
   @apply bg-accent-dark;
   @apply absolute;
-  bottom: -20px;
+  bottom: 0px;
   left: 0px;
 }
 
 .founderSection-rightOuter {
-  flex: 0 50%;
-  max-width: 50%;
+  flex: 0 62%;
+  max-width: 62%;
 }
 
 .founder-image {
@@ -36,8 +36,13 @@
 }
 
 .founder-content {
-  left: 15px;
   @apply relative;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.founder-content:hover {
+  transform: translate(10px, -10px);
 }
 
 .founder-timer {
@@ -98,11 +103,10 @@ span.tagBorderRight {
 
 .founderTitle {
   font-weight: 200;
-  font-size: calc(46px + 4.5vw);
+  font-size: calc(46px + 12vh);
   line-height: 1;
   letter-spacing: -0.025em;
   color: #000000;
-  margin-top: -20px;
 }
 
 .founderTitle span {
@@ -114,14 +118,19 @@ span.tagBorderRight {
   z-index: 9;
   bottom: 260px;
   right: 0;
-  width: 50%;
+  width: 60%;
+}
+
+.heroSlider01-thumbnailOuter.timerWarp0,
+.heroSlider01-thumbnailOuter.timerWarp3 {
+  width: 40% !important;
 }
 
 .heroSlider01-thumbnailText {
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 3vh;
+  line-height: 1.2em;
   color: #083a4a;
-  max-width: 150px;
+  max-width: 130px;
 }
 
 .heroSlider01-thumbnailInner {
@@ -129,11 +138,12 @@ span.tagBorderRight {
   align-content: flex-start;
   justify-content: end;
   width: 100%;
+  min-width: 30%;
 }
 
 span.thumbnailIndex {
   flex: 0 25px;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 18px;
   line-height: 20px;
   /* identical to box height, or 117% */
@@ -154,8 +164,18 @@ span.thumbnailIndex {
   width: 100%;
   height: 100%;
   position: relative;
-  left: 15px;
-  bottom: 15px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.heroSlider02-founderImage:hover {
+  transform: translate(10px, -10px);
+}
+
+.heroSlider02-contentSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .heroSlider02-founderImage-background {
@@ -167,9 +187,9 @@ span.thumbnailIndex {
   left: 0;
 }
 
-.pageBannerOuter .founderTitle br {
-  display: none;
-}
+// .pageBannerOuter .founderTitle br {
+//   display: none;
+// }
 
 .heroSlider01-thumbnailText br {
   display: none;
@@ -177,10 +197,53 @@ span.thumbnailIndex {
 
 .founder-coverImage {
   width: 100%;
-  min-height: 350px;
+  min-height: 50vh;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+}
+
+.timerWarp0 .timerOuter,
+.timerWarp1 .timerOuter,
+.timerWarp2 .timerOuter,
+.timerWarp3 .timerOuter,
+.timerWarp4 .timerOuter,
+.timerWarp5 .timerOuter {
+  position: absolute;
+  background-color: #01576e;
+  top: -5px;
+  width: 100%;
+  height: 5px;
+  left: auto;
+  right: 0;
+  animation: timer 4.3s infinite;
+}
+
+@keyframes timer {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.founderSection-rightOuter.heroSlide1 {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.founderSection-rightOuter.heroSlide1 .founderTitleSliderBox,
+.founderSection-rightOuter.heroSlide5 .founderTitleSliderBox {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  max-width: 60%;
+}
+
+.founderSection-rightOuter.heroSlide5 {
+  position: relative;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -191,7 +254,7 @@ span.thumbnailIndex {
 
 @media screen and (max-width: 1518px) {
   .founderTitle {
-    font-size: calc(35px + 7vw);
+    font-size: calc(35px + 12vh);
   }
 }
 
@@ -212,11 +275,7 @@ span.thumbnailIndex {
     }
 
     .founderTitle {
-      font-size: calc(45px + 5vw);
-    }
-
-    .heroSlider01-thumbnailText {
-      max-width: 185px;
+      font-size: calc(35px + 12vh);
     }
 
     .founder-name-container {
@@ -225,15 +284,6 @@ span.thumbnailIndex {
 
     .founder-field-container {
       padding: 15px;
-      height: auto !important;
-    }
-
-    .founder-container {
-      margin-bottom: 30px;
-    }
-
-    .founder-background {
-      bottom: -20px;
     }
   }
 }
@@ -245,7 +295,7 @@ span.thumbnailIndex {
 @media screen and (max-width: 1366px) {
   .pageBannerOuter {
     .founderTitle {
-      font-size: calc(51px + 5vw);
+      font-size: calc(31px + 12vh);
     }
 
     .founderSection-rightOuter {
@@ -259,8 +309,8 @@ span.thumbnailIndex {
     }
 
     .heroSlider01-thumbnailText {
-      font-size: 20px;
-      line-height: 22px;
+      font-size: 3vh;
+      line-height: 1.2em;
     }
 
     .contentItemOuter-w50 .slick-slide .content-item-desc > * {
@@ -285,21 +335,13 @@ span.thumbnailIndex {
       left: 8rem !important;
     }
 
-    .heroSlider01-thumbnailText {
-      max-width: initial;
-    }
-
     .heroSlider01-thumbnailInner {
       padding-right: 10px;
     }
 
     .founder-container {
       flex: 0 375px;
-      margin-bottom: 50px;
-    }
-
-    .founder-background {
-      bottom: -20px;
+      margin-bottom: 20px;
     }
 
     .heroSlider01-thumbnailOuter {
@@ -371,7 +413,8 @@ span.thumbnailIndex {
 }
 
 .founderTitleSliderBox {
-  display: none;
+  display: flex;
+  overflow: hidden;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -408,10 +451,6 @@ span.thumbnailIndex {
   opacity: 0.35;
 }
 
-.heroSlide1 .founderTitleSliderBox > div:nth-child(2) {
-  opacity: 0.5;
-}
-
 .heroSlide2 .heroTitleSlider1 {
   order: 3;
   opacity: 0.35;
@@ -419,7 +458,7 @@ span.thumbnailIndex {
 
 .heroSlide3 .heroTitleSlider1 {
   order: 2;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .heroSlide3 .heroTitleSlider2 {
@@ -427,22 +466,50 @@ span.thumbnailIndex {
   opacity: 0.35;
 }
 
-@media screen and (max-width: 1600px) {
-  .founderTitleSliderBox {
-    max-width: 620px;
-  }
+.heroSlide4 .heroTitleSlider1 {
+  order: 2;
+  opacity: 0.5;
+}
+
+.heroSlide4 .heroTitleSlider2 {
+  order: 3;
+  opacity: 0.5;
+}
+
+.heroSlide4 .heroTitleSlider3 {
+  order: 4;
+  opacity: 0.5;
+}
+
+.heroSlide5 .heroTitleSlider1 {
+  order: 2;
+}
+
+.heroSlide5 .heroTitleSlider2 {
+  order: 3;
+  opacity: 0.5;
+}
+
+.heroSlide5 .heroTitleSlider3 {
+  order: 4;
+  opacity: 0.5;
+}
+
+.heroSlide5 .heroTitleSlider4 {
+  order: 5;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 1600px) {
-  .founderTitleSliderBox {
-    max-width: 520px;
-  }
+  // .founderTitleSliderBox {
+  //   max-width: 520px;
+  // }
 }
 
 @media screen and (min-height: 1080px) {
   .pageBannerOuter {
     .founderTitle {
-      font-size: calc(48px + 5vw);
+      font-size: calc(30px + 12vh);
       line-height: 1;
     }
   }
@@ -451,17 +518,15 @@ span.thumbnailIndex {
 @media screen and (max-width: 1080px) {
   .pageBannerOuter {
     .founderSection-outerWarp {
-      flex-direction: column-reverse;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
       width: 100% !important;
-      order: 2;
     }
 
-    .heroSlide3 .founderTitle > span ~ br {
-      display: none;
-    }
+    // .heroSlide3 .founderTitle > span ~ br {
+    //   display: none;
+    // }
 
     .heroSlider01-thumbnailOuter {
       display: none;
@@ -472,12 +537,17 @@ span.thumbnailIndex {
     }
 
     .founderSection-rightOuter {
-      flex: 1 auto;
+      flex: 0 100%;
       max-width: 600px;
       margin-bottom: 30px;
-      order: 1;
+      order: 0;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .founderSection-rightOuter.heroSlide1,
+    .founderSection-rightOuter.heroSlide5 {
+      margin-bottom: 50px;
     }
 
     .founderTitle {
@@ -498,16 +568,30 @@ span.thumbnailIndex {
 
     .founder-container {
       flex: 0 350px;
+      order: 1;
+      margin: 0 auto;
     }
 
     .slick-track .slick-slide > div {
       width: 100%;
     }
   }
+
+  .founderSection-rightOuter.heroSlide1 .founderTitleSliderBox,
+  .founderSection-rightOuter.heroSlide5 .founderTitleSliderBox {
+    bottom: -20px;
+  }
+
+  .founderSection-rightOuter.heroSlide1 .heroSlider01-thumbnailInner,
+  .founderSection-rightOuter.heroSlide5 .heroSlider01-thumbnailInner {
+    min-width: 50%;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .pageBannerOuter {
+    padding-top: 80px !important;
+
     .founderTitle {
       font-size: 58px;
       line-height: 1;
@@ -565,6 +649,7 @@ span.thumbnailIndex {
       top: 0px !important;
       position: relative;
       text-align: left;
+      right: auto;
     }
 
     .slick-dots li,
@@ -634,6 +719,14 @@ span.thumbnailIndex {
       padding-bottom: 8px;
     }
 
+    .content-item-desc h5 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
     img.contentItemImage {
       position: absolute;
     }
@@ -685,5 +778,19 @@ span.thumbnailIndex {
     font-size: 15px;
     padding-right: 5px;
     line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .pageBannerOuter .founder-container {
+    flex: 0 100%;
+  }
+
+  .founder-footer-container {
+    padding-right: 15px;
+  }
+
+  .founder-background {
+    width: 95%;
   }
 }

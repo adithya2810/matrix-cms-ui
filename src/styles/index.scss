@@ -130,7 +130,7 @@ h6 {
 }
 
 .footer-menu {
-  height: 92px;
+  height: 60px;
   @screen sm {
     height: 189px;
   }
@@ -141,8 +141,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   background: #083a4a;
   border: 1px solid #083a4a;
   box-sizing: border-box;
@@ -160,8 +160,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
-  height: 41px;
+  padding: 5px 10px;
+  height: 36px;
   border: 1px solid #083a4a;
   box-sizing: border-box;
   font-style: normal;
@@ -173,65 +173,19 @@ h6 {
   cursor: pointer;
 }
 
-.menu-primary-nav-text {
-  font-family: Manrope;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 55px;
-  line-height: 64px;
-  letter-spacing: -0.01em;
-}
-
-.menu-secondary-nav-text {
-  font-family: Manrope;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.menu-primary-nav-icon {
-  width: 33px;
-  height: 64px;
-  margin-right: 82px;
-  font-family: Manrope;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 55px;
-  line-height: 64px;
-  text-align: right;
-}
-
-.menu-secondary-nav-icon {
-  width: 18px;
-  height: 36px;
-  margin-right: 82px;
-  font-family: Manrope;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-}
-
 .company-logo {
-  width: 156.19px;
+  max-width: 120px;
   height: 65px;
   margin-top: 44px;
-  margin-left: 84px;
+  margin-left: 4vw;
 }
 
 .menuCloseButton {
-  margin-top: 44px;
+  margin-top: 35px;
 }
 
 .menu-tags {
   width: 35%;
-  opacity: 0.5;
   border: 2px solid #083a4a;
   box-sizing: border-box;
   margin-top: -19px;
@@ -266,7 +220,7 @@ h6 {
 
 //menu side nav
 .side-nav {
-  height: 937px;
+  height: calc(100vh - 95px);
   margin-top: 143px;
   width: 548px;
   padding-left: 82px;

@@ -29,6 +29,11 @@ const footermenu = [
     name: "Careers",
     link: "/careers",
   },
+  {
+    key: "footer_presskit",
+    name: "Presskit",
+    link: "/presskit",
+  },
 ];
 
 export default footermenu;

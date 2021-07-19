@@ -7,7 +7,7 @@ const FooterMenu: React.FC = () => {
     {
       menu.map((item: any, index: number) => {
         return (<span key={index} className="p-1.5">
-          <a href={item.link} className="text-secondary h-14 p-0.5 mr-11 leading-4.5"> {item.name}</a>
+          <a href={item.link} className="text-secondary h-14 p-0.5 mr-6 leading-4.5"> {item.name}</a>
         </span>)
       })
     }

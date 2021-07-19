@@ -7,6 +7,7 @@ export type Props = {
   image_url: string;
   title: string;
   date: string;
+  blog_url: string;
   onClick: (id: string) => void;
   style?: any;
   className?: string;
@@ -17,6 +18,7 @@ export const NewsEventContentItem: React.FC<Props> = ({
   className = "",
   title,
   date,
+  blog_url,
   onClick
 }) => {
   return (
@@ -34,6 +36,7 @@ export const NewsEventContentItem: React.FC<Props> = ({
             title={"Read More"}
             className="h-8 w-36 text-accent text-base"
             url="/icons/rightArrowGray.svg"
+            onClick={() => location.href = `/blogs/${blog_url}`}
           />
           <div className="date">
             {date.split('T')[0]}

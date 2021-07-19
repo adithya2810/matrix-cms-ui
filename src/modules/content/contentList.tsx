@@ -73,6 +73,7 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
                 image_url={newsEvent.image_url}
                 title={newsEvent.title}
                 date={newsEvent.created_date}
+                blog_url={newsEvent.blog_url}
                 onClick={(id) => console.log(id)}
               />)
             }

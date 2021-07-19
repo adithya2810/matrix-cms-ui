@@ -188,7 +188,8 @@ export const Menu: React.FC = () => {
       return {
         title: news.title,
         created_date: news.createdAt,
-        image_url: news.imageurl
+        image_url: news.imageurl,
+        blog_url: news.slug
       }
     });
     setNewsInfoList(newsList);
@@ -202,7 +203,8 @@ export const Menu: React.FC = () => {
       return {
         title: event.name,
         created_date: event.createdAt,
-        image_url: event.cover_image_url
+        image_url: event.cover_image_url,
+        blog_url: event.slug
       }
     });
     setEventInfoList(eventList);

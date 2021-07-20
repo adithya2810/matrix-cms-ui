@@ -158,7 +158,7 @@ const HomeCarousal = () => {
   }, [])
 
   const componentDidMount = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
+    const response = await fetch(' http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedTwo=true');
     const json = await response.json();
     console.log(json)
     const featureTwoData = json.map(blogData => {

@@ -24,8 +24,7 @@ const Blog: FC<propsType> = ({ deviceType: { mobile }, blogDetails }) => {
       {
         <div className='blog-content w-full mb-10' dangerouslySetInnerHTML={{ __html: blogDetails?.[contentType[blogDetails.type]] }} />
       }
-      {/* <div dangerouslySetInnerHTML={{__html: blogDetails.content}} /> */}
-      <div className='sub-h2'>{blogDetails?.content}</div>
+      <div dangerouslySetInnerHTML={{ __html: blogDetails?.content }} />
     </div>
   )
 }

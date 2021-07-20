@@ -32,7 +32,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
               src={blogDetails?.author?.[0]?.image_url}
               style={!mobile ? { height: 67, width: 67, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }} />
             <div>
-              <h6 className='mb-2'>{blogDetails?.author?.[0]?.name}</h6>
+              <h6 className='mb-2' style={!mobile ? { lineHeight: '30px' } : {}}>{blogDetails?.author?.[0]?.name}</h6>
               <div className="caption">{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>

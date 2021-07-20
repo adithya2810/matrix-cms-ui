@@ -37,10 +37,10 @@ export const ContentItem: React.FC<Props> = ({
       <div className="content-item-desc bg-secondary-light absolute p-3"
         style={{ bottom: "-1rem", left: "7.5rem" }}
       >
-        <h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
+        <h5 className="text-sm font-medium leading-6 text-primary-dark ml-2">
           <a href={`/blogs/${blog_url}`}>{title}</a>
         </h5>
-        <div className="flex justify-between ml-2 pl-0.5 pt-0.5">
+        <div className="flex justify-between ml-2 pt-0.5">
           <span className="font-normal text-xs leading-3  text-primary-dark opacity-50">
             BY {" " + author}
           </span>

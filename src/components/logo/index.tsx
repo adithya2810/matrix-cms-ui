@@ -13,7 +13,7 @@ export type Props = {
 export const Logo: React.FC<Props> = ({ src, alt, className, width, height, style = {} }) => {
 
 
-  const siteLogo = '/icons/MatrixLogoFinal_White.svg';
+  const siteLogo = '/icons/matrixLogo.svg';
 
 
   return (

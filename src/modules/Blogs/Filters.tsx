@@ -13,7 +13,9 @@ import {
   DownArrow,
   UpArrow,
   SelectAllLaptop,
-  SelectNoneLaptop
+  SelectNoneLaptop,
+  InstagramLaptop,
+  InstagramMobile
 } from '@components/Icons';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -62,6 +64,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   ) : (
     <LinkedInLaptop />
   );
+  const InstagramIcon = deviceType.mobile ? <InstagramMobile /> : <InstagramLaptop />;
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
   const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
 
@@ -91,29 +94,33 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:right-14 z-50 laptop:top-24 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
+      <div className="fixed laptop:right-12 z-50 laptop:bottom-0 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
         {!isFilterBoxOpen ? (
           // when filter box is closed state
           <div
-            className="closed duration-300 w-28 cursor-pointer sm:flex sm:w-full"
+            className="closed duration-300 w-18 cursor-pointer sm:flex sm:w-full"
             onClick={handleFilter}
           >
-            <div className="search h-24 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
+            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-96 sm:h-12 sm:flex-grow    bg-accent-dark">
-              <div className="sub-h1 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4">
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
+              <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4">
                 Filters
               </div>
               {FilterIcon}
             </div>
-            <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
+            <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center">
               {LinkedInIcon}
-              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
-            <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center">
+            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
               {TwitterIcon}
-              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+            </div>
+            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+              {InstagramIcon}
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
           </div>
         ) : (
@@ -145,12 +152,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
             <div
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
                 }`}
-              style={{ height: deviceType.mobile ? 300 : 570 }}
+              style={{ height: deviceType.mobile ? 300 : 432 }}
             >
-              <ul className="sub-h1 text-white" >
+              <ul className="sub-h1 text-white filters-overflow" style={{ overflowY: 'scroll', maxHeight: 330 }}>
 
                 {/* matrix moments */}
-                <li className="py-4 sm:py-2  flex items-center ">
+                <li className="py-2 sm:py-2  flex items-center ">
                   <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
                   {
                     openedFilter === 'moments' &&
@@ -250,7 +257,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0 })}
                 </div>}
               </ul>
-              <div className="bg-accent-dark px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
+              <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
                 <div onClick={() => {
                   setFilters(initialFilters);
                   fetchBlogsData();

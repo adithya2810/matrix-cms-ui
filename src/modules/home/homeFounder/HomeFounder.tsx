@@ -59,36 +59,36 @@ const founderData = [
     tags: ["Fintech", "SME Lending"],
     logo: "/icons/OfBusiness Logo 1.svg",
   },
-  {
-    id: "05",
-    name: [
-      {
-        firstName: "Mr.  ",
-        lastName: "LAKSHIPATHY"
-      }
-    ],
-    title: "We are <br><span>founders</span><br> first",
-    background_url: '/icons/founder4-edited.png',
-    tags: ["Fintech", "NBFC"],
-    logo: "/icons/mx-logos-five-star 1.svg",
-  },
-  {
-    id: "06",
-    name: [
-      {
-        firstName: "CHAKRADHAR ",
-        lastName: "GADE"
-      },
-      {
-        firstName: "NITIN ",
-        lastName: "KAUSHAL"
-      }
-    ],
-    title: "We <span>commit </span><br> personally",
-    background_url: '/icons/Chakradhar_Nitin.png',
-    tags: ["D2C", "Food"],
-    logo: "/icons/Country Delight 1.svg",
-  }
+  // {
+  //   id: "05",
+  //   name: [
+  //     {
+  //       firstName: "Mr.  ",
+  //       lastName: "LAKSHIPATHY"
+  //     }
+  //   ],
+  //   title: "We are <br><span>founders</span><br> first",
+  //   background_url: '/icons/founder4-edited.png',
+  //   tags: ["Fintech", "NBFC"],
+  //   logo: "/icons/mx-logos-five-star 1.svg",
+  // },
+  // {
+  //   id: "06",
+  //   name: [
+  //     {
+  //       firstName: "CHAKRADHAR ",
+  //       lastName: "GADE"
+  //     },
+  //     {
+  //       firstName: "NITIN ",
+  //       lastName: "KAUSHAL"
+  //     }
+  //   ],
+  //   title: "We <span>commit </span><br> personally",
+  //   background_url: '/icons/Chakradhar_Nitin.png',
+  //   tags: ["D2C", "Food"],
+  //   logo: "/icons/Country Delight 1.svg",
+  // }
 ]
 
 const HomeFounder = () => {

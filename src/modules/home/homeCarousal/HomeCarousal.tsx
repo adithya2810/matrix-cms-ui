@@ -178,7 +178,7 @@ const HomeCarousal = () => {
 
   var settings = {
     dots: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     arrows: true,
     infinite: true,
@@ -213,22 +213,22 @@ const HomeCarousal = () => {
   };
 
   return (
-    <div className="relative blogSliderOuter heroSlider02Outer">
+    <div className="relative blogSliderOuter heroSlider02Outer" style={{ minHeight: 800 }}>
       <Slider {...settings}>
         {heroSlider02_Data.map(slider => {
           return (
             <div key={slider.id}>
               <div
-                className="h-full w-full flex flex-col imageOverlay relative"
+                className="h-full w-full flex flex-col relative"
                 style={{
-                  backgroundImage: `url(${slider.background_url})`,
-                  backgroundSize: "cover",
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.450),rgba(0, 0, 0, 0.5)), url(${slider.background_url})`,
+                  backgroundSize: "100% 100%",
                 }}
               >
                 <div className="page-center">
                   <div className="heroSlider02-outerWarp">
-                    <div className="heroSlider02-contentSection" style={{ flex: "0 45%" }}>
-                      <div className="heroSlider02-slide-indicator desktop">
+                    <div className="heroSlider02-contentSection" style={{ flex: "0 50%", justifyContent: 'space-between' }}>
+                      <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: 70 }}>
                         {" "}
                         {slider.id}/06
                       </div>
@@ -236,7 +236,7 @@ const HomeCarousal = () => {
                       </div>
                     </div>
                     <FounderDetail
-                      FounderDetail={slider}
+                      FounderDetail={slider} style={{ flex: '0 50%', marginTop: 23 }}
                     />
                     <div className="heroSlider02-slide-indicator mobile">
                       {" "}
@@ -250,7 +250,7 @@ const HomeCarousal = () => {
       </Slider>
 
       <div
-        className="absolute bg-accent hospatalitySector">
+        className="absolute bg-accent hospatalitySector" style={{ bottom: 42 }}>
         <span className="text-secondary hospatalitySector-text font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
         >
           {" "}
@@ -259,8 +259,9 @@ const HomeCarousal = () => {
       </div>
       <ContentSlider
         contentList={featureData}
-        className="absolute md:relative bottom-0 right-0 text-primary-dark  contentItemOuter-w85"
-        header={<span>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
+        className="absolute md:relative bottom-0 right-0 text-primary-dark contentItemOuter-w85"
+        style={{ paddingLeft: 20, paddingTop: 20 }}
+        header={<span style={{ fontSize: 28, fontWeight: 400, lineHeight: '34px' }}>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
       />
     </div>
   );

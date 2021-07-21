@@ -48,7 +48,7 @@ const Pagination = ({ totalPages = 0 }) => {
   }, [page])
   return (
     <div className='flex justify-center sm:block mt-20 mb-16'>
-      <div className='bg-grey flex justify-center items-center px-10 py-4'>
+      <div className='bg-grey flex justify-center items-center px-10 py-2'>
         <div onClick={handlePrevPage} className="cursor-pointer body2 text-accent-dark sm:hidden hover:opacity-80"> {`<`} Prev</div>
         <div onClick={handlePrevPage} className="cursor-pointer body2 text-accent-dark laptop:hidden hover:opacity-80"> {`<`}</div>
         <div className='flex px-20 sm:px-2'>

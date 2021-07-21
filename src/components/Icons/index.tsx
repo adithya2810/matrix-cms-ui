@@ -3,10 +3,10 @@ import React from 'react'
 export const MicMobile = _ => (
   <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="32" height="40" fill="#01576E" />
-    <g clip-path="url(#clip0)">
+    <g clipPath="url(#clip0)">
       <rect x="11.0488" y="7.64844" width="9.9" height="17.1826" rx="4.95" fill="white" />
-      <path d="M8.84961 16.2383V19.9955C8.93788 22.3214 10.4385 26.9731 15.7348 26.9731C18.2064 27.0626 23.1496 25.7923 23.1496 19.9955V16.2383" stroke="white" stroke-width="1.5" />
-      <path d="M16.1326 26.9805V32.35M20.9488 32.35H11.0488" stroke="white" stroke-width="1.5" />
+      <path d="M8.84961 16.2383V19.9955C8.93788 22.3214 10.4385 26.9731 15.7348 26.9731C18.2064 27.0626 23.1496 25.7923 23.1496 19.9955V16.2383" stroke="white" strokeWidth="1.5" />
+      <path d="M16.1326 26.9805V32.35M20.9488 32.35H11.0488" stroke="white" strokeWidth="1.5" />
     </g>
     <defs>
       <clipPath id="clip0">
@@ -18,8 +18,8 @@ export const MicMobile = _ => (
 export const MicLaptop = _ => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="12.3848" y="1" width="15.2308" height="26.4348" rx="7.61539" fill="#01576E" />
-    <path d="M9 14.2188V19.999C9.1358 23.5773 11.4444 30.7339 19.5926 30.7339C23.3951 30.8715 31 28.9172 31 19.999V14.2188" stroke="#01576E" stroke-width="2" />
-    <path d="M20.206 30.7383V38.9992M27.6155 38.9992H12.3848" stroke="#01576E" stroke-width="2" />
+    <path d="M9 14.2188V19.999C9.1358 23.5773 11.4444 30.7339 19.5926 30.7339C23.3951 30.8715 31 28.9172 31 19.999V14.2188" stroke="#01576E" strokeWidth="2" />
+    <path d="M20.206 30.7383V38.9992M27.6155 38.9992H12.3848" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 
@@ -54,13 +54,13 @@ export const ArticleMobile = _ => (
 
 export const VideoLaptop = _ => (
   <svg width="38" height="22" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M31.7503 6.68466V15.3153L38 18.2606V11V3.73942L31.7503 6.68466ZM14.9287 9.35515L11.9904 7.71013V11L11.9908 14.2914L14.9306 12.6457V12.6453L17.8693 11.0008L14.9287 9.35515ZM25.7557 0H2.14256C1.56143 0 1.02994 0.265232 0.643718 0.691918C0.246835 1.13006 0 1.73883 0 2.41054V19.5895C0 20.2612 0.246835 20.8699 0.643718 21.3081C1.02994 21.7348 1.56143 22 2.14256 22H25.7557C26.3364 22 26.8675 21.7339 27.2553 21.3073C27.6518 20.8691 27.8986 20.2608 27.8986 19.5895V2.41054C27.8986 1.74684 27.6573 1.14381 27.2683 0.706859L27.2549 0.693357C26.8675 0.266267 26.3364 0.000274136 25.7557 0.000274136L25.7557 0ZM22.8071 11C22.8071 13.3709 21.8154 15.5183 20.213 17.0717C18.6106 18.625 16.3952 19.5864 13.9495 19.5864C11.503 19.5864 9.28795 18.625 7.68558 17.0717L7.66658 17.0514C6.07445 15.4985 5.09091 13.3598 5.09091 10.9996C5.09091 8.62998 6.08266 6.48313 7.68626 4.92868C9.28863 3.37532 11.5037 2.41397 13.9502 2.41397C16.3959 2.41397 18.6113 3.37532 20.2137 4.92868C21.8161 6.482 22.8078 8.62953 22.8078 11.0004L22.8071 11Z" fill="#01576E" />
+    <path fillRule="evenodd" clipRule="evenodd" d="M31.7503 6.68466V15.3153L38 18.2606V11V3.73942L31.7503 6.68466ZM14.9287 9.35515L11.9904 7.71013V11L11.9908 14.2914L14.9306 12.6457V12.6453L17.8693 11.0008L14.9287 9.35515ZM25.7557 0H2.14256C1.56143 0 1.02994 0.265232 0.643718 0.691918C0.246835 1.13006 0 1.73883 0 2.41054V19.5895C0 20.2612 0.246835 20.8699 0.643718 21.3081C1.02994 21.7348 1.56143 22 2.14256 22H25.7557C26.3364 22 26.8675 21.7339 27.2553 21.3073C27.6518 20.8691 27.8986 20.2608 27.8986 19.5895V2.41054C27.8986 1.74684 27.6573 1.14381 27.2683 0.706859L27.2549 0.693357C26.8675 0.266267 26.3364 0.000274136 25.7557 0.000274136L25.7557 0ZM22.8071 11C22.8071 13.3709 21.8154 15.5183 20.213 17.0717C18.6106 18.625 16.3952 19.5864 13.9495 19.5864C11.503 19.5864 9.28795 18.625 7.68558 17.0717L7.66658 17.0514C6.07445 15.4985 5.09091 13.3598 5.09091 10.9996C5.09091 8.62998 6.08266 6.48313 7.68626 4.92868C9.28863 3.37532 11.5037 2.41397 13.9502 2.41397C16.3959 2.41397 18.6113 3.37532 20.2137 4.92868C21.8161 6.482 22.8078 8.62953 22.8078 11.0004L22.8071 11Z" fill="#01576E" />
   </svg>
 )
 export const VideoMobile = _ => (
   <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="32" height="40" fill="#01576E" />
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2881 17.1966V22.8065L28.3504 24.7209V20.0016V15.2822L24.2881 17.1966ZM13.354 18.9324L11.4442 17.8631V20.0016L11.4444 22.141L13.3553 21.0712V21.071L15.2654 20.0021L13.354 18.9324ZM20.3916 12.8516H5.04306C4.66532 12.8516 4.31985 13.024 4.06881 13.3013C3.81083 13.5861 3.65039 13.9818 3.65039 14.4184V25.5848C3.65039 26.0213 3.81083 26.417 4.06881 26.7018C4.31985 26.9792 4.66532 27.1516 5.04306 27.1516H20.3916C20.769 27.1516 21.1143 26.9786 21.3663 26.7013C21.624 26.4165 21.7845 26.0211 21.7845 25.5848V14.4184C21.7845 13.987 21.6276 13.595 21.3748 13.311L21.3661 13.3022C21.1143 13.0246 20.769 12.8517 20.3916 12.8517L20.3916 12.8516ZM18.475 20.0016C18.475 21.5426 17.8304 22.9385 16.7889 23.9481C15.7473 24.9578 14.3073 25.5827 12.7176 25.5827C11.1274 25.5827 9.68756 24.9578 8.64602 23.9481L8.63367 23.935C7.59878 22.9256 6.95948 21.5354 6.95948 20.0013C6.95948 18.4611 7.60412 17.0656 8.64646 16.0552C9.688 15.0455 11.1278 14.4206 12.718 14.4206C14.3077 14.4206 15.7477 15.0455 16.7893 16.0552C17.8308 17.0649 18.4755 18.4608 18.4755 20.0018L18.475 20.0016Z" fill="white" />
+    <path fillRule="evenodd" clipRule="evenodd" d="M24.2881 17.1966V22.8065L28.3504 24.7209V20.0016V15.2822L24.2881 17.1966ZM13.354 18.9324L11.4442 17.8631V20.0016L11.4444 22.141L13.3553 21.0712V21.071L15.2654 20.0021L13.354 18.9324ZM20.3916 12.8516H5.04306C4.66532 12.8516 4.31985 13.024 4.06881 13.3013C3.81083 13.5861 3.65039 13.9818 3.65039 14.4184V25.5848C3.65039 26.0213 3.81083 26.417 4.06881 26.7018C4.31985 26.9792 4.66532 27.1516 5.04306 27.1516H20.3916C20.769 27.1516 21.1143 26.9786 21.3663 26.7013C21.624 26.4165 21.7845 26.0211 21.7845 25.5848V14.4184C21.7845 13.987 21.6276 13.595 21.3748 13.311L21.3661 13.3022C21.1143 13.0246 20.769 12.8517 20.3916 12.8517L20.3916 12.8516ZM18.475 20.0016C18.475 21.5426 17.8304 22.9385 16.7889 23.9481C15.7473 24.9578 14.3073 25.5827 12.7176 25.5827C11.1274 25.5827 9.68756 24.9578 8.64602 23.9481L8.63367 23.935C7.59878 22.9256 6.95948 21.5354 6.95948 20.0013C6.95948 18.4611 7.60412 17.0656 8.64646 16.0552C9.688 15.0455 11.1278 14.4206 12.718 14.4206C14.3077 14.4206 15.7477 15.0455 16.7893 16.0552C17.8308 17.0649 18.4755 18.4608 18.4755 20.0018L18.475 20.0016Z" fill="white" />
   </svg>
 )
 
@@ -68,15 +68,15 @@ export const VideoMobile = _ => (
 export const SearchLaptop = _ => (
   <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="10.5" cy="10.5" r="10" stroke="white" />
-    <circle cx="10.5" cy="10.5" r="9" stroke="white" stroke-width="3" />
-    <path d="M16.6146 17.8847L25.6677 27.3489" stroke="white" stroke-width="2" />
+    <circle cx="10.5" cy="10.5" r="9" stroke="white" strokeWidth="3" />
+    <path d="M16.6146 17.8847L25.6677 27.3489" stroke="white" strokeWidth="2" />
   </svg>
 )
 
 export const SearchMobile = _ => (
   <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="6.75002" cy="6.75002" r="6.25002" stroke="white" />
-    <circle cx="6.75002" cy="6.75002" r="5.75002" stroke="white" stroke-width="2" />
+    <circle cx="6.75002" cy="6.75002" r="5.75002" stroke="white" strokeWidth="2" />
     <path d="M10.6811 11.4962L16.501 17.5803" stroke="white" />
   </svg>
 
@@ -86,7 +86,7 @@ export const SearchMobile = _ => (
 export const SearchAccentMobile = _ => (
   <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="6.75002" cy="6.75002" r="6.25002" stroke="#01576E" />
-    <circle cx="6.75002" cy="6.75002" r="5.75002" stroke="#01576E" stroke-width="2" />
+    <circle cx="6.75002" cy="6.75002" r="5.75002" stroke="#01576E" strokeWidth="2" />
     <path d="M10.6811 11.4962L16.501 17.5803" stroke="#01576E" />
   </svg>
 
@@ -96,8 +96,8 @@ export const SearchAccentMobile = _ => (
 export const SearchAccentLaptop = _ => (
   <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="10.5" cy="10.5" r="10" stroke="#01576E" />
-    <circle cx="10.5" cy="10.5" r="9" stroke="#01576E" stroke-width="3" />
-    <path d="M16.6146 17.8847L25.6677 27.3489" stroke="#01576E" stroke-width="2" />
+    <circle cx="10.5" cy="10.5" r="9" stroke="#01576E" strokeWidth="3" />
+    <path d="M16.6146 17.8847L25.6677 27.3489" stroke="#01576E" strokeWidth="2" />
   </svg>
 
 )
@@ -105,7 +105,7 @@ export const SearchAccentLaptop = _ => (
 export const LinkedInMobile = _ => (
   <svg width="35" height="50" viewBox="0 0 35 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="35" height="50" fill="white" />
-    <g clip-path="url(#clip0)">
+    <g clipPath="url(#clip0)">
       <path d="M26.9959 33.9992V33.9984H27.0004V27.3969C27.0004 24.1674 26.3052 21.6797 22.5297 21.6797C20.7147 21.6797 19.4967 22.6757 18.9994 23.6199H18.9469V21.9812H15.3672V33.9984H19.0947V28.0479C19.0947 26.4812 19.3917 24.9662 21.3319 24.9662C23.2437 24.9662 23.2722 26.7542 23.2722 28.1484V33.9992H26.9959Z" fill="#083A4A" />
       <path d="M9.29688 21.9844H13.0289V34.0016H9.29688V21.9844Z" fill="#083A4A" />
       <path d="M11.1615 16C9.96825 16 9 16.9683 9 18.1615C9 19.3548 9.96825 20.3433 11.1615 20.3433C12.3547 20.3433 13.323 19.3548 13.323 18.1615C13.3222 16.9683 12.354 16 11.1615 16V16Z" fill="#083A4A" />
@@ -119,7 +119,7 @@ export const LinkedInMobile = _ => (
 )
 export const LinkedInLaptop = _ => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0)">
+    <g clipPath="url(#clip0)">
       <path d="M27.9935 27.9996V27.9984H28.0005V17.7294C28.0005 12.7058 26.919 8.83594 21.046 8.83594C18.2226 8.83594 16.328 10.3853 15.5545 11.8541H15.4728V9.30494H9.9043V27.9984H15.7026V18.7421C15.7026 16.3049 16.1646 13.9483 19.1828 13.9483C22.1566 13.9483 22.201 16.7296 22.201 18.8984V27.9996H27.9935Z" fill="#083A4A" />
       <path d="M0.462891 9.30469H6.26822V27.9982H0.462891V9.30469Z" fill="#083A4A" />
       <path d="M3.36233 0C1.50617 0 0 1.50617 0 3.36233C0 5.2185 1.50617 6.75617 3.36233 6.75617C5.2185 6.75617 6.72467 5.2185 6.72467 3.36233C6.7235 1.50617 5.21733 0 3.36233 0V0Z" fill="#083A4A" />
@@ -195,38 +195,38 @@ export const PlusMobile = _ => (
 )
 export const SeedLaptop = _ => (
   <svg width="77" height="65" viewBox="0 0 77 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="7" y="26" width="62" height="38" rx="1" stroke="#5DE2A1" stroke-width="2" />
+    <rect x="7" y="26" width="62" height="38" rx="1" stroke="#5DE2A1" strokeWidth="2" />
     <rect x="7" width="12" height="25" rx="2" fill="#01576E" />
-    <path d="M37.9378 1.53306C38.2667 1.32231 38.6881 1.32231 39.017 1.53306L75.4907 24.9076C76.3316 25.4465 75.9499 26.7495 74.9512 26.7495H2.00361C1.00482 26.7495 0.623122 25.4465 1.46404 24.9076L37.9378 1.53306Z" fill="white" stroke="#01576E" stroke-width="2" />
-    <rect x="16" y="34" width="45" height="30" rx="1" stroke="#01576E" stroke-width="2" />
-    <line x1="22" y1="42" x2="55" y2="42" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="22" y1="49" x2="55" y2="49" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="22" y1="56" x2="55" y2="56" stroke="#5DE2A1" stroke-width="2" />
-    <line y1="64" x2="76.95" y2="64" stroke="#01576E" stroke-width="2" />
+    <path d="M37.9378 1.53306C38.2667 1.32231 38.6881 1.32231 39.017 1.53306L75.4907 24.9076C76.3316 25.4465 75.9499 26.7495 74.9512 26.7495H2.00361C1.00482 26.7495 0.623122 25.4465 1.46404 24.9076L37.9378 1.53306Z" fill="white" stroke="#01576E" strokeWidth="2" />
+    <rect x="16" y="34" width="45" height="30" rx="1" stroke="#01576E" strokeWidth="2" />
+    <line x1="22" y1="42" x2="55" y2="42" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="22" y1="49" x2="55" y2="49" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="22" y1="56" x2="55" y2="56" stroke="#5DE2A1" strokeWidth="2" />
+    <line y1="64" x2="76.95" y2="64" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 export const SeedMobile = _ => (
   <svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4.03418" y="12.9453" width="26.3685" height="15.7303" rx="1" stroke="#5DE2A1" stroke-width="2" />
+    <rect x="4.03418" y="12.9453" width="26.3685" height="15.7303" rx="1" stroke="#5DE2A1" strokeWidth="2" />
     <rect x="3.47754" y="0.863281" width="5.31909" height="11.0814" rx="2" fill="#01576E" />
-    <path d="M17.3692 2.01331L17.3695 2.01352C17.3694 2.01345 17.3693 2.01338 17.3692 2.01331L17.4304 1.91777L17.3692 2.01331ZM17.4304 2.05255L33.2103 12.1652H1.65052L17.4304 2.05255Z" fill="white" stroke="#01576E" stroke-width="2" />
-    <rect x="8.02344" y="16.4922" width="18.8331" height="12.1842" rx="1" stroke="#01576E" stroke-width="2" />
-    <line x1="10.127" y1="18.9219" x2="24.7545" y2="18.9219" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="10.127" y1="22.0273" x2="24.7545" y2="22.0273" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="10.127" y1="25.1289" x2="24.7545" y2="25.1289" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="0.375" y1="28.6758" x2="34.4837" y2="28.6758" stroke="#01576E" stroke-width="2" />
+    <path d="M17.3692 2.01331L17.3695 2.01352C17.3694 2.01345 17.3693 2.01338 17.3692 2.01331L17.4304 1.91777L17.3692 2.01331ZM17.4304 2.05255L33.2103 12.1652H1.65052L17.4304 2.05255Z" fill="white" stroke="#01576E" strokeWidth="2" />
+    <rect x="8.02344" y="16.4922" width="18.8331" height="12.1842" rx="1" stroke="#01576E" strokeWidth="2" />
+    <line x1="10.127" y1="18.9219" x2="24.7545" y2="18.9219" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="10.127" y1="22.0273" x2="24.7545" y2="22.0273" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="10.127" y1="25.1289" x2="24.7545" y2="25.1289" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="0.375" y1="28.6758" x2="34.4837" y2="28.6758" stroke="#01576E" strokeWidth="2" />
   </svg>
 
 )
 export const SeriesBLaptop = _ => (
   <svg width="132" height="85" viewBox="0 0 132 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="35" y="4" width="62" height="80" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="7" y="25" width="28" height="59" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="97" y="25" width="28" height="59" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="29" y="1" width="75" height="4" rx="1" fill="white" stroke="#01576E" stroke-width="2" />
-    <line x1="8.74228e-08" y1="84" x2="132" y2="84" stroke="#01576E" stroke-width="2" />
-    <path d="M60 66L60 84L72 84L72 66" stroke="#01576E" stroke-width="2" />
-    <path d="M72 66C72 62.6863 69.3137 60 66 60C62.6863 60 60 62.6863 60 66" stroke="#01576E" stroke-width="2" />
+    <rect x="35" y="4" width="62" height="80" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="7" y="25" width="28" height="59" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="97" y="25" width="28" height="59" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="29" y="1" width="75" height="4" rx="1" fill="white" stroke="#01576E" strokeWidth="2" />
+    <line x1="8.74228e-08" y1="84" x2="132" y2="84" stroke="#01576E" strokeWidth="2" />
+    <path d="M60 66L60 84L72 84L72 66" stroke="#01576E" strokeWidth="2" />
+    <path d="M72 66C72 62.6863 69.3137 60 66 60C62.6863 60 60 62.6863 60 66" stroke="#01576E" strokeWidth="2" />
     <rect x="60" y="12" width="12" height="12" rx="2" fill="#01576E" />
     <rect x="78" y="12" width="12" height="12" rx="2" fill="#01576E" />
     <rect x="60" y="28" width="12" height="12" rx="2" fill="#01576E" />
@@ -242,19 +242,19 @@ export const SeriesBLaptop = _ => (
     <rect x="42" y="28" width="12" height="12" rx="2" fill="#01576E" />
     <rect x="15" y="49" width="12" height="12" rx="2" fill="#01576E" />
     <rect x="105" y="49" width="12" height="12" rx="2" fill="#01576E" />
-    <line y1="25" x2="34" y2="25" stroke="#01576E" stroke-width="2" />
-    <line x1="98" y1="25" x2="132" y2="25" stroke="#01576E" stroke-width="2" />
+    <line y1="25" x2="34" y2="25" stroke="#01576E" strokeWidth="2" />
+    <line x1="98" y1="25" x2="132" y2="25" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 export const SeriesBMobile = _ => (
   <svg width="59" height="39" viewBox="0 0 59 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="16.4531" y="2.32812" width="26.3685" height="34.3471" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="4.04297" y="11.6367" width="11.2977" height="25.0387" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="43.9355" y="11.6367" width="11.2977" height="25.0387" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="13.4588" y="0.664887" width="32.8011" height="1.32977" rx="0.664887" fill="white" stroke="#01576E" stroke-width="1.32977" />
-    <line x1="0.382813" y1="36.6758" x2="58.8928" y2="36.6758" stroke="#01576E" stroke-width="2" />
-    <path d="M26.9778 29.2557L26.9778 37.2344L32.2969 37.2344L32.2969 29.2557" stroke="#01576E" stroke-width="2" />
-    <path d="M32.2976 29.2533C32.2976 27.7845 31.1069 26.5938 29.6381 26.5938C28.1692 26.5938 26.9785 27.7845 26.9785 29.2533" stroke="#01576E" stroke-width="2" />
+    <rect x="16.4531" y="2.32812" width="26.3685" height="34.3471" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="4.04297" y="11.6367" width="11.2977" height="25.0387" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="43.9355" y="11.6367" width="11.2977" height="25.0387" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="13.4588" y="0.664887" width="32.8011" height="1.32977" rx="0.664887" fill="white" stroke="#01576E" strokeWidth="1.32977" />
+    <line x1="0.382813" y1="36.6758" x2="58.8928" y2="36.6758" stroke="#01576E" strokeWidth="2" />
+    <path d="M26.9778 29.2557L26.9778 37.2344L32.2969 37.2344L32.2969 29.2557" stroke="#01576E" strokeWidth="2" />
+    <path d="M32.2976 29.2533C32.2976 27.7845 31.1069 26.5938 29.6381 26.5938C28.1692 26.5938 26.9785 27.7845 26.9785 29.2533" stroke="#01576E" strokeWidth="2" />
     <rect x="26.9785" y="5.32031" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
     <rect x="34.957" y="5.32031" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
     <rect x="26.9785" y="12.4102" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
@@ -270,39 +270,39 @@ export const SeriesBMobile = _ => (
     <rect x="19" y="12.4102" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
     <rect x="7.03223" y="21.7188" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
     <rect x="46.9248" y="21.7188" width="5.31909" height="5.31909" rx="2" fill="#01576E" />
-    <line x1="0.382812" y1="10.5234" x2="15.4536" y2="10.5234" stroke="#01576E" stroke-width="2" />
-    <line x1="43.8223" y1="10.5234" x2="58.893" y2="10.5234" stroke="#01576E" stroke-width="2" />
+    <line x1="0.382812" y1="10.5234" x2="15.4536" y2="10.5234" stroke="#01576E" strokeWidth="2" />
+    <line x1="43.8223" y1="10.5234" x2="58.893" y2="10.5234" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 
 export const SeriesALaptop = _ => (
   <svg width="114" height="83" viewBox="0 0 114 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="7" y="44" width="62" height="38" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="16" y="52" width="45" height="30" rx="1" stroke="#01576E" stroke-width="2" />
-    <rect x="1" y="41" width="75" height="4" rx="1" fill="white" stroke="#01576E" stroke-width="2" />
-    <line x1="22" y1="60" x2="55" y2="60" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="22" y1="67" x2="55" y2="67" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="22" y1="74" x2="55" y2="74" stroke="#5DE2A1" stroke-width="2" />
-    <path d="M69 6.81714C69 6.01048 69.906 5.53579 70.5692 5.99494L105.569 30.2257C105.839 30.4125 106 30.7198 106 31.0479V81C106 81.5523 105.552 82 105 82H70C69.4477 82 69 81.5523 69 81V6.81714Z" fill="white" stroke="#5DE2A1" stroke-width="2" />
-    <path d="M63 1L113 35" stroke="#01576E" stroke-width="2" />
-    <line y1="82" x2="113" y2="82" stroke="#01576E" stroke-width="2" />
+    <rect x="7" y="44" width="62" height="38" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="16" y="52" width="45" height="30" rx="1" stroke="#01576E" strokeWidth="2" />
+    <rect x="1" y="41" width="75" height="4" rx="1" fill="white" stroke="#01576E" strokeWidth="2" />
+    <line x1="22" y1="60" x2="55" y2="60" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="22" y1="67" x2="55" y2="67" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="22" y1="74" x2="55" y2="74" stroke="#5DE2A1" strokeWidth="2" />
+    <path d="M69 6.81714C69 6.01048 69.906 5.53579 70.5692 5.99494L105.569 30.2257C105.839 30.4125 106 30.7198 106 31.0479V81C106 81.5523 105.552 82 105 82H70C69.4477 82 69 81.5523 69 81V6.81714Z" fill="white" stroke="#5DE2A1" strokeWidth="2" />
+    <path d="M63 1L113 35" stroke="#01576E" strokeWidth="2" />
+    <line y1="82" x2="113" y2="82" stroke="#01576E" strokeWidth="2" />
     <circle cx="88" cy="37" r="6" fill="#01576E" />
-    <path d="M82 57L82 82L94 82L94 57" stroke="#01576E" stroke-width="2" />
-    <path d="M94 57C94 53.6863 91.3137 51 88 51C84.6863 51 82 53.6863 82 57" stroke="#01576E" stroke-width="2" />
+    <path d="M82 57L82 82L94 82L94 57" stroke="#01576E" strokeWidth="2" />
+    <path d="M94 57C94 53.6863 91.3137 51 88 51C84.6863 51 82 53.6863 82 57" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 
 export const SeriesAMobile = _ => (
   <svg width="52" height="39" viewBox="0 0 52 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4.81543" y="20.4648" width="26.2611" height="16.5159" rx="1" stroke="#5DE2A1" stroke-width="2" />
-    <rect x="8.71289" y="23.3867" width="19.4395" height="13.5924" rx="1" stroke="#01576E" stroke-width="2" />
-    <line x1="10.6367" y1="26.2617" x2="26.2291" y2="26.2617" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="10.6367" y1="30.1602" x2="26.2291" y2="30.1602" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="10.6367" y1="34.0586" x2="26.2291" y2="34.0586" stroke="#5DE2A1" stroke-width="2" />
-    <path d="M32.1016 4.82995C32.1016 4.01712 33.0198 3.54386 33.6818 4.01553L47.2232 13.6638C47.4866 13.8514 47.643 14.1548 47.643 14.4782V35.9811C47.643 36.5334 47.1952 36.9811 46.643 36.9811H33.1016C32.5493 36.9811 32.1016 36.5334 32.1016 35.9811V4.82995Z" fill="white" stroke="#5DE2A1" stroke-width="2" />
-    <line x1="0.891602" y1="36.9805" x2="51.5668" y2="36.9805" stroke="#01576E" stroke-width="2" />
-    <path d="M37.9233 26.2881L37.9233 37.0078L42.7959 37.0078L42.7959 26.2881" stroke="#01576E" stroke-width="2" />
-    <path d="M42.7964 26.2848C42.7964 24.132 41.7057 22.3867 40.3601 22.3867C39.0146 22.3867 37.9238 24.132 37.9238 26.2848" stroke="#01576E" stroke-width="2" />
+    <rect x="4.81543" y="20.4648" width="26.2611" height="16.5159" rx="1" stroke="#5DE2A1" strokeWidth="2" />
+    <rect x="8.71289" y="23.3867" width="19.4395" height="13.5924" rx="1" stroke="#01576E" strokeWidth="2" />
+    <line x1="10.6367" y1="26.2617" x2="26.2291" y2="26.2617" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="10.6367" y1="30.1602" x2="26.2291" y2="30.1602" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="10.6367" y1="34.0586" x2="26.2291" y2="34.0586" stroke="#5DE2A1" strokeWidth="2" />
+    <path d="M32.1016 4.82995C32.1016 4.01712 33.0198 3.54386 33.6818 4.01553L47.2232 13.6638C47.4866 13.8514 47.643 14.1548 47.643 14.4782V35.9811C47.643 36.5334 47.1952 36.9811 46.643 36.9811H33.1016C32.5493 36.9811 32.1016 36.5334 32.1016 35.9811V4.82995Z" fill="white" stroke="#5DE2A1" strokeWidth="2" />
+    <line x1="0.891602" y1="36.9805" x2="51.5668" y2="36.9805" stroke="#01576E" strokeWidth="2" />
+    <path d="M37.9233 26.2881L37.9233 37.0078L42.7959 37.0078L42.7959 26.2881" stroke="#01576E" strokeWidth="2" />
+    <path d="M42.7964 26.2848C42.7964 24.132 41.7057 22.3867 40.3601 22.3867C39.0146 22.3867 37.9238 24.132 37.9238 26.2848" stroke="#01576E" strokeWidth="2" />
   </svg>
 )
 
@@ -372,4 +372,13 @@ export const UpArrow = _ => (
 
 )
 
-
+export const InstagramMobile = _ => (
+  <svg width="37" height="37" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" fill="#083A4A" />
+  </svg>
+)
+export const InstagramLaptop = _ => (
+  <svg width="37" height="37" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" fill="#083A4A" />
+  </svg>
+)

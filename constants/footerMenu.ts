@@ -31,7 +31,7 @@ const footermenu = [
   },
   {
     key: "footer_presskit",
-    name: "Presskit",
+    name: "Press Kit",
     link: "/presskit",
   },
 ];

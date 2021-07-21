@@ -17,7 +17,7 @@ const Card: FC<propsType> = (props) => {
     <div className="laptop:flex">
       <div className="self-start cursor-pointer relative flex-shrink-0 w-90 sm:w-full sm:ml-2" onClick={_ => push(`/blogs/${props.data?.slug}`)}>
         <img
-          style={!props.deviceType?.mobile ? { height: 255, width: 315 } : { height: 'auto', width: '100%' }}
+          style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: 'auto', width: '100%' }}
           className="image-shadow"
           width="100%"
           src={!props.deviceType?.mobile ? props.data?.cover_desktop : props.data?.cover_image_mobile}
@@ -31,34 +31,34 @@ const Card: FC<propsType> = (props) => {
         }
       </div>
       <div
-        className=" p-8 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
+        className="p-8 pl-7 pr-0 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
         style={{
           background: 'white',
           width: props.deviceType?.mobile ? '93%' : '100%',
         }}
       >
-        <div className="caption text-accent-dark mb-4 sm:mb-2">{`${props.data?.readtime?.toUpperCase()}`} READ</div>
-        <div className="sub-h1">{props.data?.name}</div>
-        <div className="flex mt-6 mb-6 items-center">
+        <div className="caption text-accent-dark mb-1 sm:mb-2" style={{ fontWeight: 300 }}>{`${props.data?.readtime?.toUpperCase()}`} READ</div>
+        <div className="sub-h1" style={{ fontWeight: 400, fontSize: 28, lineHeight: '34px' }}>{props.data?.name}</div>
+        <div className="flex mt-3 mb-4 items-center">
           <span className='flex items-center mr-10 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0'>
             <Icon {...props} iconType={props.data?.type} />
           </span>
           <div className="flex">
             <img
-              className="mr-6 sm:w-8"
+              className="mr-3 sm:w-8"
               src={props.data?.author?.[0]?.image_url}
               alt="profile-pic"
               style={!props.deviceType?.mobile ? { height: 48, width: 48, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }}
             />
             <div>
-              <p className="sub-h2 text-accent-dark">{props.data?.author?.[0]?.name}</p>
-              <p className="caption">{props.data?.author?.[0]?.designation}</p>
+              <p className="sub-h2 text-accent-dark" style={{ fontSize: 18, lineHeight: '24PX' }}>{props.data?.author?.[0]?.name}</p>
+              <p className="caption" style={{ fontWeight: 300 }}>{props.data?.author?.[0]?.designation}</p>
             </div>
           </div>
         </div>
         <div className="flex flex-wrap gap-2 ">
           {
-            props.data?.tags?.map(tag => <div className="caption px-6 py-3 sm:px-2 sm:py-2" style={{ background: 'rgba(0, 0, 0, 0.08)' }} >{tag.name?.toUpperCase()}</div>)
+            props.data?.tags?.map(tag => <div key={tag.id} className="caption px-3 py-3 sm:px-2 sm:py-2" style={{ background: 'rgba(0, 0, 0, 0.08)', fontWeight: 'normal' }} >{tag.name?.toUpperCase()}</div>)
           }
         </div>
       </div>

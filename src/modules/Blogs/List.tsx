@@ -14,7 +14,7 @@ type propsType = {
 
 const List: FC<propsType> = (props) => {
   return (
-    <div className="section grid grid-cols-1 laptop:grid-cols-2 gap-12 sm:gap-4">
+    <div className="section grid grid-cols-1 laptop:grid-cols-2 gap-6 sm:gap-4 mr-16 sm:mr-0">
       {props.data?.map((d) => (
         <Card key={d.id} deviceType={props.deviceType} data={d} />
       ))}

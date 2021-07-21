@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             <h4 className="font-extralight text-primary-dark">
               {" "}
               Scroll through for the latest from <br /> the{" "}
-              <span className="text-accent">Matrix Moments </span> series ...{" "}
+              <span className="text-accent">Matrix Moments </span> series .{" "}
             </h4>
           </div>
         </div>

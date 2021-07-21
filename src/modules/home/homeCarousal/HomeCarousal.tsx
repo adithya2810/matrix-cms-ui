@@ -178,7 +178,7 @@ const HomeCarousal = () => {
 
   var settings = {
     dots: false,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     arrows: true,
     infinite: true,

@@ -89,7 +89,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     dots: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 5000,
     infinite: true,
     fade: true,
     pauseOnHover: false,

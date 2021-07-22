@@ -232,7 +232,7 @@ const HomeCarousal = () => {
                         {" "}
                         {slider.id}/06
                       </div>
-                      <div className="text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
+                      <div className="pr-12 text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
                     </div>
                     <FounderDetail

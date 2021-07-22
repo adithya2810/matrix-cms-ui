@@ -114,7 +114,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     for (let index = 0; index < data.length; index++) {
       const founder = data[index];
       if (i != index) {
-        list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.id}>
+        list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.id} style={{ color: '#01576e' }}>
           <span className="thumbnailIndex" style={{ fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{fi + 1}</span>
           <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
         </div>);

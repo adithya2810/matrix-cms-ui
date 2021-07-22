@@ -94,7 +94,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:right-12 z-50 laptop:bottom-0 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
+      <div className="fixed laptop:right-12 z-50 laptop:top-32 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
         {!isFilterBoxOpen ? (
           // when filter box is closed state
           <div
@@ -118,17 +118,17 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               {TwitterIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
-            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+            {/*<div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
               {InstagramIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
-            </div>
+            </div>*/}
           </div>
         ) : (
           //  filter box open state in mobile and laptop
           <div
             className="opened duration-300 relative"
             ref={filterRef}
-            style={{ width: deviceType.mobile ? 'auto' : 500 }}
+            style={{ width: deviceType.mobile ? 'auto' : 400 }}
           >
             <div
               className="laptop:hidden flex justify-end"
@@ -137,8 +137,9 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
+              className={`transition-colors duration-500 search px-14 sm:px-7 h-20 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
                 }`}
+              style={{ height: 70 }}
             >
               {inputText ? SearchIcon : SearchAccentIcon}
               <input

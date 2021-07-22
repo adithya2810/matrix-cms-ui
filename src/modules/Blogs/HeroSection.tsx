@@ -4,9 +4,9 @@ const HeroSection: FC<{ mobile: Boolean }> = ({ mobile }) => {
 
   return (
     <>
-      <div className={`listing-hero-section overlay`} style={{ height: 'auto' }}>
+      <div className={`listing-hero-section overlay`} style={{ height: '51vh' }}>
         <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
-          <h2 style={!mobile ? { fontSize: 80, lineHeight: '100px', fontWeight: 500 } : {}}>
+          <h2 style={!mobile ? { lineHeight: '6.5rem', fontWeight: 400, fontSize: '6rem', letterSpacing: -2.5 } : {}}>
             The Matrix <br /> Moments Series
           </h2>
         </div>

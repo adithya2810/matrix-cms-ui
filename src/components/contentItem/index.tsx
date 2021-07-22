@@ -34,7 +34,7 @@ export const ContentItem: React.FC<Props> = ({
       <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
         <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
       </div>
-      <div className="content-item-desc bg-secondary-light absolute p-3"
+      <div className="content-item-desc bg-secondary-light absolute p-3 pb-1"
         style={{ bottom: "-1rem", left: "7.5rem" }}
       >
         <h5 className="text-sm font-medium leading-6 text-primary-dark ml-2" style={{ fontSize: 18, lineHeight: '24px' }}>
@@ -48,11 +48,11 @@ export const ContentItem: React.FC<Props> = ({
             {read_duration + " READ"}
           </span>
         </div>
-        <div className="flex justify-between mt-3 contentButtonWrap" >
+        <div className="flex justify-between mt-2 contentButtonWrap" >
           {/* <button onClick={() => onClick(content_id)} /> */}
           <Button
             title={`Read More`}
-            className="h-8 w-36 text-accent text-base"
+            className="h-7 w-36 text-accent text-base"
             url="/icons/rightArrowGray.svg"
             onClick={() => { location.href = `/blogs/${blog_url}` }}
             style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}
@@ -60,7 +60,7 @@ export const ContentItem: React.FC<Props> = ({
           <Image
             src={getContentTypeImageUrl(content_type)}
             alt="content type image"
-            className="mr-1 mt-4"
+            className="mr-1 mt-2"
             style={{ width: 33, height: 20 }}
           />
         </div>

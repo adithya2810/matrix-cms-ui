@@ -54,7 +54,6 @@ const data = [
   },
 ];
 
-
 export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
@@ -89,7 +88,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     dots: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     infinite: true,
     fade: true,
     pauseOnHover: false,
@@ -108,8 +107,22 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   function goTo(index) {
   }
 
+  function getNumberfounder(data, i) {
+    let fi = 0;
 
-
+    let list = [];
+    for (let index = 0; index < data.length; index++) {
+      const founder = data[index];
+      if (i != index) {
+        list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.id}>
+          <span className="thumbnailIndex" style={{ fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{fi + 1}</span>
+          <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
+        </div>);
+        fi++;
+      }
+    }
+    return list;
+  }
   return (
     <React.Fragment>
       <Slider {...settingsMain}>
@@ -152,19 +165,8 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
             <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
               <h1 className="founderTitle" style={{ letterSpacing: '-2.5%' }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
               <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start' }}>
-                {props.foundersData.map((founder, indexTitleSlider) => (
-
-                  (index != indexTitleSlider) &&
-
-                  <div className={`heroSlider01-thumbnailInner heroTitleSlider${indexTitleSlider + 1}`} key={founder.id}>
-                    <span className="thumbnailIndex" style={{ fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{founder.id}</span>
-                    <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
-                  </div>
-
-                ))}
+                {getNumberfounder(props.foundersData, index)}
               </div>
-
-
             </div>
           </div>
         })}

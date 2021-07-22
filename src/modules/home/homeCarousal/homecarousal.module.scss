@@ -109,6 +109,10 @@ ul.slick-dots {
     width: 56px;
 }
 
+.blogSliderOuter.heroSlider02Outer .slick-slide .content-item-desc>* {
+    margin: 0;
+}
+
 @media screen and (max-width: 768px) {
     .heroSlider02-outerWarp {
         display: block;

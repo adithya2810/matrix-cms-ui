@@ -127,48 +127,58 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
     <React.Fragment>
       <Slider {...settingsMain}>
         {props.foundersData.map((founder, index) => {
-          return <div className="founderSection-outerWarp" key={founder.id}>
-            <div className={`founderSection-leftOuter founder-container`}>
-              <div className="founder-background" style={{ height: '95%', width: '95%' }}></div>
-              <div className="founder-content">
-                <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
+          return (
+            <>
+              <div className="page-center">
+                <div className="founderSection-outerWarp" key={founder.id}>
+                  <div className={`founderSection-leftOuter founder-container`}>
+                    <div className="founder-background" style={{ height: '95%', width: '95%' }}></div>
+                    <div className="founder-content">
+                      <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
 
-                <div className="founder-footer-container relative">
-                  <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
-                    <g transform="translate(0.167)">
-                      <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
-                      <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="6" />
-                    </g>
-                  </svg>
-                  <div className="founder-name-container" style={{ minHeight: 100 }}>
-                    {founder.name.map(name => {
-                      return <h6 className="founder-name-text" key={name.firstName + 1} style={{ fontWeight: 300, fontSize: 32, lineHeight: '36px', letterSpacing: '5%' }}>
-                        <strong>{name.firstName} </strong> {name.lastName}
-                      </h6>
-                    })}
+                      <div className="founder-footer-container relative">
+                        <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
+                          <g transform="translate(0.167)">
+                            <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
+                            <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="6" />
+                          </g>
+                        </svg>
+                        <div className="founder-name-container" style={{ minHeight: 100 }}>
+                          {founder.name.map(name => {
+                            return <h6 className="founder-name-text" key={name.firstName + 1} style={{ fontWeight: 300, fontSize: 32, lineHeight: '36px', letterSpacing: '5%' }}>
+                              <strong>{name.firstName} </strong> {name.lastName}
+                            </h6>
+                          })}
 
-                  </div>
-                  <div className="founder-field-container" style={{ height: 65 }}>
-                    <div>
-                      {founder.tags.map((tag, index1) => {
-                        return <React.Fragment key={index1}>
-                          {index1 > 0 && <span className="tagBorderRight"></span>}
-                          <span className="text-secondary font-medium text-lg leading-6 tags" key={tag} style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}> {tag}</span>
-                        </React.Fragment>
-                      })}
+                        </div>
+                        <div className="founder-field-container" style={{ height: 65 }}>
+                          <div>
+                            {founder.tags.map((tag, index1) => {
+                              return <React.Fragment key={index1}>
+                                {index1 > 0 && <span className="tagBorderRight"></span>}
+                                <span className="text-secondary font-medium text-lg leading-6 tags" key={tag} style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}> {tag}</span>
+                              </React.Fragment>
+                            })}
+                          </div>
+                          <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120, height: 39 }} />
+                        </div>
+                      </div>
                     </div>
-                    <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120, height: 39 }} />
+                  </div>
+                  <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
+                    <h1 className="founderTitle" style={{ letterSpacing: '-2.5%' }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
+                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start' }}>
+                      {getNumberfounder(props.foundersData, index)}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
-              <h1 className="founderTitle" style={{ letterSpacing: '-2.5%' }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-              <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start' }}>
-                {getNumberfounder(props.foundersData, index)}
+
+              <div className="timerOuter">
+                <div className="timmerInner"></div>
               </div>
-            </div>
-          </div>
+            </>
+          )
         })}
       </Slider>
 

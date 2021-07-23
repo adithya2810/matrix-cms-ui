@@ -5,49 +5,50 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ContentSliderFeatureTwo } from '@components/contentSlider/ContentSliderFeatureTwo';
 
-// const data = [
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdefg",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdefg",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-// ];
+const data = [
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdefg",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdefg",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+];
 
 
 const heroSlider02_Data = [
@@ -223,12 +224,13 @@ const HomeCarousal = () => {
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.450),rgba(0, 0, 0, 0.5)), url(${slider.background_url})`,
                   backgroundSize: "100% 100%",
+                  minHeight: '100vh'
                 }}
               >
                 <div className="page-center">
                   <div className="heroSlider02-outerWarp">
-                    <div className="heroSlider02-contentSection" style={{ flex: "0 50%", justifyContent: 'space-between' }}>
-                      <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: 70 }}>
+                    <div className="heroSlider02-contentSection" style={{ flex: "0 50%" }}>
+                      <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: '8vh' }}>
                         {" "}
                         {slider.id}/06
                       </div>
@@ -257,7 +259,7 @@ const HomeCarousal = () => {
           Hospitality Sector{" "}
         </span>
       </div>
-      <ContentSlider
+      <ContentSliderFeatureTwo
         contentList={featureData}
         className="absolute md:relative bottom-0 right-0 text-primary-dark contentItemOuter-w85"
         style={{ paddingLeft: 20, paddingTop: 20 }}

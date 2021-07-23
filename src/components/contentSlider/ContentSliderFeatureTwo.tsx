@@ -13,9 +13,9 @@ export type Props = {
   slidesToShow?: any
 };
 
-export const ContentSlider: React.FC<Props> = ({ contentList, className, header, slidesToShow, style = {} }) => {
+export const ContentSliderFeatureTwo: React.FC<Props> = ({ contentList, className, header, slidesToShow, style = {} }) => {
 
-  const slider = React.useRef<Slider>(null);
+  const sliderTwo = React.useRef<Slider>(null);
 
   var settings;
   settings = {
@@ -27,7 +27,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
     fade: false,
     pauseOnHover: false,
     speed: 1000,
-    slidesToShow: slidesToShow || 2.58,
+    slidesToShow: slidesToShow || 2.5,
     slidesToScroll: 1,
     slickGoTo: 1,
     afterChange: (state) => afterChangeHandler(state),
@@ -43,8 +43,9 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
   };
 
   function afterChangeHandler(currentSlide) {
-    if (currentSlide == contentList.length - slidesToShow) {
-      var link = document.getElementById('featureOneBlog');
+    console.log(contentList.length - 2.5, currentSlide)
+    if (currentSlide == contentList.length - 2.5) {
+      var link = document.getElementById('featureTwoBlog');
       for (var i = 0; i < 50; i++)
         link.click();
     }
@@ -58,7 +59,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
         <div></div>
       </div>
       <div>
-        <Slider ref={slider} {...settings}>
+        <Slider ref={sliderTwo} {...settings}>
           {contentList.map((contentItem) => {
             return (
               <ContentItem
@@ -78,7 +79,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
           })}
         </Slider>
       </div>
-      <button id="featureOneBlog" className="button" onClick={() => slider?.current?.slickGoTo(0, false)}></button>
+      <button id="featureTwoBlog" className="button" onClick={() => sliderTwo?.current?.slickGoTo(0, false)}></button>
     </div>
   );
 };

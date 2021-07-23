@@ -128,9 +128,9 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
       <Slider {...settingsMain}>
         {props.foundersData.map((founder, index) => {
           return (
-            <>
+            <div key={founder.id}>
               <div className="page-center">
-                <div className="founderSection-outerWarp" key={founder.id}>
+                <div className="founderSection-outerWarp">
                   <div className={`founderSection-leftOuter founder-container`}>
                     <div className="founder-background" style={{ height: '95%', width: '95%' }}></div>
                     <div className="founder-content">
@@ -177,7 +177,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
               <div className="timerOuter">
                 <div className="timmerInner"></div>
               </div>
-            </>
+            </div>
           )
         })}
       </Slider>

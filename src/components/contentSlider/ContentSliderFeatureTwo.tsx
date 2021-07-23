@@ -43,10 +43,10 @@ export const ContentSliderFeatureTwo: React.FC<Props> = ({ contentList, classNam
   };
 
   function afterChangeHandler(currentSlide) {
-    console.log(contentList.length - 2.5, currentSlide)
+    // console.log(contentList.length - 2.5, currentSlide)
     if (currentSlide == contentList.length - 2.5) {
       var link = document.getElementById('featureTwoBlog');
-      for (var i = 0; i < 50; i++)
+      for (var i = 0; i < 100; i++)
         link.click();
     }
   }

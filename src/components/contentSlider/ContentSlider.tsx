@@ -43,9 +43,10 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
   };
 
   function afterChangeHandler(currentSlide) {
+    // console.log(currentSlide, contentList.length - slidesToShow)
     if (currentSlide == contentList.length - slidesToShow) {
       var link = document.getElementById('featureOneBlog');
-      for (var i = 0; i < 50; i++)
+      for (var i = 0; i < 100; i++)
         link.click();
     }
   }
@@ -58,7 +59,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
         <div></div>
       </div>
       <div>
-        <Slider ref={slider} {...settings}>
+        <Slider ref={slide => (slider.current = slide)} {...settings}>
           {contentList.map((contentItem) => {
             return (
               <ContentItem

@@ -22,12 +22,12 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
     dots: true,
     autoplay: true,
     arrows: false,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     infinite: false,
     fade: false,
     pauseOnHover: false,
     speed: 1000,
-    slidesToShow: slidesToShow || 2.58,
+    slidesToShow: 1.5,
     slidesToScroll: 1,
     slickGoTo: 1,
     afterChange: (state) => afterChangeHandler(state),
@@ -43,7 +43,6 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
   };
 
   function afterChangeHandler(currentSlide) {
-    // console.log(currentSlide, contentList.length - slidesToShow)
     if (currentSlide == contentList.length - slidesToShow) {
       var link = document.getElementById('featureOneBlog');
       for (var i = 0; i < 100; i++)
@@ -59,7 +58,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
         <div></div>
       </div>
       <div>
-        <Slider ref={slide => (slider.current = slide)} {...settings}>
+        <Slider ref={slider} {...settings}>
           {contentList.map((contentItem) => {
             return (
               <ContentItem

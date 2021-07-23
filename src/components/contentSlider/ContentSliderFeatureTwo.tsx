@@ -27,7 +27,7 @@ export const ContentSliderFeatureTwo: React.FC<Props> = ({ contentList, classNam
     fade: false,
     pauseOnHover: false,
     speed: 1000,
-    slidesToShow: slidesToShow || 2.5,
+    slidesToShow: 2.5,
     slidesToScroll: 1,
     slickGoTo: 1,
     afterChange: (state) => afterChangeHandler(state),

@@ -1,4 +1,4 @@
-export default function (type: string, isBlogContent?: boolean) {
+export default function getContentTypeImageUrl(type: string, isBlogContent?: boolean) {
   if (isBlogContent) {
     switch (type) {
       case 'Video':

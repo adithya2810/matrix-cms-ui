@@ -44,5 +44,7 @@
   },
   "files.trimTrailingWhitespace": true,
   "workbench.welcome.enabled": false,
-  "css.customData": [".vscode/css_custom_data.json"]
+  "css.customData": [
+    ".vscode/css_custom_data.json"
+  ]
 }

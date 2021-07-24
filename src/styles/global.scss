@@ -689,6 +689,19 @@ h6 {
             }
         }
     }
+    .image-shadow2 {
+      &:hover {
+          transition-duration: 200ms;
+          box-shadow: -6px 6px 0px 0px #01576e;
+          -webkit-box-shadow: -6px 6px 0px 0px #01576e;
+          -moz-box-shadow: -6px 6px 0px 0px #01576e;
+          @screen sm {
+              box-shadow: -6px -6px 0px 0px #01576e;
+              -webkit-box-shadow: -6px -6px 0px 0px #01576e;
+              -moz-box-shadow: -6px -6px 0px 0px #01576e;
+          }
+      }
+  }
 }
 
 .section {
@@ -1507,3 +1520,6 @@ textarea {
 .news-images-body {
     width: 50%;
 }
+
+// Manrope classes
+.Manrope-normal{font-family: 'Manrope'; font-style:normal;}

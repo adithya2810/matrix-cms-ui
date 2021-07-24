@@ -1294,7 +1294,8 @@ textarea {
   font-weight: 600;
   color: #083a4a;
   margin-top: 8px;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 14px;
 }
 .read-or-hide {
   font-family: Manrope;
@@ -1323,6 +1324,16 @@ textarea {
   .news-container > a {
     display: none !important;
   }
+  .header {
+    font-size: 45px !important;
+    line-height: 52px !important;
+  }
+}
+.header {
+  line-height: 6.5rem;
+  font-weight: 400;
+  font-size: 6rem;
+  letter-spacing: -2.5px;
 }
 .tags-block {
   margin-top: 150px;

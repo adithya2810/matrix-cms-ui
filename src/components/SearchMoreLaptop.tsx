@@ -43,7 +43,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : 367 }}>
+      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : 120 }}>
         <div
           className="closed duration-300 w-28 cursor-pointer sm:flex sm:w-full"
         >
@@ -84,7 +84,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
             </div>
             <div
               className={`px-14 py-10 sm:px-7 sm:py-5 bg-white`}
-              style={{ height: 700 }}
+              style={{ height: 600 }}
             >
               <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div>
               <h5 className='text-accent'>87654</h5>

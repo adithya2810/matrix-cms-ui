@@ -5,49 +5,50 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ContentSliderFeatureTwo } from '@components/contentSlider/ContentSliderFeatureTwo';
 
-// const data = [
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdefg",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdefg",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-//   {
-//     image_url: "/icons/content1.svg",
-//     title: "From both sides of the table : Kunal Bahl unplugged",
-//     author: "TARUN DAVDA",
-//     content_id: "abcdef",
-//     content_type: "blog",
-//     read_duration: "4 MIN",
-//   },
-// ];
+const data = [
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdefg",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdefg",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+  {
+    image_url: "/icons/content1.svg",
+    title: "From both sides of the table : Kunal Bahl unplugged",
+    author: "TARUN DAVDA",
+    content_id: "abcdef",
+    content_type: "blog",
+    read_duration: "4 MIN",
+  },
+];
 
 
 const heroSlider02_Data = [
@@ -158,7 +159,7 @@ const HomeCarousal = () => {
   }, [])
 
   const componentDidMount = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
+    const response = await fetch(' http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedTwo=true');
     const json = await response.json();
     console.log(json)
     const featureTwoData = json.map(blogData => {
@@ -213,30 +214,31 @@ const HomeCarousal = () => {
   };
 
   return (
-    <div className="relative blogSliderOuter heroSlider02Outer">
+    <div className="relative blogSliderOuter heroSlider02Outer" style={{ minHeight: 800 }}>
       <Slider {...settings}>
         {heroSlider02_Data.map(slider => {
           return (
             <div key={slider.id}>
               <div
-                className="h-full w-full flex flex-col imageOverlay relative"
+                className="h-full w-full flex flex-col relative"
                 style={{
-                  backgroundImage: `url(${slider.background_url})`,
-                  backgroundSize: "cover",
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.450),rgba(0, 0, 0, 0.5)), url(${slider.background_url})`,
+                  backgroundSize: "100% 100%",
+                  minHeight: '100vh'
                 }}
               >
                 <div className="page-center">
                   <div className="heroSlider02-outerWarp">
-                    <div className="heroSlider02-contentSection" style={{ flex: "0 45%" }}>
-                      <div className="heroSlider02-slide-indicator desktop">
+                    <div className="heroSlider02-contentSection" style={{ flex: "0 50%" }}>
+                      <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: '8vh' }}>
                         {" "}
                         {slider.id}/06
                       </div>
-                      <div className="text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
+                      <div className="pr-12 text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
                     </div>
                     <FounderDetail
-                      FounderDetail={slider}
+                      FounderDetail={slider} style={{ flex: '0 50%', marginTop: 23 }}
                     />
                     <div className="heroSlider02-slide-indicator mobile">
                       {" "}
@@ -250,17 +252,18 @@ const HomeCarousal = () => {
       </Slider>
 
       <div
-        className="absolute bg-accent hospatalitySector">
+        className="absolute bg-accent hospatalitySector" style={{ bottom: 42 }}>
         <span className="text-secondary hospatalitySector-text font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
         >
           {" "}
           Hospitality Sector{" "}
         </span>
       </div>
-      <ContentSlider
+      <ContentSliderFeatureTwo
         contentList={featureData}
-        className="absolute md:relative bottom-0 right-0 text-primary-dark  contentItemOuter-w85"
-        header={<span>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
+        className="absolute md:relative bottom-0 right-0 text-primary-dark contentItemOuter-w85"
+        style={{ paddingLeft: 20, paddingTop: 20 }}
+        header={<span style={{ fontSize: 28, fontWeight: 400, lineHeight: '34px' }}>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
       />
     </div>
   );

@@ -34,23 +34,23 @@ const ContentItemWithTags: React.FC<Props> = ({
   author_image_url,
   tags,
   className = "",
-  style = { marginBottom: 40 },
+  style = {},
 }) => {
   console.log(tags)
   return (
     <div
-      className={`${className} relative contentWithTagbox`}
+      className={`${className} relative contentWithTagbox mb-6 laptop:flex`}
       style={{ ...style }}
     >
       <div
-        className="relative contentWithTagImgbox"
-        style={{ top: 0, left: 0, height: 250, width: 250 }}
+        className="relative contentWithTagImgbox flex-shrink-0 self-start"
+        style={{ height: 200, width: 260 }}
       >
         <div
           className="absolute"
-          style={{ width: 250, height: 250, background: "#01576E", bottom: 0 }}
+          style={{ width: 'calc(100% - 15px)', height: 'calc(100% - 15px)', background: "#01576E", bottom: 0 }}
         ></div>
-        <div className="blogCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
+        <div className="blogCoverImage" style={{ backgroundImage: `url(${image_url})`, width: '100%', height: '100%', backgroundSize: 'cover' }}>
           <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
         </div>
 
@@ -65,7 +65,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           }}
         >
           <div
-            className="text-base font-normal text-secondary-light text-center"
+            className="text-xl font-medium text-secondary-light text-center"
             style={{
               lineHeight: "30px",
               paddingTop: 6,
@@ -79,19 +79,19 @@ const ContentItemWithTags: React.FC<Props> = ({
         </div>
       </div>
       <div
-        className="absolute bg-secondary-light contentWithTagWrap"
-        style={{ width: "70%", bottom: -60, left: 220 }}
+        className="relative bg-secondary-light contentWithTagWrap mt-8 -left-6"
+        style={{ width: "100%" }}
       >
-        <div style={{ marginLeft: 45, marginTop: 20, marginBottom: 20 }}>
+        <div className="pl-7 pt-5">
           <div
-            className="text-xs text-primary-dark p-0.5 pl-0 pt-0"
+            className="text-xs font-normal text-primary-dark p-0.5 pl-0 pt-0 uppercase"
             style={{ lineHeight: "14px", letterSpacing: "0.1em" }}
           >
             {read_duration} READ{" "}
           </div>
           <div
-            className="text-primary-dark mt-3"
-            style={{ fontSize: "24px", lineHeight: "26px" }}
+            className="text-primary-dark font-normal mt-3"
+            style={{ fontSize: "28px", lineHeight: "34px" }}
           >
             <a href={`/blogs/${blog_url}`}>{title}</a>
 
@@ -102,21 +102,21 @@ const ContentItemWithTags: React.FC<Props> = ({
               alt={content_type}
             />
             <div className="flex " style={{ marginLeft: 20 }}>
-              <Image src={author_image_url} alt="profileImage" style={{ width: 50, height: 50, borderRadius: "50%" }} />
+              <Image src={author_image_url} alt="profileImage" style={{ height: 48, width: 48, borderRadius: 50 }} />
               <div style={{ marginLeft: 15 }}>
-                <div className="font-medium text-base leading-6 text-primary-dark">
+                <div className="font-medium text-lg leading-6 text-primary-dark" style={{ letterSpacing: 1 }}>
                   {author}
                 </div>
                 <div
-                  className="mt-0.5 font-light text-xs "
-                  style={{ lineHeight: "14px" }}
+                  className="mt-0.5 font-normal text-xs "
+                  style={{ lineHeight: "14px", letterSpacing: 1 }}
                 >
                   {designation}
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-row flex-wrap" style={{ marginTop: 30 }}>
+          <div className="flex flex-row flex-wrap mt-5">
             {tags.map((item, index) => {
               return (
                 <Tag
@@ -124,12 +124,12 @@ const ContentItemWithTags: React.FC<Props> = ({
                   title={item.title}
                   id={item.id}
                   selected={false}
-                  className="text-xs opacity-80 mr-2 bg-secondary-light"
+                  className="text-xs font-normal opacity-80 mr-2 bg-secondary-light"
                   style={{
                     lineHeight: "14px",
-                    fontSize: "12px",
-                    letterSpacing: "0.1em",
+                    letterSpacing: "10%",
                     height: 34,
+                    fontSize: 12,
                     color: "rgba(0, 0, 0, 0.65)",
                     border: 0,
                     background: "rgba(0, 0, 0, 0.08)",

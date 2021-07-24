@@ -28,24 +28,24 @@ export const FounderDetail: React.FC<Props> = ({
       <div
         className="heroSlider02-founderImage-background"></div>
       <div className="heroSlider02-founderImage">
-        <div className="founder-coverImage" style={{ backgroundImage: `url(${FounderDetail.founderImage})` }}></div>
+        <div className="founder-coverImage" style={{ backgroundImage: `url(${FounderDetail.founderImage})`, minHeight: 350 }}></div>
 
         <div className="rectangleBoxIn" style={{ minHeight: 200, background: "#01576E" }}>
-          <svg className="absolute founderRectangle" width="46" height="46" viewBox="0 0 56.167 56">
+          <svg className="absolute founderRectangle" style={{ top: '-63px' }} width="46" height="46" viewBox="0 0 56.167 56">
             <g transform="translate(0.167)">
-              <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
-              <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
+              <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
+              <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="6" />
             </g>
           </svg>
           <div
             className="text-center flex  flex-col justify-center"
-            style={{ height: 100, borderBottom: "0.89491px solid #EBEBE9" }}
+            style={{ height: 90, borderBottom: "0.89491px solid #EBEBE9" }}
           >
             {FounderDetail.name.map(name => {
               return (
-                <div className="flex">
+                <div className="flex" key={name.firstName + 1}>
                   <h6
-                    className="font-bold text-secondary"
+                    className="font-bold font text-secondary"
                     style={{
                       fontSize: 28,
                       lineHeight: "30px",
@@ -75,12 +75,11 @@ export const FounderDetail: React.FC<Props> = ({
           </div>
           <div className="founder-field-container" style={{ minHeight: "88px" }}>
             <div className="mr-4">
-              <span className="text-secondary font-light text-sm leading-4 tags">
+              <span className="text-secondary font-medium tags" style={{ fontSize: 13, lineHeight: '15px' }}>
                 {FounderDetail.tagsDetails}
               </span>
             </div>
-            <img src={FounderDetail.logo} alt="ola" style={{ maxWidth: 150 }} />
-
+            <img src={FounderDetail.logo} alt="ola" style={{ maxWidth: 100, height: 50 }} />
           </div>
         </div>
       </div>

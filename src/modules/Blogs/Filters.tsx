@@ -13,7 +13,9 @@ import {
   DownArrow,
   UpArrow,
   SelectAllLaptop,
-  SelectNoneLaptop
+  SelectNoneLaptop,
+  InstagramLaptop,
+  InstagramMobile
 } from '@components/Icons';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -32,6 +34,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const [authors, setAuthors] = useState([])
   const [formats, setFormats] = useState(['Audio', 'Video', 'Article'])
   const [filters, setFilters] = useState(() => initialFilters)
+  const [footerInView, setFooterInView] = useState(false);
 
 
   useEffect(() => {
@@ -62,6 +65,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   ) : (
     <LinkedInLaptop />
   );
+  const InstagramIcon = deviceType.mobile ? <InstagramMobile /> : <InstagramLaptop />;
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
   const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
 
@@ -79,12 +83,39 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
   const getTag = ({ isSelected, setSelected, tagName, tagNumber }) => {
-    return <div onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-3 laptop:py-2 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`}>{tagName} <span>{!!tagNumber && `(${tagNumber})`}</span></div>
+    return <div key={tagName + tagNumber} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+      {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
+    </div>
   }
 
-  const handleApplyFilters = () => {
+  // console.log({ filters });
 
+  function isElementOutViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight;
   }
+  useEffect(() => {
+    document.addEventListener("scroll", (e) => {
+      if (!deviceType.mobile) {
+        setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
+      }
+    })
+    return () => setFooterInView(false);
+  }, []);
+
+  const capitalize = (str) => {
+    if (str) {
+      const words = str.split(" ");
+
+      for (let i = 0; i < words.length; i++) {
+        if ((/[a-zA-Z]/).test(words[i].charAt(0))) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+        }
+      }
+      return words.join(" ");
+    }
+    return '';
+  };
 
   return (
     <>
@@ -93,37 +124,41 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:right-14 z-50 laptop:top-36 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
+      <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32'} fixed laptop:right-12 z-50 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden`}>
         {!isFilterBoxOpen ? (
           // when filter box is closed state
           <div
-            className="closed duration-300 w-28 cursor-pointer sm:flex sm:w-full"
+            className="closed duration-300 w-18 cursor-pointer sm:flex sm:w-full"
             onClick={handleFilter}
           >
-            <div className="search h-24 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
+            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-96 sm:h-12 sm:flex-grow    bg-accent-dark">
-              <div className="sub-h1 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4">
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
+              <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 24 }}>
                 Filters
               </div>
               {FilterIcon}
             </div>
-            <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
+            <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center">
               {LinkedInIcon}
-              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
-            <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center">
+            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
               {TwitterIcon}
-              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
+            {/*<div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+              {InstagramIcon}
+              <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+            </div>*/}
           </div>
         ) : (
           //  filter box open state in mobile and laptop
           <div
             className="opened duration-300 relative"
             ref={filterRef}
-            style={{ width: deviceType.mobile ? 'auto' : 500 }}
+            style={{ width: deviceType.mobile ? 'auto' : 400 }}
           >
             <div
               className="laptop:hidden flex justify-end"
@@ -132,8 +167,9 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-14 sm:px-7 h-24 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
+              className={`transition-colors duration-500 search px-12 sm:px-5 h-20 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
                 }`}
+              style={deviceType.mobile ? { height: 50 } : { height: 75 }}
             >
               {inputText ? SearchIcon : SearchAccentIcon}
               <input
@@ -141,22 +177,23 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   }`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Search knowledgebase..."
+                placeholder="Search Knowledgebase..."
+                style={deviceType.mobile ? { fontSize: 18, fontWeight: 400, lineHeight: '24px' } : { fontSize: 22 }}
               />
             </div>
             <div
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
                 }`}
-              style={{ height: deviceType.mobile ? 300 : 570 }}
+              style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : 432 }}
             >
-              <ul className="sub-h1 text-white" >
+              <ul className="sub-h1 text-white filters-overflow" style={{ overflowY: 'scroll', maxHeight: 330 }}>
 
                 {/* matrix moments */}
-                <li className="py-4 sm:py-2  flex items-center ">
-                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
+                <li className="py-2 sm:py-2  flex items-center ">
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <DownArrow /> : <UpArrow />}</span>Matrix Moments</div>
                   {
                     openedFilter === 'moments' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -172,13 +209,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
                 {/* Topics */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <DownArrow /> : <UpArrow />}</span>Topics</div>
                   {
                     openedFilter === 'topics' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -194,13 +230,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
                 {/* Authors */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <DownArrow /> : <UpArrow />}</span>Authors</div>
                   {
                     openedFilter === 'authors' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -216,15 +251,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
-
-
                 {/* Content Format */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <DownArrow /> : <UpArrow />}</span>Content Formats</div>
                   {
                     openedFilter === 'formats' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -240,19 +272,15 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
-
-
-
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
+                  <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
                 </li>
                 {openedFilter === 'sort' && <div className='flex flex-wrap'>
                   {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}
                   {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0 })}
                 </div>}
               </ul>
-              <div className="bg-accent-dark px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
+              <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
                 <div onClick={() => {
                   setFilters(initialFilters);
                   fetchBlogsData();

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import RelatedVideos from './RelatedVideos';
 
 
@@ -15,7 +15,8 @@ type propsType = {
 
 
 const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relatedVideos }) => {
-  const profileImage = `../../images/blog-details/blog-profile-${mobile ? 'mobile' : 'laptop'}.png`
+
+  const [showMore, setShowMore] = useState(false)
   const videoImage = `../../images/blog-details/video-${mobile ? 'mobile' : 'laptop'}.png`
   return (
     <div className='col-span-3 laptop:mr-16'>
@@ -31,11 +32,15 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
               src={blogDetails?.author?.[0]?.image_url}
               style={!mobile ? { height: 67, width: 67, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }} />
             <div>
-              <h6 className='mb-2'>{blogDetails?.author?.[0]?.name}</h6>
+              <h6 className='mb-2' style={!mobile ? { lineHeight: '30px' } : {}}>{blogDetails?.author?.[0]?.name}</h6>
               <div className="caption">{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>
-          <div className="sub-h2">{blogDetails?.author?.[0]?.description}</div>
+          {!showMore ?
+            <div className="sub-h2">{blogDetails?.author?.[0]?.description?.slice(0, 200)}<span onClick={_ => setShowMore(true)} style={{ fontWeight: 700, cursor: 'pointer' }}> ...</span></div>
+            :
+            <div className="sub-h2">{blogDetails?.author?.[0]?.description}</div>
+          }
         </div>
       </div>
       <div className="tags flex gap-2 laptop:py-6 sm:py-3">

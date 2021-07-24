@@ -124,7 +124,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
                   <div className="subMenuOuter flex-wrap flex flex-col">
                     {menuItem.subMenu.map(menu => {
                       return (
-                        <div className="flex-wrap flex justify-between" style={{ marginTop: 20 }}
+                        <div key={menu.key + 1} className="flex-wrap flex justify-between" style={{ marginTop: 20 }}
                           onClick={() => menuClicked("SECONDARY_MENU", menu.key, index)}>
                           <h5 className="menu-secondary-nav-text" key={menu.key + 1}>{menu.name}</h5>
                           <span className="menu-secondary-nav-icon"> {">"} </span>

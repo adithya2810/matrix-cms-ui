@@ -7,7 +7,7 @@ export type Props = {
 
 const HomeContentList: React.FC<Props> = ({ contentList }) => {
   return (
-    <div className="overflow-auto home-content-container">
+    <div className="overflow-auto home-content-container grid grid-cols-1">
       {contentList.map((content, index) => {
         return <ContentItem {...content} key={index} />;
       })}

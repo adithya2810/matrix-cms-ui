@@ -54,7 +54,6 @@ const data = [
   },
 ];
 
-
 export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
@@ -108,65 +107,78 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
   function goTo(index) {
   }
 
+  function getNumberfounder(data, i) {
+    let fi = 0;
 
-
+    let list = [];
+    for (let index = 0; index < data.length; index++) {
+      const founder = data[index];
+      if (i != index) {
+        list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.id} style={{ color: '#01576e' }}>
+          <span className="thumbnailIndex" style={{ fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{fi + 1}</span>
+          <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
+        </div>);
+        fi++;
+      }
+    }
+    return list;
+  }
   return (
     <React.Fragment>
       <Slider {...settingsMain}>
         {props.foundersData.map((founder, index) => {
-          return <div className="founderSection-outerWarp" key={founder.id}>
-            <div className={`founderSection-leftOuter founder-container`}>
-              <div className="founder-background"></div>
-              <div className="founder-content">
-                <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
+          return (
+            <div key={founder.id}>
+              <div className="page-center">
+                <div className="founderSection-outerWarp">
+                  <div className={`founderSection-leftOuter founder-container`}>
+                    <div className="founder-background" style={{ height: '95%', width: '95%' }}></div>
+                    <div className="founder-content">
+                      <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
 
-                <div className="founder-footer-container relative">
-                  <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
-                    <g transform="translate(0.167)">
-                      <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" stroke-width="6" opacity="0.3" />
-                      <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="6" />
-                    </g>
-                  </svg>
-                  <div className="founder-name-container" style={{ minHeight: 100 }}>
-                    {founder.name.map(name => {
-                      return <h6 className="founder-name-text" key={name.firstName + 1}>
-                        <strong>{name.firstName} </strong> {name.lastName}
-                      </h6>
-                    })}
+                      <div className="founder-footer-container relative">
+                        <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
+                          <g transform="translate(0.167)">
+                            <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
+                            <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="6" />
+                          </g>
+                        </svg>
+                        <div className="founder-name-container" style={{ minHeight: 100 }}>
+                          {founder.name.map(name => {
+                            return <h6 className="founder-name-text" key={name.firstName + 1} style={{ fontWeight: 300, fontSize: 32, lineHeight: '36px', letterSpacing: '5%' }}>
+                              <strong>{name.firstName} </strong> {name.lastName}
+                            </h6>
+                          })}
 
-                  </div>
-                  <div className="founder-field-container" style={{ height: 88 }}>
-                    <div>
-                      {founder.tags.map((tag, index) => {
-                        return <React.Fragment>
-                          {index > 0 && <span className="tagBorderRight"></span>}
-                          <span className="text-secondary font-medium text-lg leading-6 tags" key={tag}> {tag}</span>
-                        </React.Fragment>
-                      })}
+                        </div>
+                        <div className="founder-field-container" style={{ height: 65 }}>
+                          <div>
+                            {founder.tags.map((tag, index1) => {
+                              return <React.Fragment key={index1}>
+                                {index1 > 0 && <span className="tagBorderRight"></span>}
+                                <span className="text-secondary font-medium text-lg leading-6 tags" key={tag} style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}> {tag}</span>
+                              </React.Fragment>
+                            })}
+                          </div>
+                          <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120, height: 39 }} />
+                        </div>
+                      </div>
                     </div>
-                    <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120 }} />
+                  </div>
+                  <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
+                    <h1 className="founderTitle" style={{ letterSpacing: '-2.5%' }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
+                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start' }}>
+                      {getNumberfounder(props.foundersData, index)}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
-              <h1 className="founderTitle" dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-              <div className="founderTitleSliderBox">
-                {props.foundersData.map((founder, indexTitleSlider) => (
 
-                  (index != indexTitleSlider) &&
-
-                  <div className={`heroSlider01-thumbnailInner heroTitleSlider${indexTitleSlider + 1}`} key={founder.id}>
-                    <span className="thumbnailIndex">{founder.id}</span>
-                    <div className="heroSlider01-thumbnailText" dangerouslySetInnerHTML={{ __html: founder.title }}></div>
-                  </div>
-
-                ))}
+              <div className="timerOuter">
+                <div className="timmerInner"></div>
               </div>
-
-
             </div>
-          </div>
+          )
         })}
       </Slider>
 
@@ -177,7 +189,7 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         slidesToShow={1.5}
         contentList={featureData}
         className={`blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50 ${timerClass}`}
-        header={<span>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
+        header={<span style={{ fontWeight: 400 }}>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
       />
     </React.Fragment>
   );

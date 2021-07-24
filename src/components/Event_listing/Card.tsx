@@ -22,8 +22,8 @@ const Card: FC<propsType> = (props) => {
   return (
 
     <div className="laptop:flex">
-      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3  news-images-body" >
-        <img style={{ height: '170px', minWidth: '100%' }}
+      <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-2" >
+        <img style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: 'auto', width: '100%' }}
           className="image-shadow"
           src={props.cover_image_url}
           alt="image"
@@ -38,8 +38,8 @@ const Card: FC<propsType> = (props) => {
         }}
       >
         <div className="caption text-accent-dark mb-2 sm:mb-2">{props.createdAt.slice(0, 10)}</div>
-        <div className="sub-h2">{props.name}</div>
-        <p className="caption news-body">
+        <div className="sub-h1 Manrope-normal" style={{ fontWeight: 400, fontSize: '24px', lineHeight: '34px', letterSpacing: '1px' }}>{props.name}</div>
+        <p className="caption ">
           <Markup content={props.description.slice(0, 200)} />
         </p>
         <div className="read-or-hide">

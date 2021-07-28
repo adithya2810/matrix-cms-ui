@@ -228,3 +228,13 @@ h6 {
 }
 
 // home
+
+// Twitter Feed
+.twitter_outerWarp {
+  height: 500px;
+  overflow: auto;
+}
+
+.twitter_outerWarp::-webkit-scrollbar {
+  display: none;
+}

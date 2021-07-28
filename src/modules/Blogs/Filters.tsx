@@ -27,6 +27,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
+  const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
   const [moments, setMoments] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
@@ -39,6 +40,25 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   useEffect(() => {
     fetchFiltersMetaData();
+
+    // window.onload = function () {
+    //   let myiFrame = document.getElementById("twitter-widget-0") as HTMLIFrameElement;
+    //   let doc = myiFrame.contentDocument;
+    //   doc.body.innerHTML = doc.body.innerHTML + `<style>
+    //     .timeline-Header.timeline-InformationCircle-widgetParent {
+    //       display: none !important;
+    //     }
+
+    //     .SandboxRoot.var-fully-expanded .timeline-Viewport {
+    //       padding: 20px !important;
+    //     }
+
+    //     .timeline-TweetList-tweet {
+    //       border: 1px solid rgba(15, 70, 100, 0.12) !important;
+    //       border-radius: 10px !important;
+    //     }
+    //   </style>`;
+    // }
   }, [])
 
   const fetchFiltersMetaData = async () => {
@@ -73,12 +93,14 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
       setIsFilterBoxOpen(false);
+    setIsTwitterBoxOpen(false);
   };
 
   useEffect(() => {
-    if (isFilterBoxOpen) document.addEventListener('click', handleClickEvent);
+    if (isFilterBoxOpen || isTwitterBoxOpen) document.addEventListener('click', handleClickEvent);
     return () => document.removeEventListener('click', handleClickEvent);
-  }, [isFilterBoxOpen]);
+  }, [isFilterBoxOpen, isTwitterBoxOpen]);
+
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
@@ -120,21 +142,24 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   return (
     <>
       {/* Mask */}
-      {isFilterBoxOpen && (
+      {(isFilterBoxOpen || isTwitterBoxOpen) && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
       <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32'} fixed laptop:right-12 z-50 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden`}>
-        {!isFilterBoxOpen ? (
+        {(!isFilterBoxOpen && !isTwitterBoxOpen) && (
           // when filter box is closed state
           <div
             className="closed duration-300 w-18 cursor-pointer sm:flex sm:w-full"
-            onClick={handleFilter}
           >
-            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
+            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center"
+              onClick={handleFilter}
+            >
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark"
+              onClick={handleFilter}
+            >
               <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 24 }}>
                 Filters
               </div>
@@ -144,7 +169,11 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
-            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center"
+              onClick={() => {
+                setIsTwitterBoxOpen(!isTwitterBoxOpen)
+              }}
+            >
               {TwitterIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
@@ -153,7 +182,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>*/}
           </div>
-        ) : (
+        )}
+        {isFilterBoxOpen && (
           //  filter box open state in mobile and laptop
           <div
             className="opened duration-300 relative"
@@ -284,13 +314,15 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 <div onClick={() => {
                   setFilters(initialFilters);
                   fetchBlogsData();
-                  setIsFilterBoxOpen(false)
+                  setIsFilterBoxOpen(false);
+                  setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
                 <div onClick={_ => {
                   fetchBlogsDataWithFilters(filters)
-                  setIsFilterBoxOpen(false)
+                  setIsFilterBoxOpen(false);
+                  setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-white cursor-pointer hover:opacity-80">
                   Apply
                 </div>
@@ -298,6 +330,11 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
             </div>
           </div>
         )}
+        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
+          <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
+        </div>
       </div>
     </>
   );

@@ -52,7 +52,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
           }
         </div>
       </div>
-      <div className="tags flex gap-2 laptop:py-6 sm:py-3">
+      <div className="tags flex gap-2 laptop:py-6 sm:py-3 flex-wrap">
         {
           blogDetails?.tags?.map(tag => (
             <div key={tag.slug} className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">{tag.slug}</div>

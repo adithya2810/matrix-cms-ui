@@ -27,7 +27,7 @@ export const NavItem: React.FC<Props> = ({
       style={{ marginBottom: 20 }}
       onClick={() => onClick(id)}
     >
-      {link ?
+      {link && title != 'Blog' ?
         <a href={link}>
           <span style={{ cursor: 'pointer' }}>{title}</span>
           {/* <Image src="/icons/rightArrow.large.svg" alt="image" className="menu_primary_nav_icon"  /> */}

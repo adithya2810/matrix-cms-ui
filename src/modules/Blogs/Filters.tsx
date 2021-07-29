@@ -27,6 +27,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
+  const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
   const [moments, setMoments] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
@@ -34,10 +35,30 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const [authors, setAuthors] = useState([])
   const [formats, setFormats] = useState(['Audio', 'Video', 'Article'])
   const [filters, setFilters] = useState(() => initialFilters)
+  const [footerInView, setFooterInView] = useState(false);
 
 
   useEffect(() => {
     fetchFiltersMetaData();
+
+    // window.onload = function () {
+    //   let myiFrame = document.getElementById("twitter-widget-0") as HTMLIFrameElement;
+    //   let doc = myiFrame.contentDocument;
+    //   doc.body.innerHTML = doc.body.innerHTML + `<style>
+    //     .timeline-Header.timeline-InformationCircle-widgetParent {
+    //       display: none !important;
+    //     }
+
+    //     .SandboxRoot.var-fully-expanded .timeline-Viewport {
+    //       padding: 20px !important;
+    //     }
+
+    //     .timeline-TweetList-tweet {
+    //       border: 1px solid rgba(15, 70, 100, 0.12) !important;
+    //       border-radius: 10px !important;
+    //     }
+    //   </style>`;
+    // }
   }, [])
 
   const fetchFiltersMetaData = async () => {
@@ -72,40 +93,74 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
       setIsFilterBoxOpen(false);
+    setIsTwitterBoxOpen(false);
   };
 
   useEffect(() => {
-    if (isFilterBoxOpen) document.addEventListener('click', handleClickEvent);
+    if (isFilterBoxOpen || isTwitterBoxOpen) document.addEventListener('click', handleClickEvent);
     return () => document.removeEventListener('click', handleClickEvent);
-  }, [isFilterBoxOpen]);
+  }, [isFilterBoxOpen, isTwitterBoxOpen]);
+
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
   const getTag = ({ isSelected, setSelected, tagName, tagNumber }) => {
-    return <div onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-3 laptop:py-2 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`}>{tagName} <span>{!!tagNumber && `(${tagNumber})`}</span></div>
+    return <div key={tagName + tagNumber} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+      {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
+    </div>
   }
 
-  console.log({ filters });
+  // console.log({ filters });
+
+  function isElementOutViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight;
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", (e) => {
+      if (!deviceType.mobile) {
+        setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
+      }
+    })
+    return () => setFooterInView(false);
+  }, []);
+
+  const capitalize = (str) => {
+    if (str) {
+      const words = str.split(" ");
+
+      for (let i = 0; i < words.length; i++) {
+        if ((/[a-zA-Z]/).test(words[i].charAt(0))) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+        }
+      }
+      return words.join(" ");
+    }
+    return '';
+  };
 
   return (
     <>
       {/* Mask */}
-      {isFilterBoxOpen && (
+      {(isFilterBoxOpen || isTwitterBoxOpen) && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:right-12 z-50 laptop:top-32 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden">
-        {!isFilterBoxOpen ? (
+      <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32'} fixed laptop:right-12 z-50 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden`}>
+        {(!isFilterBoxOpen && !isTwitterBoxOpen) && (
           // when filter box is closed state
           <div
             className="closed duration-300 w-18 cursor-pointer sm:flex sm:w-full"
-            onClick={handleFilter}
           >
-            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center">
+            <div className="search h-20 sm:h-12 sm:w-12  bg-accent flex justify-center items-center"
+              onClick={handleFilter}
+            >
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
-              <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4">
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark"
+              onClick={handleFilter}
+            >
+              <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 24 }}>
                 Filters
               </div>
               {FilterIcon}
@@ -114,7 +169,11 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
-            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+            <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center"
+              onClick={() => {
+                setIsTwitterBoxOpen(!isTwitterBoxOpen)
+              }}
+            >
               {TwitterIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
@@ -123,7 +182,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>*/}
           </div>
-        ) : (
+        )}
+        {isFilterBoxOpen && (
           //  filter box open state in mobile and laptop
           <div
             className="opened duration-300 relative"
@@ -137,9 +197,9 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-14 sm:px-7 h-20 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
+              className={`transition-colors duration-500 search px-12 sm:px-5 h-20 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
                 }`}
-              style={{ height: 70 }}
+              style={deviceType.mobile ? { height: 50 } : { height: 75 }}
             >
               {inputText ? SearchIcon : SearchAccentIcon}
               <input
@@ -147,22 +207,23 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   }`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Search knowledgebase..."
+                placeholder="Search Knowledgebase..."
+                style={deviceType.mobile ? { fontSize: 18, fontWeight: 400, lineHeight: '24px' } : { fontSize: 22 }}
               />
             </div>
             <div
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
                 }`}
-              style={{ height: deviceType.mobile ? 300 : 432 }}
+              style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : 432 }}
             >
               <ul className="sub-h1 text-white filters-overflow" style={{ overflowY: 'scroll', maxHeight: 330 }}>
 
                 {/* matrix moments */}
                 <li className="py-2 sm:py-2  flex items-center ">
-                  <div onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <UpArrow /> : <DownArrow />}</span>Matrix Moments</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <DownArrow /> : <UpArrow />}</span>Matrix Moments</div>
                   {
                     openedFilter === 'moments' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -178,13 +239,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
                 {/* Topics */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <UpArrow /> : <DownArrow />}</span>Topics</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <DownArrow /> : <UpArrow />}</span>Topics</div>
                   {
                     openedFilter === 'topics' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -200,13 +260,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
                 {/* Authors */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <UpArrow /> : <DownArrow />}</span>Authors</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <DownArrow /> : <UpArrow />}</span>Authors</div>
                   {
                     openedFilter === 'authors' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -222,15 +281,12 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
-
-
                 {/* Content Format */}
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <UpArrow /> : <DownArrow />}</span>Content Formats</div>
+                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <DownArrow /> : <UpArrow />}</span>Content Formats</div>
                   {
                     openedFilter === 'formats' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline'>
+                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
                       All
                       <div onClick={e => {
                         e.stopPropagation();
@@ -246,12 +302,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   </div>
                 }
 
-
-
-
-
                 <li className="py-4 sm:py-2  flex items-center">
-                  <div onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <UpArrow /> : <DownArrow />}</span>Sort By</div>
+                  <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
                 </li>
                 {openedFilter === 'sort' && <div className='flex flex-wrap'>
                   {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}
@@ -262,13 +314,15 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 <div onClick={() => {
                   setFilters(initialFilters);
                   fetchBlogsData();
-                  setIsFilterBoxOpen(false)
+                  setIsFilterBoxOpen(false);
+                  setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
                 <div onClick={_ => {
                   fetchBlogsDataWithFilters(filters)
-                  setIsFilterBoxOpen(false)
+                  setIsFilterBoxOpen(false);
+                  setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-white cursor-pointer hover:opacity-80">
                   Apply
                 </div>
@@ -276,6 +330,11 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
             </div>
           </div>
         )}
+        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
+          <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
+        </div>
       </div>
     </>
   );

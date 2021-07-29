@@ -33,9 +33,10 @@ const index: FC<propsType> = (props) => {
       setData(data)
       const countRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count`)
       const count = await countRes.json();
-      const totalPages = count / _limit + (count % _limit === 0 ? 0 : 1)
+      const totalPages = Math.ceil(count / _limit); //count / _limit + (count % _limit === 0 ? 0 : 1)
       setTotalPages(totalPages)
       setIsPaginationOn(true)
+      setAppliedFilters([]);
     } catch (e) {
       console.log(e)
     }
@@ -60,14 +61,14 @@ const index: FC<propsType> = (props) => {
   return (
     <div className="listing">
       <HeroSection mobile={props.deviceType.mobile} />
-      <AppliedFilters appliedFilters={appiedfilters} />
+      <AppliedFilters mobile={props.deviceType.mobile} appliedFilters={appiedfilters} totalPages={totalPages > 9 ? totalPages : `0${totalPages}`} page={page ? page : 1} />
       <List {...props} data={data} />
       <Filters {...props} fetchBlogsDataWithFilters={fetchBlogsDataWithFilters} fetchBlogsData={fetchBlogsData} />
       <br />
       <br />
       <br />
       <br />
-      {isPaginationOn && <Pagination totalPages={totalPages} />}
+      {isPaginationOn && <Pagination totalPages={totalPages} mobile={props.deviceType.mobile} />}
     </div>
   );
 };

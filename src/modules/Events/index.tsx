@@ -4,7 +4,7 @@ import Event_listing from '@components/Event_listing';
 const data = {
   pageType: 'matrix_moments',
   title: (
-    <h2>
+    <h2 className='header'>
       Past Events
     </h2>
   ),

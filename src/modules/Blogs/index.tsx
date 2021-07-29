@@ -45,12 +45,14 @@ const index: FC<propsType> = (props) => {
   const fetchBlogsDataWithFilters = async (filters) => {
     const topicsTags = filters.topics.map(t => `slug=${encodeURIComponent(t)}`)?.join('&')
     const peopleSlugs = filters.authors.map(t => `slug=${encodeURIComponent(t)}`)?.join('&')
+    const contentType = filters.formats.map(t => `type=${t}`).join('&')
+    console.log({ filters })
     try {
-      const topicsRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${topicsTags}`)
+      const topicsRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${topicsTags}&${contentType}`)
       const topicsData = await topicsRes.json();
-      const authorsRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people?${peopleSlugs}`)
+      const authorsRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people?${peopleSlugs}&${contentType}`)
       const authorsData = await authorsRes.json();
-      setData([...topicsData, ...authorsData])
+      setData([...topicsTags ? topicsData : [], ...peopleSlugs ? authorsData : []])
       setAppliedFilters([...filters.topics, ...filters.authors])
       setIsPaginationOn(false)
     } catch (e) {

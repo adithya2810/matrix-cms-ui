@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import RelatedVideos from './RelatedVideos';
+import { VideoIconBlog, MicIconBlog, ArticleIconBlog } from '@components/Icons'
 
 
 type deviceType = {
@@ -17,12 +18,20 @@ type propsType = {
 const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relatedVideos }) => {
 
   const [showMore, setShowMore] = useState(false)
-  const videoImage = `../../images/blog-details/video-${mobile ? 'mobile' : 'laptop'}.png`
+
+  const typeObj = {
+    Audio: <MicIconBlog />,
+    video: <VideoIconBlog />,
+    Article: <ArticleIconBlog />
+  }
+
   return (
     <div className='col-span-3 laptop:mr-16'>
       <div className="blog-author-card relative bg-accent-dark text-white ">
         <div className="relative">
-          <img src={videoImage} alt="video-symbol" className="absolute bottom-0 left-0" />
+          <div style={mobile ? { width: 52, height: 45 } : { width: 133, height: 102 }} className="absolute -bottom-1 left-0">
+            {typeObj[blogDetails?.type]}
+          </div>
         </div>
         <div className='laptop:p-10 sm:p-4'>
           <div className="flex items-center laptop:mb-5 sm:mb-2.5">
@@ -44,9 +53,11 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
         </div>
       </div>
       <div className="tags flex gap-2 laptop:py-6 sm:py-3">
-        <div className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">Auto <span className='body2 opacity-80'>(123)</span></div>
-        <div className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">Gaming <span className='body2 opacity-80'>(90)</span></div>
-        <div className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">D2C <span className='body2 opacity-80'>(13)</span></div>
+        {
+          blogDetails?.tags?.map(tag => (
+            <div key={tag.slug} className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline">{tag.slug}</div>
+          ))
+        }
       </div>
       {!mobile &&
         <RelatedVideos mobile={mobile} relatedVideos={relatedVideos} />

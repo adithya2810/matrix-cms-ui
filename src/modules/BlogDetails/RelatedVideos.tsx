@@ -9,7 +9,6 @@ type deviceType = {
 
 const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
   const { push } = useRouter()
-  console.log({ relatedVideos })
   const imgPath = `../../images/blog-details/related-video-${mobile ? 'mobile' : 'laptop'}.png`
   const linkedInImgPath = '../../images/blog-details/linkedin.png'
   const twitterImgPath = '../../images/blog-details/twitter.png'
@@ -22,7 +21,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
           <img src={twitterImgPath} alt="" />
         </div>
       </div>
-      <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 54 }}>Related Videos</h5>
+      <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 54 }}>Related Posts</h5>
 
       {relatedVideos?.map(v => (
         <div className="card laptop:flex relative laptop:mb-16">

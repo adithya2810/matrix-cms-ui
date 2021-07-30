@@ -26,7 +26,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
   }
 
   return (
-    <div className='col-span-4 laptop:mr-16'>
+    <div className='col-span-4 laptop:mr-12'>
       <div className="blog-author-card relative bg-accent-dark text-white ">
         <div className="relative">
           <div style={mobile ? { width: 52, height: 45 } : { width: 133, height: 102 }} className="absolute -bottom-1 left-0">

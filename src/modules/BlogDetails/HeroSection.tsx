@@ -20,7 +20,7 @@ const HeroSection: FC<propsType> = ({ deviceType, blogDetails }) => {
       <div className='overlay hero-section bg-cover relative bg-center section flex items-center' style={{ backgroundImage: `url(${imgPath})`, height: deviceType.mobile ? 413 : 463, zIndex: 0 }}>
         <div className="laptop:grid laptop:grid-cols-11 w-full">
           <div className="col-span-3" />
-          <div className="col-span-8 title text-white laptop:mt-24 sm:mt-14">
+          <div className="col-span-7 title text-white laptop:mt-2 sm:mt-14" style={!deviceType.mobile ? { fontSize: 65, fontWeight: 500, lineHeight: '80px' } : {}}>
             {blogDetails?.name}
           </div>
         </div>

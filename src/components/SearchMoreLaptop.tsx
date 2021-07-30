@@ -45,7 +45,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
 
       <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : 120 }}>
         <div
-          className="closed duration-300 w-20 cursor-pointer sm:flex sm:w-full"
+          className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full"
         >
           <div
             onClick={handleFilter}

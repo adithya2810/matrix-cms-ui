@@ -21,7 +21,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
           <img src={twitterImgPath} alt="" />
         </div>
       </div>
-      <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 54 }}>Related Posts</h5>
+      <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>
 
       {relatedVideos?.map(v => (
         <div className="card laptop:flex relative laptop:mb-16">

@@ -34,13 +34,14 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
   return (<div className="ml-8 flex-grow sm:hidden seperator">
     <div className="flex justify-between ">
       <div className="mb-3">
-        <span className="font-light text-3xl leading-8 tracking-tighter text-primary"> {header} </span>
-        <span className="ml-5 pl-1 text-accent">({blogData.length})</span>
+        <span className="font-light text-2xl leading-8 tracking-tighter text-primary"> {header} </span>
+        <span className="ml-2 pl-1 text-accent">({blogData.length})</span>
       </div>
 
       <SecondaryButton
         title="View All RESULTS"
-        className=" mr-6 text-accent-dark"
+        className="text-accent-dark"
+        style={{ color: "#37414C" }}
         onClick={() => location.href = page_url}
       />
     </div>

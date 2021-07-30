@@ -44,7 +44,7 @@ const BlogDetails: FC<propsType> = (props) => {
   return (
     <div className='blog-detail'>
       <HeroSection {...props} blogDetails={blogDetails} />
-      <div className="laptop:grid laptop:grid-cols-11 w-full section">
+      <div className="laptop:grid laptop:grid-cols-12 w-full section">
         <SideContent {...props} blogDetails={blogDetails} relatedVideos={relatedVideos} />
         <Blog {...props} blogDetails={blogDetails} />
         {props.deviceType.mobile &&

@@ -45,11 +45,11 @@ const SearchMoreLaptop = ({ deviceType }) => {
 
       <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : 120 }}>
         <div
-          className="closed duration-300 w-28 cursor-pointer sm:flex sm:w-full"
+          className="closed duration-300 w-20 cursor-pointer sm:flex sm:w-full"
         >
           <div
             onClick={handleFilter}
-            className="search h-24 sm:h-12 sm:w-12  bg-accent-dark flex justify-center items-center">
+            className="search h-16 sm:h-12 sm:w-12  bg-accent-dark flex justify-center items-center">
             {SearchIcon}
           </div>
           <div className={`search laptop:hidden w-auto h-24 sm:h-12 flex items-center bg-accent`}>
@@ -59,13 +59,13 @@ const SearchMoreLaptop = ({ deviceType }) => {
               placeholder="search for more blogs"
             />
           </div>
-          <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
+          <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center">
             {LinkedInIcon}
-            <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+            <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
-          <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center">
+          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
             {TwitterIcon}
-            <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+            <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
         </div>
         {isFilterBoxOpen &&

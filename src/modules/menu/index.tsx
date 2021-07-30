@@ -263,7 +263,7 @@ export const Menu: React.FC = () => {
         }
 
         {newsInfoList.length > 0 &&
-          <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
+          <div className="fsm:hidden flex-grow flex flex-col  newsEventDivider">
             <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
             <Button
               title={"View " + "News page"}

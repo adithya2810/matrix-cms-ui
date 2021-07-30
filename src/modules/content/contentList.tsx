@@ -40,7 +40,7 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
 
       <SecondaryButton
         title="View All RESULTS"
-        className="text-accent-dark"
+        className=" mr-6 text-accent-dark"
         style={{ color: "#37414C" }}
         onClick={() => location.href = page_url}
       />

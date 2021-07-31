@@ -7,7 +7,7 @@ export type Props = {
   isNewsEvent: boolean;
   header: string;
   newsEventData?: Array<any>
-  page_url?: string
+  page_url?: string;
 }
 
 const data = [
@@ -58,6 +58,7 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
               read_duration={contentItem.read_duration}
               blog_url={contentItem.blog_url}
               onClick={(id) => console.log(id)}
+              mobile={false}
             />)
           })
         }

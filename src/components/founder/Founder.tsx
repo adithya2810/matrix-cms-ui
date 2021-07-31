@@ -54,7 +54,7 @@ const data = [
   },
 ];
 
-export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
+export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
   const [timerClass, setTimerClass] = useState('timerWarp0');
@@ -179,7 +179,8 @@ export const Founder: React.FC<{ foundersData: Array<any> }> = (props) => {
         slidesToShow={1.5}
         contentList={featureData}
         className={`blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50 ${timerClass}`}
-        header={<span style={{ fontWeight: 400 }}>Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
+        header={<span style={props.mobile ? { fontSize: 19, display: 'block', paddingRight: '30%' } : { fontWeight: 400 }}>{props.mobile} Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
+        mobile={props.mobile}
       />
     </React.Fragment>
   );

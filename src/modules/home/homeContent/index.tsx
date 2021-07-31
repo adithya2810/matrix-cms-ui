@@ -22,7 +22,7 @@ const homeContentTabs = [
 
 const contentList = [{}, {}, {}, {}, {}];
 
-const HomeContent: React.FC = () => {
+const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   // const fetch("http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1")
 
 
@@ -84,8 +84,9 @@ const HomeContent: React.FC = () => {
             tabList={homeContentTabs}
             selectedTab={selectedTab}
             onTabSelected={onTabSelected}
+            mobile={mobile}
           />
-          <ContentList contentList={contentList} />
+          <ContentList contentList={contentList} mobile={mobile} />
         </div>
       </div>
     </div>

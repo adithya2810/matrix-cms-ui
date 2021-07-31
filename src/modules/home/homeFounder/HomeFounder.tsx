@@ -91,12 +91,16 @@ const founderData = [
   // }
 ]
 
-const HomeFounder = () => {
+type propType = {
+  mobile: boolean;
+}
+
+const HomeFounder: React.FC<propType> = (props) => {
   return (
     <div className="pageBannerOuter" style={{ position: "relative" }}>
       <div className="page-center">
         <div className="heroSlider01-outerWarp">
-          <Founder foundersData={founderData} />
+          <Founder foundersData={founderData} mobile={props.mobile} />
         </div>
       </div>
     </div>

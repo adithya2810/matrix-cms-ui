@@ -145,7 +145,7 @@ const heroSlider02_Data = [
   }
 ]
 
-const HomeCarousal = () => {
+const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
 
   const [featureData, setFeatureData] = useState([]);
 
@@ -232,13 +232,14 @@ const HomeCarousal = () => {
                         {" "}
                         {slider.id}/06
                       </div>
-                      <div className="pr-12 text-secondary-light heroSlider02-slide-title" dangerouslySetInnerHTML={{ __html: slider.title }}>
+                      <div className="pr-12 text-secondary-light heroSlider02-slide-title" style={mobile ? { fontSize: 25, paddingTop: 60 } : {}} dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
                     </div>
                     <FounderDetail
-                      FounderDetail={slider} style={{ flex: '0 50%', marginTop: 23 }}
+                      FounderDetail={slider} style={mobile ? { maxWidth: 'calc(100% - 30px)', marginTop: 25 } : { flex: '0 50%', marginTop: 23 }}
+                      mobile={mobile}
                     />
-                    <div className="heroSlider02-slide-indicator mobile">
+                    <div className="heroSlider02-slide-indicator mobile" style={{ fontSize: 25 }}>
                       {" "}
                       {slider.id}/06
                     </div>
@@ -262,6 +263,7 @@ const HomeCarousal = () => {
         className="absolute md:relative bottom-0 right-0 text-primary-dark contentItemOuter-w85"
         style={{ paddingLeft: 20, paddingTop: 20 }}
         header={<span style={{ fontSize: 28, fontWeight: 400, lineHeight: '34px' }}>Dive into the <span className="text-accent">Matrix Moments</span> series</span>}
+        mobile={mobile}
       />
     </div>
   );

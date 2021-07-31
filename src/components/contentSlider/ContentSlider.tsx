@@ -10,10 +10,11 @@ export type Props = {
   contentList: Array<any>;
   style?: any,
   header: any;
-  slidesToShow?: any
+  slidesToShow?: any,
+  mobile: boolean;
 };
 
-export const ContentSlider: React.FC<Props> = ({ contentList, className, header, slidesToShow, style = {} }) => {
+export const ContentSlider: React.FC<Props> = ({ contentList, className, header, slidesToShow, style = {}, mobile }) => {
 
   var settings;
   settings = {
@@ -70,6 +71,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
                 onClick={(id) => console.log(id)}
                 style={{ width: 610 }}
                 className="mr-3 mt-2 text-lg leading-6"
+                mobile={mobile}
               />
             );
           })}

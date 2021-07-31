@@ -1559,3 +1559,10 @@ textarea {
 .slider-num-ma{
   font-size: 75px;
 }
+
+@media screen and (min-width: 1200px) {
+  .ma-slider-fix{
+    font-size: 32px;
+    line-height: 42px;
+  }
+}

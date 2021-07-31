@@ -181,7 +181,7 @@ export const CloseCross = _ => (
   </svg>
 )
 export const PlusLaptop = _ => (
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="25" height="25" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="10" width="10" height="30" fill="#5DE2A1" />
     <rect y="20" width="10" height="30" transform="rotate(-90 0 20)" fill="#5DE2A1" />
   </svg>

@@ -2,7 +2,7 @@ import React from "react";
 import Home from "../../src/modules/home";
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

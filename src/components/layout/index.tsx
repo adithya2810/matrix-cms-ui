@@ -31,7 +31,7 @@ export const Layout: React.FC<LayoutProps> = ({
     <div className={`flex flex-col w-full h-full ${className}`}>
       <Header toggle={toggle} />
       <div className="flex-grow">{children}</div>
-      <Footer />
+      <Footer mobile={mobile} />
     </div>
   );
 };

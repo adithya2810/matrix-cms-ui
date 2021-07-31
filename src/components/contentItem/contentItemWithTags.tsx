@@ -18,6 +18,7 @@ export type Props = {
   tags?: Array<any>;
   className?: string;
   style?: any;
+  mobile: boolean;
 };
 
 const ContentItemWithTags: React.FC<Props> = ({
@@ -35,6 +36,7 @@ const ContentItemWithTags: React.FC<Props> = ({
   tags,
   className = "",
   style = {},
+  mobile
 }) => {
   console.log(tags)
   return (
@@ -91,7 +93,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           </div>
           <div
             className="text-primary-dark font-normal mt-3"
-            style={{ fontSize: "28px", lineHeight: "34px" }}
+            style={mobile ? { fontSize: "22px", lineHeight: "20px" } : { fontSize: "28px", lineHeight: "34px" }}
           >
             <a href={`/blogs/${blog_url}`}>{title}</a>
 

@@ -5,15 +5,17 @@ export type Props = {
   selectedTab: string;
   onTabSelected?: (id: string) => void;
   tabList: Array<any>;
+  mobile: boolean;
 };
 
 const ContentTabs: React.FC<Props> = ({
   selectedTab,
   onTabSelected,
   tabList,
+  mobile
 }) => {
   return (
-    <div className="home-content-side-nav-container bg-secondary items-center flex flex-col justify-center">
+    <div className="home-content-side-nav-container bg-secondary items-center sm:items-start flex flex-col justify-center">
       {tabList.map(({ name, id, link }) => {
         const tabStyle =
           id === selectedTab
@@ -32,9 +34,9 @@ const ContentTabs: React.FC<Props> = ({
           />
         );
       })}
-      <div className="viewAllOuter">
+      {!mobile && <div className="viewAllOuter">
         <a href="/blogs">View All <img src="/icons/arrow_b.svg" alt="arrow" /></a>
-      </div>
+      </div>}
     </div>
   );
 };

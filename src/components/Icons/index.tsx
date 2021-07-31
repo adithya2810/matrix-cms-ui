@@ -156,8 +156,8 @@ export const FilterMobile = _ => (
   </svg>
 
 )
-export const FilterLaptop = _ => (
-  <svg width="25" height="24" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const FilterLaptop = ({ width = '25', height = '24' }) => (
+  <svg width={width} height={height} viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
     <line x1="4.19922" y1="2.18557e-08" x2="4.19922" y2="25.9964" stroke="white" />
     <line x1="14.0625" y1="2.18557e-08" x2="14.0625" y2="25.9964" stroke="white" />
     <line x1="23.9277" y1="2.18557e-08" x2="23.9277" y2="25.9964" stroke="white" />

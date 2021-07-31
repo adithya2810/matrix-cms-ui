@@ -87,7 +87,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   );
   const InstagramIcon = deviceType.mobile ? <InstagramMobile /> : <InstagramLaptop />;
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
-  const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
+  const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop width="20" />;
 
 
   const handleClickEvent = (e: Event) => {
@@ -157,10 +157,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
             >
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark"
-              onClick={handleFilter}
-            >
-              <div className="sub-h1 mb-6 laptop:transform laptop:-rotate-90 relative laptop:top-10 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 24 }}>
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
+              <div className="sub-h1 mb-2 laptop:transform laptop:-rotate-90 relative laptop:top-10 laptop:mx-3 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 18, fontWeight: 300 }}>
                 Filters
               </div>
               {FilterIcon}

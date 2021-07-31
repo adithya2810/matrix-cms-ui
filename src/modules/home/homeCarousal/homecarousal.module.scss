@@ -206,7 +206,10 @@ ul.slick-dots {
 
 @media screen and (max-width: 480px) {
     .hospatalitySector {
-        bottom: 78px !important;
+        bottom: 150px !important;
         position: relative;
+    }
+    .contentItemOuter-w85{
+      margin-top: -150px;
     }
 }

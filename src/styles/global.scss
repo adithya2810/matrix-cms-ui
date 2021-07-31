@@ -1535,11 +1535,7 @@ textarea {
 // Manrope classes
 .Manrope-normal{font-family: 'Manrope'; font-style:normal;}
 //ma fix
-.ma-about-fix{
-  font-size: 75px;
-  line-height: 95px;
-  font-weight: 300;
-}
+
 .ma-font-fixq{
   font-size: 24px;
   line-height: 32px;
@@ -1564,5 +1560,19 @@ textarea {
   .ma-slider-fix{
     font-size: 32px;
     line-height: 42px;
+  }
+  .ma-about-fix{
+    font-size: 75px;
+    line-height: 95px;
+    font-weight: 300;
+  }
+  .ma-hide-comp{
+    display: none;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  .ma-hide-mob{
+    display: none;
   }
 }

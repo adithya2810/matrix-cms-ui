@@ -49,8 +49,11 @@ const tagList = [{
 }
 ]
 
+type propType = {
+  mobile: boolean;
+}
 
-export const Menu: React.FC = () => {
+export const Menu: React.FC<propType> = ({ mobile }) => {
 
   const [sectorialList, setsectorialList] = useState([]);
   const [nonSectorialList, SetNonSectorialList] = useState([]);
@@ -239,7 +242,7 @@ export const Menu: React.FC = () => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
+            <ContentList mobile={mobile} blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
             <Button
               title={"Visit " + "Blog Page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
@@ -264,7 +267,7 @@ export const Menu: React.FC = () => {
 
         {newsInfoList.length > 0 &&
           <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
-            <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
+            <ContentList mobile={mobile} blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
             <Button
               title={"View " + "News page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
@@ -280,7 +283,7 @@ export const Menu: React.FC = () => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
+            <ContentList mobile={mobile} blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
             <Button
               title={"View " + "Events page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
@@ -303,6 +306,7 @@ export const Menu: React.FC = () => {
           eventInfoList={eventInfoList}
           onItemClick={getSelectedTag}
           closeMenu={intialValue}
+          mobile={mobile}
         >
 
         </MobileMenu>

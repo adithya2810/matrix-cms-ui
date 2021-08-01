@@ -46,7 +46,7 @@ export const Root: React.FC<Props> = ({ children, deviceType }) => {
         <div className="flex-grow" >{children}</div>
         <Footer mobile={deviceType.mobile} />
       </div>
-      <Menu />
+      <Menu mobile={deviceType.mobile} />
     </>
   );
 };

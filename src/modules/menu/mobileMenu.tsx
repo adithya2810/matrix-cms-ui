@@ -16,10 +16,11 @@ export type props = {
   eventInfoList?: Array<any>
   selectedTags?: Array<any>;
   onItemClick: (selected: any) => void;
-  closeMenu: () => void
+  closeMenu: () => void;
+  mobile: boolean;
 }
 
-export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, blogData, selectedTags, onItemClick, closeMenu, newsInfoList, eventInfoList }) => {
+export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, blogData, selectedTags, onItemClick, closeMenu, newsInfoList, eventInfoList, mobile }) => {
 
   const tagClicked = (item) => {
     console.log(item)
@@ -57,7 +58,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
       }
       {(blogData.length > 0) &&
         <div className="mobile-menuBlogs pt-8 pr-4 pl-4 ">
-          <ContentList blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
+          <ContentList mobile={mobile} blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
           <Button title={"Visit " + "Blog Page"}
             className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
             url="/icons/rightArrowGray.svg"
@@ -68,7 +69,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
 
       {newsInfoList.length > 0 &&
         <div className="mobile-menuBlogs pt-8 pr-4 pl-4">
-          <ContentList blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/blogs/news'} />
+          <ContentList mobile={mobile} blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/blogs/news'} />
           <Button
             title={"View " + "News page"}
             className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
@@ -80,7 +81,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
 
       {eventInfoList.length > 0 &&
         <div className="mobile-menuBlogs pt-8 pr-4 pl-4">
-          <ContentList blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/blogs/events'} />
+          <ContentList mobile={mobile} blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/blogs/events'} />
           <Button
             title={"View " + "Events page"}
             className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"

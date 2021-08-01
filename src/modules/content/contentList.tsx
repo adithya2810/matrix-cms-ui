@@ -8,6 +8,7 @@ export type Props = {
   header: string;
   newsEventData?: Array<any>
   page_url?: string;
+  mobile: boolean;
 }
 
 const data = [
@@ -29,7 +30,7 @@ const data = [
   }
 ]
 
-export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData, page_url }) => {
+export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData, page_url, mobile }) => {
 
   return (<div className="ml-8 flex-grow sm:hidden seperator">
     <div className="flex justify-between ">
@@ -58,7 +59,7 @@ export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, ne
               read_duration={contentItem.read_duration}
               blog_url={contentItem.blog_url}
               onClick={(id) => console.log(id)}
-              mobile={false}
+              mobile={mobile}
             />)
           })
         }

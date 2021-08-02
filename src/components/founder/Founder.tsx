@@ -61,15 +61,13 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
 
   useEffect(() => {
     componentDidMount();
-
-
   }, []);
 
   const componentDidMount = async () => {
     const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?FeaturedOne=1');
     const json = await response.json();
     const featureOneData = json.map(blogData => {
-      console.log(json)
+      //console.log(json)
       return {
         image_url: blogData.cover_desktop,
         title: blogData.name,
@@ -113,13 +111,13 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
     let list = [];
     for (let index = 0; index < data.length; index++) {
       const founder = data[index];
-      if (i != index) {
-        list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.id} style={{ color: '#01576e' }}>
-          <span className="thumbnailIndex" style={{ fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{fi + 1}</span>
-          <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
-        </div>);
-        fi++;
-      }
+      // if (i != index) {
+      list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder} style={props.mobile ? { minWidth: 115, color: '#01576e' } : { color: '#01576e' }}>
+        <span className="thumbnailIndex" style={props.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', paddingRight: 2, marginTop: -3, color: '#01576e' } : { fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{`0${index + 1}`}</span>
+        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: 16, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e' }} dangerouslySetInnerHTML={{ __html: founder }}></div>
+      </div>);
+      //   fi++;
+      // }
     }
     return list;
   }
@@ -134,41 +132,41 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
                   <div className={`founderSection-leftOuter founder-container`}>
                     <div className="founder-background" style={{ height: '95%', width: '95%' }}></div>
                     <div className="founder-content">
-                      <div className="founder-coverImage" style={{ backgroundImage: `url(${founder.background_url})` }}></div>
+                      <div className="founder-coverImage" style={props.mobile ? { minHeight: '40vh', backgroundImage: `url(${founder.background_url})` } : { backgroundImage: `url(${founder.background_url})` }}></div>
 
-                      <div className="founder-footer-container relative">
-                        <svg className="absolute founderRectangle" width="56.167" height="56" viewBox="0 0 56.167 56">
+                      <div className="founder-footer-container relative" style={props.mobile ? { paddingRight: 0 } : {}}>
+                        <svg className="absolute founderRectangle" width={`${props.mobile ? '27' : '56.167'}`} height={`${props.mobile ? '27' : '56'}`} viewBox="0 0 56.167 56" style={props.mobile ? { top: -45, left: 15 } : {}}>
                           <g transform="translate(0.167)">
                             <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
                             <path id="Path_672" data-name="Path 672" d="M2.833,3H53V53H2.833V4.269" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="6" />
                           </g>
                         </svg>
-                        <div className="founder-name-container" style={{ minHeight: 100 }}>
+                        <div className="founder-name-container" style={props.mobile ? { padding: '13px 5px', minHeight: 'auto', textAlign: 'left', paddingLeft: 10 } : { minHeight: 100 }}>
                           {founder.name.map(name => {
-                            return <h6 className="founder-name-text" key={name.firstName + 1} style={{ fontWeight: 300, fontSize: 32, lineHeight: '36px', letterSpacing: '5%' }}>
+                            return <h6 className="founder-name-text" key={name.firstName + 1} style={props.mobile ? { fontWeight: 300, fontSize: 20, lineHeight: '24px' } : { fontWeight: 300, fontSize: 32, lineHeight: '36px', letterSpacing: '5%' }}>
                               <strong>{name.firstName} </strong> {name.lastName}
                             </h6>
                           })}
 
                         </div>
-                        <div className="founder-field-container" style={{ height: 65 }}>
+                        <div className="founder-field-container" style={props.mobile ? { height: 'auto' } : { height: 65 }}>
                           <div>
                             {founder.tags.map((tag, index1) => {
                               return <React.Fragment key={index1}>
-                                {index1 > 0 && <span className="tagBorderRight"></span>}
-                                <span className="text-secondary font-medium text-lg leading-6 tags" key={tag} style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}> {tag}</span>
+                                {index1 > 0 && <span className="tagBorderRight" style={props.mobile ? { margin: '6px 0px', height: 1 } : {}}></span>}
+                                <span className="text-secondary font-medium text-lg leading-6 tags" key={tag} style={props.mobile ? { fontWeight: 500, fontSize: 14, lineHeight: '18px' } : { fontWeight: 500, fontSize: 18, lineHeight: '24px' }}> {tag}</span>
                               </React.Fragment>
                             })}
                           </div>
-                          <Image src={founder.logo} alt={"ola"} style={{ maxWidth: 120, height: 39 }} />
+                          <Image src={founder.logo} alt={"ola"} style={props.mobile ? { maxWidth: 78, height: 27 } : { maxWidth: 120, height: 39 }} />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className={`founderSection-rightOuter heroSlide${index + 1}`}>
-                    <h1 className="founderTitle" style={{ letterSpacing: '-2.5%' }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start' }}>
-                      {getNumberfounder(props.foundersData, index)}
+                  <div className={`founderSection-rightOuter heroSlide${index + 1} sm:mt-10`}>
+                    <h1 className="founderTitle" style={props.mobile ? { fontSize: '4rem', fontWeight: 300, lineHeight: 0.9 } : { letterSpacing: 1.5 }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
+                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start', bottom: props.mobile ? '-5px' : '-20px' }}>
+                      {getNumberfounder(founder.small_titles, index)}
                     </div>
                   </div>
                 </div>

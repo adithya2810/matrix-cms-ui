@@ -42,7 +42,7 @@ export const Root: React.FC<Props> = ({ children, deviceType }) => {
   return (
     <>
       <div className={`flex flex-col flex-grow w-full h-full  ${className}`}>
-        <Header toggle={appConfigMutation.toogleMenu} />
+        <Header toggle={appConfigMutation.toogleMenu} mobile={deviceType.mobile} />
         <div className="flex-grow" >{children}</div>
         <Footer mobile={deviceType.mobile} />
       </div>

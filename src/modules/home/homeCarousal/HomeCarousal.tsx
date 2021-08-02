@@ -253,7 +253,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
       </Slider>
 
       <div
-        className="absolute bg-accent hospatalitySector" style={{ bottom: 42 }}>
+        className="absolute bg-accent hospatalitySector" style={{ bottom: 66 }}>
         <span className="text-secondary hospatalitySector-text font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
         >
           {" "}

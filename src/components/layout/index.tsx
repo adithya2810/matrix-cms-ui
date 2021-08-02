@@ -29,7 +29,7 @@ export const Layout: React.FC<LayoutProps> = ({
   const className = visiblity ? "visible" : "invisible";
   return (
     <div className={`flex flex-col w-full h-full ${className}`}>
-      <Header toggle={toggle} />
+      <Header toggle={toggle} mobile={mobile} />
       <div className="flex-grow">{children}</div>
       <Footer mobile={mobile} />
     </div>

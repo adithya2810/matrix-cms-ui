@@ -8,6 +8,7 @@ type deviceType = {
 type propsType = {
   deviceType: deviceType;
   advisoryDetail: any;
+
 };
 
 const AdvisoryIndividual: FC<propsType> = (props: propsType) => {

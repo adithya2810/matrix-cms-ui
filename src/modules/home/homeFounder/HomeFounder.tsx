@@ -15,7 +15,7 @@ const founderData = [
     background_url: '/icons/Bhavish_image.png',
     tags: ["Mobility", "Electric Cars"],
     logo: "/icons/ola.svg",
-    small_titles: ["We partner <br> closely", "We invest <br> early", "We commit <br> personally"]
+    small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   },
   {
     id: "02",
@@ -29,7 +29,7 @@ const founderData = [
     background_url: '/icons/rohit-edited.png',
     tags: ["Healthcare"],
     logo: "/icons/Cloudninelogo.svg",
-    small_titles: ["We invest <br> early", "We commit <br> personally", "We are <br>founders first"]
+    small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
   },
   {
     id: "03",
@@ -47,7 +47,7 @@ const founderData = [
     background_url: '/icons/founder3-edited.png',
     tags: ["Student Housing Platform"],
     logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
-    small_titles: ["We commit <br> personally", "We are <br> founders first", "We partner <br> closely"]
+    small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   },
   {
     id: "04",
@@ -61,7 +61,7 @@ const founderData = [
     background_url: '/icons/Asish_Treatment.png',
     tags: ["Fintech", "SME Lending"],
     logo: "/icons/OfBusiness Logo 1.svg",
-    small_titles: ["We are <br> founders first", "We partner <br> closely", "We invest <br> early"]
+    small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },
   // {
   //   id: "05",

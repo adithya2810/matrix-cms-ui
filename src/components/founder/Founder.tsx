@@ -112,9 +112,9 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
     for (let index = 0; index < data.length; index++) {
       const founder = data[index];
       // if (i != index) {
-      list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder} style={props.mobile ? { minWidth: 115, color: '#01576e' } : { color: '#01576e' }}>
-        <span className="thumbnailIndex" style={props.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', paddingRight: 2, marginTop: -3, color: '#01576e' } : { fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{`0${index + 1}`}</span>
-        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: 16, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e' }} dangerouslySetInnerHTML={{ __html: founder }}></div>
+      list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.index + '-' + i} style={props.mobile ? { minWidth: 115, color: '#01576e' } : { color: '#01576e' }}>
+        <span className="thumbnailIndex" style={props.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', paddingRight: 2, marginTop: -3, color: '#01576e' } : { fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{`0${founder.index}`}</span>
+        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: 16, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e' }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
       </div>);
       //   fi++;
       // }

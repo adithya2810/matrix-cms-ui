@@ -46,7 +46,7 @@ const ContentItemWithTags: React.FC<Props> = ({
     >
       <div
         className="relative contentWithTagImgbox flex-shrink-0 self-start"
-        style={{ height: 200, width: 260 }}
+        style={mobile ? { height: 180 } : { height: 200, width: 260 }}
       >
         <div
           className="absolute"
@@ -67,7 +67,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           }}
         >
           <div
-            className="text-xl font-medium text-secondary-light text-center"
+            className="text-xl font-medium text-secondary-light text-center sm:text-sm"
             style={{
               lineHeight: "30px",
               paddingTop: 6,
@@ -81,9 +81,13 @@ const ContentItemWithTags: React.FC<Props> = ({
         </div>
       </div>
       <div
-        className="relative bg-secondary-light contentWithTagWrap mt-8 -left-6"
-        style={{ width: "100%" }}
+        className="relative bg-secondary-light contentWithTagWrap mt-8 sm:mt-0 -left-6"
+        style={mobile ? { width: "calc(100% - 50px)", left: -5 } : { width: "100%" }}
       >
+        {mobile && <div className="absolute -right-9 text-white" style={{ padding: 8, right: '-2.5rem', width: 40, backgroundColor: '#01576E' }}><Image
+          src={getContentTypeImageUrl(content_type, false, 'white')}
+          alt={content_type}
+        /></div>}
         <div className="pl-7 pt-5">
           <div
             className="text-xs font-normal text-primary-dark p-0.5 pl-0 pt-0 uppercase"
@@ -93,25 +97,26 @@ const ContentItemWithTags: React.FC<Props> = ({
           </div>
           <div
             className="text-primary-dark font-normal mt-3"
-            style={mobile ? { fontSize: "22px", lineHeight: "20px" } : { fontSize: "28px", lineHeight: "34px" }}
+            style={mobile ? { fontSize: "20px", lineHeight: "20px" } : { fontSize: "28px", lineHeight: "34px" }}
           >
             <a href={`/blogs/${blog_url}`}>{title}</a>
 
           </div>
           <div className="flex items-center mt-4 pt-1">
-            <Image
+            {!mobile && <Image
               src={getContentTypeImageUrl(content_type, true)}
               alt={content_type}
-            />
-            <div className="flex " style={{ marginLeft: 20 }}>
-              <Image src={author_image_url} alt="profileImage" style={{ height: 48, width: 48, borderRadius: 50 }} />
+              className="sm:absolute"
+            />}
+            <div className="flex " style={mobile ? { marginLeft: 5 } : { marginLeft: 20 }}>
+              <Image src={author_image_url} alt="profileImage" style={mobile ? { height: 28, width: 28, borderRadius: 50 } : { height: 48, width: 48, borderRadius: 50 }} />
               <div style={{ marginLeft: 15 }}>
-                <div className="font-medium text-lg leading-6 text-primary-dark" style={{ letterSpacing: 1 }}>
+                <div className="font-medium text-lg leading-6 text-primary-dark" style={mobile ? { fontSize: 14, lineHeight: '18px', letterSpacing: 1 } : { letterSpacing: 1 }}>
                   {author}
                 </div>
                 <div
-                  className="mt-0.5 font-normal text-xs "
-                  style={{ lineHeight: "14px", letterSpacing: 1 }}
+                  className="mt-0.5 font-normal text-xs"
+                  style={mobile ? { fontSize: 11, lineHeight: "14px", letterSpacing: 1, fontWeight: 500 } : { lineHeight: "14px", letterSpacing: 1 }}
                 >
                   {designation}
                 </div>
@@ -130,12 +135,13 @@ const ContentItemWithTags: React.FC<Props> = ({
                   style={{
                     lineHeight: "14px",
                     letterSpacing: "10%",
-                    height: 34,
+                    height: mobile ? 30 : 34,
                     fontSize: 12,
-                    color: "rgba(0, 0, 0, 0.65)",
+                    color: mobile ? "#000000" : "rgba(0, 0, 0, 0.65)",
                     border: 0,
                     background: "rgba(0, 0, 0, 0.08)",
                     marginBottom: 10,
+                    fontWeight: mobile ? '500' : 'normal'
                   }}
                 />
               );

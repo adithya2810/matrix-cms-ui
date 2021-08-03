@@ -364,7 +364,7 @@ span.thumbnailIndex {
 
     .contentItemOuter-w50 .slick-slide > div > div .content-item-desc {
       bottom: -10px !important;
-      right: -8px !important;
+      right: -8px;
       left: 8rem !important;
     }
 
@@ -718,7 +718,7 @@ span.thumbnailIndex {
 
     .slick-list .slick-track .slick-slide > div > div .content-item-desc {
       bottom: 0px !important;
-      right: -110px !important;
+      right: -110px;
       left: auto !important;
       position: relative;
       width: calc(100% - 110px);
@@ -815,6 +815,13 @@ span.thumbnailIndex {
   .founderSection-rightOuter.heroSlide1 .founderTitleSliderBox,
   .founderSection-rightOuter.heroSlide5 .founderTitleSliderBox {
     left: 55%;
+  }
+  .blogSliderOuter{
+    .slick-list .slick-track .slick-slide > div > div .content-item-desc {
+      right: -60px;
+      width: calc(100% - 55px);
+      padding-bottom: 15px;
+    }
   }
 }
 

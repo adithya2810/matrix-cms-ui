@@ -1,4 +1,4 @@
-export default function getContentTypeImageUrl(type: string, isBlogContent?: boolean) {
+export default function getContentTypeImageUrl(type: string, isBlogContent?: boolean, color?: string) {
   if (isBlogContent) {
     switch (type) {
       case 'Video':
@@ -13,13 +13,13 @@ export default function getContentTypeImageUrl(type: string, isBlogContent?: boo
   } else {
     switch (type) {
       case 'Video':
-        return "/icons/video.svg";
+        return color ? "/icons/video-white.svg" : "/icons/video.svg"
       case 'Article':
-        return "/icons/artical.svg";
+        return color ? "/icons/artical-white.svg" : "/icons/artical.svg"
       case 'Audio':
-        return "/icons/icon_Podcast_Black.svg";
+        return color ? "/icons/icon_Podcast-white.svg" : "/icons/icon_Podcast_Black.svg"
       default:
-        return "/icons/video.svg"
+        return color ? "/icons/video-white.svg" : "/icons/video.svg"
     }
   }
 

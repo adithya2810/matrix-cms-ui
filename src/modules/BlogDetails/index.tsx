@@ -15,9 +15,17 @@ type propsType = {
   deviceType: deviceType;
 };
 
+interface BlogProvider {
+  content: string;
+  content_type: {
+    name: string;
+  };
+  youtube_embed: string;
+};
+
 const BlogDetails: FC<propsType> = (props) => {
   const { query: { slug } } = useRouter()
-  const [blogDetails, setBlogDetails] = useState({})
+  const [blogDetails, setBlogDetails] = useState<BlogProvider>()
   const [relatedVideos, setRelatedVideos] = useState([])
   useEffect(() => {
     fetchData(slug)

@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
 
-
-
 type deviceType = {
   mobile: Boolean;
 };
@@ -11,25 +9,34 @@ type propsType = {
   deviceType: deviceType;
 };
 
-const contentType = {
-  video: 'youtube_embed',
-  audio: 'audioboomembed',
-}
-
-
 const Blog: FC<propsType> = ({ deviceType: { mobile }, blogDetails }) => {
   const typeObj = {
     Audio: 'listen',
-    video: 'watch',
+    Video: 'watch',
     Article: 'read'
   }
+
+  const contentTypeHtml = (data) => {
+    if (data?.content_type?.name == "Article") {
+      return '';
+    }
+    if (data?.content_type?.name == "Video") {
+      return data?.youtube_embed
+    }
+    if (data?.content_type?.name == "Audio") {
+      return data?.audioboomembed
+    }
+    // video: 'youtube_embed',
+    // Audio: 'audioboomembed',
+  }
+
   return (
     <div className='col-span-8 laptop:mr-24 relative laptop:mt-16 sm:mt-10' style={{ minHeight: 300 }}>
-      <div className='absolute right-0 top-0'><div className='absolute bottom-0 sm:bg-accent laptop:bg-accent-dark text-white right-0 laptop:p-3 sm:p-1 sub-h2 flex justify-center items-center' style={{ width: !mobile ? 170 : 120 }}>{blogDetails?.readtime} {typeObj[blogDetails?.type]}</div></div>
+      <div className='absolute right-0 top-0'><div className='absolute bottom-0 sm:bg-accent laptop:bg-accent-dark text-white right-0 laptop:p-3 sm:p-1 sub-h2 flex justify-center items-center' style={{ width: !mobile ? 170 : 120 }}>{blogDetails?.readtime} {typeObj[blogDetails?.content_type?.name]}</div></div>
       {
-        <div className='blog-content w-full mb-10' dangerouslySetInnerHTML={{ __html: blogDetails?.[contentType[blogDetails.type]] }} />
+        <div className='blog-content w-full mb-10' dangerouslySetInnerHTML={{ __html: contentTypeHtml(blogDetails) }} />
       }
-      <div dangerouslySetInnerHTML={{ __html: blogDetails?.content }} />
+      <div className="blog-content" dangerouslySetInnerHTML={{ __html: blogDetails?.content }} />
     </div>
   )
 }

@@ -23,8 +23,8 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
       </div>
       <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>
 
-      {relatedVideos?.map(v => (
-        <div className="card laptop:flex relative laptop:mb-16">
+      {relatedVideos?.map((v, i) => (
+        <div key={`${i}-relativevideos`} className="card laptop:flex relative laptop:mb-16">
           <img onClick={_ => push(`/blogs/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 162, width: 181 } : { height: 'auto', width: '100%' }} />
           <div className="content-card bg-white sm:relative sm:-top-12 laptop:absolute laptop:-bottom-6 laptop:left-36 laptop:w-3/4 sm:w-10/12 laptop:py-3 laptop:px-6 sm:p-3 ">
             <div className='caption opacity-70 laptop:hidden sm:mb-2'>{v.readtime?.toUpperCase()} READ</div>

@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
-
 const getPagination = (currentPage, totalPages, push, mobile) => {
   let current = currentPage;
   let last = totalPages;
@@ -30,8 +29,8 @@ const getPagination = (currentPage, totalPages, push, mobile) => {
     l = i;
   }
   return rangeWithDots.reduce((acc, n) => {
-    if (n < 10) n = '0' + n;
-    acc.push(<div key={n} onClick={_ => +n && push(`/blogs?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-2 sm:mx-1 sm:px-2 ${currentPage === +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`} style={mobile ? {} : { fontSize: 17, lineHeight: '20px' }}>{n}</div>)
+    // if (n < 10) n = '0' + n;
+    acc.push(<div key={n} onClick={_ => +n != current && push(`/blogs?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-2 sm:mx-1 sm:px-2 ${currentPage === +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`} style={mobile ? {} : { fontSize: 17, lineHeight: '20px' }}>{n}</div>)
     return acc
   }, []);
 }

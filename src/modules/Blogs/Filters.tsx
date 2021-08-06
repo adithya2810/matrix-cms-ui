@@ -23,7 +23,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
+const Filters = ({ deviceType, fetchBlogsData }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
@@ -33,7 +33,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
   const [moments, setMoments] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
   const [topics, setTopics] = useState([])
   const [authors, setAuthors] = useState([])
-  const [formats, setFormats] = useState(['Audio', 'Video', 'Article'])
+  const [formats, setFormats] = useState([])
   const [filters, setFilters] = useState(() => initialFilters)
   const [footerInView, setFooterInView] = useState(false);
 
@@ -63,12 +63,17 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   const fetchFiltersMetaData = async () => {
     try {
-      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags`)
+      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?_sort=name:asc`)
       const resJsonTopics = await resTopics.json();
-      setTopics(resJsonTopics.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
-      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people`)
+      setTopics(resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug })))
+
+      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people?_sort=name:asc`)
       const resJsonAuthors = await resAuthors.json();
-      setAuthors(resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
+      setAuthors(resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug })))
+
+      const resCnt = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/contents?_sort=name:asc`)
+      const resJsonCnt = await resCnt.json();
+      setFormats(resJsonCnt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug })))
     } catch (e) {
       console.log(e)
     }
@@ -104,8 +109,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
-  const getTag = ({ isSelected, setSelected, tagName, tagNumber }) => {
-    return <div key={tagName + tagNumber} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+  const getTag = ({ isSelected, setSelected, tagName, tagNumber, index }) => {
+    return <div key={tagName + index} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
       {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
     </div>
   }
@@ -233,7 +238,14 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 {
                   openedFilter === 'moments' &&
                   <div className='flex flex-wrap '>
-                    {moments.map(t => getTag({ isSelected: filters.moments.includes(t.slug), setSelected: _ => setFilters({ ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug] }), ...t }))}
+                    {moments.map((t, i) => getTag({
+                      isSelected: filters.moments.includes(t.slug),
+                      setSelected: _ => setFilters({
+                        ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug]
+                      }),
+                      index: i,
+                      ...t
+                    }))}
                   </div>
                 }
 
@@ -254,7 +266,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 {
                   openedFilter === 'topics' &&
                   <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
-                    {topics.map(t => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t }))}
+                    {topics.map((t, i) => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t, index: i }))}
                   </div>
                 }
 
@@ -275,7 +287,16 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 {
                   openedFilter === 'authors' &&
                   <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
-                    {authors.map(t => getTag({ isSelected: filters.authors.includes(t.slug), setSelected: _ => setFilters({ ...filters, authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug] }), ...t }))}
+                    {authors.map((t, i) => getTag({
+                      isSelected: filters.authors.includes(t.slug),
+                      setSelected: _ => setFilters({
+                        ...filters,
+                        authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug]
+                      }),
+                      ...t,
+                      index: i
+                    })
+                    )}
                   </div>
                 }
 
@@ -296,7 +317,16 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                 {
                   openedFilter === 'formats' &&
                   <div className='flex flex-wrap'>
-                    {formats.map(t => getTag({ isSelected: filters.formats.includes(t), setSelected: _ => setFilters({ ...filters, formats: filters.formats.includes(t) ? filters.formats.filter(m => m !== t) : [...filters.formats, t] }), tagNumber: 0, tagName: t }))}
+                    {formats.map((t, i) => getTag({
+                      isSelected: filters.formats.includes(t),
+                      setSelected: _ => setFilters({
+                        ...filters,
+                        formats: filters.formats.includes(t) ? filters.formats.filter(m => m !== t) : [...filters.formats, t]
+                      }),
+                      ...t,
+                      index: i
+                    })
+                    )}
                   </div>
                 }
 
@@ -304,8 +334,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
                 </li>
                 {openedFilter === 'sort' && <div className='flex flex-wrap'>
-                  {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}
-                  {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0 })}
+                  {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc' })}
+                  {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0, index: 'desc' })}
                 </div>}
               </ul>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
@@ -318,7 +348,7 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
                   Clear All
                 </div>
                 <div onClick={_ => {
-                  fetchBlogsDataWithFilters(filters)
+                  fetchBlogsData(1, filters)
                   setIsFilterBoxOpen(false);
                   setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-white cursor-pointer hover:opacity-80">

@@ -18,14 +18,33 @@ type propsType = {
 const index: FC<propsType> = (props) => {
   const [data, setData] = useState(null)
   const [totalPages, setTotalPages] = useState(0)
-  const router = useRouter()
-  const { query: { page } } = router
+  // const router = useRouter()
+  // const { query: { page } } = router
+  const [page, setPage] = useState(1)
   const [appiedfilters, setAppliedFilters] = useState([])
   const [isPaginationOn, setIsPaginationOn] = useState(true)
+  const [filter, setFilter] = useState({})
 
-  useEffect(() => { fetchBlogsData(+page || 1) }, [page])
+  useEffect(() => {
+    if (data == null) {
+      fetchBlogsData(page)
+    }
+    return () => {
+      setData(null)
+      setPage(1)
+      setAppliedFilters([])
+      setFilter({})
+      setIsPaginationOn(true)
+    }
+  }, [])
+
+  const pageClick = (p) => {
+    setPage(p)
+    fetchBlogsData(p, filter);
+  }
 
   const fetchBlogsData = async (page = 1, filters: any = {}) => {
+    setFilter(filters);
     try {
       const _limit = 20;
       const _start = (page * _limit) - _limit
@@ -43,14 +62,12 @@ const index: FC<propsType> = (props) => {
           makeQuery['_where']['content_type.slug'] = (filters?.formats.length > 0) ? filters?.formats : filters?.formats[0]
         }
 
-        router.query = {};
-
         query_str = qs.stringify(makeQuery);
         if (filters?.sort) {
           query_str += `&_sort=tags.name:${filters?.sort}`
         }
       } else {
-
+        setPage(page)
       }
 
       const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${(query_str) ? '&' + query_str : ''}`)
@@ -60,12 +77,11 @@ const index: FC<propsType> = (props) => {
       const count = await countRes.json();
       const totalPages = Math.ceil(count / _limit); //count / _limit + (count % _limit === 0 ? 0 : 1)
       setTotalPages(totalPages)
+      setIsPaginationOn(true)
       if (Object.keys(filters).length > 0) {
         setAppliedFilters([...filters.topics, ...filters.authors, ...filters.formats, ...filters.moments])
-        setIsPaginationOn(false)
       } else {
         setAppliedFilters([]);
-        setIsPaginationOn(true)
       }
     } catch (e) {
       console.log(e)
@@ -77,12 +93,12 @@ const index: FC<propsType> = (props) => {
       <HeroSection mobile={props.deviceType.mobile} />
       <AppliedFilters mobile={props.deviceType.mobile} appliedFilters={appiedfilters} totalPages={totalPages > 9 ? totalPages : `0${totalPages}`} page={page ? page : 1} />
       <List {...props} data={data} />
-      <Filters {...props} fetchBlogsData={fetchBlogsData} />
+      <Filters {...props} page={page} fetchBlogsData={fetchBlogsData} />
       <br />
       <br />
       <br />
       <br />
-      {isPaginationOn && <Pagination totalPages={totalPages} mobile={props.deviceType.mobile} />}
+      {isPaginationOn && <Pagination page={page} pageChnage={(v) => pageClick(v)} totalPages={totalPages} mobile={props.deviceType.mobile} />}
     </div>
   );
 };

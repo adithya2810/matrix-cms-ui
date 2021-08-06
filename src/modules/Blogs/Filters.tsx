@@ -23,7 +23,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType, fetchBlogsData }) => {
+const Filters = ({ deviceType, fetchBlogsData, page }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
@@ -40,25 +40,6 @@ const Filters = ({ deviceType, fetchBlogsData }) => {
 
   useEffect(() => {
     fetchFiltersMetaData();
-
-    // window.onload = function () {
-    //   let myiFrame = document.getElementById("twitter-widget-0") as HTMLIFrameElement;
-    //   let doc = myiFrame.contentDocument;
-    //   doc.body.innerHTML = doc.body.innerHTML + `<style>
-    //     .timeline-Header.timeline-InformationCircle-widgetParent {
-    //       display: none !important;
-    //     }
-
-    //     .SandboxRoot.var-fully-expanded .timeline-Viewport {
-    //       padding: 20px !important;
-    //     }
-
-    //     .timeline-TweetList-tweet {
-    //       border: 1px solid rgba(15, 70, 100, 0.12) !important;
-    //       border-radius: 10px !important;
-    //     }
-    //   </style>`;
-    // }
   }, [])
 
   const fetchFiltersMetaData = async () => {
@@ -318,10 +299,10 @@ const Filters = ({ deviceType, fetchBlogsData }) => {
                   openedFilter === 'formats' &&
                   <div className='flex flex-wrap'>
                     {formats.map((t, i) => getTag({
-                      isSelected: filters.formats.includes(t),
+                      isSelected: filters.formats.includes(t.slug),
                       setSelected: _ => setFilters({
                         ...filters,
-                        formats: filters.formats.includes(t) ? filters.formats.filter(m => m !== t) : [...filters.formats, t]
+                        formats: filters.formats.includes(t.slug) ? filters.formats.filter(m => m !== t.slug) : [...filters.formats, t.slug]
                       }),
                       ...t,
                       index: i

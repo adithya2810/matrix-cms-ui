@@ -44,7 +44,7 @@ const ContactForm: React.FC = () => {
     fd.append("files.file", attachment, attachment.name);
     fd.append('data', JSON.stringify(mail_data));
 
-    const res = await fetch('http://192.168.0.30:1337/send-mail-attachment', {
+    const res = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/send-mail-attachment', {
       method: 'POST',
       body: fd
     })

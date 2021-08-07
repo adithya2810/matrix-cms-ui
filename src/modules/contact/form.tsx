@@ -29,7 +29,7 @@ const ContactForm: React.FC = () => {
   const submitContact = async event => {
     event.preventDefault() // don't redirect the page
     // where we'll add our form logic
-    var mail_data = { to: 'komalsaini2010@gmail.com', subject: 'New Contact Us Enquery', html: '' };
+    var mail_data = { to: 'adithya2810@gmail.com,jeet@topically.in,komalsaini2010@gmail.com', subject: 'New Contact Us Enquery', html: '' };
 
     var html = '';
     for (var key in contact) {
@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
             <label >What are you building?</label>
             <textarea value={contact.company_brief} placeholder="Company Brief" onChange={(e) => handleChange(e, 'company_brief')} />
             <label >File Attachment</label>
-            <input type="file" onChange={onFileChange} />
+            <input id="file983247" type="file" onChange={onFileChange} />
             <label >Email Id</label>
             <input type="email" name="email" required value={contact.email} placeholder="Contact Email" onChange={(e) => handleChange(e, 'email')} />
             <label >Mobile Number</label>

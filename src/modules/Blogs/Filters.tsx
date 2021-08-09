@@ -225,7 +225,7 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
               className={`transition-colors duration-500 search px-12 sm:px-5 h-20 sm:h-14 flex items-center bg-input`}
               style={deviceType.mobile ? { height: 50 } : { height: 75 }}
             >
-              {inputText ? SearchIcon : SearchAccentIcon}
+              {SearchAccentIcon}
               <input
                 className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent bg-input text-accent`}
                 value={inputText}

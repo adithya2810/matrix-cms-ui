@@ -29,13 +29,13 @@ const index: FC<propsType> = (props) => {
     if (data == null) {
       fetchBlogsData(page)
     }
-    return () => {
-      setData(null)
-      setPage(1)
-      setAppliedFilters([])
-      setFilter({})
-      setIsPaginationOn(true)
-    }
+    // return () => {
+    //   setData(null)
+    //   setPage(1)
+    //   setAppliedFilters([])
+    //   setFilter({})
+    //   setIsPaginationOn(true)
+    // }
   }, [])
 
   const pageClick = (p) => {

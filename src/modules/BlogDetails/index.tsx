@@ -33,13 +33,91 @@ const BlogDetails: FC<propsType> = (props) => {
 
   const fetchData = async (slug) => {
     try {
-      const resBlogs = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?slug=${slug}`)
-      const dataBlogs = await resBlogs.json();
-      setBlogDetails(dataBlogs?.[0])
-      const tags = dataBlogs?.[0]?.tags.map(t => `slug=${t.slug}`)?.join('&')
-      const resRelatedVideos = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${tags}&_limit=4`)
-      const relatedVideosArr = [];
-      const dataRelatedVideos = await resRelatedVideos.json()
+      const SINGLE_BLOG = `query ($slug: String!){
+        blogs(where:{slug: $slug}){
+          FeaturedOne
+          FeaturedTwo
+          author {
+            createdAt
+            currentinvest
+            description
+            designation
+            image_url
+            linkedin
+            name
+            pastinvset
+            published_at
+            slug
+            twitter
+            type
+          }
+          content
+          content_type {
+            name
+            slug
+          }
+          cover_desktop
+          cover_image_mobile
+          name
+          published_at
+          readtime
+          slug
+          tags {
+            name
+            slug
+            blogs {
+              FeaturedOne
+              FeaturedTwo
+              displaytag
+              author {
+                designation
+                image_url
+                name
+                slug
+              }
+              content_type {
+                name
+                slug
+              }
+              cover_desktop
+              cover_image_mobile
+              name
+              readtime
+              slug
+              tags {
+                name
+                slug
+              }
+              youtube_embed
+            }
+          }
+          updatedAt
+          youtube_embed
+        }
+      }`;
+
+      const gfql = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: SINGLE_BLOG, variables: { slug: slug } })
+      });
+
+      const gfql_data = await gfql.json();
+      // console.log("gfl", gfql_data);
+
+      setBlogDetails(gfql_data.data.blogs[0])
+
+      // const resBlogs = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?slug=${slug}`)
+      // const dataBlogs = await resBlogs.json();
+      // setBlogDetails(dataBlogs?.[0])
+
+      // const tags = gfql_data.data.blogs[0]?.tags.map(t => `slug=${t.slug}`)?.join('&')
+      // const resRelatedVideos = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${tags}&_limit=4`)
+      let relatedVideosArr = [];
+      const dataRelatedVideos = gfql_data.data.blogs[0]?.tags
+      // const dataRelatedVideos = await resRelatedVideos.json()
       dataRelatedVideos.forEach(d => {
         relatedVideosArr.push(...d.blogs)
       });

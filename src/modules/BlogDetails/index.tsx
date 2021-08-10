@@ -6,6 +6,7 @@ import Blog from './Blog';
 import HeroSection from './HeroSection';
 import RelatedVideos from './RelatedVideos';
 import SideContent from './SideContent';
+import _ from "lodash";
 
 type deviceType = {
   mobile: Boolean;
@@ -66,6 +67,7 @@ const BlogDetails: FC<propsType> = (props) => {
             name
             slug
             blogs {
+              _id
               FeaturedOne
               FeaturedTwo
               displaytag
@@ -93,6 +95,7 @@ const BlogDetails: FC<propsType> = (props) => {
           }
           updatedAt
           youtube_embed
+          audioboomembed
         }
       }`;
 
@@ -121,6 +124,7 @@ const BlogDetails: FC<propsType> = (props) => {
       dataRelatedVideos.forEach(d => {
         relatedVideosArr.push(...d.blogs)
       });
+      relatedVideosArr = _.uniqWith(relatedVideosArr, _.isEqual);
       setRelatedVideos(relatedVideosArr.slice(0, 4))
     } catch (e) {
       console.log(e)
@@ -130,17 +134,17 @@ const BlogDetails: FC<propsType> = (props) => {
   return (
     <div className='blog-detail'>
       <HeroSection {...props} blogDetails={blogDetails} />
-      <div className="laptop:grid laptop:grid-cols-12 w-full section">
+      <div className="laptop:grid laptop:grid-cols-12 w-full section relative" style={props.deviceType.mobile ? {} : { padding: '0 60px' }}>
         <SideContent {...props} blogDetails={blogDetails} relatedVideos={relatedVideos} />
         <Blog {...props} blogDetails={blogDetails} />
         {props.deviceType.mobile &&
           <RelatedVideos mobile={props.deviceType.mobile} relatedVideos={relatedVideos} />
         }
+        {!props.deviceType.mobile ?
+          <SearchMoreLaptop {...props} />
+          :
+          <SearchMoreMobile {...props} />}
       </div>
-      {!props.deviceType.mobile ?
-        <SearchMoreLaptop {...props} />
-        :
-        <SearchMoreMobile {...props} />}
     </div>
   )
 }

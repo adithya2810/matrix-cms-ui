@@ -40,14 +40,14 @@ const SearchMoreLaptop = ({ deviceType }) => {
     <>
       {/* Mask */}
       {isFilterBoxOpen && (
-        <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
+        <div className="absolute z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : 120 }}>
+      <div className="absolute laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : -88 }}>
         <div
-          className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full"
+          className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full" style={deviceType.mobile ? {} : { width: 105, height: 'auto' }}
         >
-          <div
+          <div style={deviceType.mobile ? {} : { width: 105, height: 88 }}
             onClick={handleFilter}
             className="search h-16 sm:h-12 sm:w-12  bg-accent-dark flex justify-center items-center">
             {SearchIcon}
@@ -59,11 +59,11 @@ const SearchMoreLaptop = ({ deviceType }) => {
               placeholder="search for more blogs"
             />
           </div>
-          <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center">
+          <div className="relative bg-white laptop:h-16 sm:w-10 flex justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }}>
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
-          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center">
+          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }}>
             {TwitterIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>

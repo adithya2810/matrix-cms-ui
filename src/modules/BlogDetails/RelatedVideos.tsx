@@ -1,7 +1,23 @@
-import Icon from '@components/Icon';
 import { Tag, Image } from '@components';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react'
+import { MicLaptop, MicMobile, ArticleLaptop, ArticleMobile, VideoMobile, VideoLaptop, LinkedInLaptop, LinkedInMobile, TwitterLaptop, TwitterMobile } from '@components/Icons';
+
+const MobileIcons = {
+  Audio: <MicMobile />,
+  video: <VideoMobile />,
+  article: <ArticleMobile />,
+};
+const LaptopIcons = {
+  Audio: <MicLaptop color="#000000" width={24} height={30} />,
+  video: <VideoLaptop color="#000000" width={28} />,
+  article: <ArticleLaptop color="#000000" width={24} height={25} />,
+};
+
+const Icon = ({ deviceType, iconType }) => {
+  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.article;
+  else return LaptopIcons[iconType] || LaptopIcons.article;
+};
 
 type deviceType = {
   mobile: Boolean;
@@ -11,15 +27,20 @@ type deviceType = {
 const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
   const { push } = useRouter()
   const imgPath = `../../images/blog-details/related-video-${mobile ? 'mobile' : 'laptop'}.png`
-  const linkedInImgPath = '../../images/blog-details/linkedin.png'
-  const twitterImgPath = '../../images/blog-details/twitter.png'
+
+  const LinkedInIcon = mobile ? <LinkedInLaptop width="23" height="23" /> : <LinkedInLaptop width="23" height="23" color="rgba(1, 87, 110, 1)" />
+  const TwitterIcon = mobile ? <TwitterMobile width="23" height="20" /> : <TwitterLaptop width="23" height="20" color="rgba(1, 87, 110, 1)" />;
 
   return (
     <div>
-      <div className="sub-h1 flex items-center flex-wrap py-10 sm:py-5 sm:pl-5 sm:my-10" style={mobile ? { backgroundColor: 'rgba(235,235,235,1)' } : {}}>
-        Share: <div className='flex items-baseline ml-4'>
-          <img src={linkedInImgPath} alt="" className='mr-2.5' />
-          <img src={twitterImgPath} alt="" />
+      <div className="sub-h1 flex items-center flex-wrap py-10 sm:py-5 sm:pl-5 sm:my-10 laptop:font-light" style={mobile ? { backgroundColor: 'rgba(235,235,235,1)' } : { fontSize: 23 }}>
+        Share: <div className='flex items-baseline ml-4 -mt-1'>
+          <div className='mr-2.5'>
+            {LinkedInIcon}
+          </div>
+          <div>
+            {TwitterIcon}
+          </div>
         </div>
       </div>
       <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>
@@ -32,16 +53,16 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
                 <div className="absolute" style={{ top: -6, left: 9, width: 'calc(100% - 20px)', height: 'calc(100% - 20px)', background: "#01576E" }}></div>
                 {v.displaytag && <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0" style={mobile ? { zIndex: 2, left: 10, top: -6 } : {}}>{v.displaytag}</div>}
               </>}
-              <img onClick={_ => push(`/blogs/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 162, width: 181 } : { height: 178, width: '100%' }} />
+              <img onClick={_ => push(`/blogs/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 132, width: 151 } : { height: 178, width: '100%' }} />
             </div>
           </div>
-          <div className="content-card bg-white sm:relative sm:-top-12 laptop:absolute laptop:top-5 laptop:-bottom-6 laptop:left-36 laptop:w-3/4 sm:w-10/12 laptop:py-3 laptop:px-6 sm:p-3 ">
+          <div className="content-card bg-white sm:relative sm:-top-12 laptop:absolute laptop:top-5 laptop:-bottom-6 laptop:left-28 laptop:w-3/4 sm:w-10/12 laptop:py-3 laptop:px-6 sm:p-3" style={mobile ? {} : { width: 'calc(100% - 115px)' }}>
             <div className='caption opacity-70 laptop:hidden sm:mb-2'>{v.readtime?.toUpperCase()} READ</div>
-            <div className="sub-h2 laptop:mb-2 sm:mb-3" style={mobile ? { fontSize: 18, lineHeight: '20px' } : { lineHeight: '24px' }}>{v.name}</div>
+            <div className="sub-h2 laptop:mb-2 sm:mb-3" style={mobile ? { fontSize: 18, lineHeight: '20px' } : { lineHeight: '20px', fontSize: 14 }}>{v.name}</div>
             {v.author.length > 0 && <>
-              {!mobile ? <div className='flex justify-between laptop:mb-5 sm:mb-2.5'>
-                <div className='caption'>{v.author[0].name}</div>
-                <div className='caption opacity-70 sm:hidden'>{v.readtime?.toUpperCase()} READ</div>
+              {!mobile ? <div className='flex justify-between laptop:mb-4 sm:mb-2.5'>
+                <div className='caption font-normal' style={mobile ? {} : { fontSize: 11 }}>{v.author[0].name}</div>
+                <div className='caption opacity-70 sm:hidden' style={mobile ? {} : { fontSize: 11 }}>{v.readtime?.toUpperCase()} READ</div>
               </div> :
                 <div className="flex sm:mb-4" style={mobile ? { marginLeft: 5 } : { marginLeft: 20 }}>
                   <Image src={v.author[0].image_url} alt="profileImage" style={mobile ? { height: 28, minWidth: 28, borderRadius: 50 } : { height: 48, width: 48, borderRadius: 50 }} />
@@ -60,7 +81,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
               }
             </>}
             <div className='flex justify-between items-center'>
-              {!mobile && <div className="sub-h2 text-accent-dark ">Read More <img src='../../images/blog-details/arrow.png' alt='arrow' className='inline-block ml-2' />
+              {!mobile && <div className="sub-h2 text-accent-dark" style={mobile ? {} : { fontSize: 16 }}>Read More <img src='../../images/blog-details/arrow.png' alt='arrow' className='inline-block ml-2' />
               </div>}
               <div className="sm:absolute sm:right-0 sm:top-0">
                 <div className='sm:absolute sm:left-0 sm:top-0'>

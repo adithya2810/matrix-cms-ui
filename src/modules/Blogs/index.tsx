@@ -46,7 +46,7 @@ const index: FC<propsType> = (props) => {
   const fetchBlogsData = async (page = 1, filters: any = {}) => {
     setFilter(filters);
     try {
-      const _limit = 20;
+      const _limit = 300;
       const _start = (page * _limit) - _limit
 
       let query_str = '';

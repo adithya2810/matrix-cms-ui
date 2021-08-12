@@ -88,7 +88,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
           <div
             className="opened duration-300 top-0 z-50 sm:absolute"
             ref={filterRef}
-            style={{ width: deviceType.mobile ? 'auto' : 500 }}
+            style={{ width: deviceType.mobile ? 'auto' : 400 }}
           >
             <div className={`search px-9 sm:hidden h-24 sm:h-14 flex items-center bg-accent`} style={deviceType.mobile ? {} : { height: 88 }}>
               <input
@@ -98,16 +98,16 @@ const SearchMoreLaptop = ({ deviceType }) => {
               />
             </div>
             <div
-              className={`px-14 py-10 sm:px-7 sm:py-5 bg-white`}
-              style={{ height: 600 }}
+              className={`px-14 py-5 sm:px-7 sm:py-5 bg-white`}
+              style={{ height: 'auto' }}
             >
               <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div>
-              <h5 className='text-accent'>87654</h5>
-              <div className="body1 text-accent-dark mb-7">Articles</div>
-              <h5 className='text-accent'>59</h5>
-              <div className="body1 text-accent-dark mb-7">Podcasts</div>
-              <h5 className='text-accent'>14</h5>
-              <div className="body1 text-accent-dark">Videos</div>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>87654</h5>
+              <div className="body1 text-accent-dark mb-3">Articles</div>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>59</h5>
+              <div className="body1 text-accent-dark mb-3">Podcasts</div>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>14</h5>
+              <div className="body1 text-accent-dark pb-16">Videos</div>
 
               <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full">
                 <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center ">

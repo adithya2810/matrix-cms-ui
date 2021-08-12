@@ -23,52 +23,79 @@ import React, { useEffect, useRef, useState } from 'react';
 const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
+const Filters = ({ deviceType, fetchBlogsData, page }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
-  const [moments, setMoments] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
+
+  const [momentsf, setMomentsf] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
+  const [topicsf, setTopicsf] = useState([])
+  const [authorsf, setAuthorsf] = useState([])
+  const [formatsf, setFormatsf] = useState([])
+
+  const [moments, setMoments] = useState([])
   const [topics, setTopics] = useState([])
   const [authors, setAuthors] = useState([])
-  const [formats, setFormats] = useState(['Audio', 'Video', 'Article'])
+  const [formats, setFormats] = useState([])
+
   const [filters, setFilters] = useState(() => initialFilters)
   const [footerInView, setFooterInView] = useState(false);
 
 
   useEffect(() => {
     fetchFiltersMetaData();
-
-    // window.onload = function () {
-    //   let myiFrame = document.getElementById("twitter-widget-0") as HTMLIFrameElement;
-    //   let doc = myiFrame.contentDocument;
-    //   doc.body.innerHTML = doc.body.innerHTML + `<style>
-    //     .timeline-Header.timeline-InformationCircle-widgetParent {
-    //       display: none !important;
-    //     }
-
-    //     .SandboxRoot.var-fully-expanded .timeline-Viewport {
-    //       padding: 20px !important;
-    //     }
-
-    //     .timeline-TweetList-tweet {
-    //       border: 1px solid rgba(15, 70, 100, 0.12) !important;
-    //       border-radius: 10px !important;
-    //     }
-    //   </style>`;
-    // }
   }, [])
+
+  const searchFilterOption = value => {
+    setInputText(value);
+    if (value) {
+      if (momentsf.length > 0) {
+        let mtms = momentsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setMoments(mtms)
+      }
+      if (topicsf.length > 0) {
+        let src = topicsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setTopics(src)
+      }
+      if (authorsf.length > 0) {
+        let atrs = authorsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setAuthors(atrs)
+      }
+      if (formatsf.length > 0) {
+        let frmts = formatsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setFormats(frmts)
+      }
+    } else {
+      setTopics(topicsf)
+      setAuthors(authorsf)
+      setFormats(formatsf)
+    }
+  }
 
   const fetchFiltersMetaData = async () => {
     try {
-      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags`)
+      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?_sort=name:asc`)
       const resJsonTopics = await resTopics.json();
-      setTopics(resJsonTopics.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
-      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people`)
+      const tpc = resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }));
+      setTopicsf(tpc)
+      setTopics(tpc)
+
+      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people?_sort=name:asc`)
       const resJsonAuthors = await resAuthors.json();
-      setAuthors(resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: 0, slug: r.slug })))
+      const atrs = resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setAuthorsf(atrs)
+      setAuthors(atrs)
+
+      const resCnt = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/contents?_sort=name:asc`)
+      const resJsonCnt = await resCnt.json();
+      const frmt = resJsonCnt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setFormatsf(frmt);
+      setFormats(frmt);
+
+      setMoments(momentsf)
     } catch (e) {
       console.log(e)
     }
@@ -104,8 +131,8 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
-  const getTag = ({ isSelected, setSelected, tagName, tagNumber }) => {
-    return <div key={tagName + tagNumber} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+  const getTag = ({ isSelected, setSelected, tagName, tagNumber, index }) => {
+    return <div key={tagName + index} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
       {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
     </div>
   }
@@ -195,130 +222,163 @@ const Filters = ({ deviceType, fetchBlogsData, fetchBlogsDataWithFilters }) => {
               <ClostBtn />
             </div>
             <div
-              className={`transition-colors duration-500 search px-12 sm:px-5 h-20 sm:h-14 flex items-center ${inputText ? 'bg-accent' : 'bg-input'
-                }`}
+              className={`transition-colors duration-500 search px-12 sm:px-5 h-20 sm:h-14 flex items-center bg-input`}
               style={deviceType.mobile ? { height: 50 } : { height: 75 }}
             >
-              {inputText ? SearchIcon : SearchAccentIcon}
+              {SearchAccentIcon}
               <input
-                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent ${inputText ? 'bg-accent text-white' : 'bg-input  text-accent'
-                  }`}
+                className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent bg-input text-accent`}
                 value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
+                onChange={(e) => searchFilterOption(e.target.value)}
                 placeholder="Search Knowledgebase..."
                 style={deviceType.mobile ? { fontSize: 18, fontWeight: 400, lineHeight: '24px' } : { fontSize: 22 }}
               />
             </div>
             <div
-              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 ${inputText ? 'bg-input' : 'bg-accent-dark'
-                }`}
+              className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 bg-accent-dark`}
               style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : 432 }}
             >
               <ul className="sub-h1 text-white filters-overflow" style={{ overflowY: 'scroll', maxHeight: 330 }}>
 
                 {/* matrix moments */}
-                <li className="py-2 sm:py-2  flex items-center ">
-                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <DownArrow /> : <UpArrow />}</span>Matrix Moments</div>
+                {moments.length > 0 && <>
+                  <li className="py-2 sm:py-2  flex items-center ">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <DownArrow /> : <UpArrow />}</span>Matrix Moments</div>
+                    {
+                      openedFilter === 'moments' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, moments: filters.moments.length === moments.length ? [] : moments.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.moments.length === moments.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
                   {
                     openedFilter === 'moments' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
-                      All
-                      <div onClick={e => {
-                        e.stopPropagation();
-                        setFilters({ ...filters, moments: filters.moments.length === moments.length ? [] : moments.map(m => m.slug) })
-                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.moments.length === moments.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
-                    </span>
+                    <div className='flex flex-wrap '>
+                      {moments.map((t, i) => getTag({
+                        isSelected: filters.moments.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug]
+                        }),
+                        index: i,
+                        ...t
+                      }))}
+                    </div>
                   }
-                </li>
-                {
-                  openedFilter === 'moments' &&
-                  <div className='flex flex-wrap '>
-                    {moments.map(t => getTag({ isSelected: filters.moments.includes(t.slug), setSelected: _ => setFilters({ ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug] }), ...t }))}
-                  </div>
-                }
+                </>}
 
                 {/* Topics */}
-                <li className="py-4 sm:py-2  flex items-center">
-                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <DownArrow /> : <UpArrow />}</span>Topics</div>
+                {topics.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <DownArrow /> : <UpArrow />}</span>Topics</div>
+                    {
+                      openedFilter === 'topics' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, topics: filters.topics.length === topics.length ? [] : topics.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.topics.length === topics.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
                   {
                     openedFilter === 'topics' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
-                      All
-                      <div onClick={e => {
-                        e.stopPropagation();
-                        setFilters({ ...filters, topics: filters.topics.length === topics.length ? [] : topics.map(m => m.slug) })
-                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.topics.length === topics.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
-                    </span>
+                    <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                      {topics.map((t, i) => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t, index: i }))}
+                    </div>
                   }
-                </li>
-                {
-                  openedFilter === 'topics' &&
-                  <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
-                    {topics.map(t => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t }))}
-                  </div>
-                }
+                </>}
 
                 {/* Authors */}
-                <li className="py-4 sm:py-2  flex items-center">
-                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <DownArrow /> : <UpArrow />}</span>Authors</div>
+                {authors.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <DownArrow /> : <UpArrow />}</span>Authors</div>
+                    {
+                      openedFilter === 'authors' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, authors: filters.authors.length === authors.length ? [] : authors.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.authors.length === authors.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
                   {
                     openedFilter === 'authors' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
-                      All
-                      <div onClick={e => {
-                        e.stopPropagation();
-                        setFilters({ ...filters, authors: filters.authors.length === authors.length ? [] : authors.map(m => m.slug) })
-                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.authors.length === authors.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
-                    </span>
+                    <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                      {authors.map((t, i) => getTag({
+                        isSelected: filters.authors.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters,
+                          authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug]
+                        }),
+                        ...t,
+                        index: i
+                      })
+                      )}
+                    </div>
                   }
-                </li>
-                {
-                  openedFilter === 'authors' &&
-                  <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
-                    {authors.map(t => getTag({ isSelected: filters.authors.includes(t.slug), setSelected: _ => setFilters({ ...filters, authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug] }), ...t }))}
-                  </div>
-                }
+                </>}
 
                 {/* Content Format */}
-                <li className="py-4 sm:py-2  flex items-center">
-                  <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <DownArrow /> : <UpArrow />}</span>Content Formats</div>
+                {formats.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <DownArrow /> : <UpArrow />}</span>Content Formats</div>
+                    {
+                      openedFilter === 'formats' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, formats: filters.formats.length === formats.length ? [] : formats })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.formats.length === formats.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
                   {
                     openedFilter === 'formats' &&
-                    <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
-                      All
-                      <div onClick={e => {
-                        e.stopPropagation();
-                        setFilters({ ...filters, formats: filters.formats.length === formats.length ? [] : formats })
-                      }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.formats.length === formats.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
-                    </span>
+                    <div className='flex flex-wrap'>
+                      {formats.map((t, i) => getTag({
+                        isSelected: filters.formats.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters,
+                          formats: filters.formats.includes(t.slug) ? filters.formats.filter(m => m !== t.slug) : [...filters.formats, t.slug]
+                        }),
+                        ...t,
+                        index: i
+                      })
+                      )}
+                    </div>
                   }
-                </li>
-                {
-                  openedFilter === 'formats' &&
-                  <div className='flex flex-wrap'>
-                    {formats.map(t => getTag({ isSelected: filters.formats.includes(t), setSelected: _ => setFilters({ ...filters, formats: filters.formats.includes(t) ? filters.formats.filter(m => m !== t) : [...filters.formats, t] }), tagNumber: 0, tagName: t }))}
-                  </div>
-                }
+                </>}
 
-                <li className="py-4 sm:py-2  flex items-center">
-                  <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
-                </li>
-                {openedFilter === 'sort' && <div className='flex flex-wrap'>
-                  {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0 })}
-                  {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0 })}
-                </div>}
+                {inputText == '' && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
+                  </li>
+                  {openedFilter === 'sort' && <div className='flex flex-wrap'>
+                    {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc' })}
+                    {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0, index: 'desc' })}
+                  </div>}
+                </>}
               </ul>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
                 <div onClick={() => {
                   setFilters(initialFilters);
                   fetchBlogsData();
                   setIsFilterBoxOpen(false);
-                  setIsTwitterBoxOpen(false)
+                  setIsTwitterBoxOpen(false);
+                  searchFilterOption('')
                 }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
                 <div onClick={_ => {
-                  fetchBlogsDataWithFilters(filters)
+                  fetchBlogsData(1, filters)
                   setIsFilterBoxOpen(false);
                   setIsTwitterBoxOpen(false)
                 }} className="sub-h2 text-white cursor-pointer hover:opacity-80">

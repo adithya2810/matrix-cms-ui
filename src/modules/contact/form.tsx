@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@components/button/PrimaryButtonIconRight";
 
+
 const ContactForm: React.FC = () => {
+  const [contact, setContact] = useState({ name: '', company_name: '', company_brief: '', email: '', mobile: '' });
+  const [attachment, setAttachment] = useState(null);
+  const [msg, setMsg] = useState({ status: true, message: '' });
+
   const details = [{
     city: "Bangalore",
     address: ['197, 6th Main, 1st Cross,', 'HAL 2nd Stage, Indira Nagar,', 'Bengaluru 560038', '+91-80-25196000']
@@ -12,6 +17,50 @@ const ContactForm: React.FC = () => {
     city: "MUMBAI",
     address: ['601-602, Ceejay House,', 'Dr Annie Besant Road, Worli,', 'Mumbai 400018', '+91-22-67680000']
   }]
+
+  const onFileChange = event => {
+    setAttachment(event.target.files[0]);
+  };
+
+  const handleChange = (event: any, key: string) => {
+    setContact({ ...contact, [key]: event.target.value });
+  }
+
+  const submitContact = async event => {
+    event.preventDefault() // don't redirect the page
+    // where we'll add our form logic
+    var mail_data = { to: 'adithya2810@gmail.com,jeet@topically.in,komalsaini2010@gmail.com', subject: 'New Contact Us Enquery', html: '' };
+
+    var html = '';
+    for (var key in contact) {
+      if (contact.hasOwnProperty(key)) {
+        if (contact[key]) {
+          html += `<p><b>${key}</b> : ${contact[key]}</p>`;
+        }
+      }
+    }
+    mail_data.html = html;
+    var fd = new FormData();
+    fd.append("files.file", attachment, attachment.name);
+    fd.append('data', JSON.stringify(mail_data));
+
+    const res = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/send-mail-attachment', {
+      method: 'POST',
+      body: fd
+    })
+
+    if (res.ok) {
+      setMsg({ status: true, message: 'Mail send successfully' })
+      var reset: any = {};
+      for (var key in contact) {
+        reset[key] = '';
+      }
+      setContact(reset);
+      setTimeout(() => setMsg({ status: false, message: '' }), 6000);
+    } else {
+      setMsg({ status: false, message: 'Mail not sended!' })
+    }
+  }
 
   return (
     <div className="relative m-auto w-11/12	" style={{ marginTop: 100, marginBottom: 150 }}>
@@ -38,26 +87,27 @@ const ContactForm: React.FC = () => {
         </div>
         <div style={{ flex: '40%' }}>
           <h1 className="main-txt text-4xl lg:text-3xl contact-heading font-bold form-heading">Share your Business Plans</h1>
-          <form className='contact-form'>
+          <form className='contact-form' onSubmit={submitContact}>
             <label >Name</label>
-            <input type="text" placeholder="Name" />
+            <input type="text" name="name" required value={contact.name} onChange={(e) => handleChange(e, 'name')} placeholder="Name" />
             <label >Company Name</label>
-            <input type="text" placeholder="Company Name" />
+            <input type="text" value={contact.company_name} placeholder="Company Name" onChange={(e) => handleChange(e, 'company_name')} />
             <label >What are you building?</label>
-            <textarea placeholder="Company Brief" />
+            <textarea value={contact.company_brief} placeholder="Company Brief" onChange={(e) => handleChange(e, 'company_brief')} />
             <label >File Attachment</label>
-            <input type="file" />
+            <input id="file983247" type="file" onChange={onFileChange} />
             <label >Email Id</label>
-            <input type="email" placeholder="Contact Email" />
+            <input type="email" name="email" required value={contact.email} placeholder="Contact Email" onChange={(e) => handleChange(e, 'email')} />
             <label >Mobile Number</label>
-            <input type="text" placeholder="Contact Number" />
+            <input type="text" name="mobile" value={contact.mobile} placeholder="Contact Number" onChange={(e) => handleChange(e, 'mobile')} />
             <Button
+              type='submit'
               title="Apply"
               url="/icons/rightArrow.svg"
-              onClick={() => console.log("subscribe")}
               className="text-lg leading-6"
             />
           </form>
+          <div className="flex py-5" style={{ color: msg.status ? 'green' : 'red' }}>{msg.message}</div>
         </div>
       </div>
 

@@ -106,14 +106,14 @@ export const SearchAccentLaptop = _ => (
 export const LinkedInMobile = ({ width = "35", height = "50", color = "#083A4A" }) => (
   <svg width={width} height={height} viewBox={`0 0 35 50`} fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width={width} height={height} />
-    <g clipPath="url(#clip0)">
+    <g>
       <path d="M26.9959 33.9992V33.9984H27.0004V27.3969C27.0004 24.1674 26.3052 21.6797 22.5297 21.6797C20.7147 21.6797 19.4967 22.6757 18.9994 23.6199H18.9469V21.9812H15.3672V33.9984H19.0947V28.0479C19.0947 26.4812 19.3917 24.9662 21.3319 24.9662C23.2437 24.9662 23.2722 26.7542 23.2722 28.1484V33.9992H26.9959Z" fill={color} />
       <path d="M9.29688 21.9844H13.0289V34.0016H9.29688V21.9844Z" fill={color} />
       <path d="M11.1615 16C9.96825 16 9 16.9683 9 18.1615C9 19.3548 9.96825 20.3433 11.1615 20.3433C12.3547 20.3433 13.323 19.3548 13.323 18.1615C13.3222 16.9683 12.354 16 11.1615 16V16Z" fill={color} />
     </g>
     <defs>
       <clipPath id="clip0">
-        <rect width="18" height="18" fill="white" transform="translate(9 16)" />
+        <rect width="23" height="23" fill="white" transform="translate(3 3)" />
       </clipPath>
     </defs>
   </svg>

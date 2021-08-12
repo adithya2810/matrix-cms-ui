@@ -25,8 +25,8 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
                 <h6 className=" sub-h2 font-medium text-lg" style={{ letterSpacing: 1 }}> Matrix Partner China</h6>
               </div>
               <div className="flex mt-2 laptop:mt-4 items-start p-0.5">
-                <a className="pl-0"><img src="/icons/linkedin.svg" /></a>
-                <a className="pl-9 sm:pl-4" style={{ paddingTop: '0.15rem' }}> <img src="/icons/twitter.svg" /></a>
+                <a className="pl-0" href="https://www.linkedin.com/company/matrix-partners-india/" target="__blank"><img src="/icons/linkedin.svg" /></a>
+                <a className="pl-9 sm:pl-4" href="https://twitter.com/matrixindiavc" target="__blank" style={{ paddingTop: '0.15rem' }}> <img src="/icons/twitter.svg" /></a>
                 <a className="pl-9 sm:pl-4" style={{ paddingTop: '0.10rem' }}> <img src="/icons/instagram.svg" /></a>
               </div>
             </div>

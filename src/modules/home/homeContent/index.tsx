@@ -43,11 +43,11 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   const componentDidMount = async () => {
     let url;
     if (selectedTab == "blogs") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?type=Article';
+      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?content_type=Article';
     } else if (selectedTab == "podcast") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?type=Audio';
+      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?content_type=Audio';
     } else if (selectedTab == "videocasts") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?type=video';
+      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?content_type=video';
     }
     const response = await fetch(url);
     const json = await response.json();
@@ -67,12 +67,13 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         tags: blogData.tags.map(tag => {
           return {
             title: tag.name,
-            id: tag.id
+            id: tag.id,
+            slug: tag.slug
           }
         }),
       }
     })
-    console.log(featureData);
+    // console.log(featureData);
     SetContentList(featureData)
   }
 

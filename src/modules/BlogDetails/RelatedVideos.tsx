@@ -2,6 +2,7 @@ import { Tag, Image } from '@components';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react'
 import { MicLaptop, MicMobile, ArticleLaptop, ArticleMobile, VideoMobile, VideoLaptop, LinkedInLaptop, LinkedInMobile, TwitterLaptop, TwitterMobile } from '@components/Icons';
+import Link from 'next/link';
 
 const MobileIcons = {
   Audio: <MicMobile />,
@@ -81,7 +82,10 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
               }
             </>}
             <div className='flex justify-between items-center'>
-              {!mobile && <div className="sub-h2 text-accent-dark" style={mobile ? {} : { fontSize: 16 }}>Read More <img src='../../images/blog-details/arrow.png' alt='arrow' className='inline-block ml-2' />
+              {!mobile && <div className="sub-h2 text-accent-dark" style={mobile ? {} : { fontSize: 16 }}>
+                <Link href={`/blogs/${v.slug}`}>
+                  <a>Read More <img src='../../images/blog-details/arrow.png' alt='arrow' className='inline-block ml-2' /></a>
+                </Link>
               </div>}
               <div className="sm:absolute sm:right-0 sm:top-0">
                 <div className='sm:absolute sm:left-0 sm:top-0'>
@@ -96,7 +100,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
                 <Tag
                   key={index}
                   title={item.name}
-                  id={item._id}
+                  id={item.slug}
                   selected={false}
                   className="text-xs font-normal opacity-80 mr-2 bg-secondary-light"
                   style={{

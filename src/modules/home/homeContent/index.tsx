@@ -67,12 +67,13 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         tags: blogData.tags.map(tag => {
           return {
             title: tag.name,
-            id: tag.id
+            id: tag.id,
+            slug: tag.slug
           }
         }),
       }
     })
-    console.log(featureData);
+    // console.log(featureData);
     SetContentList(featureData)
   }
 

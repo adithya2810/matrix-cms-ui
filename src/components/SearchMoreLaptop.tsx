@@ -23,6 +23,8 @@ const SearchMoreLaptop = ({ deviceType }) => {
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const filterRef = useRef(null);
 
+  const [footerInView, setFooterInView] = useState(false);
+
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
       setIsFilterBoxOpen(false);
@@ -36,14 +38,27 @@ const SearchMoreLaptop = ({ deviceType }) => {
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
+  function isElementOutViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight;
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", (e) => {
+      if (!deviceType.mobile) {
+        setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
+      }
+    })
+    return () => setFooterInView(false);
+  }, []);
+
   return (
     <>
       {/* Mask */}
       {isFilterBoxOpen && (
-        <div className="absolute z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
+        <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="absolute laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : -88 }}>
+      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : footerInView ? 'auto' : 375, bottom: footerInView ? 280 : 'auto' }}>
         <div
           className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full" style={deviceType.mobile ? {} : { width: 105, height: 'auto' }}
         >
@@ -75,7 +90,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
             ref={filterRef}
             style={{ width: deviceType.mobile ? 'auto' : 500 }}
           >
-            <div className={`search px-9 sm:hidden h-24 sm:h-14 flex items-center bg-accent`}>
+            <div className={`search px-9 sm:hidden h-24 sm:h-14 flex items-center bg-accent`} style={deviceType.mobile ? {} : { height: 88 }}>
               <input
                 className={`w-full  body1 border-none outline-none  bg-accent text-white`}
                 onChange={(e) => setInputText(e.target.value)}

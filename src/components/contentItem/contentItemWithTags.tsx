@@ -129,7 +129,7 @@ const ContentItemWithTags: React.FC<Props> = ({
                 <Tag
                   key={index}
                   title={item.title}
-                  id={item.id}
+                  id={item.slug}
                   selected={false}
                   className="text-xs font-normal opacity-80 mr-2 bg-secondary-light"
                   style={{

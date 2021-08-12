@@ -18,8 +18,8 @@ type propsType = {
 const index: FC<propsType> = (props) => {
   const [data, setData] = useState(null)
   const [totalPages, setTotalPages] = useState(0)
-  // const router = useRouter()
-  // const { query: { page } } = router
+  const router = useRouter()
+  const { query } = router;
   const [page, setPage] = useState(1)
   const [appiedfilters, setAppliedFilters] = useState([])
   const [isPaginationOn, setIsPaginationOn] = useState(true)
@@ -68,6 +68,16 @@ const index: FC<propsType> = (props) => {
         }
       } else {
         setPage(page)
+      }
+
+      if (Object.keys(filters).length == 0 && query) {
+        let makeQuery: any = [];
+        for (const key in query) {
+          if (Object.prototype.hasOwnProperty.call(query, key)) {
+            makeQuery.push(`${key}=${query[key]}`);
+          }
+        }
+        query_str = makeQuery.join("&");
       }
 
       const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${(query_str) ? '&' + query_str : ''}`)

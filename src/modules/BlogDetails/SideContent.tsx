@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import RelatedVideos from './RelatedVideos';
 import { VideoIconBlog, MicIconBlog, ArticleIconBlog } from '@components/Icons'
+import Link from 'next/link';
 
 type deviceType = {
   mobile: Boolean;
@@ -51,7 +52,13 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
       <div className="tags flex gap-2 laptop:py-6 sm:py-3 flex-wrap">
         {
           blogDetails?.tags?.map(tag => (
-            <div key={tag.name} className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline" style={mobile ? {} : { fontSize: 16 }}>{tag.name} <small className="text-xs pl-2 opacity-70" style={mobile ? {} : { fontSize: 11 }}>({tag.blogs.length})</small></div>
+            <div key={tag.name} className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline" style={mobile ? {} : { fontSize: 16 }}>
+              <Link href={`/blogs?tags.slug=${tag.slug}`}>
+                <a>
+                  {tag.name} <small className="text-xs pl-2 opacity-70" style={mobile ? {} : { fontSize: 11 }}>({tag.blogs.length})</small>
+                </a>
+              </Link>
+            </div>
           ))
         }
       </div>

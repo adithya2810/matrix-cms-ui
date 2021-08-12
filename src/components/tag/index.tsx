@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from "react";
 
 export type Props = {
@@ -12,7 +13,10 @@ export type Props = {
 
 export const Tag: React.FC<Props> = ({ selected, title, id, onClick, className = "", style = {} }: Props) => {
   const _className = selected ? "tag-selected" : "tag";
-  return (<span className={className + " " + _className} style={style} onClick={() => { if (onClick) onClick(id) }}>
-    {title}
-  </span>)
+  return (<Link href={`/blogs?tags.slug=${id}`}><a>
+    <span className={className + " " + _className} style={style} onClick={() => { if (onClick) onClick(id) }}>
+      {title}
+    </span>
+  </a>
+  </Link>)
 }

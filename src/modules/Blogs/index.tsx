@@ -61,11 +61,12 @@ const index: FC<propsType> = (props) => {
         if (filters?.formats.length > 0) {
           makeQuery['_where']['content_type.slug'] = (filters?.formats.length > 0) ? filters?.formats : filters?.formats[0]
         }
+        if (filters?.moments.length > 0) {
+          makeQuery['_where']['type.slug'] = (filters?.moments.length > 0) ? filters?.moments : filters?.moments[0]
+        }
 
         query_str = qs.stringify(makeQuery);
-        if (filters?.sort) {
-          query_str += `&_sort=tags.name:${filters?.sort}`
-        }
+
       } else {
         setPage(page)
       }
@@ -79,8 +80,14 @@ const index: FC<propsType> = (props) => {
         }
         query_str = makeQuery.join("&");
       }
+      let sortby = '';
+      if (Object.keys(filters).length > 0 && filters?.sort) {
+        sortby = `&_sort=published_at:${filters?.sort}`;
+      } else {
+        sortby = `&_sort=published_at:DESC`;
+      }
 
-      const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${(query_str) ? '&' + query_str : ''}`)
+      const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${sortby}${(query_str) ? '&' + query_str : ''}`)
       const data = await res.json();
       setData(data)
       const countRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count${(query_str) ? '?' + query_str : ''}`)

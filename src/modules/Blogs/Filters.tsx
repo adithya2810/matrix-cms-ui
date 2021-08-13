@@ -95,7 +95,11 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
       setFormatsf(frmt);
       setFormats(frmt);
 
-      setMoments(momentsf)
+      const mmtCnt = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blog-types?_sort=name:asc`)
+      const resJsonmmt = await mmtCnt.json();
+      const frmtmmt = resJsonmmt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setMomentsf(frmtmmt);
+      setMoments(frmtmmt)
     } catch (e) {
       console.log(e)
     }
@@ -184,7 +188,8 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
             >
               {SearchIcon}
             </div>
-            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow    bg-accent-dark">
+            <div className="filter flex laptop:flex-col sm:flex-row-reverse laptop:justify-evenly sm:justify-center items-center laptop:h-64 sm:h-12 sm:flex-grow bg-accent-dark"
+              onClick={handleFilter}>
               <div className="sub-h1 mb-2 laptop:transform laptop:-rotate-90 relative laptop:top-10 laptop:mx-3 text-white sm:ml-4 sm:mb-1" style={deviceType.mobile ? {} : { fontSize: 18, fontWeight: 300 }}>
                 Filters
               </div>
@@ -391,7 +396,6 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
         <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
           <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
           <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
-
         </div>
       </div>
     </>

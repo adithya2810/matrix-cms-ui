@@ -59,7 +59,7 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         designation: blogData.author[0]?.designation || "Director",
         author_image_url: blogData.author[0]?.image_url || "/icons/profileImage.svg",
         content_id: blogData.id || "",
-        content_type: blogData?.type || "Video",
+        content_type: blogData?.content_type.name,
         read_duration: blogData.readtime,
         blog_url: blogData.slug || '',
         tags: blogData.tags.map(tag => {

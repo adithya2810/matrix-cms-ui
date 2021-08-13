@@ -52,7 +52,7 @@ const Card: FC<propsType> = (props) => {
         <div className="sub-h1 Manrope-normal rrr" style={props.deviceType?.mobile ? { fontWeight: 500, letterSpacing: 1, lineHeight: '20px' } : { fontWeight: 400, fontSize: 24, lineHeight: '34px', color: '#000000', letterSpacing: 1 }}>{props.data?.name}</div>
         <div className="flex mt-3 mb-4 items-center">
           <span className='flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0'>
-            <Icon {...props} iconType={props.data?.type} />
+            <Icon {...props} iconType={props.data?.content_type.name} />
           </span>
           <div className="flex">
             <img

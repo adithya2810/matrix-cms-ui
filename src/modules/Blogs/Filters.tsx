@@ -28,6 +28,7 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
+  const [isLinkedInBoxOpen, setIsLinkedInBoxOpen] = useState(false);
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
 
@@ -125,12 +126,13 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
       setIsFilterBoxOpen(false);
     setIsTwitterBoxOpen(false);
+    setIsLinkedInBoxOpen(false);
   };
 
   useEffect(() => {
-    if (isFilterBoxOpen || isTwitterBoxOpen) document.addEventListener('click', handleClickEvent);
+    if (isFilterBoxOpen || isTwitterBoxOpen || isLinkedInBoxOpen) document.addEventListener('click', handleClickEvent);
     return () => document.removeEventListener('click', handleClickEvent);
-  }, [isFilterBoxOpen, isTwitterBoxOpen]);
+  }, [isFilterBoxOpen, isTwitterBoxOpen, isLinkedInBoxOpen]);
 
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
@@ -173,12 +175,12 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
   return (
     <>
       {/* Mask */}
-      {(isFilterBoxOpen || isTwitterBoxOpen) && (
+      {(isFilterBoxOpen || isTwitterBoxOpen || isLinkedInBoxOpen) && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
       <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32'} fixed laptop:right-12 z-50 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden`}>
-        {(!isFilterBoxOpen && !isTwitterBoxOpen) && (
+        {(!isFilterBoxOpen && !isTwitterBoxOpen && !isLinkedInBoxOpen) && (
           // when filter box is closed state
           <div
             className="closed duration-300 w-18 cursor-pointer sm:flex sm:w-full"
@@ -195,7 +197,10 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
               </div>
               {FilterIcon}
             </div>
-            <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center">
+            <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center"
+              onClick={() => {
+                setIsLinkedInBoxOpen(!isLinkedInBoxOpen)
+              }}>
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </div>
@@ -378,6 +383,7 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
                   fetchBlogsData();
                   setIsFilterBoxOpen(false);
                   setIsTwitterBoxOpen(false);
+                  setIsLinkedInBoxOpen(false);
                   searchFilterOption('')
                 }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
@@ -385,7 +391,8 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
                 <div onClick={_ => {
                   fetchBlogsData(1, filters)
                   setIsFilterBoxOpen(false);
-                  setIsTwitterBoxOpen(false)
+                  setIsTwitterBoxOpen(false);
+                  setIsLinkedInBoxOpen(false)
                 }} className="sub-h2 text-white cursor-pointer hover:opacity-80">
                   Apply
                 </div>
@@ -397,6 +404,9 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
           <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
           <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </div>
+        {/* <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
+          <iframe src="https://www.linkedin.com/company/matrix-partners/" name="linkedinFrame" scrolling="no" frameBorder="1" marginHeight={0} marginWidth={0}></iframe>
+        </div> */}
       </div>
     </>
   );

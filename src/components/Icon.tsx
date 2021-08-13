@@ -3,17 +3,17 @@ import React from 'react';
 
 const MobileIcons = {
   Audio: <MicMobile />,
-  video: <VideoMobile />,
-  article: <ArticleMobile />,
+  Video: <VideoMobile />,
+  Article: <ArticleMobile />,
 };
 const LaptopIcons = {
   Audio: <MicLaptop />,
-  video: <VideoLaptop />,
-  article: <ArticleLaptop />,
+  Video: <VideoLaptop />,
+  Article: <ArticleLaptop />,
 };
 
 const Icon = ({ deviceType, iconType }) => {
-  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.article;
-  else return LaptopIcons[iconType] || LaptopIcons.article;
+  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.Article;
+  else return LaptopIcons[iconType] || LaptopIcons.Article;
 };
 export default Icon;

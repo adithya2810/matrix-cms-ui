@@ -154,9 +154,9 @@ const IndividualMember: FC<propsType> = (props) => {
         <h3 className="hidden sm:block md:block lg:block text-2xl leading-tight text-accent font-normal px-7">Latest content from {advisoryDetail.name}</h3>
         {/* Mobile Section */}
 
-        <div className="overflow-auto col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8">
+        <div className="overflow-auto home-content-container col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8" style={props.deviceType.mobile ? { scrollbarWidth: 'none' } : { maxHeight: 850, scrollbarWidth: 'none' }}>
           {advisoryDetail.blogs.map((blog, index) => {
-            return <div className="laptop:flex mb-5 sm:mb-2 lg:mb-5 justify-center" key={index}>
+            return <div className="relative laptop:flex mb-5 sm:mb-2 lg:mb-5 justify-center" key={index}>
               <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" onClick={_ => push(`/blogs/${blog.slug}`)}>
                 <img
                   className="image-shadow"

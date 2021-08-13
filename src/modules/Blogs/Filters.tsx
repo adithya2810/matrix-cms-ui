@@ -18,12 +18,13 @@ import {
   InstagramMobile
 } from '@components/Icons';
 import React, { useEffect, useRef, useState } from 'react';
+import _ from 'lodash';
 
 
 const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType, fetchBlogsData, page }) => {
+const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
 
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
@@ -32,7 +33,7 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
 
-  const [momentsf, setMomentsf] = useState([{ tagName: 'Reflections', tagNumber: '123', slug: 'Reflections' }, { tagName: 'Foundations', tagNumber: '123', slug: 'Foundations' }, { tagName: 'Conferences', tagNumber: '123', slug: 'Conferences' }])
+  const [momentsf, setMomentsf] = useState([])
   const [topicsf, setTopicsf] = useState([])
   const [authorsf, setAuthorsf] = useState([])
   const [formatsf, setFormatsf] = useState([])
@@ -44,11 +45,36 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
 
   const [filters, setFilters] = useState(() => initialFilters)
   const [footerInView, setFooterInView] = useState(false);
-
+  const [footerbottom, setFooterHeight] = useState(0);
 
   useEffect(() => {
     fetchFiltersMetaData();
   }, [])
+
+  useEffect(() => {
+    if (remfilter) {
+      let rmflt = initialFilters;
+      if (remfilter) {
+        for (const key in filters) {
+          if (Object.prototype.hasOwnProperty.call(filters, key)) {
+            let fldata = filters[key];
+            if (_.indexOf(fldata, remfilter) != -1) {
+              fldata.splice(_.indexOf(fldata, remfilter), 1);
+              rmflt[key] = fldata;
+            } else {
+              rmflt[key] = fldata.length > 0 ? ((key == 'sort') ? 'desc' : []) : fldata;
+            }
+          }
+        }
+      }
+      setFilters(rmflt);
+      fetchBlogsData(1, rmflt);
+      setIsFilterBoxOpen(false);
+      setIsTwitterBoxOpen(false);
+      setIsLinkedInBoxOpen(false);
+      searchFilterOption('')
+    }
+  }, [remfilter]);
 
   const searchFilterOption = value => {
     setInputText(value);
@@ -151,9 +177,8 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
   }
   useEffect(() => {
     document.addEventListener("scroll", (e) => {
-      if (!deviceType.mobile) {
-        setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
-      }
+      setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
+      setFooterHeight(document.querySelector(".FooterOuter-Warpper").clientHeight);
     })
     return () => setFooterInView(false);
   }, []);
@@ -179,7 +204,9 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32'} fixed laptop:right-12 z-50 sm:bottom-8 sm:left-8 sm:right-8 overflow-y-hidden`}>
+      <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32 sm:bottom-8'} transition duration-500 ease-in-out fixed laptop:right-12 z-50 sm:left-8 sm:right-8 overflow-y-hidden`}
+        style={deviceType.mobile && footerInView ? { bottom: footerbottom + 16 } : {}}
+      >
         {(!isFilterBoxOpen && !isTwitterBoxOpen && !isLinkedInBoxOpen) && (
           // when filter box is closed state
           <div
@@ -400,9 +427,11 @@ const Filters = ({ deviceType, fetchBlogsData, page }) => {
             </div>
           </div>
         )}
-        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
-          <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
-          <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+        <div className={`twitter_outerWarp opened duration-300 relative`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
+          <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
+            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          </div>
         </div>
         {/* <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
           <iframe src="https://www.linkedin.com/company/matrix-partners/" name="linkedinFrame" scrolling="no" frameBorder="1" marginHeight={0} marginWidth={0}></iframe>

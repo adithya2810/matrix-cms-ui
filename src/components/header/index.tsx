@@ -15,10 +15,11 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
 
   const isSiteBgtrans = (router.route.indexOf("blog") < 0 && router.route.indexOf("about-us") < 0 &&
     router.route.indexOf("portfolio") < 0 &&
+    router.route.indexOf("advisoryTeam") < 0 &&
     router.route.indexOf("careers") < 0 && router.route.indexOf("news") < 0 &&
     router.route.indexOf("events") < 0);
 
-  const isDetailsPage = (router.route.indexOf("news/[newsId]") < 0 && router.route.indexOf("events/[eventsId]") < 0);
+  const isDetailsPage = (router.route.indexOf("news/[newsId]") < 0 && router.route.indexOf("events/[eventsId]") < 0 && router.route.indexOf('/advisoryTeam/[slug]'));
 
 
   React.useEffect(() => {

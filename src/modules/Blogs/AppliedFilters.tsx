@@ -1,5 +1,5 @@
 import { CloseCross } from '@components/Icons';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useEffect } from 'react';
 
 const getFilters = (filters, removeFilter) => {
   return filters.map((f, i) => (
@@ -14,6 +14,9 @@ const getFilters = (filters, removeFilter) => {
 
 const AppliedFilters = ({ mobile, appliedFilters, totalPages, page, removeFilter }) => {
 
+  useEffect(() => {
+    console.log(appliedFilters);
+  }, [appliedFilters])
   return (
     <div className="section">
       <div className="laptop:flex laptop:items-center mt-10 mb-6 sm:my-4">

@@ -50,6 +50,7 @@ const index: FC<propsType> = (props) => {
       let query_str = '';
       if (Object.keys(filters).length > 0) {
         setAppliedFilters([...filters.topics, ...filters.authors, ...filters.formats, ...filters.moments])
+        setRemFilter('')
 
         let makeQuery: any = { _where: [], _sort: {} };
         if (filters?.authors.length > 0) {
@@ -77,6 +78,7 @@ const index: FC<propsType> = (props) => {
         for (const key in query) {
           if (Object.prototype.hasOwnProperty.call(query, key)) {
             makeQuery.push(`${key}=${query[key]}`);
+            setAppliedFilters([query[key]]);
           }
         }
         query_str = makeQuery.join("&");

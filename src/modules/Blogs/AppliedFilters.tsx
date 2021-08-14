@@ -19,16 +19,16 @@ const AppliedFilters = ({ mobile, appliedFilters, totalPages, page, removeFilter
   }, [appliedFilters])
   return (
     <div className="section">
-      <div className="laptop:flex laptop:items-center mt-10 mb-6 sm:my-4">
+      <div className="laptop:flex laptop:items-center mt-10 mb-6 mr-14 sm:my-4">
         <div className="sub-h2 text-accent-dark laptop:mr-32 sm:mb-5 flex-shrink-0" style={mobile ? { lineHeight: '18px' } : {}}>
           Page <span className="text-accent-light"> {page > 9 ? page : `0${page}`} </span>/ {totalPages}
         </div>
         {!!appliedFilters.length &&
           <>
-            <div className="applied-filters justify-self-center flex gap-4 laptop:mr-8 sm:overflow-x-scroll laptop:flex-wrap sm:flex-shrink-0">
+            <div className="applied-filters justify-self-center flex gap-4 laptop:mr-14 sm:overflow-x-scroll laptop:flex-wrap sm:flex-shrink-0">
               {getFilters(appliedFilters, removeFilter)}
             </div>
-            <div onClick={() => removeFilter('all')} className="cursor-pointer sub-h2 text-accent underline sm:hidden">Clear All</div>
+            <div onClick={() => removeFilter('all')} className="cursor-pointer sub-h2 text-accent underline mr-8 w-32 sm:hidden">Clear All</div>
           </>
         }
       </div>

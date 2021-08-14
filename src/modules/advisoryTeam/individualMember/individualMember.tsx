@@ -40,7 +40,7 @@ const IndividualMember: FC<propsType> = (props) => {
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
         <div className="team-member-detail pr-5 sm:pr-0">
           <div style={{ position: 'relative' }} className="pb">
-            <div className="shadow-xl card">
+            <div className="shadow-xl sm:shadow-none card">
               <div className="member-profile-img ml-12 sm:ml-0">
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" />
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:block md:block lg:block hidden" />
@@ -54,7 +54,7 @@ const IndividualMember: FC<propsType> = (props) => {
                 </div>
                 <div className="team-member-info px-6 py-4 flex items-end">
                   <div className="member-name">
-                    <h6 className="font-bold text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
+                    <h6 className="font-extrabold text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
                       {advisoryDetail.name.substr(0, advisoryDetail.name.indexOf(' '))}
                     </h6>
                     <h6 className="font-light text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
@@ -85,41 +85,41 @@ const IndividualMember: FC<propsType> = (props) => {
             </div>
           </div>
 
-          <div className="member-more-detail pt-20 sm:px-7 sm:pt-5 sm:hidden">
+          <div className="member-more-detail pt-36 sm:px-7 sm:pt-5 sm:hidden">
 
             {advisoryDetail.currentinvest && <>
-              <h2 className="text-4xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Current Investments</h2>
-              <div className="text-lg pt-4 sm:text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Current Investments</h2>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-4 sm:text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
             </>}
 
             {advisoryDetail.pastinvset && <>
-              <div className="text-4xl pt-4 sm:text-lg">
+              <div className="text-2xl pt-4 sm:text-lg">
                 <span className="font-semibold">Past Investments</span><br />
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+                <div className="text-justify text-lg leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
               </div>
             </>}
             {advisoryDetail.areaofintrest && <>
-              <div className="text-4xl pt-4 sm:text-lg">
+              <div className="text-2xl pt-4 sm:text-lg">
                 <span className="font-semibold">Focus Area</span><br />
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+                <div className="text-justify text-lg leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}
           </div>
 
           {/* Mobile section */}
           <div className="member-more-detail pt-5 sm:px-7 sm:pt-5 sm:block hidden">
-            <h3 className="text-accent text-2xl">{advisoryDetail.name}</h3>
-            <p className="text-1xs text-grey pt-2">{advisoryDetail.designation}</p>
+            <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
 
             {advisoryDetail.currentinvest && <>
-              <h2 className="text-4xl font-semibold sm:uppercase sm:text-lg pt-5">Current Investments</h2>
+              <h2 className="text-4xl font-medium sm:uppercase sm:text-lg">Current Investments</h2>
               <div className="text-lg pt-4 sm:text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
             </>}
 
             {advisoryDetail.pastinvset && <>
               <div className="text-4xl pt-4 sm:text-lg">
                 <span className="font-bold">Past Investments</span><br />
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+                <div className="text-lg pt-3" dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
               </div>
             </>}
             {advisoryDetail.areaofintrest && <>
@@ -133,8 +133,8 @@ const IndividualMember: FC<propsType> = (props) => {
         </div>
 
         <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
-          <h3 className="text-4xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
-          <div className="text-lg leading-snug font-normal text-black pt-5 sm:text-lg sm:pt-5" dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+          <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
+          <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
         </div>
       </div>
 

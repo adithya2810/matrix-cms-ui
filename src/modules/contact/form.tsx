@@ -67,8 +67,8 @@ const ContactForm: React.FC = () => {
       <div className="row">
         <div style={{ flex: '60%' }}>
           <h1 className="main-txt text-4xl first-head contact-heading font-bold">Vist our India Advisory Team Offices</h1>
-          {details.map((data) => (
-            <div className="row " style={{ marginTop: '50px' }}>
+          {details.map((data, i) => (
+            <div key={i} className="row " style={{ marginTop: '50px' }}>
               <div style={{ flex: '66%' }} className="col-span-8 contact-address">
                 <div className="map-info border-b-2 mr-5 pb-5">
                   <a href="#" className="uppercase font-bold text-xl border-b-3 bbc">{data.city}</a>

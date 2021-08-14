@@ -23,10 +23,11 @@ export type Props = {
 };
 
 export const Root: React.FC<Props> = ({ children, deviceType }) => {
-  console.log(deviceType)
+  // console.log(deviceType)
   const {
     data: { appConfig: navMenuState },
   } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);
+
   useEffect(() => {
     Router.events.on("routeChangeStart", (url) => {
       NProgress.start();
@@ -35,6 +36,7 @@ export const Root: React.FC<Props> = ({ children, deviceType }) => {
     Router.events.on("routeChangeError", () => NProgress.done());
     NProgress.configure({ showSpinner: false });
   }, []);
+
   const className = !navMenuState.menu
     ? "visible"
     : "invisible ";

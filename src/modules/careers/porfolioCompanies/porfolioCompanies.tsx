@@ -36,24 +36,10 @@ const RolesContent: React.FC = () => {
   };
 
   return (
-    <div
-      className="grid grid-cols-5"
-      style={{ marginLeft: 40, paddingTop:40, marginBottom:50 }}
-    >
-
-      <RoleTabs
-        tabList={roleContentTabs}
-        selectedTab={selectedTab}
-        onTabSelected={onTabSelected}
-
-      />
-
-
-      <div className="md:hidden sm:hidden team-member cursor-pointer col-span-4 mr-10"
-            style={{paddingTop:10, marginBottom: 100, }}
-      >
+    <div className="grid grid-cols-7 pt-20 mx-20" >
+      <RoleTabs tabList={roleContentTabs} selectedTab={selectedTab} onTabSelected={onTabSelected} />
+      <div className="md:hidden sm:hidden team-member cursor-pointer col-span-5" style={{ paddingTop: 10, marginBottom: 100, }}>
         <RoleDescription />
-
       </div>
     </div>
   );

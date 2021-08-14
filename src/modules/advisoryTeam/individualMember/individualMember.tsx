@@ -49,7 +49,7 @@ const IndividualMember: FC<propsType> = (props) => {
               <div className="team-detail-overlay sm:hidden">
                 <div className="member-position">
                   <div className="title-white-box p-5">
-                    <h5 className="text-accent text-lg font-medium leading-6">{advisoryDetail.designation}</h5>
+                    <h5 className="text-accent text-lg font-medium leading-6" style={{ letterSpacing: 0.5 }}>{advisoryDetail.designation}</h5>
                   </div>
                 </div>
                 <div className="team-member-info px-6 py-4 flex items-end">
@@ -140,10 +140,10 @@ const IndividualMember: FC<propsType> = (props) => {
 
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
         <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col">
-          <div className="flex justify-between">
+          <div className="flex justify-between -mt-20">
             <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {advisoryDetail.name.replace(' ', '\n')}</h3>
             <Link href="#" passHref>
-              <Image src="../icons/sideNavButton.svg" alt="arrow-icon" className="-mr-5 cursor-pointer"></Image>
+              <Image src="../icons/sideNavButton.svg" alt="arrow-icon" className="-mr-5 cursor-pointer -mt-40" style={{ maxWidth: 80 }}></Image>
             </Link>
           </div>
           <Link href="#" passHref>
@@ -154,9 +154,9 @@ const IndividualMember: FC<propsType> = (props) => {
         <h3 className="hidden sm:block md:block lg:block text-2xl leading-tight text-accent font-normal px-7">Latest content from {advisoryDetail.name}</h3>
         {/* Mobile Section */}
 
-        <div className="overflow-auto home-content-container col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8" style={props.deviceType.mobile ? { scrollbarWidth: 'none' } : { maxHeight: 850, scrollbarWidth: 'none' }}>
+        <div className="overflow-auto home-content-container col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8" style={props.deviceType.mobile ? { scrollbarWidth: 'none' } : { maxHeight: 850, scrollbarWidth: 'none', margin: '40px 0' }}>
           {advisoryDetail.blogs.map((blog, index) => {
-            return <div className="relative laptop:flex mb-5 sm:mb-2 lg:mb-5 justify-center" key={index}>
+            return <div className="relative laptop:flex mb-6 sm:mb-2 lg:mb-5 justify-center" key={index}>
               <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" onClick={_ => push(`/blogs/${blog.slug}`)}>
                 <img
                   className="image-shadow"
@@ -170,15 +170,15 @@ const IndividualMember: FC<propsType> = (props) => {
                 </div>}
               </div>
               <div
-                className="max-w-xl p-8 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
+                className="max-w-xl pt-8 pl-7 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
                 style={{
                   background: 'white',
                   width: props.deviceType?.mobile ? '93%' : '100%',
                 }}
               >
-                {blog.readtime && <div className="caption text-accent-dark mb-4 sm:mb-2">{blog.readtime.toUpperCase()} READ</div>}
-                <div className="sub-h1">{blog.name}</div>
-                <div className="flex mt-6 mb-6 items-center">
+                {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} READ</div>}
+                <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>{blog.name}</div>
+                <div className="flex mt-4 mb-4 items-center">
                   {!props.deviceType.mobile && <Image
                     src={getContentTypeImageUrl(blog.type, true)}
                     alt={blog.type}
@@ -189,10 +189,10 @@ const IndividualMember: FC<propsType> = (props) => {
                       className="mr-3 sm:w-8"
                       src={advisoryDetail.image_url ? advisoryDetail.image_url : "/images/circlePic.png"}
                       alt="video"
-                      style={props.deviceType.mobile ? { width: 30, height: 30, borderRadius: 50 } : { width: 50, height: 50, borderRadius: 50 }}
+                      style={props.deviceType.mobile ? { width: 30, height: 30, borderRadius: 50 } : { width: 48, height: 48, borderRadius: 50 }}
                     />
                     <div>
-                      <p className="sub-h2 text-accent-dark">{advisoryDetail.name}</p>
+                      <p className="sub-h2 text-accent-dark" style={props.deviceType.mobile ? {} : { fontSize: 17 }}>{advisoryDetail.name}</p>
                       <p className="caption uppercase">{advisoryDetail.designation}</p>
                     </div>
                   </div>

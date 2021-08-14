@@ -554,7 +554,7 @@ h6 {
 
 @media (max-width: 482px) {
     .tabination {
-        top: -2.3rem !important;
+        top: -1.8rem !important;
     }
 }
 
@@ -1238,13 +1238,13 @@ textarea {
 }
 
 .contact-bg-overlay {
-    width: 234px;
-    height: 100%;
-    position: absolute;
-    background: #083a4a;
-    bottom: 15px;
-    left: 15px;
-    z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #083a4a;
+  top: -12px;
+  left: 10px;
+  z-index: -1;
 }
 
 .news-body {

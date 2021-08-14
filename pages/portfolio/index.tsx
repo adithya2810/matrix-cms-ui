@@ -1,8 +1,15 @@
 import React from "react";
 import Portfolio from '../../src/modules/portfolio';
 
-function PortfolioPage({ portfolio }) {
-  return <Portfolio portfolio={portfolio} />;
+export type Props = {
+  portfolio: any;
+  deviceType: {
+    mobile: boolean
+  }
+};
+
+function PortfolioPage<Props>({ portfolio, deviceType }) {
+  return <Portfolio portfolio={portfolio} deviceType={deviceType} />;
 }
 
 export async function getServerSideProps() {

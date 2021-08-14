@@ -8,7 +8,7 @@ export type Props = {
 const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
 
   return (
-    <div className="relative pt-20 sm:pt-5">
+    <div className="relative pt-12 sm:pt-5">
       <div className="w-full m-auto">
         <h2 className="text-3md sm:text-xl text-center font-bold text-current">Select Current Investments</h2>
       </div>
@@ -20,7 +20,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
               <div className="flip-card-inner ">
                 <div className="flip-card-front">
                   {/* <img className="w-6/12" src="../../img/ant-wak.png" alt="" /> */}
-                  <Image src={e.logo_url} alt={e.name} className="p-20"/>
+                  <Image src={e.logo_url} alt={e.name} className="p-20" />
                 </div>
                 <div className="flip-card-back text-left p-4">
                   <Image src={e.logo_url} alt={e.name} className="sm:hidden md:hidden lg:hidden pb-5" />

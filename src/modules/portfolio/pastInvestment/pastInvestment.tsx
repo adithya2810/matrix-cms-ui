@@ -8,7 +8,7 @@ export type Props = {
 const PastInvestment: React.FC<Props> = ({ portfolio }) => {
 
   return (
-    <div className="relative pt-20 sm:pt-5">
+    <div className="relative pt-12 sm:pt-5">
       <div className="w-full m-auto">
         <h2 className="text-3md sm:text-xl text-center font-bold text-current">Select Past Investments</h2>
       </div>

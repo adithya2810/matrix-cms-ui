@@ -9,7 +9,7 @@ export type Props = {
 
 
 const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
-  
+
   return (
 
     <figure className="rounded-xl p-10">
@@ -24,7 +24,7 @@ const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
                     <h6 className="font-light text-secondary uppercase text-4sm" style={{ lineHeight: "36px", letterSpacing: "0.05em" }}>
                       {t.name}
                     </h6>
-                    <h6 className="text-secondary sub-h2 font-medium text-lg leading-6 capitalize">{t.designation}</h6>
+                    <h6 className="text-secondary sub-h2 font-medium text-lg leading-6 capitalize" style={{ letterSpacing: 1 }}>{t.designation}</h6>
                   </div>
                   <div style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>
                 </div>

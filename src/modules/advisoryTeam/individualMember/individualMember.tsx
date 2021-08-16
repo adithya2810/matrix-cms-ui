@@ -146,9 +146,11 @@ const IndividualMember: FC<propsType> = (props) => {
               <Image src="../icons/sideNavButton.svg" alt="arrow-icon" className="-mr-5 cursor-pointer -mt-40" style={{ maxWidth: 80 }}></Image>
             </Link>
           </div>
-          <Link href="#" passHref>
-            <p className="cursor-pointer mt-14">View more content -{'>'}</p>
-          </Link>
+          {advisoryDetail.blogs.length > 0 &&
+            <Link href="#" passHref>
+              <p className="cursor-pointer mt-14">View more content -{'>'}</p>
+            </Link>
+          }
         </div>
         {/* Mobile Section */}
         <h3 className="hidden sm:block md:block lg:block text-2xl leading-tight text-accent font-normal px-7">Latest content from {advisoryDetail.name}</h3>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SideNav } from "./sideNav";
 import { Tag, Image } from "@components";
 import Button from "@components/button/PrimaryButtonIconRight";
-import { ContentList } from "../content/contentList";
+import { ContentList } from "./ItemCard";
 import { TagList } from "./tagList";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { appConfigMutation, appConfiqQuery } from "../../../operations/appConfig";
@@ -143,7 +143,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
   }
 
   const getSelectedTag = (id) => {
-    console.log(id)
+    // console.log(id)
     if (selectedTag.indexOf(id) > -1) {
       setSelectedTag(selectedTag.filter(item => item != id));
     } else {
@@ -158,28 +158,103 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
     let filterNonSectSlug = nonSectorialList.filter(tag => selectedTag.indexOf(tag.id) > -1)
       .map(tag => { return tag.slug });
     if (selectedTag.length == 0) {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags'
+      // url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags'
+      url = {
+        query: `query {
+          blogs (sort: "published_at:desc"){
+            _id
+            displaytag
+            author {
+              designation
+              image_url
+              name
+              slug
+            }
+            content_type {
+              name
+              slug
+            }
+            cover_desktop
+            cover_image_mobile
+            name
+            readtime
+            slug
+            tags {
+              _id
+              name
+              slug
+            }
+            youtube_embed
+          }
+      }`};
     } else if (selectedTag.length > 0) {
-      param = filterSectSlug.concat(filterNonSectSlug).join('&slug=')
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?slug=' + param;
+      // param = filterSectSlug.concat(filterNonSectSlug).join('&slug=')
+      // url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?slug=' + param;
+      url = {
+        query: `query ($tags: JSON){
+          blogs (sort: "published_at:desc", where:$tags){
+            _id
+            displaytag
+            author {
+              designation
+              image_url
+              name
+              slug
+            }
+            content_type {
+              name
+              slug
+            }
+            cover_desktop
+            cover_image_mobile
+            name
+            readtime
+            slug
+            tags {
+              _id
+              name
+              slug
+            }
+            youtube_embed
+          }
+      }`, variables: { tags: { tags: { slug_in: filterSectSlug.concat(filterNonSectSlug) } } }
+      };
     }
 
-    const response = await fetch(url);
+    const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(url)
+    });
+
     const json = await response.json();
-    console.log(json)
-    const blogList = json.filter(blogData => blogData.blogs.length > 0)
-      .map(blogData => {
-        return {
-          image_url: blogData.blogs[0].cover_desktop,
-          title: blogData.blogs[0].name,
-          author: blogData.blogs[0].author.name || "",
-          content_id: blogData.blogs[0].id,
-          content_type: blogData.blogs[0].type,
-          read_duration: blogData.blogs[0].readtime,
-          blog_url: blogData.blogs[0].slug
-        }
-      });
-    console.log(json.filter(blogData => blogData.blogs.length > 0));
+    // console.log('rrr', json)
+    const blogList = json.data.blogs.map(blog => {
+      return {
+        image_url: blog.cover_desktop,
+        title: blog.name,
+        author: blog.author[0].name || "",
+        content_id: blog._id,
+        content_type: blog.type,
+        read_duration: blog.readtime,
+        blog_url: blog.slug
+      }
+    });
+    // const blogList = json.data.filter(blogData => blogData.blogs.length > 0)
+    //   .map(blogData => {
+    //     return {
+    //       image_url: blogData.blogs[0].cover_desktop,
+    //       title: blogData.blogs[0].name,
+    //       author: blogData.blogs[0].author.name || "",
+    //       content_id: blogData.blogs[0].id,
+    //       content_type: blogData.blogs[0].type,
+    //       read_duration: blogData.blogs[0].readtime,
+    //       blog_url: blogData.blogs[0].slug
+    //     }
+    //   });
+    // console.log(json.filter(blogData => blogData.blogs.length > 0));
     setBlogData(blogList);
   }
 
@@ -215,7 +290,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
 
   const { data: { appConfig: navMenuState } } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);
 
-  console.log(navMenuState);
+  // console.log(navMenuState);
 
   const className = navMenuState.menu ? "visible" : "invisible"
   return (
@@ -231,9 +306,9 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
         </div>
         {(sectorialList.length > 0 || nonSectorialList.length > 0) &&
           <div className="sm:hidden menu-tags flex-grow pl-24" style={{ marginLeft: 263 }}>
-            <TagList title="SECTORAL" tagList={sectorialList} className="mt-28 pr-11 opacity-100" selectedTags={selectedTag} onItemClick={getSelectedTag} />
+            <TagList title="SECTORAL" tagList={sectorialList} className="mt-28 pr-11 opacity-100" selectedTags={selectedTag} onItemClick={getSelectedTag} hrefSts={false} />
 
-            <TagList title="NON-SECTORAL" tagList={nonSectorialList} className="pr-11 opacity-100" selectedTags={selectedTag} onItemClick={getSelectedTag} />
+            <TagList title="NON-SECTORAL" tagList={nonSectorialList} className="pr-11 opacity-100" selectedTags={selectedTag} onItemClick={getSelectedTag} hrefSts={false} />
           </div>
         }
         {(sectorialList.length > 0 || nonSectorialList.length > 0 || blogData.length > 0) &&

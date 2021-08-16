@@ -54,10 +54,10 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
 
   return (
     <div
-      className="siteSidenavMenuWrap side-nav z-30 absolute bg-accent-dark text-secondary  flex flex-col justify-between"
+      className="siteSidenavMenuWrap side-nav z-30 absolute bg-accent-dark text-secondary flex flex-col justify-between"
       style={{ left: 0, fontSize: 54, lineHeight: "62px" }}
     >
-      <div className="block">
+      <div className="block flex flex-col justify-between">
         <div>
           {navMenu.primary.map((menuItem: any, index) => {
             return (
@@ -66,8 +66,8 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
                 link={menuItem.link}
                 className={
                   !isSelected(index)
-                    ? " text-secondary-light opacity-50"
-                    : "text-secondary-light opacity-100"
+                    ? ` text-secondary-light opacity-50`
+                    : `text-secondary-light opacity-100`
                 }
                 arrow={true}
                 key={menuItem.key}
@@ -84,7 +84,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
             return (
               <div
                 key={menuItem.key}
-                className="flex justify-between"
+                className={`flex justify-between ${menuItem.key}`}
                 style={{ marginBottom: 10 }}
                 onClick={() => menuClicked("SECONDARY_MENU", menuItem.key, index)}
               >
@@ -112,19 +112,20 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
                 style={{ marginBottom: 10 }}
                 onClick={() => toggle(index)}
               >
-                <a href={menuItem.link}>
+                {menuItem.name != "Media" && <><a href={menuItem.link}>
                   <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
                 </a>
-                {isSecondaryMenu(index) ?
-                  <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
-                  :
-                  <span className="menu-secondary-nav-icon"> {">"} </span>
-                }
+                  {isSecondaryMenu(index) ?
+                    <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
+                    :
+                    <span className="menu-secondary-nav-icon"> {">"} </span>
+                  }
+                </>}
                 {menuItem.subMenu.length > 0 &&
                   <div className="subMenuOuter flex-wrap flex flex-col">
-                    {menuItem.subMenu.map(menu => {
+                    {menuItem.subMenu.map((menu, i) => {
                       return (
-                        <div key={menu.key + 1} className="flex-wrap flex justify-between" style={{ marginTop: 20 }}
+                        <div key={menu.key + 1} className="flex-wrap flex justify-between" style={{ marginTop: i == 0 ? 0 : 10 }}
                           onClick={() => menuClicked("SECONDARY_MENU", menu.key, index)}>
                           <h5 className="menu-secondary-nav-text" key={menu.key + 1}>{menu.name}</h5>
                           <span className="menu-secondary-nav-icon"> {">"} </span>
@@ -139,15 +140,15 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
           })}
         </div>
       </div>
-      <div className=" mr-16">
-        <div >
-          <h6 className="mt-4 font-normal text-secondary" style={{ fontSize: 28, lineHeight: "34px" }}>Let's stay engaged </h6>
-          <h6 className="font-normal text-xs capitalize " style={{ marginTop: 10, lineHeight: "14px" }}>
+      <div className="mr-14 mb-5 flex flex-col justify-between">
+        <div className="">
+          <h6 className="mt-4 font-normal text-secondary" style={{ fontSize: 24, lineHeight: "34px" }}>Let's stay engaged </h6>
+          <h6 className="font-normal text-xs" style={{ marginTop: 10, lineHeight: "14px", letterSpacing: 1 }}>
             SIGN UP FOR THE MATRIX MOMENTS SERIES
           </h6>
           <input
-            className="mt-2 text-secondary bg-accent w-full"
-            style={{ color: "#FBF9F5", marginTop: 15, fontSize: 15, lineHeight: "18px", opacity: 0.8, height: 38 }}
+            className="pl-2 text-secondary bg-accent w-full"
+            style={{ color: "#FBF9F5", marginTop: 5, fontSize: 13, height: 35 }}
             type="email"
             placeholder="Your email address goes here"
           />
@@ -155,11 +156,11 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
             title="Subscribe"
             url="/icons/arrow.svg"
             onClick={() => console.log("subscribe")}
-            className="text-lg leading-6"
+            className="text-base leading-6"
             style={{ color: "#0FB6B8" }}
           />
         </div>
-        <div className="flex " style={{}}>
+        <div className="flex pt-5">
           {socialMedia.map((item) => {
             return (
               <a className="p-1 mr-6" href={item.link} key={item.key}>

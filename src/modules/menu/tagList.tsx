@@ -8,9 +8,10 @@ export type Props = {
   onItemClick: (selected: any) => void;
   className: string;
   selectedTags: Array<string>
+  hrefSts?: boolean;
 }
 
-export const TagList: React.FC<Props> = ({ title, tagList, onItemClick, selectedTags, className = "" }: Props) => {
+export const TagList: React.FC<Props> = ({ title, tagList, onItemClick, selectedTags, className = "", hrefSts = true }: Props) => {
   const [selected, setSelected] = useState([]);
 
   const isSelected = (id) => {
@@ -38,7 +39,7 @@ export const TagList: React.FC<Props> = ({ title, tagList, onItemClick, selected
           tagList.map((tag) => {
             return (<Tag id={title + tag.id} key={tag.id} className="ml-2 mb-2" title={tag.title} selected={isSelected(tag.id)} onClick={() => {
               toggle(tag.id)
-            }} />)
+            }} hrefSts={hrefSts} />)
           })
         }
       </div>

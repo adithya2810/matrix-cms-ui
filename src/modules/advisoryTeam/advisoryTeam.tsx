@@ -6,9 +6,12 @@ import MainBanner from './topBanner/mainBanner';
 export type Props = {
   invesmentTeam: any;
   operationsTeam: any;
+  deviceType: {
+    mobile: boolean;
+  }
 };
 
-const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam }) => {
+const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam, deviceType }) => {
 
   const [tabination, setTabination] = useState('currentTeam');
 
@@ -19,6 +22,7 @@ const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam }) => {
     <>
       <MainBanner
         banner={tabination === 'currentTeam' ? investmentBanner : operationsBanner}
+        mobile={deviceType.mobile}
       />
 
       <div style={{ position: 'relative' }}>

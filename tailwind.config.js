@@ -57,6 +57,9 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
       laptop: {
         min: "640px"
+      },
+      laptopCustom: {
+        min: "1024px"
       }
     },
     fontSize: {

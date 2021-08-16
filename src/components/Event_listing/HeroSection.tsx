@@ -8,11 +8,11 @@ type propsType = {
 const HeroSection: FC<propsType> = ({ title, pageType }) => {
   return (
     <>
-      <div className={`listing-hero-section overlay`} style={{ height: '51vh' }}>
-        <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
+      <div className={`listing-hero-section overlay`}>
+        <div className="title section laptopCustom:mt-20 laptopCustom:mb-12">
           {title}
         </div>
-        <div className="info">
+        <div className="info heroInfo">
           <p className="body1">
             Use the filter panel to find your specific topic of interest
           </p>

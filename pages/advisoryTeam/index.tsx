@@ -1,8 +1,8 @@
 import React from "react";
 import AdvisoryTeam from "../../src/modules/advisoryTeam";
 
-function AdvisoryTeamPage({ investment, operations }) {
-  return <AdvisoryTeam invesmentTeam={investment} operationsTeam={operations} />;
+function AdvisoryTeamPage(props) {
+  return <AdvisoryTeam deviceType={props.deviceType} invesmentTeam={props.investment} operationsTeam={props.operations} />;
 }
 
 

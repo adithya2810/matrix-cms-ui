@@ -5,9 +5,10 @@ export type Props = {
   subTitle?: string;
   bannerImg?: any;
   mobileBannerImg?: any;
+  mobile: boolean;
 };
 
-export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBannerImg }) => {
+export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBannerImg, mobile }) => {
 
   return (
     <>
@@ -31,11 +32,11 @@ export const Banner: React.FC<Props> = ({ title, subTitle, bannerImg, mobileBann
         </div>
       </div>
 
-      <div className="sm:block hidden w-full bg-cover bg-center c-bg relative" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${mobileBannerImg})` }}>
+      <div className="sm:block hidden w-full bg-cover bg-center relative c-bg" style={mobile ? { height: 365, backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${mobileBannerImg})` } : { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${mobileBannerImg})` }}>
         <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
           <div className="p-8">
-            <h1 className="text-white leading-tight text-5sm font-medium sm:text-left">{title}</h1>
-            <p className="text-white text-xl sm:text-left">{subTitle}</p>
+            <h1 className="text-white leading-tight text-5sm font-medium sm:text-left" style={mobile ? { fontSize: 45, lineHeight: '52px' } : {}}>{title}</h1>
+            <p className="text-white text-xl sm:text-left sm:font-medium sm:pt-2" style={mobile ? { fontSize: 18, lineHeight: '20px', letterSpacing: 0.25 } : {}}>{subTitle}</p>
             <div className="flex w-full relative position-bottom">
             </div>
           </div>

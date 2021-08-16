@@ -1583,6 +1583,91 @@ textarea {
     .ma-hide-mob {
         display: none;
     }
+    .contact-form{
+      input, textarea {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.1px;
+      }
+      textarea{
+        margin: 10px 0 15px 0;
+      }
+    }
+    .city-overlay {
+        display: block !important;
+        background: #01576E;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        color: #fbf9f5;
+        padding: 5px 10px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0.1px;
+    }
+    .contact-bg-overlay {
+        width: calc(100% - 6px) !important;
+        height: calc(100% - 6px);
+        position: absolute;
+        background: #01576E;
+        top: -6px;
+        left: -6px;
+        z-index: -1;
+    }
+    .contact-address {
+        position: relative !important;
+        z-index: 3 !important;
+        background: white !important;
+        top: 280px !important;
+        width: calc(100% - 50px) !important;
+        padding-left: 20px;
+        padding-top: 10px;
+        .map-info{
+          font-size: 18px;
+          line-height: 20px;
+          font-weight: 500;
+          letter-spacing: 0.1px;
+          padding-bottom: 10px;
+          border-bottom: 1.5px solid #000000;
+        }
+        .direction-link{
+          padding-left: 5px;
+          a{
+            font-size: 11px;
+            line-height: 14px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+          }
+        }
+    }
+    .contact-subHeading {
+      font-size: 25px !important;
+      margin-top: 20px !important;
+    }
+    .contact-addresses{
+      padding-bottom: 125px;
+      .under-line{
+        width: 100%;
+        margin: 10px 0;
+        background: #01576E;
+        height: 1.5px;
+      }
+      p:not(.main-txt){
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 14px;
+        letter-spacing: 0.6px;
+      }
+      .website-link{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.1px;
+      }
+    }
 }
 
 // blog details styles

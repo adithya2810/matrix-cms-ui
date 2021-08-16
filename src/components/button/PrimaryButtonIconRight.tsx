@@ -7,6 +7,7 @@ export type Props = {
   onClick?: () => void;
   className?: string;
   style?: any;
+  arrowClass?: string;
 };
 
 const Button: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<Props> = ({
   onClick,
   className = "",
   style = {},
+  arrowClass = ""
 }) => {
   return (
     <button
@@ -25,7 +27,7 @@ const Button: React.FC<Props> = ({
       className={`flex p-0.5 pl-0 items-center mt-2 ${className}`}
     >
       {" "}
-      {title} <img className="pl-2" src={url}></img>
+      {title} <img className={`pl-2 ${arrowClass}`} src={url}></img>
     </button>
   );
 };

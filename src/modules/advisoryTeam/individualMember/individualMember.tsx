@@ -40,7 +40,7 @@ const IndividualMember: FC<propsType> = (props) => {
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
         <div className="team-member-detail pr-5 sm:pr-0">
           <div style={{ position: 'relative' }} className="pb">
-            <div className="shadow-xl sm:shadow-none card">
+            <div className="card">
               <div className="member-profile-img ml-12 sm:ml-0">
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" />
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:block md:block lg:block hidden" />
@@ -139,7 +139,7 @@ const IndividualMember: FC<propsType> = (props) => {
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
-        <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col">
+        <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col" style={{ minHeight: 600 }}>
           <div className="flex justify-between -mt-20">
             <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {advisoryDetail.name.replace(' ', '\n')}</h3>
             <Link href="#" passHref>

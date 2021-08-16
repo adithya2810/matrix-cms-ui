@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import Button from "@components/button/PrimaryButtonIconRight";
 import Link from 'next/link';
 
+type propType = {
+  deviceType: {
+    mobile: boolean;
+  }
+}
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC<propType> = ({ deviceType }) => {
   const [contact, setContact] = useState({ name: '', company_name: '', company_brief: '', email: '', mobile: '' });
   const [attachment, setAttachment] = useState(null);
   const [msg, setMsg] = useState({ status: true, message: '' });
@@ -13,11 +18,11 @@ const ContactForm: React.FC = () => {
     address: ['197, 6th Main, 1st Cross,', 'HAL 2nd Stage, Indira Nagar,', 'Bengaluru 560038', '+91-80-25196000'],
     direction: "https://www.google.com/maps?q=12.974069,77.64189"
   }, {
-    city: "DELHI",
+    city: "Delhi",
     address: ['4th Floor, Aria Towers, ', 'JW Marriott, Asset Area 4,', 'Aerocity, New Delhi, 110037', '+91-11-49495000'],
     direction: "https://www.google.com/maps?q=28.552919,77.122233"
   }, {
-    city: "MUMBAI",
+    city: "Mumbai",
     address: ['601-602, Ceejay House,', 'Dr Annie Besant Road, Worli,', 'Mumbai 400018', '+91-22-67680000'],
     direction: "https://www.google.com/maps?q=18.990611,72.813306"
   }]
@@ -67,25 +72,25 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <div className="relative m-auto w-11/12	" style={{ marginTop: 100, marginBottom: 150 }}>
+    <div className="relative m-auto w-11/12	" style={deviceType.mobile ? {} : { marginTop: 100, marginBottom: 150 }}>
       <div className="row">
-        <div className="pr-24" style={{ flex: '65%' }}>
-          <h1 className="main-txt text-4xl first-head font-bold" style={{ lineHeight: '80px' }}>Vist our India Advisory Team Offices</h1>
+        <div className="pr-24 sm:pr-0" style={deviceType.mobile ? {} : { flex: '65%' }}>
+          <h1 className="main-txt text-4xl first-head font-bold" style={deviceType.mobile ? { fontSize: 47, lineHeight: '60px', letterSpacing: -0.1, fontWeight: 400 } : { lineHeight: '80px' }}>Vist our India Advisory Team Offices</h1>
           {details.map((data, i) => (
-            <div key={i} className="row pb-7 pr-2" style={{ marginTop: '50px', borderBottom: (details.length - 1) != i ? '1px solid rgba(1, 87, 110, 1)' : 'unset' }}>
-              <div style={{ flex: '75%' }} className="col-span-8 contact-address">
-                <div className="map-info border-b-2 mr-8 pb-5" style={{ borderColor: 'rgba(1, 87, 110, 1)' }}>
+            <div key={i} className="row pb-7 pr-2 sm:pb-0 sm:pr-4" style={deviceType.mobile ? {} : { marginTop: '50px', borderBottom: (details.length - 1) != i ? '1px solid rgba(1, 87, 110, 1)' : 'unset' }}>
+              <div style={deviceType.mobile ? {} : { flex: '75%' }} className="col-span-8 contact-address">
+                <div className="map-info border-b-2 mr-8 pb-5 sm:mr-0" style={deviceType.mobile ? {} : { borderColor: 'rgba(1, 87, 110, 1)' }}>
                   <a href="#" className="uppercase font-bold text-lg border-b-3 bbc">{data.city}</a>
                   <hr className="under-line" />
                   <p className="text-sm">{data.address[0]} <br />{data.address[1]} <br /> {data.address[2]} <br /> <br /><a href={data.address[3]}>{data.address[3]}</a></p>
                 </div>
-                <div className="direction-link mr-5" >
+                <div className="direction-link mr-5 sm:pt-1">
                   <Link href={data.direction}>
-                    <a className="flex">GET DIRECTION <span className="pt-2 hidden"><img src='/icons/blackArrow.svg' /></span></a>
+                    <a className="flex" style={{ display: 'flex' }}>GET DIRECTION <span className="pt-2 sm:pt-1 sm:pl-2"><img src='/icons/blackArrow.svg' /></span></a>
                   </Link>
                 </div>
               </div>
-              <div style={{ flex: '25%' }} className="col-span-4 relative">
+              <div style={deviceType.mobile ? { width: 'calc(100% - 40px)', height: '28vh', alignSelf: 'flex-end' } : { flex: '25%' }} className="col-span-4 relative">
                 <div className='city-overlay'>{data.city}</div>
                 <img className='contact-img' src="../../img/image 26.png" alt="" style={{ width: '100%', height: '100%' }} />
                 <div className="contact-bg-overlay "></div>
@@ -93,40 +98,42 @@ const ContactForm: React.FC = () => {
             </div>
           ))}
         </div>
-        <div style={{ flex: '35%' }}>
-          <h1 className="main-txt text-4xl lg:text-3xl font-bold form-heading" style={{ lineHeight: '80px' }}>Share your Business Plans</h1>
-          <form className='contact-form pt-10' onSubmit={submitContact}>
-            <label >Name</label>
+        <div className="sm:order-first" style={{ flex: '35%' }}>
+          <h1 className="main-txt text-4xl lg:text-3xl font-bold form-heading sm:font-normal" style={deviceType.mobile ? { fontSize: 48, lineHeight: '60px', letterSpacing: -2 } : { lineHeight: '80px' }}>Share your Business Plans</h1>
+          <form className='contact-form pt-10 sm:pt-5' onSubmit={submitContact}>
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>Name</label>
             <input type="text" name="name" required value={contact.name} onChange={(e) => handleChange(e, 'name')} placeholder="Name" />
-            <label >Company Name</label>
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>Company Name</label>
             <input type="text" value={contact.company_name} placeholder="Company Name" onChange={(e) => handleChange(e, 'company_name')} />
-            <label >What are you building?</label>
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>What are you building?</label>
             <textarea value={contact.company_brief} placeholder="Company Brief" onChange={(e) => handleChange(e, 'company_brief')} />
-            <label >File Attachment</label>
-            <input id="file983247" type="file" onChange={onFileChange} />
-            <label >Email Id</label>
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>File Attachment</label>
+            <input id="file983247" type="file" style={deviceType.mobile ? { padding: '4px 5px' } : {}} onChange={onFileChange} />
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>Email Id</label>
             <input type="email" name="email" required value={contact.email} placeholder="Contact Email" onChange={(e) => handleChange(e, 'email')} />
-            <label >Mobile Number</label>
+            <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>Mobile Number</label>
             <input type="text" name="mobile" value={contact.mobile} placeholder="Contact Number" onChange={(e) => handleChange(e, 'mobile')} />
             <Button
               type='submit'
               title="Apply"
               url="/icons/rightArrow.svg"
               className="text-lg leading-6"
+              arrowClass="sm:w-5 sm:pt-1"
+              style={deviceType.mobile ? { fontSize: 14, marginTop: 0, letterSpacing: 0, fontWeight: 500 } : {}}
             />
           </form>
           <div className="flex py-5" style={{ color: msg.status ? 'green' : 'red' }}>{msg.message}</div>
         </div>
       </div>
 
-      <h1 className="main-txt text-5xl font-bold" style={{ marginTop: '50px' }}>Matrix Partners Global</h1>
-      <div className='row'>
+      <h1 className="main-txt text-5xl font-bold sm:pt-44 sm:font-normal" style={deviceType.mobile ? { letterSpacing: -0.1 } : { marginTop: '50px' }}>Matrix Partners Global</h1>
+      <div className='row contact-addresses'>
         <div style={{ flex: '25%' }}>
           <p className='main-txt text-3xl contact-subHeading font-bold'>USA</p>
-          <hr className="under-line" style={{ width: '80%', margin: '15px 0 32px 0' }} />
-          <p>BOSTON</p><br />
-          <p>PALO ALTO</p><br />
-          <p>SAN FRANCISCO</p><br />
+          <hr className="under-line" style={deviceType.mobile ? {} : { width: '80%', margin: '15px 0 32px 0' }} />
+          <p className="pb-5 sm:pb-3">BOSTON</p>
+          <p className="pb-5 sm:pb-3">PALO ALTO</p>
+          <p className="pb-5 sm:pb-3">SAN FRANCISCO</p>
           <div className='website-link' style={{ display: 'flex' }}>
             <a href="https://www.matrixpartners.com/" target="__blank">Visit USA Website</a>
             <img style={{ marginLeft: '15px' }} src='/icons/-_.svg' /></div>
@@ -136,19 +143,16 @@ const ContactForm: React.FC = () => {
         </div>
         <div style={{ flex: '25%' }}>
           <p className='main-txt text-3xl contact-subHeading font-bold'>CHINA</p>
-          <hr className="under-line" style={{ width: '80%', margin: '15px 0 32px 0' }} />
-          <p>BEIJING</p><br />
-          <p>SHANGHAI</p><br />
+          <hr className="under-line" style={deviceType.mobile ? {} : { width: '80%', margin: '15px 0 32px 0' }} />
+          <p className="pb-5 sm:pb-3">BEIJING</p>
+          <p className="pb-5 sm:pb-3">SHANGHAI</p>
           <div className='website-link' style={{ display: 'flex' }}><a href="https://www.matrixpartners.com.cn/index.php/zh/" target="__blank">Visit China Website</a><img style={{ marginLeft: '15px' }} src='/icons/-_.svg' /></div>
 
           <p className='main-txt text-3xl contact-subHeading font-bold' style={{ marginTop: 60 }}>MAURITIUS</p>
-          <hr className="under-line" style={{ width: '80%', margin: '15px 0 32px 0' }} />
-          <p>PORT LOUIS</p><br />
-
+          <hr className="under-line" style={deviceType.mobile ? {} : { width: '80%', margin: '15px 0 32px 0' }} />
+          <p className="pb-5 sm:pb-3">PORT LOUIS</p>
         </div>
       </div>
-
-
     </div>
   )
 }

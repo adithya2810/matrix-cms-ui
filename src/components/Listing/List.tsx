@@ -30,7 +30,7 @@ const List: FC<propsType> = (props) => {
     })
   }, [])
   return (
-    <div className="section grid grid-cols-1 laptop:grid-cols-2 gap-12 sm:gap-4">
+    <div className="section grid grid-cols-1 laptop:grid-cols-2 gap-12 sm:gap-4 list_card_outer">
       {card.map((d, i) => (
         <Card key={i} {...props} {...d} />
       ))}

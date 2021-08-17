@@ -6,7 +6,7 @@ import Stats from './Stats';
 import SubmitPlan from './SubmitPlan';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {
@@ -18,9 +18,9 @@ const index: FC<propsType> = (props) => {
     <div>
       <HeroSection deviceType={props.deviceType} />
       <div className='grid grid-cols-2 sm:grid-cols-1'>
-        <AboutMatrix />
+        <AboutMatrix {...props} />
         <Stats {...props} />
-        <Partnering />
+        <Partnering {...props} />
         <SubmitPlan {...props} />
       </div>
     </div>

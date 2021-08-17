@@ -20,12 +20,12 @@ const Stats: FC<propsType> = ({ deviceType }) => {
   return (
     <div>
       {/* INDIA */}
-      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20'>INDIA</h6>
+      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20' style={deviceType.mobile ? { fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : {}}>INDIA</h6>
       <div className='flex laptop:justify-end sm:justify-center'>
-        <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 laptop:mt-16 laptop:ml-20">
+        <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 sm:mt-5 laptop:mt-16 laptop:ml-20">
           <div className='w-full flex justify-center laptop:my-5'>
-            <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 55 }} className='relative text-center'>$1B<span className='absolute laptop:-right-2 sm:top-5 top-6'><Plus /></span></div>
+            <div className='sm:mb-5'>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>$1B<span className='absolute laptop:-right-2 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>Under {!deviceType.mobile && <div style={{ marginBottom: 10 }} />}Management</h6>
             </div>
           </div>
@@ -33,20 +33,20 @@ const Stats: FC<propsType> = ({ deviceType }) => {
             <div className='bg-secondary h-5/6 w-full' />
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
-            <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 55 }} className='relative text-center'>60<span className='absolute right-2 sm:-right-4 sm:top-5 top-6'><Plus /></span></div>
+            <div className='sm:mb-5'>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>60<span className='absolute right-2 sm:-right-4 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>Investments</h6>
             </div>
           </div>
         </div>
       </div>
       {/* GLOBAL */}
-      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20'>GLOBAL</h6>
+      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20' style={deviceType.mobile ? { fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : {}}>GLOBAL</h6>
       <div className='laptop:flex laptop:justify-end'>
-        <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 laptop:mt-16 laptop:ml-20">
+        <div className="w-full laptop:flex laptop:bg-accent sm:text-accent laptop:text-white mt-10 sm:mt-5 laptop:mt-16 laptop:ml-20">
           <div className='w-full flex justify-center laptop:my-5'>
-            <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 55 }} className='relative text-center'>65<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
+            <div className='sm:mb-5'>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>65<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>IPOs</h6>
             </div>
           </div>
@@ -54,8 +54,8 @@ const Stats: FC<propsType> = ({ deviceType }) => {
             <div className='bg-secondary h-5/6 w-full' />
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
-            <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 55 }} className='relative text-center'>110<span className='absolute -right-1 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
+            <div className='sm:mb-5'>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>110<span className='absolute -right-1 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>Profitable {!deviceType.mobile && <div style={{ marginBottom: 10 }} />}Acqusitions</h6>
             </div>
           </div>
@@ -63,32 +63,32 @@ const Stats: FC<propsType> = ({ deviceType }) => {
             <div className='bg-secondary h-5/6 w-full' />
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
-            <div className='sm:mb-10'>
-              <div style={{ fontSize: deviceType.mobile ? 70 : 55 }} className='relative text-center'>$5B<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
+            <div className='sm:mb-5'>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>$5B<span className='absolute -right-7 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>Invested</h6>
             </div>
           </div>
         </div>
       </div>
-      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20 mb-10'>EARLY STAGE INVESTORS</h6>
-      <div className='flex sm:mx-8 ml-20 text-accent justify-evenly items-end mb-5 sm:mb-20 mr-14 sm:mr-0'>
+      <h6 className='opacity-40 sm:mt-10 mt-16 sm:mx-8 mx-20 mb-10' style={deviceType.mobile ? { fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : {}}>EARLY STAGE INVESTORS</h6>
+      <div className='flex sm:mx-8 ml-20 text-accent justify-evenly items-end mb-5 sm:mb-16 mr-14 sm:mr-0'>
         <div>
           <div><Seed /></div>
-          <h6 className='text-center mt-10'>SEED</h6>
+          <h6 className='text-center mt-10 sm:mt-8 sm:font-bold' style={deviceType.mobile ? { fontSize: 12, lineHeight: '10px' } : {}}>SEED</h6>
         </div>
         <div className='self-start mt-6 laptop:mt-14'>
           <Arrow />
         </div>
         <div>
           <div><SeriesA /></div>
-          <h6 className='text-center mt-10'>SERIES A</h6>
+          <h6 className='text-center mt-10 sm:mt-8 sm:font-bold' style={deviceType.mobile ? { fontSize: 12, lineHeight: '10px' } : {}}>SERIES A</h6>
         </div>
         <div className='self-start mt-6 laptop:mt-14'>
           <Arrow />
         </div>
         <div>
           <div><SeriesB /></div>
-          <h6 className='text-center mt-10'>SERIES B</h6>
+          <h6 className='text-center mt-10 sm:mt-8 sm:font-bold' style={deviceType.mobile ? { fontSize: 12, lineHeight: '10px' } : {}}>SERIES B</h6>
         </div>
       </div>
     </div>

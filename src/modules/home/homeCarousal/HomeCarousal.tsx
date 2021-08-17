@@ -143,6 +143,20 @@ const heroSlider02_Data = [
     background_url: '/icons/pexels-nav-photography.png',
     tagsDetails: "Country Delight aims to bring back the basics of Milk. It promises natural, fresh and unadulterated milk directly to the doorstep of the consumer.",
     logo: "/icons/Country Delight 1.svg",
+  },
+  {
+    id: "07",
+    name: [
+      { firstName: "Sourjyende ", lastName: "Medda" },
+      { firstName: "Rajat ", lastName: "Shikhar" },
+      { firstName: "Vinnet ", lastName: "Rao" },
+      { firstName: "Sankar ", lastName: "Bora" }
+    ],
+    title: "<span>Social</span><br>  Commerce",
+    founderImage: '/icons/Sourjyende-Rajat-Vinnet.png',
+    background_url: '/icons/Sourjyende-Rajat-Vinnet-bg.png',
+    tagsDetails: "DealShare is building a India-centric, “E-commerce 2.0” platform to satisfy the FMCG/grocery and general merchandize needs of lower-middle income consumers in Tier-2/3 cities.",
+    logo: "/icons/Dealshare-logo-white.png",
   }
 ]
 
@@ -232,7 +246,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
                     <div className="heroSlider02-contentSection" style={{ flex: "0 50%" }}>
                       <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: '8vh' }}>
                         {" "}
-                        {slider.id}/06
+                        {slider.id}/0{heroSlider02_Data.length}
                       </div>
                       <div className="pr-12 text-secondary-light heroSlider02-slide-title" style={mobile ? { fontSize: 25, paddingTop: 60 } : {}} dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
@@ -243,7 +257,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
                     />
                     <div className="heroSlider02-slide-indicator mobile" style={{ fontSize: 25 }}>
                       {" "}
-                      {slider.id}/06
+                      {slider.id}/0{heroSlider02_Data.length}
                     </div>
                   </div>
                 </div>

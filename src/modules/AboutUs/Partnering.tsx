@@ -15,16 +15,16 @@ const data = [
   },
 ]
 
-const Partnering = () => {
+const Partnering: React.FC<{ deviceType: { mobile: boolean; } }> = (props) => {
   return (
     <div className='sm:bg-secondary'>
-      <div className='m-20 sm:m-10'>
+      <div className='m-20 sm:m-8'>
         <h3 className='text-accent ma-about-fix'>Partnering with Matrix?</h3>
         <div className="my-16 sm:my-10">
           {
             data.map((d, i) => (
               <div key={i}>
-                <h6 className='mb-5 opacity-50 ma-font-fixq'>{d.question}</h6>
+                <h6 className='mb-5 opacity-50 ma-font-fixq' style={props.deviceType.mobile ? { fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : {}}>{d.question}</h6>
                 <div className="sub-h1 mb-16 sm:mb-10 ma-font-fixa">
                   {d.answer}
                 </div>

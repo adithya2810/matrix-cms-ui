@@ -7,7 +7,7 @@ const PortfolioHero = (props) => {
       title="We take pride in our partners’ achievements."
       bannerImg="../../../../img/Portfolio.png"
       mobileBannerImg="../../img/portfolio-mobile-banner.png"
-      mobile={props.devicType.mobile}
+      mobile={props.deviceType.mobile}
     />
 
   );

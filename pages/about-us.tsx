@@ -3,7 +3,7 @@ import AboutUs from '@modules/AboutUs';
 import React, { FC } from 'react';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

@@ -63,6 +63,20 @@ const founderData = [
     logo: "/icons/OfBusiness Logo 1.svg",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },
+  {
+    id: "05",
+    name: [
+      { firstName: "Sourjyende ", lastName: "Medda" },
+      { firstName: "Rajat ", lastName: "Shikhar" },
+      { firstName: "Vinnet ", lastName: "Rao" },
+      { firstName: "Sankar ", lastName: "Bora" }
+    ],
+    title: "We <span>partner</span><br> closely",
+    background_url: '/icons/Sourjyende-Rajat-Vinnet.png',
+    tags: ["Social", "Commerce"],
+    logo: "/icons/Dealshare-logo-white.png",
+    small_titles: [{ index: 1, title: "We are <br>founders first" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+  }
   // {
   //   id: "05",
   //   name: [

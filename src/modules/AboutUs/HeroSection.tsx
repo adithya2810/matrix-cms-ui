@@ -23,13 +23,14 @@ const HeroSection: FC<propsType> = ({ deviceType }) => {
     <>
       <Carousel autoPlay showThumbs={false} showArrows={false} showStatus={false} infiniteLoop={true} interval={6000} stopOnHover={false} transitionTime={1000} centerMode={false} onChange={index => setSlideCount(index + 1)}>
         {[1, 2, 3, 4, 5].map(ele => (
-          <div key={ele} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${data(deviceType.mobile).imgPath})`, height: deviceType.mobile ? 823 : '100vh', zIndex: 0 }}>
-            <div className="text-white relative -top-24" style={{ textAlign: 'start' }}>
-              <h3 className='opacity-40 mb-24 slider-num-ma'>0{slideCount}/05</h3>
-              <h5 className='mb-10 ma-slider-fix text-6xl leading-snug'>{data(deviceType.mobile).text}</h5>
-              <h6 className="font-normal" dangerouslySetInnerHTML={{ __html: data(deviceType.mobile).by }}></h6>
+          <div key={ele} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${data(deviceType.mobile).imgPath})`, height: '100vh', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
+            <div className="text-white relative -top-24 sm:-top-14" style={{ textAlign: 'start' }}>
+              <h3 className='opacity-40 mb-24 sm:mb-16 slider-num-ma'>0{slideCount}/05</h3>
+              <h5 className='mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light'>{data(deviceType.mobile).text}</h5>
+              <h6 className="font-normal sm:text-sm" dangerouslySetInnerHTML={{ __html: data(deviceType.mobile).by }} style={deviceType.mobile ? { letterSpacing: 0.1 } : {}}></h6>
+              <img className="absolute bottom-0 right-0" src="/icons/ola.svg" style={deviceType.mobile ? { display: 'block', width: 50 } : {}} />
             </div>
-            <img className="absolute bottom-12 right-8" src="/icons/ola.svg" style={{ width: 70 }} />
+            <img className="absolute bottom-12 right-8" src="/icons/ola.svg" style={deviceType.mobile ? { display: 'none', } : { width: 70 }} />
           </div>
         ))}
       </Carousel>

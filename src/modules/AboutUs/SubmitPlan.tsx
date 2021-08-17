@@ -16,8 +16,10 @@ const SubmitPlan: FC<propsType> = ({ deviceType: { mobile } }) => {
   const Arrow = mobile ? RightArrowWhiteMobile : RightArrowWhiteLaptop
   return (
     <div className='laptop:bg-secondary'>
-      <div className='m-20 sm:m-10'>
-        <h3 className='text-accent ma-about-fix text-center-ma'>So what comes<br /> after you have<br /> shouted Eureka?</h3>
+      <div className='m-20 sm:m-8'>
+        <h3 className='text-accent ma-about-fix text-center-ma'>
+          {mobile ? <>So what comes after you have shouted Eureka?</> : <>So what comes<br /> after you have<br /> shouted Eureka?</>}
+        </h3>
         <div className="sub-h1 mt-20 sm:mt-5 ma-font-fixa">
           Founders are always first in our eyes, whether you have just a nascent idea or are already running a business, let us help you turn your ideas into reality and grow your business.
         </div>

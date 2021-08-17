@@ -192,7 +192,8 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
           words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
         }
       }
-      return words.join(" ");
+      if (words.join(" ") == 'Amm') return 'AMM';
+      else return words.join(" ");
     }
     return '';
   };

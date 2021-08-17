@@ -1611,17 +1611,60 @@ textarea {
 }
 
 @media only screen and (max-width: 768px) {
-  .ma-hide-mob {
-    display: none;
-  }
-
-  .contact-form {
-    input,
-    textarea {
-      font-weight: 500;
+    .ma-hide-mob {
+        display: none;
+    }
+    .slider-num-ma{
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 28px;
+    }
+    .ma-font-fixa{
       font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.1px;
+    line-height: 20px;
+    }
+    .ma-stats-fix{
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .ma-about-fix{
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 28px;
+    }
+    .contact-form{
+      input, textarea {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.1px;
+      }
+      textarea{
+        margin: 10px 0 15px 0;
+      }
+    }
+    .city-overlay {
+        display: block !important;
+        background: #01576E;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        color: #fbf9f5;
+        padding: 5px 10px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0.1px;
+    }
+    .contact-bg-overlay {
+        width: calc(100% - 6px) !important;
+        height: calc(100% - 6px);
+        position: absolute;
+        background: #01576E;
+        top: -6px;
+        left: -6px;
+        z-index: -1;
     }
     textarea {
       margin: 10px 0 15px 0;
@@ -1700,7 +1743,6 @@ textarea {
       line-height: 18px;
       letter-spacing: 0.1px;
     }
-  }
 }
 
 // blog details styles

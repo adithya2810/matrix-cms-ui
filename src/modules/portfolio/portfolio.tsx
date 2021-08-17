@@ -14,7 +14,7 @@ const Portfolio: React.FC<Props> = ({ portfolio, deviceType }) => {
   const [tabination, setTabination] = useState('currentInvest');
   return (
     <div>
-      <PortfolioHero />
+      <PortfolioHero deviceType={deviceType} />
       <div className="relative">
         <div className="content-center m-auto tabination" style={deviceType.mobile ? {} : { top: '-4.3rem' }}>
           <button onClick={() => setTabination('currentInvest')}

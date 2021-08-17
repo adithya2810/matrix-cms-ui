@@ -32,7 +32,7 @@ export const FounderDetail: React.FC<Props> = ({
       <div className="heroSlider02-founderImage">
         <div className="founder-coverImage" style={mobile ? { backgroundImage: `url(${FounderDetail.founderImage})`, minHeight: 290 } : { backgroundImage: `url(${FounderDetail.founderImage})`, minHeight: 350 }}></div>
 
-        <div className="rectangleBoxIn" style={{ minHeight: 200, background: "#01576E" }}>
+        <div className="rectangleBoxIn" style={{ minHeight: (FounderDetail.name.length > 2) ? (200 + (FounderDetail.name.length - 2) * 29) : 200, background: "#01576E" }}>
           <svg className="absolute founderRectangle" style={{ top: '-63px' }} width="46" height="46" viewBox="0 0 56.167 56">
             <g transform="translate(0.167)">
               <rect id="Rectangle_1113" data-name="Rectangle 1113" width="50" height="50" transform="translate(3 3)" fill="none" stroke="#fbf9f5" strokeWidth="6" opacity="0.3" />
@@ -41,7 +41,7 @@ export const FounderDetail: React.FC<Props> = ({
           </svg>
           <div
             className={`text-center flex justify-center ${!mobile ? 'flex-col' : 'items-center'}`}
-            style={{ height: 90, borderBottom: "0.89491px solid #EBEBE9" }}
+            style={{ height: (FounderDetail.name.length > 2) ? (90 + (FounderDetail.name.length - 2) * 29) : 90, borderBottom: "0.89491px solid #EBEBE9" }}
           >
             <div className={`${mobile ? 'flex-grow' : ''}`}>
               {FounderDetail.name.map((name, ind) => {

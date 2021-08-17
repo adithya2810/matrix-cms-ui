@@ -163,7 +163,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
                       </div>
                     </div>
                   </div>
-                  <div className={`founderSection-rightOuter heroSlide${index + 1} sm:mt-10`}>
+                  <div className={`founderSection-rightOuter heroSlide${(index == 4) ? 2 : (index + 1)} sm:mt-10`}>
                     <h1 className="founderTitle" style={props.mobile ? { fontSize: '4rem', fontWeight: 300, lineHeight: 0.9 } : { letterSpacing: 1.5 }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
                     <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start', bottom: props.mobile ? '-5px' : '-20px' }}>
                       {getNumberfounder(founder.small_titles, index)}

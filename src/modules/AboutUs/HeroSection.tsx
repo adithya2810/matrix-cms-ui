@@ -28,7 +28,7 @@ const HeroSection: FC<propsType> = ({ deviceType }) => {
               <h3 className='opacity-40 mb-24 sm:mb-16 slider-num-ma'>0{slideCount}/05</h3>
               <h5 className='mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light'>{data(deviceType.mobile).text}</h5>
               <h6 className="font-normal sm:text-sm" dangerouslySetInnerHTML={{ __html: data(deviceType.mobile).by }} style={deviceType.mobile ? { letterSpacing: 0.1 } : {}}></h6>
-              <img className="absolute bottom-0 right-0" src="/icons/ola.svg" style={deviceType.mobile ? { display: 'block', width: 50 } : {}} />
+              <img className="absolute bottom-0 right-0" src="/icons/ola.svg" style={deviceType.mobile ? { width: 50 } : { display: 'none' }} />
             </div>
             <img className="absolute bottom-12 right-8" src="/icons/ola.svg" style={deviceType.mobile ? { display: 'none', } : { width: 70 }} />
           </div>

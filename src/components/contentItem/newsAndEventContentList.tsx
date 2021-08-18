@@ -2,6 +2,7 @@ import React from "react";
 import { Image } from "@components";
 import Button from "@components/button/PrimaryButtonIconRight";
 import getContentTypeImageUrl from "../../../utils/getContentTypeImageUrl";
+import Link from 'next/link';
 
 export type Props = {
   image_url: string;
@@ -30,9 +31,10 @@ export const NewsEventContentItem: React.FC<Props> = ({
       <div className="content-item-desc bg-secondary-light absolute p-3"
         style={{ bottom: "-2rem", left: "6rem" }}
       >
-        <h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
+        <a href={blog_url}><h5 className="text-base font-medium leading-6 text-primary-dark ml-2 p-0.5">
           {title}
         </h5>
+        </a>
         <div className="flex justify-between mt-3 contentButtonWrap">
           <Button
             title={"Read More"}

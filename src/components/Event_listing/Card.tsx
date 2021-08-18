@@ -39,12 +39,9 @@ const Card: FC<propsType> = (props) => {
       >
         <div className="caption text-accent-dark mb-2 lg:mb-2">{props.createdAt.slice(0, 10)}</div>
         <div className="sub-h1 Manrope-normal" style={{ fontWeight: 400, fontSize: '24px', lineHeight: '34px', letterSpacing: '1px' }}>{props.name}</div>
-        <p className="caption ">
-          <Markup content={props.description.slice(0, 200)} />
-        </p>
+        <p className="font-medium" style={{ color: '#083A4A', fontSize: 13 }} dangerouslySetInnerHTML={{ __html: props.description.slice(0, 200) }}></p>
         <div className="read-or-hide">
-          <Link href={url}>Read More </Link>
-          {/* <img src='/icons/arrow_b.svg' /> */}
+          <Link href={url}><a className="flex">Read More <img className="pl-2 pt-1" src='/icons/arrow_b.svg' /></a></Link>
         </div>
       </div>
     </div>

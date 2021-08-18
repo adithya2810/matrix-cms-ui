@@ -13,7 +13,7 @@ const RoleDescription: React.FC<{ deviceType: { mobile: boolean; } }> = (props) 
       </div>
 
       <div className="col-span-1 pl-28 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-6 sm:pr-5 sm:pb-5 lg:pl-16 pb-16">
-        <h3 className="hidden md:block sm:block text-4xl leading-none font-bold sm:font-normal text-accent sm:capitalize sm:text-lg" style={props.deviceType.mobile ? { fontSize: 24, lineHeight: '20px', letterSpacing: 0.1 } : {}}>Executive Assistant</h3>
+        {/* <h3 className="hidden md:block sm:block text-4xl leading-none font-bold sm:font-normal text-accent sm:capitalize sm:text-lg" style={props.deviceType.mobile ? { fontSize: 24, lineHeight: '20px', letterSpacing: 0.1 } : {}}>Executive Assistant</h3>
         <p className="hidden md:block sm:block opacity-40 sm:opacity-60 text-primary-dark home-content-tab3 leading-none sm:uppercase pt-2 sm:pt-1" style={props.deviceType.mobile ? { fontSize: 10 } : {}}>{"("}Delhi - Aerocity{")"}</p>
         <h3 className="text-3xl leading-none font-extrabold sm:font-medium text-black sm:uppercase sm:text-lg pt-8 sm:pt-7">JOB RESPONSIBILITIES</h3>
         <p className="text-3xl leading-snug font-normal sm:font-light text-black pt-3 sm:text-lg sm:pt-5">
@@ -39,7 +39,7 @@ const RoleDescription: React.FC<{ deviceType: { mobile: boolean; } }> = (props) 
         <p className="text-3xl leading-snug font-normal text-black pt-6 sm:text-lg sm:pt-5">
           Years of Expericence : 3-14 Years
         </p>
-        <h3 className="text-3xl leading-none font-bold sm:font-semibold text-accent pt-14 sm:text-xs sm:pt-5 sm:capitalize">Apply -{'>'}</h3>
+        <h3 className="text-3xl leading-none font-bold sm:font-semibold text-accent pt-14 sm:text-xs sm:pt-5 sm:capitalize">Apply -{'>'}</h3> */}
       </div>
     </>
 

@@ -157,6 +157,19 @@ const heroSlider02_Data = [
     background_url: '/icons/Sourjyende-Rajat-Vinnet-bg.png',
     tagsDetails: "DealShare is building a India-centric, “E-commerce 2.0” platform to satisfy the FMCG/grocery and general merchandize needs of lower-middle income consumers in Tier-2/3 cities.",
     logo: "/icons/Dealshare-logo-white.png",
+  },
+  {
+    id: "08",
+    name: [
+      { firstName: "Vaibhav ", lastName: "Hathi" },
+      { firstName: "Anurag ", lastName: "Sinha" },
+      { firstName: "Rupesh ", lastName: "Kumar" }
+    ],
+    title: "A <span>mobile-first</span><br> credit card",
+    founderImage: '/icons/onecard-boiss.png',
+    background_url: '/icons/onecard-bg.png',
+    tagsDetails: "India's best metal credit card. Built with full-stack tech. Backed by the principles of simplicity, transparency, and giving back control to the user.",
+    logo: "/icons/onecard-logo.png",
   }
 ]
 

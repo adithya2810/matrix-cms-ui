@@ -78,7 +78,7 @@ const ContactForm: React.FC<propType> = ({ deviceType }) => {
           <h1 className="main-txt text-4xl first-head font-bold" style={deviceType.mobile ? { fontSize: 47, lineHeight: '60px', letterSpacing: -0.1, fontWeight: 400 } : { lineHeight: '80px' }}>Vist our India Advisory Team Offices</h1>
           {details.map((data, i) => (
             <div key={i} className="row pb-7 pr-2 sm:pb-0 sm:pr-4" style={deviceType.mobile ? {} : { marginTop: '50px', borderBottom: (details.length - 1) != i ? '1px solid rgba(1, 87, 110, 1)' : 'unset' }}>
-              <div style={deviceType.mobile ? {} : { flex: '75%' }} className="col-span-8 contact-address">
+              <div style={deviceType.mobile ? { top: 280 } : { flex: '75%', marginRight: 6 }} className="col-span-8 contact-address">
                 <div className="map-info border-b-2 mr-8 pb-5 sm:mr-0" style={deviceType.mobile ? {} : { borderColor: 'rgba(1, 87, 110, 1)' }}>
                   <a href="#" className="uppercase font-bold text-lg border-b-3 bbc">{data.city}</a>
                   <hr className="under-line" />
@@ -86,7 +86,7 @@ const ContactForm: React.FC<propType> = ({ deviceType }) => {
                 </div>
                 <div className="direction-link mr-5 sm:pt-1">
                   <Link href={data.direction}>
-                    <a className="flex" style={{ display: 'flex' }}>GET DIRECTION <span className="pt-2 sm:pt-1 sm:pl-2"><img src='/icons/blackArrow.svg' /></span></a>
+                    <a className="flex" style={{ display: 'flex' }}>GET DIRECTION <span className="pt-1 sm:pl-2"><img src='/icons/blackArrow.svg' /></span></a>
                   </Link>
                 </div>
               </div>

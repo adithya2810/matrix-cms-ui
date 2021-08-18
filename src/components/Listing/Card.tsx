@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import Link from 'next/link'
 import { Markup } from 'interweave';
+import moment from 'moment';
 
 type deviceType = {
   mobile: Boolean;
@@ -11,7 +12,7 @@ type propsType = {
   deviceType: deviceType;
   imageurl: any;
   extratag: any;
-  createdAt: any;
+  date: Date;
   title: string;
   body: string;
   id: any;
@@ -42,14 +43,11 @@ const Card: FC<propsType> = (props) => {
           width: props.deviceType?.mobile ? '93%' : '100%',
         }}
       >
-        <div className="caption text-accent-dark mb-2 lg:mb-2">{props.createdAt.slice(0, 10)}</div>
+        <div className="caption text-accent-dark mb-2 lg:mb-2">{moment(props?.date).format('YYYY-MM-DD')}</div>
         <div className="sub-h1 Manrope-normal" style={{ fontWeight: 400, fontSize: '24px', lineHeight: '34px', letterSpacing: '1px' }}>{props.title}</div>
-        <p className="caption news-body">
-          <Markup content={props.body.slice(0, 200)} />
-          {/* // {props.body.slice(0, 200)} */}
-        </p>
+        <p className="caption news-body" dangerouslySetInnerHTML={{ __html: props.body.slice(0, 200) }}></p>
         <div className="read-or-hide">
-          {<Link href={url}>Read More </Link>}
+          {<Link href={url}><a className="flex">Read More <img className="pl-2 pt-1" src='/icons/arrow_b.svg' /></a></Link>}
         </div>
       </div>
     </div>

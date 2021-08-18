@@ -75,6 +75,19 @@ const founderData = [
     background_url: '/icons/Sourjyende-Rajat-Vinnet.png',
     tags: ["Social", "Commerce"],
     logo: "/icons/Dealshare-logo-white.png",
+    small_titles: [{ index: 6, title: "A mobile-first<br> credit card" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+  },
+  {
+    id: "06",
+    name: [
+      { firstName: "Vaibhav ", lastName: "Hathi" },
+      { firstName: "Anurag ", lastName: "Sinha" },
+      { firstName: "Rupesh ", lastName: "Kumar" }
+    ],
+    title: "A <span>mobile-first</span><br> credit card",
+    background_url: '/icons/onecard-boiss.png',
+    tags: ["Mobile"],
+    logo: "/icons/onecard-logo.png",
     small_titles: [{ index: 1, title: "We are <br>founders first" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   }
   // {

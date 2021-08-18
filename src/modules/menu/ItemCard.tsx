@@ -13,14 +13,15 @@ export type Props = {
   newsEventData?: Array<any>
   page_url?: string;
   mobile: boolean;
+  total?: number;
 }
 
-export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData, page_url, mobile }) => {
+export const ContentList: React.FC<Props> = ({ blogData, header, isNewsEvent, newsEventData, page_url, mobile, total }) => {
   return (<div className="ml-8 flex-grow sm:hidden seperator">
     <div className="flex justify-between ">
       <div className="mb-3">
         <span className="font-light text-2xl leading-8 tracking-tighter text-primary"> {header} </span>
-        <span className="ml-2 pl-1 text-accent">({blogData.length})</span>
+        <span className="ml-2 pl-1 text-accent">({total ? total : blogData.length})</span>
       </div>
 
       <SecondaryButton

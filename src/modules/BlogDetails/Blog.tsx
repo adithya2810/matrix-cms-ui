@@ -37,7 +37,7 @@ const Blog: FC<propsType> = ({ deviceType: { mobile }, blogDetails }) => {
       {
         <div className={`blog-content w-full ${blogDetails?.date ? '' : 'mb-10'}`} dangerouslySetInnerHTML={{ __html: contentTypeHtml(blogDetails) }} />
       }
-      {blogDetails?.date && <p className="mb-10 text-sm">{moment(blogDetails.date).format('MMMM Do YYYY, h:mm:ss a')}</p>}
+      {blogDetails?.date && <p className="mb-10 text-sm">{moment(blogDetails.date).format('Do MMM, YYYY')}</p>}
       <div className="blog-content pb-16 text-justify" dangerouslySetInnerHTML={{ __html: blogDetails?.content }} />
     </div>
   )

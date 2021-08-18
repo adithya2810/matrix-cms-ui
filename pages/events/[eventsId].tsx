@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import Details from "../../src/modules/Events/details";
 
-const DetailsPage: FC = () => {
+const DetailsPage: FC = (props) => {
   return (
-    <Details />
+    <Details {...props} />
   );
 };
 

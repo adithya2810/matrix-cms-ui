@@ -19,6 +19,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
   const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
 
+  const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const filterRef = useRef(null);
@@ -28,15 +29,19 @@ const SearchMoreLaptop = ({ deviceType }) => {
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
       setIsFilterBoxOpen(false);
+    setIsTwitterBoxOpen(false);
   };
 
   useEffect(() => {
-    if (isFilterBoxOpen) document.addEventListener('click', handleClickEvent);
+    if (isFilterBoxOpen || isTwitterBoxOpen) document.addEventListener('click', handleClickEvent);
 
     return () => document.removeEventListener('click', handleClickEvent);
-  }, [isFilterBoxOpen]);
+  }, [isFilterBoxOpen, isTwitterBoxOpen]);
 
-  const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
+  const handleFilter = (_) => {
+    setIsFilterBoxOpen(!isFilterBoxOpen)
+    setIsTwitterBoxOpen(false);
+  };
 
   function isElementOutViewport(el) {
     var rect = el.getBoundingClientRect();
@@ -78,7 +83,12 @@ const SearchMoreLaptop = ({ deviceType }) => {
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
-          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }}>
+          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }}
+            onClick={() => {
+              setIsTwitterBoxOpen(!isTwitterBoxOpen)
+              setIsFilterBoxOpen(false)
+            }}
+          >
             {TwitterIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
@@ -117,6 +127,13 @@ const SearchMoreLaptop = ({ deviceType }) => {
             </div>
           </div>
         }
+
+        <div className={`twitter_outerWarp opened duration-300 relative`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
+          <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
+            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          </div>
+        </div>
 
       </div>
     </>

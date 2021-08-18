@@ -21,7 +21,7 @@ export const ContentSlider: React.FC<Props> = ({ contentList, className, header,
   var settings;
   settings = {
     dots: true,
-    autoplay: false,
+    autoplay: true,
     arrows: false,
     autoplaySpeed: 4000,
     infinite: false,

@@ -84,7 +84,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
             return (
               <div
                 key={menuItem.key}
-                className={`flex justify-between ${menuItem.key}`}
+                className={`flex justify-between ${menuItem.key} cursor-pointer`}
                 style={{ marginBottom: 10 }}
                 onClick={() => menuClicked("SECONDARY_MENU", menuItem.key, index)}
               >

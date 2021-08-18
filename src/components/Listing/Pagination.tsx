@@ -30,29 +30,29 @@ const getPagination = (currentPage, totalPages, push) => {
     l = i;
   }
   return rangeWithDots.reduce((acc, n) => {
-    if (n < 10) n = '0' + n;
-    acc.push(<div onClick={_ => +n && window.location.replace(`/news?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage === +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{n}</div>)
+    acc.push(<div key={n} onClick={_ => +n != current && window.location.replace(`/news?page=${n}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{(n < 10) ? `0${n}` : n}</div>)
     return acc
   }, []);
 }
 
-const Pagination = () => {
+const Pagination: React.FC<{ total: number; }> = ({ total }) => {
   // const totalPages = 2;
-  const { query: { page }, push } = useRouter()
+  const { query, push } = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
+  const totalPages = total;
+
+  const page = (v) => v;
+
+  useEffect(() => {
+    if (query.page) {
+      setCurrentPage(page(query.page));
+      console.info(currentPage);
+    }
+  }, [query.page]);
 
   const handlePrevPage = _ => currentPage !== 1 && window.location.replace(`/news?page=${currentPage - 1}`)
   const handleNextPage = _ => currentPage !== totalPages && window.location.replace(`/news?page=${currentPage + 1}`)
 
-  useEffect(() => {
-    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count').then(res => {
-      setTotalPages(Math.round(res.data / 10))
-    }).catch(err => {
-      console.log(err);
-    })
-    setCurrentPage(+page || 1)
-  }, [page])
   return (
     <div className='flex justify-center sm:block mt-20 mb-16'>
       <div className='bg-grey flex justify-center items-center px-10 py-4'>

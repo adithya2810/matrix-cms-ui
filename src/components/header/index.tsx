@@ -15,7 +15,7 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
   const siteLogoWhite = '/icons/MatrixLogoFinal_White.svg';
 
   const isSiteBgtrans = () => {
-    const brightPages = ['/home', '/advisoryTeam/[slug]', '/news/[newsId]', '/contact'];
+    const brightPages = ['/home', '/advisoryTeam/[slug]', '/events/[eventsId]', '/news/[newsId]', '/contact'];
     const mobileBrightPages = ['/advisoryTeam/[slug]'];
     return !(mobile && _.indexOf(mobileBrightPages, router.route) != -1) && _.indexOf(brightPages, router.route) != -1;
   }

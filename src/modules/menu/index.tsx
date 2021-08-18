@@ -59,6 +59,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
   const [nonSectorialList, SetNonSectorialList] = useState([]);
   const [selectedTag, setSelectedTag] = useState([]);
   const [blogData, setBlogData] = useState([]);
+  const [blogCount, setBlogCount] = useState(null);
   const [menuIndex, setMenuIndex] = useState(null);
   const [newsInfoList, setNewsInfoList] = useState([]);
   const [eventInfoList, setEventInfoList] = useState([])
@@ -152,7 +153,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
   }
 
   const getReleventBlogs = async (selectedTag) => {
-    let url; let param;
+    let url; let param; let _blogCount;
     let filterSectSlug = sectorialList.filter(tag => selectedTag.indexOf(tag.id) > -1)
       .map(tag => { return tag.slug });
     let filterNonSectSlug = nonSectorialList.filter(tag => selectedTag.indexOf(tag.id) > -1)
@@ -187,6 +188,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
             youtube_embed
           }
       }`};
+      setBlogCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count')).json());
     } else if (selectedTag.length > 0) {
       // param = filterSectSlug.concat(filterNonSectSlug).join('&slug=')
       // url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?slug=' + param;
@@ -219,6 +221,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
           }
       }`, variables: { tags: { tags: { slug_in: filterSectSlug.concat(filterNonSectSlug) } } }
       };
+      setBlogCount(null)
     }
 
     const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
@@ -317,7 +320,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList mobile={mobile} blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
+            <ContentList mobile={mobile} blogData={blogData} total={blogCount ? blogCount : blogData.length} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
             <Button
               title={"Visit " + "Blog Page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"

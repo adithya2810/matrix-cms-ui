@@ -14,24 +14,21 @@ const getFilters = (filters) => {
   ));
 };
 
-const AppliedFilters: FC = () => {
+const AppliedFilters: FC<{ total: number }> = ({ total }) => {
   const { query } = useRouter();
-  const [totalPages, setTotalPages] = useState(1)
-
-  useEffect(() => {
-    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count').then(res => {
-      setTotalPages(Math.round(res.data / 10))
-    }).catch(err => {
-      console.log(err);
-    })
-
-  }, [])
+  const page = (v: any) => {
+    if (v) {
+      return v > 9 ? v : `0${v}`;
+    } else {
+      return '01';
+    }
+  };
 
   return (
     <div className="section">
       <div className="laptop:flex laptop:items-center mt-10 mb-6 sm:mt-5 sm:mb-3">
         <div className="sub-h2 text-accent-dark laptop:mr-32 sm:mb-5">
-          Page <span className="text-accent-light"> {query.page ? query.page : '01'} </span>/ {totalPages}
+          Page <span className="text-accent-light"> {page(query.page)} </span>/ {total < 10 ? `0${total}` : total}
         </div>
         {/* <div className="justify-self-center flex gap-4 laptop:mr-8 sm:overflow-x-scroll">
           {getFilters(['Consumer', 'Healthtech', 'distribution', 'Leadership'])}

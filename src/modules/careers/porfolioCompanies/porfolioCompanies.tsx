@@ -37,10 +37,11 @@ const RolesContent: React.FC<{ mobile: boolean; }> = (props) => {
 
   return (
     <div className="grid grid-cols-7 pt-20 mx-20 sm:mx-0 sm:pt-10 sm:px-10">
-      <RoleTabs {...props} tabList={roleContentTabs} selectedTab={selectedTab} onTabSelected={onTabSelected} />
+      {/* <RoleTabs {...props} tabList={roleContentTabs} selectedTab={selectedTab} onTabSelected={onTabSelected} />
       <div className="md:hidden sm:hidden team-member cursor-pointer col-span-5" style={{ paddingTop: 10, marginBottom: 100, }}>
         <RoleDescription deviceType={{ mobile: props.mobile }} />
-      </div>
+      </div> */}
+      <h2 className="col-span-full pb-16 text-center font-normal text-8xl sm:font-medium sm:text-4xl" style={{ color: '#01576E' }}>No current openings</h2>
     </div>
   );
 };

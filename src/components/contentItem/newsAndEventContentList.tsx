@@ -21,6 +21,9 @@ export const NewsEventContentItem: React.FC<Props> = ({
   blog_url,
   onClick
 }) => {
+
+  if (!image_url) image_url = '/icons/matrixLogo.svg';
+
   return (
     <div className={`${className} relative mb-12 ml-0`}  >
       <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>

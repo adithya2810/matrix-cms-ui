@@ -138,7 +138,7 @@ const IndividualMember: FC<propsType> = (props) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
+      {advisoryDetail.blogs.length > 0 && <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
         <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col" style={{ minHeight: 600 }}>
           <div className="flex justify-between -mt-20">
             <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {advisoryDetail.name.replace(' ', '\n')}</h3>
@@ -227,7 +227,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </div>
           })}
         </div>
-      </div>
+      </div>}
 
     </div>
   );

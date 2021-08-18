@@ -32,6 +32,11 @@ const Home: React.FC<propType> = ({ deviceType }) => {
         {tabination === 'porfolioCompanies' &&
           <PorfolioCompanies mobile={deviceType.mobile} />
         }
+        {tabination === 'matrixPartners' &&
+          <div className="grid grid-cols-7 pt-20 mx-20 sm:mx-0 sm:pt-10 sm:px-10">
+            <h2 className="col-span-full pb-16 text-center font-normal text-8xl sm:font-medium sm:text-4xl" style={{ color: '#01576E' }}>No current openings</h2>
+          </div>
+        }
 
       </div>
     </>

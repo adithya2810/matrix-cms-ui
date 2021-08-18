@@ -80,9 +80,9 @@ const ContactForm: React.FC<propType> = ({ deviceType }) => {
             <div key={i} className="row pb-7 pr-2 sm:pb-0 sm:pr-4" style={deviceType.mobile ? {} : { marginTop: '50px', borderBottom: (details.length - 1) != i ? '1px solid rgba(1, 87, 110, 1)' : 'unset' }}>
               <div style={deviceType.mobile ? { top: 280 } : { flex: '75%', marginRight: 6 }} className="col-span-8 contact-address">
                 <div className="map-info border-b-2 mr-8 pb-5 sm:mr-0" style={deviceType.mobile ? {} : { borderColor: 'rgba(1, 87, 110, 1)' }}>
-                  <a href="#" className="uppercase font-bold text-lg border-b-3 bbc">{data.city}</a>
-                  <hr className="under-line" />
-                  <p className="text-sm">{data.address[0]} <br />{data.address[1]} <br /> {data.address[2]} <br /> <br /><a href={data.address[3]}>{data.address[3]}</a></p>
+                  <a href="#" className="uppercase font-bold text-lg border-b-3 bbc"><u>{data.city}</u></a>
+                  {/* <hr className="under-line" /> */}
+                  <p className="text-sm pt-2">{data.address[0]} <br />{data.address[1]} <br /> {data.address[2]} <br /> <br /><a href={data.address[3]}>{data.address[3]}</a></p>
                 </div>
                 <div className="direction-link mr-5 sm:pt-1">
                   <Link href={data.direction}>

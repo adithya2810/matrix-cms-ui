@@ -96,6 +96,7 @@ const BlogDetails: FC<propsType> = (props) => {
           updatedAt
           youtube_embed
           audioboomembed
+          date
         }
       }`;
 

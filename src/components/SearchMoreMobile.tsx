@@ -11,9 +11,10 @@ import {
   FilterMobile,
   RightArrowAccentLaptop
 } from '@components/Icons';
+import router from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
-const SearchMoreLaptop = ({ deviceType }) => {
+const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, video: 0 } }) => {
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const LinkedInIcon = deviceType.mobile ? <LinkedInMobile /> : <LinkedInLaptop />
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
@@ -24,6 +25,12 @@ const SearchMoreLaptop = ({ deviceType }) => {
   const filterRef = useRef(null);
 
   const handleFilter = () => setIsSearchBoxOpen(!isSearchBoxOpen);
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && inputText.trim() != "") {
+      router.push(`/blogs?search=${inputText}`);
+    }
+  }
 
   return (
     <>
@@ -50,11 +57,11 @@ const SearchMoreLaptop = ({ deviceType }) => {
                 className={`px-14 py-10 sm:px-7 sm:py-5`}
               >
                 <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div>
-                <h5 className='text-accent'>87654</h5>
+                <h5 className='text-accent'>{blogCount.article}</h5>
                 <div className="body1 text-accent-dark mb-7">Articles</div>
-                <h5 className='text-accent'>59</h5>
+                <h5 className='text-accent'>{blogCount.audio}</h5>
                 <div className="body1 text-accent-dark mb-7">Podcasts</div>
-                <h5 className='text-accent'>14</h5>
+                <h5 className='text-accent'>{blogCount.video}</h5>
                 <div className="body1 text-accent-dark">Videos</div>
 
                 <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-14 w-full">
@@ -80,6 +87,7 @@ const SearchMoreLaptop = ({ deviceType }) => {
               onChange={(e) => setInputText(e.target.value)}
               placeholder="search for more blogs"
               onBlur={handleFilter}
+              onKeyDown={handleKeyDown}
             />
           </div>}
           <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">

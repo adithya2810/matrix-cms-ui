@@ -66,7 +66,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             textAlign: "center",
           }}
         >
-          <div
+          {image_caption && <div
             className="text-xl font-medium text-secondary-light text-center sm:text-sm"
             style={{
               lineHeight: "30px",
@@ -77,7 +77,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             }}
           >
             {image_caption}
-          </div>
+          </div>}
         </div>
       </div>
       <div

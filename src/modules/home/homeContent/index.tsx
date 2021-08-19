@@ -53,7 +53,7 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
     const featureData = json.map(blogData => {
       return {
         image_url: blogData.cover_desktop || "/icons/homeContentImage.svg",
-        image_caption: "MOST SEARCHED",
+        image_caption: "",
         title: blogData.name,
         author: blogData.author[0]?.name || "Sanjot Malhi",
         designation: blogData.author[0]?.designation || "Director",

@@ -28,6 +28,7 @@ const BlogDetails: FC<propsType> = (props) => {
   const { query: { slug } } = useRouter()
   const [blogDetails, setBlogDetails] = useState<BlogProvider>()
   const [relatedVideos, setRelatedVideos] = useState([])
+  const [blogCount, setBlogCount] = useState(null);
   useEffect(() => {
     fetchData(slug)
   }, [slug])
@@ -109,24 +110,23 @@ const BlogDetails: FC<propsType> = (props) => {
       });
 
       const gfql_data = await gfql.json();
-      // console.log("gfl", gfql_data);
 
       setBlogDetails(gfql_data.data.blogs[0])
 
-      // const resBlogs = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?slug=${slug}`)
-      // const dataBlogs = await resBlogs.json();
-      // setBlogDetails(dataBlogs?.[0])
-
-      // const tags = gfql_data.data.blogs[0]?.tags.map(t => `slug=${t.slug}`)?.join('&')
-      // const resRelatedVideos = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?${tags}&_limit=4`)
       let relatedVideosArr = [];
       const dataRelatedVideos = gfql_data.data.blogs[0]?.tags
-      // const dataRelatedVideos = await resRelatedVideos.json()
       dataRelatedVideos.forEach(d => {
         relatedVideosArr.push(...d.blogs)
       });
       relatedVideosArr = _.uniqWith(relatedVideosArr, _.isEqual);
       setRelatedVideos(relatedVideosArr.slice(0, 4))
+
+      setBlogCount({
+        article: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Article`)).json(),
+        audio: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Audio`)).json(),
+        video: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Video`)).json(),
+      });
+
     } catch (e) {
       console.log(e)
     }
@@ -142,9 +142,9 @@ const BlogDetails: FC<propsType> = (props) => {
           <RelatedVideos mobile={props.deviceType.mobile} relatedVideos={relatedVideos} />
         }
         {!props.deviceType.mobile ?
-          <SearchMoreLaptop {...props} />
+          <SearchMoreLaptop {...props} blogCount={blogCount} />
           :
-          <SearchMoreMobile {...props} />}
+          <SearchMoreMobile {...props} blogCount={blogCount} />}
       </div>
     </div>
   )

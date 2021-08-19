@@ -11,9 +11,11 @@ import {
   FilterMobile,
   RightArrowAccentLaptop
 } from '@components/Icons';
+import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
-const SearchMoreLaptop = ({ deviceType }) => {
+const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, video: 0 } }) => {
+  const router = useRouter();
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const LinkedInIcon = deviceType.mobile ? <LinkedInMobile /> : <LinkedInLaptop />
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
@@ -55,6 +57,12 @@ const SearchMoreLaptop = ({ deviceType }) => {
     })
     return () => setFooterInView(false);
   }, []);
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && inputText.trim() != "") {
+      router.push(`/blogs?search=${inputText}`);
+    }
+  }
 
   return (
     <>
@@ -102,9 +110,11 @@ const SearchMoreLaptop = ({ deviceType }) => {
           >
             <div className={`search px-9 sm:hidden h-24 sm:h-14 flex items-center bg-accent`} style={deviceType.mobile ? {} : { height: 88 }}>
               <input
-                className={`w-full  body1 border-none outline-none  bg-accent text-white`}
+                className={`w-full  body1 border-none outline-none bg-accent text-white`}
+                value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="search for more blogs"
+                onKeyDown={handleKeyDown}
               />
             </div>
             <div
@@ -112,11 +122,11 @@ const SearchMoreLaptop = ({ deviceType }) => {
               style={{ height: 'auto' }}
             >
               <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div>
-              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>87654</h5>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.article}</h5>
               <div className="body1 text-accent-dark mb-3">Articles</div>
-              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>59</h5>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.audio}</h5>
               <div className="body1 text-accent-dark mb-3">Podcasts</div>
-              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>14</h5>
+              <h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.video}</h5>
               <div className="body1 text-accent-dark pb-16">Videos</div>
 
               <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full">

@@ -233,14 +233,14 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
     });
 
     const json = await response.json();
-    // console.log('rrr', json)
+    // console.log('rrr', json.data)
     const blogList = json.data.blogs.map(blog => {
       return {
         image_url: blog.cover_desktop,
         title: blog.name,
-        author: blog.author[0].name || "",
+        author: blog.author.length > 0 ? blog.author[0].name : "",
         content_id: blog._id,
-        content_type: blog.type,
+        content_type: blog.content_type ? blog.content_type.name : '',
         read_duration: blog.readtime,
         blog_url: blog.slug
       }

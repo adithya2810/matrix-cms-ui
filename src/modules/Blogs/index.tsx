@@ -74,14 +74,25 @@ const index: FC<propsType> = (props) => {
       }
 
       if (Object.keys(filters).length == 0 && query) {
-        let makeQuery: any = [];
+        let makeQuery: any = { _where: [] };
         for (const key in query) {
           if (Object.prototype.hasOwnProperty.call(query, key)) {
-            makeQuery.push(`${key}=${query[key]}`);
-            setAppliedFilters([query[key]]);
+            if (key == "search") {
+              makeQuery._where = {
+                _or: [
+                  { 'name_contains': query[key] },
+                  { 'tags.name_contains': query[key] },
+                ]
+              };
+              setAppliedFilters([query[key]]);
+            } else {
+              makeQuery[key] = query[key];
+              setAppliedFilters([query[key]]);
+            }
+
           }
         }
-        query_str = makeQuery.join("&");
+        query_str = qs.stringify(makeQuery);
       }
       let sortby = '';
       if (Object.keys(filters).length > 0 && filters?.sort) {

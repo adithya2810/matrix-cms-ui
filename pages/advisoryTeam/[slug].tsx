@@ -20,13 +20,65 @@ const AdvisoryIndividual: FC<propsType> = (props: propsType) => {
 };
 
 export async function getServerSideProps(context) {
-  const { params } = context
+  const { slug } = context.params;
+  const SINGLE_BLOG = `query ($slug: String!){
+    people(where:{slug: $slug}){
+      _id
+      name
+      description
+      designation
+      twitter
+      linkedin
+      published_at
+      createdAt
+      updatedAt
+      type
+      email
+      image_url
+      currentinvest
+      pastinvset
+      slug
+      blogs {
+        _id
+        FeaturedOne
+        FeaturedTwo
+        displaytag
+        author {
+          designation
+          image_url
+          name
+          slug
+        }
+        content_type {
+          name
+          slug
+        }
+        cover_desktop
+        cover_image_mobile
+        name
+        readtime
+        slug
+        tags {
+          name
+          slug
+        }
+        youtube_embed
+      }
+    }
+  }`;
+  // const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people-by-slug/${params.slug}`);
+  const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: SINGLE_BLOG, variables: { slug: slug } })
+  });
 
-  const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people-by-slug/${params.slug}`);
   const data = await res.json()
-
+  const advisoryDetail = data.data.people.length > 0 ? data.data.people[0] : [];
   return {
-    props: { advisoryDetail: data }
+    props: { advisoryDetail }
   }
 }
 

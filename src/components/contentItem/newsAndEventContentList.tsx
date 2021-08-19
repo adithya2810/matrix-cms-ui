@@ -27,7 +27,10 @@ export const NewsEventContentItem: React.FC<Props> = ({
 
   return (
     <div className={`${className} relative mb-12 ml-0`}  >
-      <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>
+      <div className="relative hover-cover-div">
+        <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}></div>
+        <div className="cover-hover"></div>
+      </div>
       <div className="content-item-desc bg-secondary-light absolute p-3"
         style={{ bottom: "-2rem", left: "6rem" }}
       >

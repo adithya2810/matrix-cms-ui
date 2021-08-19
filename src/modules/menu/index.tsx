@@ -385,6 +385,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
           onItemClick={getSelectedTag}
           closeMenu={intialValue}
           mobile={mobile}
+          blogCount={blogCount ? blogCount : blogData.length}
         >
 
         </MobileMenu>

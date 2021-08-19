@@ -58,7 +58,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
       style={{ left: 0, fontSize: 54, lineHeight: "62px" }}
     >
       <div className="block flex flex-col justify-between">
-        <div>
+        <div className="pb-5">
           {navMenu.primary.map((menuItem: any, index) => {
             return (
               <NavItem

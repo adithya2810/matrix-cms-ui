@@ -1,9 +1,15 @@
 import React from "react";
 import Button from "@components/button/PrimaryButtonIconRight";
 
-const PresskitForm: React.FC = () => {
+type propType = {
+  deviceType: {
+    mobile: boolean;
+  }
+}
+
+const PresskitForm: React.FC<propType> = ({ deviceType }) => {
   return (
-    <div className="relative m-auto w-11/12	" style={{ marginTop: 200, marginBottom: 150 }}>
+    <div className="relative m-auto w-11/12" style={{ marginTop: deviceType.mobile ? 85 : 190, marginBottom: deviceType.mobile ? 90 : 150 }}>
       <div className="row">
         <div style={{ flex: '40%' }}>
           <div>
@@ -11,26 +17,26 @@ const PresskitForm: React.FC = () => {
             <p className='presskit-subheader'>Contact</p>
             <p className="presskit-txt">Email : press@matrixpartners.in</p>
           </div>
-          <div style={{ marginTop: '50px' }}>
+          <div style={{ marginTop: deviceType.mobile ? -50 : '50px' }}>
             <p className='presskit-header'> Press Kits</p>
             <p className='presskit-subheader'>Download</p>
-            <p className="presskit-txt">Team photo and bio</p>
+            <p className="presskit-txt" style={deviceType.mobile ? { marginBottom: 10 } : {}}>Team photo and bio</p>
             <p className='presskit-subheader'>Download</p>
             <p className="presskit-txt">Matrix logo</p>
           </div>
-
         </div>
-        <div style={{ flex: '60%' }}>
-          <h1 className="main-txt presskit-main-txt ">Leave us a Message</h1>
+        <div className="sm:order-first" style={{ flex: '55%' }}>
+          <h1 className="main-txt presskit-main-txt" style={deviceType.mobile ? {} : { lineHeight: '100px' }}>{deviceType.mobile ? 'Press Kits' : 'Leave us a Message'}</h1>
+          {deviceType.mobile && <p className="pt-4 text-lg" style={{ color: '#ADAEB2' }}>Leave us a Message</p>}
           <form className='presskit-form'>
-            <div className='row namegroup'>
+            <div className='row namegroup sm:pt-5'>
               <div style={{ flex: '50%' }}>
                 <label>First Name</label>
                 <input type='text' placeholder='Type your first name here' />
               </div>
               <div style={{ flex: '50%' }}>
                 <label className='right-label'>Last Name</label>
-                <input type='text' placeholder='Type your last name here' />
+                <input type='text' style={{ marginLeft: deviceType.mobile ? 0 : '10%' }} placeholder='Type your last name here' />
               </div>
             </div>
             <label >Email</label>
@@ -47,6 +53,7 @@ const PresskitForm: React.FC = () => {
             />
           </form>
         </div>
+        <div style={{ flex: '5%' }}></div>
       </div>
     </div>
   )

@@ -17,14 +17,14 @@ const Home: React.FC<propType> = ({ deviceType }) => {
         <div className="content-center m-auto tabination" style={{ top: '-3.8rem' }}>
           <button onClick={() => setTabination('porfolioCompanies')}
             className={tabination === 'porfolioCompanies' ?
-              "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 sm:py-1 text-3md sm:text-sm md:text-2xl focus:outline-none"
-              : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 sm:py-1 text-3md md:text-2xl"}>
+              "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
+              : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
             Porfolio Companies
           </button>
           <button onClick={() => setTabination('matrixPartners')}
             className={tabination === 'matrixPartners' ?
-              "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 sm:py-1 text-3md sm:text-sm md:text-2xl focus:outline-none"
-              : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 sm:py-1 text-3md md:text-2xl"}>
+              "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
+              : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
             Matrix Partners
           </button>
         </div>

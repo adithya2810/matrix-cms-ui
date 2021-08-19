@@ -29,7 +29,7 @@ const Card: FC<propsType> = (props) => {
         <img style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: '220', width: '300' }}
           className="image-shadow news-image"
           width="100%"
-          src={props.imageurl}
+          src={props.imageurl ? props.imageurl : '/icons/matrixLogo.svg'}
           alt="image"
         />
         {props.extratag && <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptopCustom:bottom-0 left-0 lg:top-0">

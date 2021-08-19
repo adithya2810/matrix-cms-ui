@@ -59,7 +59,9 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
           </div>
           <div className="content-card bg-white sm:relative sm:-top-12 laptop:absolute laptop:top-5 laptop:-bottom-6 laptop:left-28 laptop:w-3/4 sm:w-10/12 laptop:py-3 laptop:px-6 sm:p-3" style={mobile ? {} : { width: 'calc(100% - 115px)' }}>
             <div className='caption opacity-70 laptop:hidden sm:mb-2'>{v.readtime?.toUpperCase()} READ</div>
-            <div className="sub-h2 laptop:mb-2 sm:mb-3" style={mobile ? { fontSize: 18, lineHeight: '20px' } : { lineHeight: '20px', fontSize: 14 }}>{v.name}</div>
+            <div className="sub-h2 laptop:mb-2 sm:mb-3" style={mobile ? { fontSize: 18, lineHeight: '20px' } : { lineHeight: '20px', fontSize: 14 }}>
+              <Link href={`/blogs/${v.slug}`}><a>{v.name}</a></Link>
+            </div>
             {v.author.length > 0 && <>
               {!mobile ? <div className='flex justify-between laptop:mb-4 sm:mb-2.5'>
                 <div className='caption font-normal' style={mobile ? {} : { fontSize: 11 }}>{v.author[0].name}</div>

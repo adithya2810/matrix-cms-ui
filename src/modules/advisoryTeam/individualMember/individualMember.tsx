@@ -27,6 +27,7 @@ type propsType = {
     areaofintrest: string;
     pastinvset: string;
     type: string;
+    content_type: { name: string; };
     slug: string;
     blogs: any[];
   };
@@ -85,6 +86,16 @@ const IndividualMember: FC<propsType> = (props) => {
             </div>
           </div>
 
+          {props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
+
+            <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <p className="text-1xs font-normal pt-1 pb-5" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
+
+
+            <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Brief</h3>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+          </div>}
+
           <div className="member-more-detail pt-36 sm:px-7 sm:pt-5 sm:hidden">
 
             {advisoryDetail.currentinvest && <>
@@ -107,35 +118,36 @@ const IndividualMember: FC<propsType> = (props) => {
           </div>
 
           {/* Mobile section */}
-          <div className="member-more-detail pt-5 sm:px-7 sm:pt-5 sm:block hidden">
-            <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
-            <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
+          <div className="member-more-detail pt-5 sm:px-7 sm:pt-4 sm:block hidden">
+            {/* <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p> */}
 
             {advisoryDetail.currentinvest && <>
-              <h2 className="text-4xl font-medium sm:uppercase sm:text-lg">Current Investments</h2>
-              <div className="text-lg pt-4 sm:text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+              <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Current Investments</h2>
+              <div className="text-lg pt-2 text-justify text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
             </>}
 
             {advisoryDetail.pastinvset && <>
-              <div className="text-4xl pt-4 sm:text-lg">
+              <div className="text-4xl pt-5 sm:text-lg">
                 <span className="font-bold">Past Investments</span><br />
-                <div className="text-lg pt-3" dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+                <div className="text-lg pt-2 text-justify text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
               </div>
             </>}
             {advisoryDetail.areaofintrest && <>
-              <div className="text-4xl pt-4 sm:text-lg">
+              <div className="text-4xl pt-5 sm:text-lg">
                 <span className="font-bold">Focus Area</span><br />
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+                <div className="text-lg pt-2 text-justify text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}
           </div>
           {/* Mobile section */}
         </div>
 
-        <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
+        {!props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
+
           <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
           <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
-        </div>
+        </div>}
       </div>
 
       {advisoryDetail.blogs.length > 0 && <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
@@ -160,13 +172,15 @@ const IndividualMember: FC<propsType> = (props) => {
           {advisoryDetail.blogs.map((blog, index) => {
             return <div className="relative laptop:flex mb-6 sm:mb-2 lg:mb-5 justify-center" key={index}>
               <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" onClick={_ => push(`/blogs/${blog.slug}`)}>
-                <img
-                  className="image-shadow"
-                  width="100%"
-                  style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: 'auto', width: '100%' }}
-                  src={!props.deviceType?.mobile ? blog.cover_desktop : blog.cover_image_mobile}
-                  alt="image"
-                />
+                <Link href={`/blogs/${blog.slug}`}><a>
+                  <img
+                    className="image-shadow"
+                    width="100%"
+                    style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: 'auto', width: '100%' }}
+                    src={!props.deviceType?.mobile ? blog.cover_desktop : blog.cover_image_mobile}
+                    alt="image"
+                  />
+                </a></Link>
                 {blog.displaytag && <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0">
                   {blog.displaytag}
                 </div>}
@@ -175,15 +189,22 @@ const IndividualMember: FC<propsType> = (props) => {
                 className="max-w-xl pt-8 pl-7 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-2"
                 style={{
                   background: 'white',
-                  width: props.deviceType?.mobile ? '93%' : '100%',
+                  width: props.deviceType?.mobile ? '90%' : '100%',
                 }}
               >
+                {props.deviceType.mobile && <div className="absolute sm:absolute sm:top-0 sm:-right-10 sm:mr-0 bg-accent-dark p-1"><Image
+                  src={getContentTypeImageUrl(blog.content_type.name, false, "#FFFFFF")}
+                  alt={blog.content_type.name}
+                  className="flex items-center w-8 h-8"
+                /></div>}
                 {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} READ</div>}
-                <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>{blog.name}</div>
+                <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>
+                  <Link href={`/blogs/${blog.slug}`}><a>{blog.name}</a></Link>
+                </div>
                 <div className="flex mt-4 mb-4 items-center">
                   {!props.deviceType.mobile && <Image
-                    src={getContentTypeImageUrl(blog.type, true)}
-                    alt={blog.type}
+                    src={getContentTypeImageUrl(blog.content_type.name, true)}
+                    alt={blog.content_type.name}
                     className="flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0"
                   />}
                   <div className="flex">

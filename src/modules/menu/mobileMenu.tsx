@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SideNav } from "./sideNav";
 import { Tag, Image } from "@components";
 import Button from "@components/button/PrimaryButtonIconRight";
-import { ContentList } from "../content/contentList";
+// import { ContentList } from "../content/contentList";
+import { ContentList } from "./ItemCard";
 import { TagList } from "./tagList";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { appConfigMutation, appConfiqQuery } from "../../../operations/appConfig";
@@ -12,6 +13,7 @@ export type props = {
   sectorialList?: Array<any>;
   nonSectorialList?: Array<any>;
   blogData?: Array<any>;
+  blogCount?: number;
   newsInfoList?: Array<any>;
   eventInfoList?: Array<any>
   selectedTags?: Array<any>;
@@ -20,7 +22,7 @@ export type props = {
   mobile: boolean;
 }
 
-export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, blogData, selectedTags, onItemClick, closeMenu, newsInfoList, eventInfoList, mobile }) => {
+export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, blogData, blogCount, selectedTags, onItemClick, closeMenu, newsInfoList, eventInfoList, mobile }) => {
 
   const tagClicked = (item) => {
     console.log(item)
@@ -58,7 +60,7 @@ export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, b
       }
       {(blogData.length > 0) &&
         <div className="mobile-menuBlogs pt-8 pr-4 pl-4 ">
-          <ContentList mobile={mobile} blogData={blogData} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
+          <ContentList mobile={mobile} blogData={blogData} total={blogCount ? blogCount : blogData.length} isNewsEvent={false} header={"RELEVANT CONTENT"} page_url={'/blogs'} />
           <Button title={"Visit " + "Blog Page"}
             className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
             url="/icons/rightArrowGray.svg"

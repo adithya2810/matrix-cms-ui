@@ -117,8 +117,11 @@ export const ContentItem: React.FC<CardProps> = ({
 
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
-      <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
-        <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+      <div className="relative hover-cover-div">
+        <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
+          <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+        </div>
+        <div className="cover-hover"></div>
       </div>
       <div className="content-item-desc bg-secondary-light absolute p-3 pb-1"
         style={mobile ? {} : { bottom: "-1rem", left: "7.5rem" }}

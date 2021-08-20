@@ -390,7 +390,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
 
         </MobileMenu>
       </div>
-      <SideNav menuIndex={menuIndex} onMenuClicked={(menuType, menuId, index) => onChangeMenu(menuType, menuId, index)} />
+      <SideNav mobile={mobile} menuIndex={menuIndex} onMenuClicked={(menuType, menuId, index) => onChangeMenu(menuType, menuId, index)} />
     </div >
   );
 };

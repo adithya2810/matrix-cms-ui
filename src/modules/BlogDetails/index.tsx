@@ -39,6 +39,10 @@ const BlogDetails: FC<propsType> = (props) => {
         blogs(where:{slug: $slug}){
           FeaturedOne
           FeaturedTwo
+          blog_details_image {
+            url
+            formats
+          }
           author {
             createdAt
             currentinvest

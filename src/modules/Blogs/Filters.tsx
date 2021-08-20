@@ -206,7 +206,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
       )}
 
       <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32 sm:bottom-8'} transition duration-500 ease-in-out fixed laptop:right-12 z-50 sm:left-8 sm:right-8 overflow-y-hidden`}
-        style={deviceType.mobile && footerInView ? { bottom: footerbottom + 16 } : {}}
+        style={deviceType.mobile && footerInView ? { bottom: (isFilterBoxOpen && deviceType.mobile) ? 20 : footerbottom + 16 } : {}}
       >
         {(!isFilterBoxOpen && !isTwitterBoxOpen && !isLinkedInBoxOpen) && (
           // when filter box is closed state
@@ -281,7 +281,9 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
                 {/* matrix moments */}
                 {moments.length > 0 && <>
                   <li className="py-2 sm:py-2  flex items-center ">
-                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'moments' ? <DownArrow /> : <UpArrow />}</span>Matrix Moments</div>
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light">
+                      <span className='mr-5 sm:mr-2' style={{ display: 'block', zIndex: 1 }}>{openedFilter === 'moments' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Matrix Moments
+                    </div>
                     {
                       openedFilter === 'moments' &&
                       <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
@@ -311,7 +313,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
                 {/* Topics */}
                 {topics.length > 0 && <>
                   <li className="py-4 sm:py-2  flex items-center">
-                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <DownArrow /> : <UpArrow />}</span>Topics</div>
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Topics</div>
                     {
                       openedFilter === 'topics' &&
                       <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
@@ -334,7 +336,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
                 {/* Authors */}
                 {authors.length > 0 && <>
                   <li className="py-4 sm:py-2  flex items-center">
-                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <DownArrow /> : <UpArrow />}</span>Authors</div>
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Authors</div>
                     {
                       openedFilter === 'authors' &&
                       <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
@@ -366,7 +368,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
                 {/* Content Format */}
                 {formats.length > 0 && <>
                   <li className="py-4 sm:py-2  flex items-center">
-                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <DownArrow /> : <UpArrow />}</span>Content Formats</div>
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Content Formats</div>
                     {
                       openedFilter === 'formats' &&
                       <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
@@ -397,7 +399,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
 
                 {inputText == '' && <>
                   <li className="py-4 sm:py-2  flex items-center">
-                    <div style={deviceType.mobile ? {} : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <DownArrow /> : <UpArrow />}</span>Sort By</div>
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Sort By</div>
                   </li>
                   {openedFilter === 'sort' && <div className='flex flex-wrap'>
                     {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc' })}

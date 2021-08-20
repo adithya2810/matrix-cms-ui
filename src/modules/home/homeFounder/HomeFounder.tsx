@@ -86,9 +86,9 @@ const founderData = [
     ],
     title: "A <span>mobile-first</span><br> credit card",
     background_url: '/icons/onecard-boiss.png',
-    tags: ["Mobile"],
+    tags: ["mobile first credit card"],
     logo: "/icons/onecard-logo.png",
-    small_titles: [{ index: 1, title: "We are <br>founders first" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+    small_titles: [{ index: 1, title: "We are <br>founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   }
   // {
   //   id: "05",

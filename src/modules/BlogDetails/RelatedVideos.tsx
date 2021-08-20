@@ -91,7 +91,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
               </div>}
               <div className="sm:absolute sm:right-0 sm:top-0">
                 <div className='sm:absolute sm:left-0 sm:top-0'>
-                  <Icon deviceType={{ mobile }} iconType={'Audio'} />
+                  <Icon deviceType={{ mobile }} iconType={v.content_type.name} />
                 </div>
               </div>
             </div>

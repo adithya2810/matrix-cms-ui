@@ -3,13 +3,16 @@ import { navMenu } from "../../../constants";
 import { NavItem, Image } from "@components";
 import { socialMedia } from "../../../constants/socialMedia";
 import Button from "@components/button/PrimaryButtonIconRight";
+import { useRouter } from 'next/router';
 
 export type Props = {
+  mobile: boolean;
   menuIndex: number;
   onMenuClicked: (menuType: string, selected: any, index: number) => void;
 }
 
-export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) => {
+export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: Props) => {
+  const router = useRouter();
   const [selectedIndex, setSelectedIndex] = React.useState(null);
   const [secSelectedIndex, setSecSelectedIndex] = React.useState(null);
   const [menuType, setMenuType] = React.useState(null);
@@ -72,7 +75,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
                 arrow={true}
                 key={menuItem.key}
                 id={menuItem.key}
-                onClick={() => menuClicked("PRIMARY_MENU", menuItem.key, index)}
+                onClick={() => (mobile && menuItem.name == "Blog") ? location.href = menuItem.link : menuClicked("PRIMARY_MENU", menuItem.key, index)}
                 selected={isSelected(index)}
               />
             );
@@ -163,7 +166,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex }: Props) =>
         <div className="flex pt-5">
           {socialMedia.map((item) => {
             return (
-              <a className="p-1 mr-6" href={item.link} key={item.key}>
+              <a className="p-1 mr-6" href={item.link} key={item.key} target="__blank">
                 <Image
                   src={item.imageUrl}
                   alt={item.name}

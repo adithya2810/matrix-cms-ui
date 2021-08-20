@@ -362,7 +362,7 @@ export const RightArrowAccentLaptop = _ => (
     <path d="M0.52 4.987V3.664H11.257L8.485 0.891999L9.304 0.0729996L13.561 4.33L9.304 8.587L8.485 7.768L11.266 4.987H0.52Z" fill="#01576E" />
   </svg>
 )
-export const DownArrow = _ => (
+export const DownArrow = () => (
   <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14.046 1.084L7.536 7.608L0.997999 1.098L2.02 0.0620017L7.536 5.564L13.024 0.0480009L14.046 1.084Z" fill="white" />
   </svg>

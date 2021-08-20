@@ -4,15 +4,15 @@ import ContentList from "./HomeContentList";
 
 const homeContentTabs = [
   {
+    name: "Videocasts",
+    id: "videocasts",
+    link: "",
+  }, {
     name: "Podcast",
     id: "podcast",
     link: "",
   },
   {
-    name: "Videocasts",
-    id: "videocasts",
-    link: "",
-  }, {
     name: "Blogs",
     id: "blogs",
     link: "",

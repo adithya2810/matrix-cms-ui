@@ -1,10 +1,35 @@
 
-import React from "react";
+import React, { useState } from "react";
 import FooterMenu from "./footerMenu";
 import Button from "@components/button/PrimaryButtonIconRight";
 import { PRIVACY_POLICY } from "../../../constants"
 
 export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
+  const [msg, setMsg] = useState({ status: true, message: '' });
+  const [subscribe, setSubscribe] = useState('');
+
+  const submitSubscribe = async () => {
+    console.log(subscribe);
+    if (subscribe == "") return false;
+    var mail_data = { to: 'info@matrixpatners.in,komalsaini2010@gmail.com', subject: 'Subscription mail', html: `New subscription mail: ${subscribe}` };
+
+    const res = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/send-mail-attachment', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mail_data)
+    });
+    if (res.ok) {
+      setMsg({ status: true, message: 'Subscribe successfully' })
+      setSubscribe('')
+      setTimeout(() => setMsg({ status: false, message: '' }), 6000);
+    } else {
+      setMsg({ status: false, message: 'Subscription not completed, try again' })
+    }
+  };
+
   return (
 
     <div className="FooterOuter-Warpper text-secondary">
@@ -15,8 +40,9 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
               <h6 className="-mt-10 sm:mt-4 laptop:w-48 font-normal leading-9 text-4xl tracking-wider p-0.5" style={mobile ? { fontSize: 20, lineHeight: '24px' } : { fontSize: 32, lineHeight: '36px' }}> Let's stay engaged</h6>
               <span className="p-1 ml-4">
                 <h6 className="sub-h2 font-medium text-lg leading-6 mr-12 sm:mr-4" style={mobile ? { lineHeight: '18px' } : { lineHeight: '24px', letterSpacing: 1 }}>Sign up for the Matrix Moments series</h6>
-                <input className="mt-2 text-secondary bg-accent p-2 pl-3 w-full" style={mobile ? { color: "#FBF9F5", backgroundColor: '#fbf9f514', height: 33, fontSize: 16 } : { color: "#FBF9F5", backgroundColor: '#fbf9f514' }} type="email" placeholder="Your email address goes here" />
-                <Button title="Subscribe" url="/icons/arrow.svg" className={"p-1 text-cta"} onClick={() => console.log("subscribe")} style={{ fontSize: mobile ? 14 : 18, lineHeight: '24px', letterSpacing: 1 }} />
+                <input value={subscribe} onChange={(e) => setSubscribe(e.target.value)} className="mt-2 text-secondary bg-accent p-2 pl-3 w-full" style={mobile ? { color: "#FBF9F5", backgroundColor: '#fbf9f514', height: 33, fontSize: 16 } : { color: "#FBF9F5", backgroundColor: '#fbf9f514' }} type="email" placeholder="Your email address goes here" />
+                <Button title="Subscribe" url="/icons/arrow.svg" className={"p-1 text-cta"} onClick={() => submitSubscribe()} style={{ fontSize: mobile ? 14 : 18, lineHeight: '24px', letterSpacing: 1 }} />
+                <div className="flex py-5" style={{ color: msg.status ? 'green' : 'red' }}>{msg.message}</div>
               </span>
             </div>
             <div className="p-0.5 sm:flex sm:justify-between ">

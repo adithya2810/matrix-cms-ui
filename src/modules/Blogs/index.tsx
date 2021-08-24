@@ -96,9 +96,9 @@ const index: FC<propsType> = (props) => {
       }
       let sortby = '';
       if (Object.keys(filters).length > 0 && filters?.sort) {
-        sortby = `&_sort=published_at:${filters?.sort}`;
+        sortby = `&_sort=date:${filters?.sort}`;
       } else {
-        sortby = `&_sort=published_at:DESC`;
+        sortby = `&_sort=date:DESC`;
       }
 
       const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${sortby}${(query_str) ? '&' + query_str : ''}`)

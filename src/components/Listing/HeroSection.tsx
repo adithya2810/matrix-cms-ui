@@ -8,7 +8,7 @@ type propsType = {
 const HeroSection: FC<propsType> = ({ title, pageType }) => {
   return (
     <>
-      <div className={`listing-hero-section overlay`} style={{ height: '482px' }}>
+      <div className={`listing-hero-section overlay`} style={{ height: '463px' }}>
         <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
           {title}
         </div>

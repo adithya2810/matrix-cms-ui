@@ -16,15 +16,18 @@ const ContactForm: React.FC<propType> = ({ deviceType }) => {
   const details = [{
     city: "Bangalore",
     address: ['197, 6th Main, 1st Cross,', 'HAL 2nd Stage, Indira Nagar,', 'Bengaluru 560038', '+91-80-25196000'],
-    direction: "https://www.google.com/maps?q=12.974069,77.64189"
+    direction: "https://www.google.com/maps?q=12.974069,77.64189",
+    img: "/img/image 26.png"
   }, {
     city: "Delhi",
     address: ['4th Floor, Aria Towers, ', 'JW Marriott, Asset Area 4,', 'Aerocity, New Delhi, 110037', '+91-11-49495000'],
-    direction: "https://www.google.com/maps?q=28.552919,77.122233"
+    direction: "https://www.google.com/maps?q=28.552919,77.122233",
+    img: "/img/Matrix_Contact_Delhi.png"
   }, {
     city: "Mumbai",
     address: ['601-602, Ceejay House,', 'Dr Annie Besant Road, Worli,', 'Mumbai 400018', '+91-22-67680000'],
-    direction: "https://www.google.com/maps?q=18.990611,72.813306"
+    direction: "https://www.google.com/maps?q=18.990611,72.813306",
+    img: "/img/Matrix_Mumbai_picture.jpg"
   }]
 
   const onFileChange = event => {
@@ -92,7 +95,7 @@ const ContactForm: React.FC<propType> = ({ deviceType }) => {
               </div>
               <div style={deviceType.mobile ? { width: 'calc(100% - 40px)', height: '28vh', alignSelf: 'flex-end' } : { flex: '25%' }} className="col-span-4 relative">
                 <div className='city-overlay'>{data.city}</div>
-                <img className='contact-img' src="../../img/image 26.png" alt="" style={{ width: '100%', height: '100%' }} />
+                <img className='contact-img' src={data.img} alt="" style={{ width: '100%', height: '100%' }} />
                 <div className="contact-bg-overlay "></div>
               </div>
             </div>

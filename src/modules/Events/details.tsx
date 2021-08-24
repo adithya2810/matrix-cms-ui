@@ -62,7 +62,7 @@ const Details: FC = (props) => {
           </div>
         </div>
         <div className='right-event'>
-          <p><Markup content={eventsdata[0]?.description} /></p>
+          <div className="blog-content" dangerouslySetInnerHTML={{ __html: eventsdata[0]?.description }}></div>
         </div>
 
       </div>

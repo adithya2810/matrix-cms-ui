@@ -4,11 +4,8 @@ import {
   TwitterLaptop,
   ClostBtn,
   SearchMobile,
-  FilterLaptop,
-  SearchAccentMobile,
   LinkedInMobile,
   TwitterMobile,
-  FilterMobile,
   RightArrowAccentLaptop
 } from '@components/Icons';
 import router from 'next/router';
@@ -18,11 +15,13 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const LinkedInIcon = deviceType.mobile ? <LinkedInMobile /> : <LinkedInLaptop />
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
-  const FilterIcon = deviceType.mobile ? <FilterMobile /> : <FilterLaptop />;
 
   const [inputText, setInputText] = useState('');
   const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false);
   const filterRef = useRef(null);
+
+  const [footerInView, setFooterInView] = useState(false);
+  const [footerbottom, setFooterHeight] = useState(0);
 
   const handleFilter = () => setIsSearchBoxOpen(!isSearchBoxOpen);
 
@@ -32,14 +31,25 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
     }
   }
 
+  function isElementOutViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight;
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", (e) => {
+      setFooterInView(!isElementOutViewport(document.querySelector(".FooterOuter-Warpper")));
+      setFooterHeight(document.querySelector(".FooterOuter-Warpper").clientHeight);
+    })
+    return () => setFooterInView(false);
+  }, []);
+
   return (
     <>
-      {/* Mask */}
       {isSearchBoxOpen && !!inputText.length && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed bottom-8 left-8 right-8 z-50">
+      <div className="fixed bottom-8 left-8 right-8 z-50" style={{ top: footerInView ? 'auto' : '90vh', bottom: footerInView ? footerbottom : 'auto' }}>
         {isSearchBoxOpen && !!inputText.length &&
           <>
             <div
@@ -99,8 +109,6 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </div>
         </div>
-
-
       </div>
     </>
   );

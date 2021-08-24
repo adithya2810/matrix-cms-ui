@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import Filters from './Filters';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import qs from "qs";
 
 type deviceType = {
   mobile: Boolean;
@@ -31,17 +32,25 @@ const index: FC<propsType> = (props) => {
       _limit: 10
     }
     if (router.query) {
-      const { tags } = router.query;
-      params['tags.slug'] = tags;
-      countParam['tags.slug'] = tags;
+      const { tags, search } = router.query;
+      if (tags) {
+        params['tags.slug'] = tags;
+        countParam['tags.slug'] = tags;
+      }
+      if (search) {
+        params['_where'] = { _or: [{ title_contains: search }, { "tags.name_contains": search }] };
+        countParam['_where'] = { _or: [{ title_contains: search }, { "tags.name_contains": search }] };
+      }
     }
-    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos', { params }).then(res => {
+    let qparams = qs.stringify(params);
+    axios.get(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos?${qparams}`).then(res => {
       setCard(res.data)
     }).catch(err => {
       console.log(err);
     });
-    params = countParam;
-    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count', { params }).then(res => {
+
+    let qparamsCount = qs.stringify(countParam);
+    axios.get(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count?${qparamsCount}`).then(res => {
       setCount(Math.ceil(res.data / 10))
     }).catch(err => {
       console.log(err);

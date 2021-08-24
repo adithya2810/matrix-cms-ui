@@ -71,11 +71,11 @@ const founderData = [
       { firstName: "Vinnet ", lastName: "Rao" },
       { firstName: "Sankar ", lastName: "Bora" }
     ],
-    title: "We <span>partner</span><br> closely",
+    title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Sourjyende-Rajat-Vinnet.png',
     tags: ["Social", "Commerce"],
     logo: "/icons/Dealshare-logo-white.png",
-    small_titles: [{ index: 6, title: "A mobile-first<br> credit card" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+    small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   },
   {
     id: "06",
@@ -84,42 +84,35 @@ const founderData = [
       { firstName: "Anurag ", lastName: "Sinha" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
-    title: "A <span>mobile-first</span><br> credit card",
+    title: "We <span>partner</span><br> closely",
     background_url: '/icons/onecard-boiss.png',
     tags: ["Mobile first credit card"],
     logo: "/icons/onecard-logo.png",
-    small_titles: [{ index: 1, title: "We are <br>founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+    small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
+  },
+  {
+    id: "07",
+    name: [
+      { firstName: "Harshil ", lastName: "Mathur" },
+      { firstName: "Shashank ", lastName: "Kumar" }
+    ],
+    title: "We <span>invest</span><br> early",
+    background_url: '/icons/razorpay-boss.png',
+    tags: ["Finance"],
+    logo: "/icons/razorpay-white-logo.png",
+    small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
+  },
+  {
+    id: "08",
+    name: [
+      { firstName: "Manish ", lastName: "Patel" }
+    ],
+    title: "We <span>commit </span><br> personally",
+    background_url: '/icons/mswipe-manish-patel.png',
+    tags: ["Payment"],
+    logo: "/icons/mswipe-white-logo.png",
+    small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   }
-  // {
-  //   id: "05",
-  //   name: [
-  //     {
-  //       firstName: "Mr.  ",
-  //       lastName: "LAKSHIPATHY"
-  //     }
-  //   ],
-  //   title: "We are <br><span>founders</span><br> first",
-  //   background_url: '/icons/founder4-edited.png',
-  //   tags: ["Fintech", "NBFC"],
-  //   logo: "/icons/mx-logos-five-star 1.svg",
-  // },
-  // {
-  //   id: "06",
-  //   name: [
-  //     {
-  //       firstName: "CHAKRADHAR ",
-  //       lastName: "GADE"
-  //     },
-  //     {
-  //       firstName: "NITIN ",
-  //       lastName: "KAUSHAL"
-  //     }
-  //   ],
-  //   title: "We <span>commit </span><br> personally",
-  //   background_url: '/icons/Chakradhar_Nitin.png',
-  //   tags: ["D2C", "Food"],
-  //   logo: "/icons/Country Delight 1.svg",
-  // }
 ]
 
 type propType = {

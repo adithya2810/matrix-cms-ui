@@ -128,8 +128,8 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                   <div className="subMenuOuter flex-wrap flex flex-col">
                     {menuItem.subMenu.map((menu, i) => {
                       return (
-                        <div key={menu.key + 1} className="flex-wrap flex justify-between" style={{ marginTop: i == 0 ? 0 : 10 }}
-                          onClick={() => menuClicked("SECONDARY_MENU", menu.key, index)}>
+                        <div key={menu.key + 1} className={`flex-wrap flex justify-between ${mobile ? 'cursor-pointer' : ''}`} style={{ marginTop: i == 0 ? 0 : 10 }}
+                          onClick={() => mobile ? location.href = menu.link : menuClicked("SECONDARY_MENU", menu.key, index)}>
                           <h5 className="menu-secondary-nav-text" key={menu.key + 1}>{menu.name}</h5>
                           <span className="menu-secondary-nav-icon"> {">"} </span>
                         </div>

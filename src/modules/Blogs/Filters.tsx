@@ -205,7 +205,7 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className={`${footerInView ? 'laptop:bottom-64' : 'laptop:top-32 sm:bottom-8'} transition duration-500 ease-in-out fixed laptop:right-12 z-50 sm:left-8 sm:right-8 overflow-y-hidden`}
+      <div className={`${footerInView ? 'laptop:bottom-80' : 'laptop:top-32 sm:bottom-8'} transition duration-500 ease-in-out fixed laptop:right-12 z-50 sm:left-8 sm:right-8 overflow-y-hidden`}
         style={deviceType.mobile && footerInView ? { bottom: (isFilterBoxOpen && deviceType.mobile) ? 20 : footerbottom + 16 } : {}}
       >
         {(!isFilterBoxOpen && !isTwitterBoxOpen && !isLinkedInBoxOpen) && (

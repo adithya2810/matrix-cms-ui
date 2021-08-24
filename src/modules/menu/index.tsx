@@ -60,9 +60,14 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
   const [selectedTag, setSelectedTag] = useState([]);
   const [blogData, setBlogData] = useState([]);
   const [blogCount, setBlogCount] = useState(null);
+
   const [menuIndex, setMenuIndex] = useState(null);
+
   const [newsInfoList, setNewsInfoList] = useState([]);
+  const [newsCount, setNewsCount] = useState(null);
+
   const [eventInfoList, setEventInfoList] = useState([])
+  const [eventCount, setEventCount] = useState(null);
 
   useEffect(() => {
     if (menuIndex == 2) {
@@ -274,6 +279,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
       }
     });
     setNewsInfoList(newsList);
+    setNewsCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count')).json())
   }
 
   const getEventInfo = async () => {
@@ -289,6 +295,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
       }
     });
     setEventInfoList(eventList);
+    setEventCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events/count')).json())
   }
 
   const { data: { appConfig: navMenuState } } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);
@@ -345,7 +352,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
 
         {newsInfoList.length > 0 &&
           <div className="fsm:hidden flex-grow flex flex-col ml-24 newsEventDivider">
-            <ContentList mobile={mobile} blogData={newsInfoList} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
+            <ContentList mobile={mobile} blogData={newsInfoList} total={newsCount ? newsCount : newsInfoList.length} isNewsEvent={true} header={"NEWS"} page_url={'/news'} />
             <Button
               title={"View " + "News page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"
@@ -361,7 +368,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
               <h6 className="sub-h1 pr-1 menu-text text-accent ">Close</h6>
               <Image src="/icons/menuClose.svg" className="pl-2 laptop:mr-8 sm:mr-6 text-blue" alt="close menu"></Image>
             </div>
-            <ContentList mobile={mobile} blogData={eventInfoList} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
+            <ContentList mobile={mobile} blogData={eventInfoList} total={eventCount ? eventCount : eventInfoList.length} isNewsEvent={true} header={"EVENTS"} page_url={'/events'} />
             <Button
               title={"View " + "Events page"}
               className=" sm:hidden menu-content-nav-button ml-20 mb-12 text-accent"

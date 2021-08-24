@@ -170,6 +170,29 @@ const heroSlider02_Data = [
     background_url: '/icons/onecard-bg.png',
     tagsDetails: "India's best metal credit card. Built with full-stack tech. Backed by the principles of simplicity, transparency, and giving back control to the user.",
     logo: "/icons/onecard-logo.png",
+  },
+  {
+    id: "09",
+    name: [
+      { firstName: "Harshil ", lastName: "Mathur" },
+      { firstName: "Shashank ", lastName: "Kumar" }
+    ],
+    title: "<span>Full-Stack</span><br/> financial service company",
+    founderImage: '/icons/razorpay-boss.png',
+    background_url: '/icons/razorpay-bg.png',
+    tagsDetails: "Razorpay, a full-stack financial services company, helps Indian businesses with comprehensive and innovative solutions built to address the entire length and breadth of the payment and banking journey.",
+    logo: "/icons/razorpay-white-logo.png",
+  },
+  {
+    id: "10",
+    name: [
+      { firstName: "Manish ", lastName: "Patel" }
+    ],
+    title: "<span>POS solutions</span><br/> for all types of payment acceptance",
+    founderImage: '/icons/mswipe-manish-patel.png',
+    background_url: '/icons/mswipe-bg.png',
+    tagsDetails: "Mswipe, the mobile point-of-sale solutions company, has led the way for entrepreneur led businesses in disrupting the merchant side of the payment ecosystem.",
+    logo: "/icons/mswipe-white-logo.png",
   }
 ]
 
@@ -259,7 +282,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
                     <div className="heroSlider02-contentSection" style={{ flex: "0 50%" }}>
                       <div className="heroSlider02-slide-indicator desktop" style={{ marginTop: '8vh' }}>
                         {" "}
-                        {slider.id}/0{heroSlider02_Data.length}
+                        {slider.id}/{heroSlider02_Data.length > 9 ? heroSlider02_Data.length : `0${heroSlider02_Data.length}`}
                       </div>
                       <div className="pr-12 text-secondary-light heroSlider02-slide-title" style={mobile ? { fontSize: 25, paddingTop: 60 } : {}} dangerouslySetInnerHTML={{ __html: slider.title }}>
                       </div>
@@ -270,7 +293,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
                     />
                     <div className="heroSlider02-slide-indicator mobile" style={{ fontSize: 25 }}>
                       {" "}
-                      {slider.id}/0{heroSlider02_Data.length}
+                      {slider.id}/{heroSlider02_Data.length > 9 ? heroSlider02_Data.length : `0${heroSlider02_Data.length}`}
                     </div>
                   </div>
                 </div>

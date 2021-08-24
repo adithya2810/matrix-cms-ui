@@ -71,7 +71,7 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : footerInView ? 'auto' : 375, bottom: footerInView ? 280 : 'auto' }}>
+      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={{ top: deviceType.mobile ? '90vh' : footerInView ? 'auto' : 375, bottom: footerInView ? 295 : 'auto' }}>
         <div
           className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full" style={deviceType.mobile ? {} : { width: 105, height: 'auto' }}
         >

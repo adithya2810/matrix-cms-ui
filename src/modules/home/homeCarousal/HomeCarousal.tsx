@@ -193,6 +193,18 @@ const heroSlider02_Data = [
     background_url: '/icons/mswipe-bg.png',
     tagsDetails: "Mswipe, the mobile point-of-sale solutions company, has led the way for entrepreneur led businesses in disrupting the merchant side of the payment ecosystem.",
     logo: "/icons/mswipe-white-logo.png",
+  },
+  {
+    id: "11",
+    name: [
+      { firstName: "Umang ", lastName: "Bedi" },
+      { firstName: "Virendra ", lastName: "Patel" }
+    ],
+    title: "<span>India’s #1</span><br/> content aggregator",
+    founderImage: '/icons/dailyhunt-boss.png',
+    background_url: '/icons/dailyhunt-bg.png',
+    tagsDetails: "India’s #1 news & local language content application",
+    logo: "/icons/dailyhunt-logo.png",
   }
 ]
 

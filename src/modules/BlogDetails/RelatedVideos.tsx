@@ -6,18 +6,18 @@ import Link from 'next/link';
 
 const MobileIcons = {
   Audio: <MicMobile />,
-  video: <VideoMobile />,
-  article: <ArticleMobile />,
+  Video: <VideoMobile />,
+  Article: <ArticleMobile />,
 };
 const LaptopIcons = {
   Audio: <MicLaptop color="#000000" width={24} height={30} />,
-  video: <VideoLaptop color="#000000" width={28} />,
-  article: <ArticleLaptop color="#000000" width={24} height={25} />,
+  Video: <VideoLaptop color="#000000" width={28} />,
+  Article: <ArticleLaptop color="#000000" width={24} height={25} />,
 };
 
 const Icon = ({ deviceType, iconType }) => {
-  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.article;
-  else return LaptopIcons[iconType] || LaptopIcons.article;
+  if (deviceType.mobile) return MobileIcons[iconType] || MobileIcons.Article;
+  else return LaptopIcons[iconType] || LaptopIcons.Article;
 };
 
 type deviceType = {

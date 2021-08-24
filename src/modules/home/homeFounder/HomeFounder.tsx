@@ -112,6 +112,50 @@ const founderData = [
     tags: ["Payment"],
     logo: "/icons/mswipe-white-logo.png",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
+  },
+  {
+    id: "09",
+    name: [
+      { firstName: "Umang ", lastName: "Bedi" },
+      { firstName: "Virendra ", lastName: "Patel" }
+    ],
+    title: "We are <br><span>founders</span><br> first",
+    background_url: '/icons/dailyhunt-boss.png',
+    tags: ["Content"],
+    logo: "/icons/dailyhunt-logo.png",
+    small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
+  },
+  {
+    id: "10",
+    name: [
+      {
+        firstName: "Mr.  ",
+        lastName: "LAKSHIPATHY"
+      }
+    ],
+    title: "We <span>partner</span><br> closely",
+    background_url: '/icons/founder4-edited.png',
+    tags: ["Finance"],
+    logo: "/icons/mx-logos-five-star 1.svg",
+    small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
+  },
+  {
+    id: "11",
+    name: [
+      {
+        firstName: "CHAKRADHAR ",
+        lastName: "GADE"
+      },
+      {
+        firstName: "NITIN ",
+        lastName: "KAUSHAL"
+      }
+    ],
+    title: "We <span>invest</span><br> early",
+    background_url: '/icons/Chakradhar_Nitin.png',
+    tags: ["Dairy & Food"],
+    logo: "/icons/Country Delight 1.svg",
+    small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   }
 ]
 

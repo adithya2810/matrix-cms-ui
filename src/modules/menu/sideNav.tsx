@@ -72,7 +72,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                     ? ` text-secondary-light opacity-50`
                     : `text-secondary-light opacity-100`
                 }
-                arrow={true}
+                arrow={mobile ? false : menuItem.name === "Blog"}
                 key={menuItem.key}
                 id={menuItem.key}
                 onClick={() => (mobile && menuItem.name == "Blog") ? location.href = menuItem.link : menuClicked("PRIMARY_MENU", menuItem.key, index)}
@@ -92,7 +92,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                 onClick={() => menuClicked("SECONDARY_MENU", menuItem.key, index)}
               >
                 <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
-                {isSecondaryMenu(index) ?
+                {menuItem.subMenu.length > 0 && <>{isSecondaryMenu(index) ?
                   <Image
                     src={"/icons/sideNavButton.svg"}
                     alt="nav button"
@@ -101,7 +101,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                   />
                   :
                   <span className="menu-secondary-nav-icon"> {">"} </span>
-                }
+                } </>}
               </div>
             );
           })}
@@ -118,11 +118,11 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                 {menuItem.name != "Media" && <><a href={menuItem.link}>
                   <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
                 </a>
-                  {isSecondaryMenu(index) ?
+                  {/* {menuItem.subMenu.length > 0 && <>{isSecondaryMenu(index) ?
                     <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
                     :
                     <span className="menu-secondary-nav-icon"> {">"} </span>
-                  }
+                  } */}
                 </>}
                 {menuItem.subMenu.length > 0 &&
                   <div className="subMenuOuter flex-wrap flex flex-col">
@@ -131,7 +131,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                         <div key={menu.key + 1} className={`flex-wrap flex justify-between ${mobile ? 'cursor-pointer' : ''}`} style={{ marginTop: i == 0 ? 0 : 10 }}
                           onClick={() => mobile ? location.href = menu.link : menuClicked("SECONDARY_MENU", menu.key, index)}>
                           <h5 className="menu-secondary-nav-text" key={menu.key + 1}>{menu.name}</h5>
-                          <span className="menu-secondary-nav-icon"> {">"} </span>
+                          {/* <span className="menu-secondary-nav-icon"> {">"} </span> */}
                         </div>
                       )
                     })}

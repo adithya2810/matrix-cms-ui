@@ -3,6 +3,9 @@ import { Image } from "@components";
 
 export type Props = {
   portfolio: any;
+  deviceType: {
+    mobile: boolean;
+  }
 };
 
 const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
@@ -18,15 +21,13 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
           <div className="flex self-center justify-center" key={e._id}>
             <div className="flip-card">
               <div className="flip-card-inner ">
-                <div className="flip-card-front">
-                  {/* <img className="w-6/12" src="../../img/ant-wak.png" alt="" /> */}
+                <div className="flip-card-front">\
                   <Image src={e.logo_url} alt={e.name} className="p-20" />
                 </div>
                 <div className="flip-card-back text-left p-4">
                   <Image src={e.logo_url} alt={e.name} className="sm:hidden md:hidden lg:hidden pb-5" />
-                  {/* <img className="w-6/12 sm:hidden md:hidden lg:hidden pb-5" src="../../img/ant-wak.png" alt="" /> */}
-                  <p className="text-xl text-black font-medium tablet:text-xs md:text-xs sm:text-base pb-5 mb-2 text-left border-b-2">{e.description}</p>
-                  <a href={e.website_url} target="_blank" className="text-4sm tracking-wider font-light text-accent pt-4 uppercase">Visit Website</a>
+                  <p className="text-sm text-black font-medium tablet:text-xs md:text-xs sm:text-base pb-5 mb-2 text-left border-b-2">{e.description}</p>
+                  <a href={e.website_url} target="_blank" className="text-xl tracking-wider font-light text-accent pt-4 uppercase">Visit Website</a>
                 </div>
               </div>
             </div>

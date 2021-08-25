@@ -36,6 +36,19 @@ type propsType = {
 const IndividualMember: FC<propsType> = (props) => {
   const { push } = useRouter()
   const advisoryDetail = props.advisoryDetail;
+
+  const capitalize = (str) => {
+    if (str) {
+      const words = str.split(" ");
+
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+      }
+      return words.join(" ");
+    }
+    return '';
+  };
+
   return (
     <div className="team_detail py-40 px-12 sm:py-0 sm:px-0">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
@@ -153,7 +166,7 @@ const IndividualMember: FC<propsType> = (props) => {
       {advisoryDetail.blogs.length > 0 && <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
         <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col" style={{ minHeight: 600 }}>
           <div className="flex justify-between -mt-20">
-            <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {advisoryDetail.name.replace(' ', '\n')}</h3>
+            <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {capitalize(advisoryDetail.name).replace(' ', '\n')}</h3>
             <Link href="#" passHref>
               <Image src="../icons/sideNavButton.svg" alt="arrow-icon" className="-mr-5 cursor-pointer -mt-40" style={{ maxWidth: 80 }}></Image>
             </Link>

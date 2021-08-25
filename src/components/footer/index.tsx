@@ -11,7 +11,7 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   const submitSubscribe = async () => {
     console.log(subscribe);
     if (subscribe == "") return false;
-    var mail_data = { to: 'info@matrixpatners.in,komalsaini2010@gmail.com', subject: 'Subscription mail', html: `New subscription mail: ${subscribe}` };
+    var mail_data = { to: 'info@matrixpatners.in', subject: 'Subscription mail', html: `New subscription mail: ${subscribe}` };
 
     const res = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/send-mail-attachment', {
       method: 'POST',

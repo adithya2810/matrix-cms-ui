@@ -22,14 +22,14 @@ const Portfolio: React.FC<Props> = ({ portfolio, deviceType }) => {
             className={tabination === 'currentInvest' ?
               "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
               : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
-            CURRENT INVESTMENTS
+            Current Investments
           </button>
           <button onClick={() => setTabination('pastInvest')}
             style={deviceType.mobile ? { fontSize: 13, lineHeight: '20px', fontWeight: 500, letterSpacing: 0.25 } : {}}
             className={tabination === 'pastInvest' ?
               "sm:uppercase btn-active-bg text-white px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
               : "sm:uppercase focus:outline-none text-white px-8 tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
-            PAST INVESTMENT
+            Past Investments
           </button>
         </div>
         {tabination === 'currentInvest' &&

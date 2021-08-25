@@ -1,9 +1,13 @@
+import SocialMetaTags from '@components/SocialMetaTags';
 import React from "react";
 import Presskit from "../../src/modules/presskit";
 
 
 function ContactPage(props) {
-  return <Presskit {...props} />;
+  return (<>
+    <SocialMetaTags title="Presskit" />
+    <Presskit {...props} />
+  </>);
 }
 
 export default ContactPage;

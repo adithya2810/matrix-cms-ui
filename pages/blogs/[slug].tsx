@@ -11,12 +11,7 @@ type propsType = {
 };
 
 const BlogDetailsPage: FC<propsType> = (props) => {
-  return (
-    <>
-      <PageTitle>Blog</PageTitle>
-      <BlogDetails {...props} />
-    </>
-  )
+  return <BlogDetails {...props} />
 }
 
 export default BlogDetailsPage

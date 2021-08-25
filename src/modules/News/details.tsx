@@ -1,32 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
-import { useRouter } from 'next/router'
+import React, { FC } from 'react';
 import Link from 'next/link'
-import axios from 'axios'
 
-const Details: FC = (props) => {
-  const router = useRouter();
-  const slug = router.query.newsId;
-  const [newsdata, setNewsdata] = useState(null);
-  const [tags, setTags] = useState([]);
-  useEffect(() => {
-    const params = {
-      slug: slug
-    }
-
-    axios.get('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos', { params }).then(res => {
-      setNewsdata(res.data[0])
-      if (res.data.length > 0) {
-        let sectoral = res.data[0].tags.filter(v => v.sectorial == true);
-        let non_sectoral = res.data[0].tags.filter(v => v.sectorial == false);
-        if (sectoral.length != 0 || non_sectoral.length != 0) {
-          setTags([{ name: 'SECTORIAL', data: sectoral }, { name: 'NON-SECTORIAL', data: non_sectoral }])
-        }
-      }
-    }).catch(err => {
-      console.log(err);
-    })
-  }, [])
-
+const Details: FC<{ newsdata: any; tags: any[] }> = ({ newsdata, tags }) => {
   return (
     <div className='news-container'>
       <Link href='/news'>Go back</Link>

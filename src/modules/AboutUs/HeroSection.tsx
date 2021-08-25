@@ -15,16 +15,28 @@ const sliders = [
     logo: '/icons/ola.svg'
   },
   {
-    text: 'India’s #1 news & local language content application.',
+    text: 'I have always found Matrix to be a great partner in our journey - strategic in thinking and yet connected to the realities of execution. Its a great combo that is hard to beat!',
+    by: '<b>PRANAY</b> CHULET',
+    img: '/images/about-us/1-laptop.png',
+    logo: '/icons/ola.svg'
+  },
+  {
+    text: 'Not once during these years of association that I have had with Matrix, have I ever felt them as an outsider. They have been with us through the thick and thin of things.',
+    by: '<b>Mr.</b> LAKSHIPATHY',
+    img: '/icons/floriane-vita.png',
+    logo: '/icons/mx-logos-five-star 1.svg'
+  },
+  {
+    text: 'Our journey with Matrix has been of pure partnership over the past nine years. We have worked closely on all aspects of business be it growing & pivoting business, acquiring companies, hiring talent, fund raise so on and so forth.',
     by: '<b>Umang</b> Bedi<br/><b>Virendra</b> Patel',
     img: '/icons/dailyhunt-bg.png',
     logo: '/icons/dailyhunt-logo.png'
   },
   {
-    text: 'A specialized financial services company funding the people who were perceived to be unfundable.',
-    by: '<b>Mr.</b> LAKSHIPATHY',
-    img: '/icons/floriane-vita.png',
-    logo: '/icons/mx-logos-five-star 1.svg'
+    text: 'I fondly remember the many midnight calls we’ve had while we worked relentlessly to build Practo. They’ve worked with us like a startup themselves and were always there when needed.',
+    by: '<b>SHASHANK</b>',
+    img: '/images/about-us/1-laptop.png',
+    logo: '/icons/ola.svg'
   }
 ];
 
@@ -39,16 +51,19 @@ type propsType = {
 const HeroSection: FC<propsType> = ({ deviceType }) => {
   return (
     <>
-      <Carousel autoPlay showThumbs={false} showArrows={false} showStatus={false} infiniteLoop={true} interval={6000} stopOnHover={false} transitionTime={1000} centerMode={false}>
+      <Carousel autoPlay={false} showThumbs={false} showArrows={false} showStatus={false} infiniteLoop={true} interval={6000} stopOnHover={false} transitionTime={1000} centerMode={false}>
         {sliders.map((ele, i) => (
           <div key={i} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${ele.img})`, height: '100vh', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
             <div className="text-white relative -top-24 sm:-top-14" style={{ textAlign: 'start' }}>
               <h3 className='opacity-40 mb-24 sm:mb-16 slider-num-ma'>{i > 8 ? (i + 1) : `0${i + 1}`}/{sliders.length > 9 ? sliders.length : `${sliders.length}`}</h3>
-              <h5 className='mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light'>"{ele.text}"</h5>
+              <h5 className='relative mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '45px', textIndent: '3rem', zIndex: 1 }}>
+                <img className="absolute -top-10 sm:-top-3 left-0 h-20 w-20 sm:h-8" style={deviceType.mobile ? { width: '2rem', zIndex: -1 } : { width: '5rem', zIndex: -1 }} src="/quote-mark.png" />
+                {ele.text}
+              </h5>
               <h6 className="font-normal leading-normal sm:text-sm" dangerouslySetInnerHTML={{ __html: ele.by }} style={deviceType.mobile ? { letterSpacing: 0.1 } : {}}></h6>
-              <img className="absolute bottom-0 right-0" src={ele.logo} style={deviceType.mobile ? { width: 50 } : { display: 'none' }} />
+              <img className="absolute bottom-0 right-0" src={ele.logo} style={deviceType.mobile ? { width: 60 } : { display: 'none' }} />
             </div>
-            <img className="absolute bottom-12 right-8" src={ele.logo} style={deviceType.mobile ? { display: 'none', } : { width: 70 }} />
+            <img className="absolute bottom-12 right-8" src={ele.logo} style={deviceType.mobile ? { display: 'none', } : { width: 100 }} />
           </div>
         ))}
       </Carousel>

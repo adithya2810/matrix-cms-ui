@@ -133,7 +133,7 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
                 <div className="body1 text-accent-dark pb-16">Videos</div></a></Link>}
 
               <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full">
-                <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center ">
+                <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center" onClick={() => inputText && router.push(`/blogs?search=${inputText}`)}>
                   See All Results <div className='relative top-0.5 left-2' ><RightArrowAccentLaptop /></div>
                 </div>
               </div>

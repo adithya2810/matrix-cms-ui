@@ -1,4 +1,4 @@
-import PageTitle from '@components/PageTitle';
+import SocialMetaTags from '@components/SocialMetaTags';
 import AboutUs from '@modules/AboutUs';
 import React, { FC } from 'react';
 
@@ -13,7 +13,7 @@ type propsType = {
 const AboutUsPage: FC<propsType> = (props) => {
   return (
     <>
-      <PageTitle>About Us</PageTitle>
+      <SocialMetaTags title="About Us" description="Matrix Partners began in Boston in 1977, and today invests actively in the USA, India and China. Matrix Partners India was established in 2006, and invests..." />
       <AboutUs {...props} />
     </>
   );

@@ -86,7 +86,7 @@ const founderData = [
     ],
     title: "We <span>partner</span><br> closely",
     background_url: '/icons/onecard-boiss.png',
-    tags: ["Mobile first credit card"],
+    tags: ["B2C", "Banking"],
     logo: "/icons/onecard-logo.png",
     small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
   },
@@ -98,7 +98,7 @@ const founderData = [
     ],
     title: "We <span>invest</span><br> early",
     background_url: '/icons/razorpay-boss.png',
-    tags: ["Finance"],
+    tags: ["Payments"],
     logo: "/icons/razorpay-white-logo.png",
     small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   },
@@ -109,7 +109,7 @@ const founderData = [
     ],
     title: "We <span>commit </span><br> personally",
     background_url: '/icons/mswipe-manish-patel.png',
-    tags: ["Payment"],
+    tags: ["Payments"],
     logo: "/icons/mswipe-white-logo.png",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },
@@ -121,7 +121,7 @@ const founderData = [
     ],
     title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/dailyhunt-boss.png',
-    tags: ["Content"],
+    tags: ["Mobile local language platform"],
     logo: "/icons/dailyhunt-logo.png",
     small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   },
@@ -135,7 +135,7 @@ const founderData = [
     ],
     title: "We <span>partner</span><br> closely",
     background_url: '/icons/founder4-edited.png',
-    tags: ["Finance"],
+    tags: ["Fintech", "NBFC"],
     logo: "/icons/mx-logos-five-star 1.svg",
     small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
   },
@@ -153,7 +153,7 @@ const founderData = [
     ],
     title: "We <span>invest</span><br> early",
     background_url: '/icons/Chakradhar_Nitin.png',
-    tags: ["Dairy & Food"],
+    tags: ["D2C", "Food"],
     logo: "/icons/Country Delight 1.svg",
     small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   }

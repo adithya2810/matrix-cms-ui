@@ -16,8 +16,12 @@ const PresskitForm: React.FC<propType> = ({ deviceType }) => {
           <div>
             <p className='presskit-header'> Press Enquires</p>
             <p className='presskit-subheader'>Contact</p>
-            <p className="presskit-txt" style={{ marginBottom: 0 }}>Email : <a href="mailto:press@matrixpartners.in">press@matrixpartners.in</a></p>
-            <p className="presskit-txt">Phone : <a href="tel:+912267680000">+912267680000</a></p>
+            <a className="inline presskit-hover">
+              <p className="presskit-txt" style={{ marginBottom: 0 }}>Email : <a href="mailto:press@matrixpartners.in">press@matrixpartners.in</a></p>
+            </a>
+            <a className="inline presskit-hover">
+              <p className="presskit-txt">Phone : <a href="tel:+912267680000">+912267680000</a></p>
+            </a>
           </div>
           <div style={{ marginTop: deviceType.mobile ? -50 : '50px' }}>
             <p className='presskit-header'> Press Kits</p>
@@ -65,7 +69,7 @@ const PresskitForm: React.FC<propType> = ({ deviceType }) => {
         </div>
         <div style={{ flex: '5%' }}></div>
       </div>
-    </div>
+    </div >
   )
 }
 export default PresskitForm;

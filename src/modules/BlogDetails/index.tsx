@@ -7,6 +7,7 @@ import HeroSection from './HeroSection';
 import RelatedVideos from './RelatedVideos';
 import SideContent from './SideContent';
 import _ from "lodash";
+import SocialMetaTags from '@components/SocialMetaTags';
 
 type deviceType = {
   mobile: Boolean;
@@ -17,6 +18,7 @@ type propsType = {
 };
 
 interface BlogProvider {
+  name: string;
   content: string;
   content_type: {
     name: string;
@@ -136,7 +138,19 @@ const BlogDetails: FC<propsType> = (props) => {
     }
   }
 
-  return (
+  const getImage = (data) => {
+    if (data?.blog_details_image) {
+      if (props.deviceType.mobile) {
+        return data?.cover_image_mobile;
+      } else
+        return data?.blog_details_image.url;
+    } else {
+      return !props.deviceType.mobile ? data?.cover_desktop : data?.cover_image_mobile;
+    }
+  }
+
+  return (<>
+    {blogDetails && <SocialMetaTags title={blogDetails.name ? blogDetails.name : ''} description={blogDetails.content ? blogDetails.content : ''} image={getImage(blogDetails)} />}
     <div className='blog-detail'>
       <HeroSection {...props} blogDetails={blogDetails} />
       <div className="laptop:grid laptop:grid-cols-12 w-full section relative" style={props.deviceType.mobile ? {} : { padding: '0 60px' }}>
@@ -151,7 +165,7 @@ const BlogDetails: FC<propsType> = (props) => {
           <SearchMoreMobile {...props} blogCount={blogCount} />}
       </div>
     </div>
-  )
+  </>)
 }
 
 export default BlogDetails

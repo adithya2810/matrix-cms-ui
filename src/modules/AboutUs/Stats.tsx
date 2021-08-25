@@ -55,7 +55,7 @@ const Stats: FC<propsType> = ({ deviceType }) => {
           </div>
           <div className='w-full flex justify-center laptop:my-5'>
             <div className='sm:mb-5'>
-              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>110<span className='absolute -right-1 sm:-right-5 sm:top-5 top-6'><Plus /></span></div>
+              <div style={{ fontSize: deviceType.mobile ? 62 : 55 }} className='relative text-center'>110<span className='absolute -right-1 sm:right-3 sm:top-5 top-6'><Plus /></span></div>
               <h6 className='text-center sm:text-black ma-stats-fix'>Profitable {!deviceType.mobile && <div style={{ marginBottom: 10 }} />}Acqusitions</h6>
             </div>
           </div>

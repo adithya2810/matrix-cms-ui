@@ -1,3 +1,4 @@
+import SocialMetaTags from '@components/SocialMetaTags';
 import React, { FC } from 'react';
 import Individual from "../../src/modules/advisoryTeam/individualMember";
 
@@ -14,6 +15,7 @@ const AdvisoryIndividual: FC<propsType> = (props: propsType) => {
 
   return (
     <>
+      <SocialMetaTags title={props.advisoryDetail.name} image={props.advisoryDetail.image_url} description={props.advisoryDetail.description} />
       <Individual {...props} />
     </>
   );

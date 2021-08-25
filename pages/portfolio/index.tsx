@@ -1,3 +1,4 @@
+import SocialMetaTags from '@components/SocialMetaTags';
 import React from "react";
 import Portfolio from '../../src/modules/portfolio';
 
@@ -9,7 +10,10 @@ export type Props = {
 };
 
 function PortfolioPage<Props>({ portfolio, deviceType }) {
-  return <Portfolio portfolio={portfolio} deviceType={deviceType} />;
+  return (<>
+    <SocialMetaTags title="Portfolio" description="We work with visionary founders of early-stage startups to amplify their intrinsic talent." image={`${process.env.NEXT_PUBLIC_APP_URL}/img/Portfolio.png`} />
+    <Portfolio portfolio={portfolio} deviceType={deviceType} />
+  </>);
 }
 
 export async function getServerSideProps() {

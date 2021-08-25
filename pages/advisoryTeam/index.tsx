@@ -1,8 +1,12 @@
+import SocialMetaTags from '@components/SocialMetaTags';
 import React from "react";
 import AdvisoryTeam from "../../src/modules/advisoryTeam";
 
 function AdvisoryTeamPage(props) {
-  return <AdvisoryTeam deviceType={props.deviceType} invesmentTeam={props.investment} operationsTeam={props.operations} />;
+  return (<>
+    <SocialMetaTags title="Advisory Team" image={`${process.env.NEXT_PUBLIC_APP_URL}/img/advisory-banner.png`} description="We are company builders first Our experience supports and amplifies companies over their lifespan" />
+    <AdvisoryTeam deviceType={props.deviceType} invesmentTeam={props.investment} operationsTeam={props.operations} />
+  </>);
 }
 
 

@@ -31,13 +31,13 @@ const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam, deviceType }) =>
             className={tabination === 'currentTeam' ?
               "btn-active-bg text-white pt-19p px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
               : "focus:outline-none text-white px-8 pt-19p tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
-            INVESTMENTS
+            Investments
           </button>
           <button onClick={() => setTabination('pastTeam')}
             className={tabination === 'pastTeam' ?
               "btn-active-bg text-white pt-19p px-8 tab-btn sm:px-2 py-2 text-3md sm:text-sm md:text-2xl focus:outline-none"
               : "focus:outline-none text-white px-8 pt-19p tab-btn sm:text-sm sm:px-2 py-2 text-3md md:text-2xl"}>
-            OPERATIONS
+            Operations
           </button>
         </div>
 

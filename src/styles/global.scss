@@ -509,7 +509,7 @@ h6 {
 }
 
 .flip-card-back {
-  background-color: #fbf9f5;
+  // background-color: #fbf9f5;
   transform: rotateY(180deg);
 }
 // .flip-card-back img{
@@ -1203,6 +1203,17 @@ textarea {
   height: 16.83px;
   font-weight: bold;
   color: #01576e;
+}
+
+.about_after-border::after{
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 12px;
+  height: 2px;
+  width: 146px;
+  background: #cdd1d7;
+  opacity: 0.3;
 }
 
 @media screen and (max-width: 800px) {

@@ -8,6 +8,7 @@ import {
   TwitterMobile,
   RightArrowAccentLaptop
 } from '@components/Icons';
+import Link from 'next/link';
 import router from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -67,15 +68,21 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
                 className={`px-14 py-10 sm:px-7 sm:py-5`}
               >
                 <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div>
-                <h5 className='text-accent'>{blogCount.article}</h5>
-                <div className="body1 text-accent-dark mb-7">Articles</div>
-                <h5 className='text-accent'>{blogCount.audio}</h5>
-                <div className="body1 text-accent-dark mb-7">Podcasts</div>
-                <h5 className='text-accent'>{blogCount.video}</h5>
-                <div className="body1 text-accent-dark">Videos</div>
+                {<Link href={`/blogs?content_type.name=Article`}><a>
+                  <h5 className='text-accent'>{blogCount.article}</h5>
+                  <div className="body1 text-accent-dark mb-7">Articles</div>
+                </a></Link>}
+                {<Link href={`/blogs?content_type.name=Audio`}><a>
+                  <h5 className='text-accent'>{blogCount.audio}</h5>
+                  <div className="body1 text-accent-dark mb-7">Podcasts</div>
+                </a></Link>}
+                {<Link href={`/blogs?content_type.name=Video`}><a>
+                  <h5 className='text-accent'>{blogCount.video}</h5>
+                  <div className="body1 text-accent-dark">Videos</div>
+                </a></Link>}
 
                 <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-14 w-full">
-                  <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center ">
+                  <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center " onClick={() => inputText && router.push(`/blogs?search=${inputText}`)}>
                     See All Results <div className='relative left-2' style={{ top: 1 }} ><RightArrowAccentLaptop /></div>
                   </div>
                 </div>

@@ -25,7 +25,7 @@ export type props = {
 export const MobileMenu: React.FC<props> = ({ sectorialList, nonSectorialList, blogData, blogCount, selectedTags, onItemClick, closeMenu, newsInfoList, eventInfoList, mobile }) => {
 
   const tagClicked = (item) => {
-    console.log(item)
+    // console.log(item)
     onItemClick(item);
   }
 

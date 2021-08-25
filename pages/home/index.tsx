@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "../../src/modules/home";
+import SocialMetaTags from '@components/SocialMetaTags';
 
 type deviceType = {
   mobile: boolean;
@@ -10,7 +11,10 @@ type propsType = {
 };
 
 const HomePage: React.FC<propsType> = (props) => {
-  return <Home deviceType={props.deviceType} />;
+  return (
+    <><SocialMetaTags />
+      <Home deviceType={props.deviceType} />
+    </>);
 }
 
 export default HomePage;

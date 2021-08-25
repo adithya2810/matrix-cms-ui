@@ -1,4 +1,5 @@
 import PageTitle from '@components/PageTitle';
+import SocialMetaTags from '@components/SocialMetaTags';
 import News from '@modules/News/index';
 import React, { FC } from 'react';
 
@@ -13,7 +14,7 @@ type propsType = {
 const NewsPage: FC<propsType> = (props) => {
   return (
     <>
-      <PageTitle>Matrix Moments</PageTitle>
+      <SocialMetaTags title="News" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrixMomentsLaptop.png`} />
       <News {...props} />
     </>
   );

@@ -38,7 +38,6 @@ const ContentItemWithTags: React.FC<Props> = ({
   style = {},
   mobile
 }) => {
-  console.log(tags)
   return (
     <div
       className={`${className} relative contentWithTagbox mb-6 laptop:flex`}

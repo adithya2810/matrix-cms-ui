@@ -23,7 +23,7 @@ export const NewsEventContentItem: React.FC<Props> = ({
   onClick
 }) => {
 
-  if (!image_url) image_url = '/icons/matrixLogo.svg';
+  if (!image_url) image_url = '/Matrix_Primary_Logo.png';
 
   return (
     <div className={`${className} relative mb-12 ml-0`}  >

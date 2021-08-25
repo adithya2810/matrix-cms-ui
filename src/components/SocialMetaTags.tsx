@@ -35,7 +35,7 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
   url = url ? `${process.env.NEXT_PUBLIC_APP_URL}${url}` : process.env.NEXT_PUBLIC_APP_URL;
   title = title ? `${title} - Matrix Partners India` : 'Matrix Partners India';
   description = description ? makeDescription(description, true) : "We work with visionary founders of early-stage startups to amplify their intrinsic talent.";
-  image = image ? image : `${process.env.NEXT_PUBLIC_APP_URL}/matrix-logo.png`
+  image = image ? image : `${process.env.NEXT_PUBLIC_APP_URL}/Matrix_Primary_Logo.png`
   return (
     <Head>
       {/* <!-- Primary Meta Tags --> */}

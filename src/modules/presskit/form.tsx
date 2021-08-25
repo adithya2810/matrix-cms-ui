@@ -25,13 +25,13 @@ const PresskitForm: React.FC<propType> = ({ deviceType }) => {
           </div>
           <div style={{ marginTop: deviceType.mobile ? -50 : '50px' }}>
             <p className='presskit-header'> Press Kits</p>
-            <Link href={'https://admin.matrixpartners.in/media_root/uploads/mx_teamphotos.zip'}>
+            <Link href={'https://matrix-cms.s3.ap-south-1.amazonaws.com/mx_teamphotos.zip'}>
               <a className="inline presskit-hover">
                 <p className='presskit-subheader'>Download</p>
                 <p className="presskit-txt" style={deviceType.mobile ? { marginBottom: 10 } : {}}>Team photo and bio</p>
               </a>
             </Link>
-            <Link href={'https://admin.matrixpartners.in/media_root/uploads/logo.zip'}>
+            <Link href={'https://matrix-cms.s3.ap-south-1.amazonaws.com/logo_75be270f9e.zip'}>
               <a className="inline presskit-hover">
                 <p className='presskit-subheader'>Download</p>
                 <p className="presskit-txt">Matrix logo</p>

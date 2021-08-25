@@ -21,7 +21,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
           <div className="flex self-center justify-center" key={e._id}>
             <div className="flip-card">
               <div className="flip-card-inner ">
-                <div className="flip-card-front">\
+                <div className="flip-card-front">
                   <Image src={e.logo_url} alt={e.name} className="p-20" />
                 </div>
                 <div className="flip-card-back text-left p-4">

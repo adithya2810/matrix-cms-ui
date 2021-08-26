@@ -49,6 +49,11 @@ const IndividualMember: FC<propsType> = (props) => {
     return '';
   };
 
+  const contentRead = (type) => {
+    let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
+    return cntarr[type] || "Read";
+  };
+
   return (
     <div className="team_detail py-40 px-12 sm:py-0 sm:px-0">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
@@ -210,7 +215,7 @@ const IndividualMember: FC<propsType> = (props) => {
                   alt={blog.content_type.name}
                   className="flex items-center w-8 h-8"
                 /></div>}
-                {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} READ</div>}
+                {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} {contentRead(blog.content_type.name)}</div>}
                 <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>
                   <Link href={`/blogs/${blog.slug}`}><a>{blog.name}</a></Link>
                 </div>

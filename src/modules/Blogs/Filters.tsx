@@ -436,9 +436,10 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
-        {/* <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
-          <iframe src="https://www.linkedin.com/company/matrix-partners/" name="linkedinFrame" scrolling="no" frameBorder="1" marginHeight={0} marginWidth={0}></iframe>
-        </div> */}
+        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
+          <script src="https://platform.linkedin.com/in.js" type="text/javascript"></script>
+          <script type="IN/MemberProfile" data-id="https://www.linkedin.com/company/matrix-partners/" data-format="inline"></script>
+        </div>
       </div>
     </>
   );

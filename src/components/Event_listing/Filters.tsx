@@ -39,7 +39,7 @@ const Filters = ({ deviceType }) => {
   const handleFilter = (_) => {
     !deviceType.mobile && setIsFilterBoxOpen(!isFilterBoxOpen)
     setIsTwitterBoxOpen(false);
-    deviceType.mobile && inputText && window.location.replace(`/events?search=${inputText}`);
+    if (deviceType.mobile && inputText) window.location.href = `/events?search=${inputText}`;
   };
 
   function isElementOutViewport(el) {
@@ -56,7 +56,7 @@ const Filters = ({ deviceType }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && inputText.trim() != "") {
-      window.location.replace(`/events?search=${inputText}`);
+      window.location.href = `/events?search=${inputText}`;
     }
   }
 

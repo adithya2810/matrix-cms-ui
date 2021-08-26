@@ -15,7 +15,7 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
       <div className='row'>
         <div className='left-event' >
           <div className='event-heading'>{eventsdata.name}</div>
-          <div className='event-grid'>
+          <div className='event-grid hidden'>
             <span className='enevt-sub-card'>
               <div><img src="/icons/Vector.svg" alt="nextjs" /></div>
               <span><img src="/icons/Ellipse.svg" alt="nextjs" /></span>

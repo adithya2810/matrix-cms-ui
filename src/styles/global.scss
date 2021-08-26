@@ -679,17 +679,20 @@ h6 {
     }
   }
   .image-shadow {
-    box-shadow: -6px 6px 0px 0px #01576e;
-    -webkit-box-shadow: -6px 6px 0px 0px #01576e;
-    -moz-box-shadow: -6px 6px 0px 0px #01576e;
+    // box-shadow: -6px 6px 0px 0px #01576e;
+    // -webkit-box-shadow: -6px 6px 0px 0px #01576e;
+    // -moz-box-shadow: -6px 6px 0px 0px #01576e;
     @screen sm {
-      box-shadow: -6px -6px 0px 0px #01576e;
-      -webkit-box-shadow: -6px -6px 0px 0px #01576e;
-      -moz-box-shadow: -6px -6px 0px 0px #01576e;
+      // box-shadow: -6px -6px 0px 0px #01576e;
+      // -webkit-box-shadow: -6px -6px 0px 0px #01576e;
+      // -moz-box-shadow: -6px -6px 0px 0px #01576e;
     }
     &:hover {
       transition-duration: 200ms;
-      box-shadow: none;
+      // box-shadow: none;
+      box-shadow: -6px 6px 0px 0px #01576e;
+      -webkit-box-shadow: -6px 6px 0px 0px #01576e;
+      -moz-box-shadow: -6px 6px 0px 0px #01576e;
       + div {
         display: none;
       }
@@ -1418,7 +1421,7 @@ textarea {
 }
 
 .event-container {
-  margin: 150px 0 30px 0;
+  margin: 120px 0 30px 0;
 }
 
 .event-container > img {

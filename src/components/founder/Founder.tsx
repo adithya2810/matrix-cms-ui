@@ -1,6 +1,8 @@
 import React, { useState, useEffect, ReactComponentElement } from 'react';
 import { Image, ContentSlider } from "@components";
 import Slider from "react-slick";
+import qs from "qs";
+import _ from "lodash";
 
 // export type Props = {
 //   names?: Array<string>;
@@ -54,6 +56,20 @@ const data = [
   },
 ];
 
+const feature_blogs = [
+  "60f55ea43e54f918dc97b3b0", //ola
+  "61154f5e7acdcae02c64ddc1", //Cloudnine
+  "6115fd037acdcae02c64dde0", //Stanza
+  "611606d37acdcae02c64ddf2", //OfBusiness
+  "611547307acdcae02c64ddaf", //Dealshare
+  "611557237acdcae02c64ddcc", //onecard
+  "611608a67acdcae02c64ddf5", //razorpay
+  "611522037acdcae02c64dda8", //mswipe
+  "611548d47acdcae02c64ddb3", //dailyhunt
+  "611521947acdcae02c64dda7", //five-star
+  "611604bc7acdcae02c64ddef", //Country Delight
+];
+
 export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = (props) => {
 
   const [featureData, setFeatureData] = useState([]);
@@ -64,7 +80,8 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
   }, []);
 
   const componentDidMount = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_sort=published_at:DESC&FeaturedOne=1');
+    const psqury = { _where: { _id_in: feature_blogs, FeaturedOne: 1 } };
+    const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?${qs.stringify(psqury)}`);
     const json = await response.json();
     const featureOneData = json.map(blogData => {
       //console.log(json)
@@ -75,10 +92,12 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
         content_id: blogData.id || "",
         content_type: blogData.type || "Video",
         read_duration: blogData.readtime,
-        blog_url: blogData.slug
+        blog_url: blogData.slug,
+        order: _.indexOf(feature_blogs, blogData._id)
       }
-    })
-    setFeatureData(featureOneData);
+    });
+
+    setFeatureData(_.sortBy(featureOneData, ["order"]));
   }
 
 

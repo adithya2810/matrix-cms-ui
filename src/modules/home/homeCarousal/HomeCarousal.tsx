@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Image, ContentSlider } from "@components";
 import { FounderDetail } from "@components/founder/FounderDetail";
 import Slider from "react-slick";
+import qs from "qs";
+import _ from "lodash";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -165,7 +167,7 @@ const heroSlider02_Data = [
       { firstName: "Anurag ", lastName: "Sinha" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
-    title: "A <span>mobile-first</span><br> credit card",
+    title: "<span>Mobile-first</span><br> credit card",
     founderImage: '/icons/onecard-boiss.png',
     background_url: '/icons/onecard-bg.png',
     tagsDetails: "India's best metal credit card. Built with full-stack tech. Backed by the principles of simplicity, transparency, and giving back control to the user.",
@@ -206,7 +208,21 @@ const heroSlider02_Data = [
     tagsDetails: "India’s #1 news & local language content application",
     logo: "/icons/dailyhunt-logo.png",
   }
-]
+];
+
+const feature_blogs = [
+  "60f55ea43e54f918dc97b3b0", //ola
+  "61154f5e7acdcae02c64ddc1", //Cloudnine
+  "6115fd037acdcae02c64dde0", //Stanza
+  "611606d37acdcae02c64ddf2", //OfBusiness
+  "611521947acdcae02c64dda7", //five-star
+  "611604bc7acdcae02c64ddef", //Country Delight
+  "611547307acdcae02c64ddaf", //Dealshare
+  "611557237acdcae02c64ddcc", //onecard
+  "611608a67acdcae02c64ddf5", //razorpay
+  "611522037acdcae02c64dda8", //mswipe
+  "611548d47acdcae02c64ddb3", //dailyhunt
+];
 
 const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
 
@@ -221,7 +237,8 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   }, [])
 
   const componentDidMount = async () => {
-    const response = await fetch(' http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_sort=published_at:DESC&FeaturedTwo=true');
+    const psqury = { _where: { _id_in: feature_blogs, FeaturedOne: true } };
+    const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?${qs.stringify(psqury)}`);
     const json = await response.json();
     // console.log(json)
     const featureTwoData = json.map(blogData => {
@@ -232,10 +249,11 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         content_id: blogData.id || "",
         content_type: blogData.content_type.name || "Article",
         read_duration: blogData.readtime,
-        blog_url: blogData.slug || ''
+        blog_url: blogData.slug || '',
+        order: _.indexOf(feature_blogs, blogData._id)
       }
     })
-    setFeatureData(featureTwoData)
+    setFeatureData(_.sortBy(featureTwoData, ["order"]));
   }
 
 

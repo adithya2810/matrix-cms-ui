@@ -61,6 +61,14 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <meta property="twitter:creator" content="@author" />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
+      <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119875117-1"></script>
+      <script dangerouslySetInnerHTML={{
+        __html: `window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119875117-1');`}} />
     </Head>
   )
 };

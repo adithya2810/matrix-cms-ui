@@ -29,7 +29,9 @@ const getPagination = (currentPage, totalPages, appendSearch) => {
     l = i;
   }
   return rangeWithDots.reduce((acc, n) => {
-    acc.push(<div key={n} onClick={_ => +n != current && window.location.replace(`/events?page=${n}${appendSearch}`)} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{(n < 10) ? `0${n}` : n}</div>)
+    acc.push(<div key={n} onClick={_ => {
+      if (+n != current) window.location.href = `/events?page=${n}${appendSearch}`;
+    }} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{(n < 10) ? `0${n}` : n}</div>)
     return acc
   }, []);
 }
@@ -55,8 +57,8 @@ const Pagination: React.FC<{ total: number; }> = ({ total }) => {
     }
   }, [query]);
 
-  const handlePrevPage = _ => currentPage > 1 && window.location.replace(`/events?page=${currentPage - 1}${appendSearch}`)
-  const handleNextPage = _ => currentPage != totalPages && window.location.replace(`/events?page=${currentPage + 1}${appendSearch}`)
+  const handlePrevPage = _ => { if (currentPage > 1) window.location.href = `/events?page=${currentPage - 1}${appendSearch}`; }
+  const handleNextPage = _ => { if (currentPage != totalPages) window.location.href = `/events?page=${currentPage + 1}${appendSearch}`; }
 
   return (
     <div className='flex justify-center sm:block mt-20 mb-16'>

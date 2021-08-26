@@ -247,7 +247,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         title: blogData.name,
         author: blogData.author[0]?.name || "",
         content_id: blogData.id || "",
-        content_type: blogData.content_type.name || "Article",
+        content_type: blogData.content_type.name,
         read_duration: blogData.readtime,
         blog_url: blogData.slug || '',
         order: _.indexOf(feature_blogs, blogData._id)

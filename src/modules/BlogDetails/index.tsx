@@ -15,128 +15,16 @@ type deviceType = {
 
 type propsType = {
   deviceType: deviceType;
-};
-
-interface BlogProvider {
-  name: string;
-  content: string;
-  content_type: {
-    name: string;
-  };
-  youtube_embed: string;
+  blogDetails: any;
+  relatedVideos: any;
+  blogCount: any;
 };
 
 const BlogDetails: FC<propsType> = (props) => {
   const { query: { slug } } = useRouter()
-  const [blogDetails, setBlogDetails] = useState<BlogProvider>()
-  const [relatedVideos, setRelatedVideos] = useState([])
-  const [blogCount, setBlogCount] = useState(null);
-  useEffect(() => {
-    fetchData(slug)
-  }, [slug])
-
-  const fetchData = async (slug) => {
-    try {
-      const SINGLE_BLOG = `query ($slug: String!){
-        blogs(where:{slug: $slug}){
-          FeaturedOne
-          FeaturedTwo
-          blog_details_image {
-            url
-            formats
-          }
-          author {
-            createdAt
-            currentinvest
-            description
-            designation
-            image_url
-            linkedin
-            name
-            pastinvset
-            published_at
-            slug
-            twitter
-            type
-          }
-          content
-          content_type {
-            name
-            slug
-          }
-          cover_desktop
-          cover_image_mobile
-          name
-          published_at
-          readtime
-          slug
-          tags {
-            name
-            slug
-            blogs {
-              _id
-              FeaturedOne
-              FeaturedTwo
-              displaytag
-              author {
-                designation
-                image_url
-                name
-                slug
-              }
-              content_type {
-                name
-                slug
-              }
-              cover_desktop
-              cover_image_mobile
-              name
-              readtime
-              slug
-              tags {
-                name
-                slug
-              }
-              youtube_embed
-            }
-          }
-          updatedAt
-          youtube_embed
-          audioboomembed
-          date
-        }
-      }`;
-
-      const gfql = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query: SINGLE_BLOG, variables: { slug: slug } })
-      });
-
-      const gfql_data = await gfql.json();
-
-      setBlogDetails(gfql_data.data.blogs[0])
-
-      let relatedVideosArr = [];
-      const dataRelatedVideos = gfql_data.data.blogs[0]?.tags
-      dataRelatedVideos.forEach(d => {
-        relatedVideosArr.push(...d.blogs)
-      });
-      relatedVideosArr = _.uniqWith(relatedVideosArr, _.isEqual);
-      setRelatedVideos(relatedVideosArr.slice(0, 4))
-
-      setBlogCount({
-        article: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Article`)).json(),
-        audio: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Audio`)).json(),
-        video: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Video`)).json(),
-      });
-
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  const blogDetails = props.blogDetails;
+  const relatedVideos = props.relatedVideos;
+  const blogCount = props.blogCount;
 
   const getImage = (data) => {
     if (data?.blog_details_image) {

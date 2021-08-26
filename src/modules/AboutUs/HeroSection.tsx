@@ -11,7 +11,7 @@ const sliders = [
   {
     text: 'Matrix has been an early backer of Ola Cabs mission and is a partner I can always count on! Matrix wears the mission of partner companies on their sleeves and are unabashed evangelists at all times.',
     by: '<b>BHAVISH</b> AGGARWAL',
-    img: '/images/about-us/1-laptop.png',
+    img: '/icons/raybay.png',
     logo: '/icons/ola.svg'
   },
   {

@@ -38,6 +38,10 @@ const ContentItemWithTags: React.FC<Props> = ({
   style = {},
   mobile
 }) => {
+  const contentRead = (type) => {
+    let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
+    return cntarr[type] || "Read";
+  }
   return (
     <div
       className={`${className} relative contentWithTagbox mb-6 laptop:flex`}
@@ -92,7 +96,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             className="text-xs font-normal text-primary-dark p-0.5 pl-0 pt-0 uppercase"
             style={{ lineHeight: "14px", letterSpacing: "0.1em" }}
           >
-            {read_duration} READ{" "}
+            {read_duration} {contentRead(content_type)}{" "}
           </div>
           <div
             className="text-primary-dark font-normal mt-3"

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import qs from 'qs';
 import HeroSection from './HeroSection';
 import AppliedFilters from './AppliedFilters';
@@ -6,6 +6,7 @@ import List from './List';
 import Pagination from '../../components/Pagination';
 import Filters from './Filters';
 import { useRouter } from 'next/router';
+import _ from "lodash"
 
 type deviceType = {
   mobile: Boolean;
@@ -20,29 +21,22 @@ const index: FC<propsType> = (props) => {
   const [totalPages, setTotalPages] = useState(0)
   const router = useRouter()
   const { query } = router;
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(+query.page || 1)
   const [appiedfilters, setAppliedFilters] = useState([])
   const [isPaginationOn, setIsPaginationOn] = useState(true)
-  const [filter, setFilter] = useState({})
-  const [remfilter, setRemFilter] = useState('')
 
   useEffect(() => {
     if (data == null) {
       fetchBlogsData(page)
     }
-  }, [])
+  }, [data])
 
-  const pageClick = (p) => {
-    setPage(p)
-    fetchBlogsData(p, filter);
+  const getQueryStr = (str: any) => {
+    return str;
   }
 
-  const removeFilter = (v) => {
-    setRemFilter(v)
-  }
-
-  const fetchBlogsData = async (page = 1, filters: any = {}) => {
-    setFilter(filters);
+  const fetchBlogsData = async (page = 1) => {
+    const filters: any = query.hasOwnProperty('filters') ? JSON.parse(getQueryStr(query.filters)) : {};
     try {
       const _limit = 20;
       const _start = (page * _limit) - _limit
@@ -50,7 +44,6 @@ const index: FC<propsType> = (props) => {
       let query_str = '';
       if (Object.keys(filters).length > 0) {
         setAppliedFilters([...filters.topics, ...filters.authors, ...filters.formats, ...filters.moments])
-        setRemFilter('')
 
         let makeQuery: any = { _where: [], _sort: {} };
         if (filters?.authors.length > 0) {
@@ -69,7 +62,6 @@ const index: FC<propsType> = (props) => {
         query_str = qs.stringify(makeQuery);
 
       } else {
-        setPage(page);
         setAppliedFilters([]);
       }
 
@@ -77,19 +69,20 @@ const index: FC<propsType> = (props) => {
         let makeQuery: any = { _where: [] };
         for (const key in query) {
           if (Object.prototype.hasOwnProperty.call(query, key)) {
-            if (key == "search") {
-              makeQuery._where = {
-                _or: [
-                  { 'name_contains': query[key] },
-                  { 'tags.name_contains': query[key] },
-                ]
-              };
-              setAppliedFilters([query[key]]);
-            } else {
-              makeQuery[key] = query[key];
-              setAppliedFilters([query[key]]);
+            if (key != "page") {
+              if (key == "search") {
+                makeQuery._where = {
+                  _or: [
+                    { 'name_contains': query[key] },
+                    { 'tags.name_contains': query[key] },
+                  ]
+                };
+                setAppliedFilters([query[key]]);
+              } else {
+                makeQuery[key] = query[key];
+                setAppliedFilters([query[key]]);
+              }
             }
-
           }
         }
         query_str = qs.stringify(makeQuery);
@@ -117,12 +110,12 @@ const index: FC<propsType> = (props) => {
   return (
     <div className="listing">
       <HeroSection mobile={props.deviceType.mobile} />
-      <AppliedFilters removeFilter={removeFilter} mobile={props.deviceType.mobile} appliedFilters={appiedfilters} totalPages={totalPages > 9 ? totalPages : `0${totalPages}`} page={page ? page : 1} />
+      <AppliedFilters mobile={props.deviceType.mobile} appliedFilters={appiedfilters} totalPages={totalPages > 9 ? totalPages : `0${totalPages}`} page={page ? page : 1} />
       <List {...props} data={data} />
-      <Filters {...props} remfilter={remfilter} fetchBlogsData={fetchBlogsData} />
+      <Filters {...props} />
       <br />
       <br />
-      {isPaginationOn && <Pagination page={page} pageChnage={(v) => pageClick(v)} totalPages={totalPages} mobile={props.deviceType.mobile} />}
+      {isPaginationOn && <Pagination totalPages={totalPages} mobile={props.deviceType.mobile} />}
       <br />
     </div>
   );

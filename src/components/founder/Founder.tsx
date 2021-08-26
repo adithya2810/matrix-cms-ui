@@ -90,7 +90,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
         title: blogData.name,
         author: blogData.author[0]?.name || "",
         content_id: blogData.id || "",
-        content_type: blogData.type || "Video",
+        content_type: blogData.content_type.name || "Video",
         read_duration: blogData.readtime,
         blog_url: blogData.slug,
         order: _.indexOf(feature_blogs, blogData._id)

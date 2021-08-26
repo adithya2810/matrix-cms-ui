@@ -36,22 +36,32 @@ const getPagination = (currentPage, totalPages, pageChnage, mobile) => {
 }
 
 type prop = {
-  pageChnage: (v: number) => void;
   totalPages: number;
   mobile: Boolean;
-  page: number;
 }
 
-const Pagination: React.FC<prop> = ({ pageChnage, totalPages = 0, mobile, page }) => {
-  const [currentPage, setCurrentPage] = useState(page)
+const Pagination: React.FC<prop> = ({ totalPages = 0, mobile }) => {
+  const { query } = useRouter();
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    setCurrentPage(+page || 1)
-  }, [page])
+    setCurrentPage(+query.page || 1)
+  }, [query.page])
+
+  const getQueryString = (str: any) => {
+    return str;
+  }
 
   const click = (p) => {
-    pageChnage(p)
-    setCurrentPage(p)
+    if (!query.hasOwnProperty('page')) {
+      query.page = p;
+    } else {
+      query.page = p;
+    }
+    let search_str = Object.keys(query).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(getQueryString(query[k]))
+    }).join('&')
+    window.location.href = `/blogs?${search_str}`;
   }
 
   const handlePrevPage = _ => currentPage !== 1 && click(currentPage - 1)

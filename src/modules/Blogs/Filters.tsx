@@ -10,8 +10,6 @@ import {
   TwitterMobile,
   FilterMobile,
   SearchAccentLaptop,
-  DownArrow,
-  UpArrow,
   SelectAllLaptop,
   SelectNoneLaptop,
   InstagramLaptop,
@@ -19,13 +17,14 @@ import {
 } from '@components/Icons';
 import React, { useEffect, useRef, useState } from 'react';
 import _ from 'lodash';
+import { useRouter } from 'next/router';
 
 
 const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
-
+const Filters = ({ deviceType }) => {
+  const { query } = useRouter();
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
@@ -51,30 +50,14 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
     fetchFiltersMetaData();
   }, [])
 
+  const getQueryStr = (str: any) => {
+    return str;
+  }
+
   useEffect(() => {
-    if (remfilter) {
-      let rmflt = initialFilters;
-      if (remfilter) {
-        for (const key in filters) {
-          if (Object.prototype.hasOwnProperty.call(filters, key)) {
-            let fldata = filters[key];
-            if (_.indexOf(fldata, remfilter) != -1) {
-              fldata.splice(_.indexOf(fldata, remfilter), 1);
-              rmflt[key] = fldata;
-            } else {
-              rmflt[key] = fldata.length > 0 ? ((key == 'sort') ? 'desc' : []) : fldata;
-            }
-          }
-        }
-      }
-      setFilters(rmflt);
-      fetchBlogsData(1, rmflt);
-      setIsFilterBoxOpen(false);
-      setIsTwitterBoxOpen(false);
-      setIsLinkedInBoxOpen(false);
-      searchFilterOption('')
-    }
-  }, [remfilter]);
+    if (query.hasOwnProperty('filters'))
+      setFilters(JSON.parse(getQueryStr(query.filters)))
+  }, [query.filters])
 
   const searchFilterOption = value => {
     setInputText(value);
@@ -197,6 +180,12 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
     }
     return '';
   };
+
+  const clickSearch = () => {
+    if (Object.keys(filters).length > 0) {
+      window.location.href = `/blogs?filters=${JSON.stringify(filters)}`;
+    }
+  }
 
   return (
     <>
@@ -408,18 +397,11 @@ const Filters = ({ deviceType, fetchBlogsData, remfilter }) => {
                 </>}
               </ul>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
-                <div onClick={() => {
-                  setFilters(initialFilters);
-                  fetchBlogsData();
-                  setIsFilterBoxOpen(false);
-                  setIsTwitterBoxOpen(false);
-                  setIsLinkedInBoxOpen(false);
-                  searchFilterOption('')
-                }} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
+                <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
                 <div onClick={_ => {
-                  fetchBlogsData(1, filters)
+                  clickSearch()
                   setIsFilterBoxOpen(false);
                   setIsTwitterBoxOpen(false);
                   setIsLinkedInBoxOpen(false)

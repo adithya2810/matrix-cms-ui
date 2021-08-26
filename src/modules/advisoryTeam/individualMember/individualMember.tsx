@@ -172,7 +172,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </Link>
           </div>
           {advisoryDetail.blogs.length > 0 &&
-            <Link href="#" passHref>
+            <Link href={'/blogs'} passHref>
               <p className="cursor-pointer mt-14">View more content -{'>'}</p>
             </Link>
           }

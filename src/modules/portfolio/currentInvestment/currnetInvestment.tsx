@@ -27,7 +27,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
                 <div className="flip-card-back text-left p-4">
                   <Image src={e.logo_url} alt={e.name} className="sm:hidden md:hidden lg:hidden pb-5" />
                   <div className="text-sm text-black font-medium tablet:text-xs md:text-xs sm:text-base pb-5 mb-2 text-left border-b-2" dangerouslySetInnerHTML={{ __html: e.description }}></div>
-                  <a href={e.website_url} target="_blank" className="text-xl tracking-wider font-light text-accent pt-4 uppercase">Visit Website</a>
+                  <a href={e.website_url} target="_blank" className="text-xl tracking-wider font-light text-accent pt-4 uppercase flex">Visit Website <img src='/icons/arrow_b.svg' /></a>
                 </div>
               </div>
             </div>

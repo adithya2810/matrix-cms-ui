@@ -115,6 +115,11 @@ export const ContentItem: React.FC<CardProps> = ({
     return '';
   };
 
+  const contentRead = (type) => {
+    let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
+    return cntarr[type] || "Read";
+  };
+
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
       <div className="relative hover-cover-div">
@@ -134,7 +139,7 @@ export const ContentItem: React.FC<CardProps> = ({
             By {" " + capitalize(author)}
           </span>
           <span className="read_duration font-normal uppercase text-xs leading-3  text-primary-dark opacity-50 mr-1" style={mobile ? { fontSize: 11, fontWeight: 500 } : { lineHeight: '14px' }}>
-            {read_duration + " READ"}
+            {read_duration + " "}{contentRead(content_type)}
           </span>
           {mobile && <Image
             src={getContentTypeImageUrl(content_type)}

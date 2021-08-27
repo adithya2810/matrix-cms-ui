@@ -216,7 +216,8 @@ const Filters = ({ deviceType }) => {
             </div>
             <div className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center"
               onClick={() => {
-                setIsLinkedInBoxOpen(!isLinkedInBoxOpen)
+                // setIsLinkedInBoxOpen(!isLinkedInBoxOpen)
+                window.location.href = "https://www.linkedin.com/company/matrix-partners/"
               }}>
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
@@ -418,14 +419,14 @@ const Filters = ({ deviceType }) => {
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
-        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
+        {/* <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
           <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'} text-right`}>
             <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
             <script type="IN/FollowCompany" data-id="79774001" data-counter="bottom"></script>
             <iframe className="mb-5" scrolling={'no'} height="657" width="300" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6747788266340192256" title="Embedded post"></iframe>
             <iframe className="mb-5" scrolling={'no'} height="1214" width="300" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6835506247844868096" title="Embedded post"></iframe>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

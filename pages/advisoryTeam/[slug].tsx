@@ -29,6 +29,9 @@ export async function getServerSideProps(context) {
       name
       description
       designation
+      experience
+      education
+      contact
       twitter
       linkedin
       published_at

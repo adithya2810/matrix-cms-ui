@@ -418,10 +418,14 @@ const Filters = ({ deviceType }) => {
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
-        {/* <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
-          <script src="https://platform.linkedin.com/in.js" type="text/javascript"></script>
-          <script type="IN/MemberProfile" data-id="https://www.linkedin.com/company/matrix-partners/" data-format="inline"></script>
-        </div> */}
+        <div className="twitter_outerWarp opened duration-300 relative" style={{ display: `${isLinkedInBoxOpen ? 'block' : 'none'}` }}>
+          <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'} text-right`}>
+            <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+            <script type="IN/FollowCompany" data-id="79774001" data-counter="bottom"></script>
+            <iframe className="mb-5" scrolling={'no'} height="657" width="300" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6747788266340192256" title="Embedded post"></iframe>
+            <iframe className="mb-5" scrolling={'no'} height="1214" width="300" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6835506247844868096" title="Embedded post"></iframe>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -108,7 +108,7 @@ const heroSlider02_Data = [
         lastName: "MOHAPATRA"
       }
     ],
-    title: "<span>SME </span><br> lending",
+    title: "<span>Credit led </span><br> B2B marketplace",
     founderImage: '/icons/Asish_Treatment.png',
     background_url: '/icons/andreas-kind.png',
     tagsDetails: "OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,",
@@ -122,7 +122,7 @@ const heroSlider02_Data = [
         lastName: "LAKSHIPATHY"
       }
     ],
-    title: "<span>Credit led </span><br> B2B marketplace",
+    title: "<span>SME </span><br> lending",
     founderImage: '/icons/founder4-edited.png',
     background_url: '/icons/floriane-vita.png',
     tagsDetails: "A specialized financial services company funding the people who were perceived to be unfundable",
@@ -332,14 +332,14 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         })}
       </Slider>
 
-      <div
+      {/* <div
         className="absolute bg-accent hospatalitySector" style={{ bottom: 66 }}>
         <span className="text-secondary hospatalitySector-text font-medium text-lg leading-6 text-center h-full flex justify-center items-center"
         >
           {" "}
           Hospitality Sector{" "}
         </span>
-      </div>
+      </div> */}
       <ContentSliderFeatureTwo
         contentList={featureData}
         className="absolute md:relative bottom-0 right-0 text-primary-dark contentItemOuter-w85"

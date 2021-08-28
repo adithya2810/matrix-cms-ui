@@ -53,8 +53,8 @@ const IndividualMember: FC<propsType> = (props) => {
   };
 
   const contentRead = (type) => {
-    let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
-    return cntarr[type] || "Read";
+    let cntarr = { Video: 'WATCH', Audio: 'LISTEN', Article: 'READ' }
+    return cntarr[type] || "READ";
   };
 
   return (

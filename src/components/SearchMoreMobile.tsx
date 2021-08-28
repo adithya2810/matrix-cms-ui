@@ -18,13 +18,20 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
   const TwitterIcon = deviceType.mobile ? <TwitterMobile /> : <TwitterLaptop />;
 
   const [inputText, setInputText] = useState('');
-  const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false);
+  const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(true);
+  const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const filterRef = useRef(null);
 
   const [footerInView, setFooterInView] = useState(false);
   const [footerbottom, setFooterHeight] = useState(0);
 
-  const handleFilter = () => setIsSearchBoxOpen(!isSearchBoxOpen);
+  const handleFilter = () => {
+    // setIsSearchBoxOpen(!isSearchBoxOpen);
+    // setIsTwitterBoxOpen(false);
+    if (inputText.trim() != "") {
+      router.push(`/blogs?search=${inputText}`);
+    }
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && inputText.trim() != "") {
@@ -46,14 +53,14 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
 
   return (
     <>
-      {isSearchBoxOpen && !!inputText.length && (
+      {isSearchBoxOpen && isTwitterBoxOpen && !!inputText.length && (
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
       <div className="fixed bottom-8 left-8 right-8 z-50" style={{ top: footerInView ? 'auto' : '90vh', bottom: footerInView ? footerbottom : 'auto' }}>
         {isSearchBoxOpen && !!inputText.length &&
           <>
-            <div
+            {/* <div
               className="laptop:hidden flex justify-end"
               onClick={handleFilter}
             >
@@ -87,7 +94,7 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </>
         }
         <div
@@ -103,17 +110,25 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
               className={`w-full px-3  body1 border-none outline-none  bg-accent text-white`}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="search for more blogs"
-              onBlur={handleFilter}
+              // onBlur={handleFilter}
               onKeyDown={handleKeyDown}
             />
           </div>}
-          <div className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center">
+          <a className="relative  bg-white laptop:h-24 sm:w-10 flex justify-center items-center" href="https://www.linkedin.com/company/matrix-partners/" target="__blank">
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
-          </div>
-          <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center">
+          </a>
+          <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center" onClick={() => {
+            setIsTwitterBoxOpen(!isTwitterBoxOpen)
+          }}>
             {TwitterIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
+          </div>
+        </div>
+        <div className={`twitter_outerWarp opened duration-300 absolute`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}`, bottom: footerInView ? 'auto' : '55px' }}>
+          <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
+            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
       </div>

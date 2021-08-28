@@ -33,8 +33,8 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
   const TwitterIcon = mobile ? <TwitterMobile width="23" height="20" /> : <TwitterLaptop width="23" height="20" color="rgba(1, 87, 110, 1)" />;
 
   const contentRead = (type) => {
-    let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
-    return cntarr[type] || "Read";
+    let cntarr = { Video: 'WATCH', Audio: 'LISTEN', Article: 'READ' }
+    return cntarr[type] || "READ";
   };
 
   return (
@@ -49,14 +49,14 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
           </div>
         </div>
       </div>
-      <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>
+      {relatedVideos.lenght > 0 && <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>}
 
       {relatedVideos?.map((v, i) => (
         <div key={`${i}-relativevideos`} className="card laptop:flex relative laptop:mb-16">
           <div className="sm:flex sm:justify-end">
             <div style={mobile ? { height: 'auto', width: 'calc(100% - 10px)', position: 'relative' } : {}}>
               {mobile && <>
-                <div className="absolute" style={{ top: -6, left: 9, width: 'calc(100% - 20px)', height: 'calc(100% - 20px)', background: "#01576E" }}></div>
+                <div className="absolute sm:hidden" style={{ top: -6, left: 9, width: 'calc(100% - 20px)', height: 'calc(100% - 20px)', background: "#01576E" }}></div>
                 {v.displaytag && <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0" style={mobile ? { zIndex: 2, left: 10, top: -6 } : {}}>{v.displaytag}</div>}
               </>}
               <img onClick={_ => push(`/blogs/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 132, width: 151 } : { height: 178, width: '100%' }} />

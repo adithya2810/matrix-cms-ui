@@ -9,8 +9,15 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   const [subscribe, setSubscribe] = useState('');
 
   const submitSubscribe = async () => {
-    console.log(subscribe);
-    if (subscribe == "") return false;
+    setMsg({ status: false, message: '' })
+    if (subscribe == "") {
+      setMsg({ status: false, message: 'Enter valid email address.' });
+      return false;
+    }
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(subscribe)) {
+      setMsg({ status: false, message: 'Enter valid email address.' });
+      return false;
+    }
     var mail_data = { to: 'info@matrixpatners.in', subject: 'Subscription mail', html: `New subscription mail: ${subscribe}` };
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send-mail-attachment`, {

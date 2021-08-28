@@ -15,7 +15,7 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
       <div className='row'>
         <div className='left-event' >
           <div className='event-heading'>{eventsdata.name}</div>
-          <div className='event-grid hidden'>
+          {/* <div className='event-grid hidden' style={{ display: 'none' }}>
             <span className='enevt-sub-card'>
               <div><img src="/icons/Vector.svg" alt="nextjs" /></div>
               <span><img src="/icons/Ellipse.svg" alt="nextjs" /></span>
@@ -40,12 +40,14 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
                 <p className='event-user-role'>Senior Associate</p>
               </span>
             </span>
-          </div>
+          </div> */}
         </div>
         <div className='right-event'>
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: eventsdata.description }}></div>
         </div>
-
+        <div className='pl-8 hidden sm:block'>
+          <Link href='/events'>Go back</Link>
+        </div>
       </div>
       {/* <Link href='/news'>Go back</Link>
       <p className="news-header">

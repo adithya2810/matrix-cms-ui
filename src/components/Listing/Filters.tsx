@@ -73,7 +73,7 @@ const Filters = ({ deviceType }) => {
         <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />
       )}
 
-      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8 overflow-y-hidden" style={deviceType.mobile ? { top: footerInView ? 'auto' : '90vh', bottom: footerInView ? footerbottom : 'auto' } : { top: footerInView ? 'auto' : 375, bottom: footerInView ? 295 : 'auto' }}>
+      <div className="fixed laptop:flex flex-row-reverse laptop:right-14 z-50 sm:left-8 sm:right-8" style={deviceType.mobile ? { top: footerInView ? 'auto' : '90vh', bottom: footerInView ? footerbottom : 'auto' } : { top: footerInView ? 'auto' : 375, bottom: footerInView ? 295 : 'auto' }}>
         <div
           className="closed duration-300 w-16 cursor-pointer sm:flex sm:w-full" style={deviceType.mobile ? {} : { width: 105, height: 'auto' }}
         >
@@ -85,8 +85,10 @@ const Filters = ({ deviceType }) => {
           <div className={`search laptop:hidden w-auto h-24 sm:h-12 flex items-center bg-accent`}>
             <input
               className={`w-full px-3  body1 border-none outline-none  bg-accent text-white`}
+              value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="search for more blogs"
+              placeholder="search for more news"
+              onKeyDown={handleKeyDown}
             />
           </div>
           <a className="relative bg-white laptop:h-16 sm:w-10 flex justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }} href="https://www.linkedin.com/company/matrix-partners/" target="__blank">
@@ -115,7 +117,7 @@ const Filters = ({ deviceType }) => {
                 className={`w-full  body1 border-none outline-none bg-accent text-white`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="search for more blogs"
+                placeholder="search for more news"
                 onKeyDown={handleKeyDown}
               />
             </div>
@@ -132,13 +134,18 @@ const Filters = ({ deviceType }) => {
           </div>
         }
 
-        <div className={`twitter_outerWarp opened duration-300 relative`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
+        {!deviceType.mobile && <div className={`twitter_outerWarp opened duration-300 relative`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
           <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
             <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
-        </div>
-
+        </div>}
+        {deviceType.mobile && <div className={`twitter_outerWarp opened duration-300 absolute`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}`, bottom: footerInView ? 'auto' : '55px' }}>
+          <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
+            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          </div>
+        </div>}
       </div>
     </>
   );

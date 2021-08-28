@@ -46,21 +46,21 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <meta name="author" content="author" />
 
       {/* <!-- Open Graph / Facebook --> */}
-      <meta property="og:type" content="website" />
+      {/* <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:author" content="matrix_team" />
+      <meta property="og:author" content="matrix_team" /> */}
 
       {/* <!-- Twitter --> */}
-      <meta property="twitter:card" content="summary_large_image" />
+      {/* <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:site" content="@matrixindiavc" />
       <meta property="twitter:creator" content="@author" />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
+      <meta property="twitter:image" content={image} /> */}
       <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119875117-1"></script>
       <script dangerouslySetInnerHTML={{

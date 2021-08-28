@@ -24,6 +24,11 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
       setSecSelectedIndex(null)
       setSelectedIndex(null)
     }
+    if (menuIndex == null && !mobile) {
+      setSelectedIndex(2)
+      onMenuClicked("PRIMARY_MENU", 'footer_blog', 2);
+      setSecSelectedIndex(null)
+    }
   }, [menuIndex])
 
   const isSelected = (index: number) => {

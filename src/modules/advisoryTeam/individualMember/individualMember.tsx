@@ -155,16 +155,16 @@ const IndividualMember: FC<propsType> = (props) => {
 
             {advisoryDetail.experience && <>
               <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Experience</h2>
-              <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
             </>}
             {advisoryDetail.education && <>
               <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Education</h2>
-              <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
             </>}
 
             {advisoryDetail.currentinvest && <>
               <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Current Investments</h2>
-              <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
             </>}
 
             {advisoryDetail.pastinvset && <>

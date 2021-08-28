@@ -87,25 +87,25 @@ const Filters = ({ deviceType }) => {
 
   const fetchFiltersMetaData = async () => {
     try {
-      const resTopics = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?_sort=name:asc`)
+      const resTopics = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tags?_sort=name:asc`)
       const resJsonTopics = await resTopics.json();
       const tpc = resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }));
       setTopicsf(tpc)
       setTopics(tpc)
 
-      const resAuthors = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people?_sort=name:asc`)
+      const resAuthors = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?_sort=name:asc`)
       const resJsonAuthors = await resAuthors.json();
       const atrs = resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
       setAuthorsf(atrs)
       setAuthors(atrs)
 
-      const resCnt = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/contents?_sort=name:asc`)
+      const resCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contents?_sort=name:asc`)
       const resJsonCnt = await resCnt.json();
       const frmt = resJsonCnt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
       setFormatsf(frmt);
       setFormats(frmt);
 
-      const mmtCnt = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blog-types?_sort=name:asc`)
+      const mmtCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog-types?_sort=name:asc`)
       const resJsonmmt = await mmtCnt.json();
       const frmtmmt = resJsonmmt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
       setMomentsf(frmtmmt);

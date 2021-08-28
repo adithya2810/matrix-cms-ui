@@ -40,11 +40,11 @@ const HomeContent: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   const componentDidMount = async () => {
     let url;
     if (selectedTab == "blogs") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_sort=date:DESC&content_type.name=Article';
+      url = `${process.env.NEXT_PUBLIC_API_URL}/blogs?_sort=date:DESC&content_type.name=Article`;
     } else if (selectedTab == "podcast") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_sort=date:DESC&content_type.name=Audio';
+      url = `${process.env.NEXT_PUBLIC_API_URL}/blogs?_sort=date:DESC&content_type.name=Audio`;
     } else if (selectedTab == "videocasts") {
-      url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_sort=date:DESC&content_type.name=Video';
+      url = `${process.env.NEXT_PUBLIC_API_URL}/blogs?_sort=date:DESC&content_type.name=Video`;
     }
     const response = await fetch(url);
     const json = await response.json();

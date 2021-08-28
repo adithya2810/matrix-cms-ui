@@ -13,7 +13,7 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
     if (subscribe == "") return false;
     var mail_data = { to: 'info@matrixpatners.in', subject: 'Subscription mail', html: `New subscription mail: ${subscribe}` };
 
-    const res = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/send-mail-attachment', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send-mail-attachment`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

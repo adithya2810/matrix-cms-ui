@@ -94,10 +94,10 @@ const index: FC<propsType> = (props) => {
         sortby = `&_sort=date:DESC`;
       }
 
-      const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?_start=${_start}&_limit=${_limit}${sortby}${(query_str) ? '&' + query_str : ''}`)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?_start=${_start}&_limit=${_limit}${sortby}${(query_str) ? '&' + query_str : ''}`)
       const data = await res.json();
       setData(data)
-      const countRes = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count${(query_str) ? '?' + query_str : ''}`)
+      const countRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count${(query_str) ? '?' + query_str : ''}`)
       const count = await countRes.json();
       const totalPages = Math.ceil(count / _limit); //count / _limit + (count % _limit === 0 ? 0 : 1)
       setTotalPages(totalPages)

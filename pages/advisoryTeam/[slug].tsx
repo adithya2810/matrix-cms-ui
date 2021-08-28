@@ -71,8 +71,8 @@ export async function getServerSideProps(context) {
       }
     }
   }`;
-  // const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/people-by-slug/${params.slug}`);
-  const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people-by-slug/${params.slug}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/graphql`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',

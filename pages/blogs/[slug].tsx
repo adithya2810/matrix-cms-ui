@@ -92,7 +92,7 @@ export async function getServerSideProps(ctx) {
     }
   }`;
 
-  const gfql = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+  const gfql = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/graphql`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
@@ -103,9 +103,9 @@ export async function getServerSideProps(ctx) {
   const gfql_data = await gfql.json();
 
   const blogCount = {
-    article: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Article`)).json(),
-    audio: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Audio`)).json(),
-    video: await (await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count?content_type.name=Video`)).json(),
+    article: await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?content_type.name=Article`)).json(),
+    audio: await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?content_type.name=Audio`)).json(),
+    video: await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?content_type.name=Video`)).json(),
   };
 
   if (!gfql_data || gfql_data.data.blogs.length == 0) {

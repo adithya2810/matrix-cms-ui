@@ -122,7 +122,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
 
 
   const getTagList = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tags`);
     const json = await response.json();
     const sectorialTags = json.filter(tag => tag.sectorial)
       .map(tag => {
@@ -164,7 +164,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
     let filterNonSectSlug = nonSectorialList.filter(tag => selectedTag.indexOf(tag.id) > -1)
       .map(tag => { return tag.slug });
     if (selectedTag.length == 0) {
-      // url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags'
+      // url = `${process.env.NEXT_PUBLIC_API_URL}/tags`
       url = {
         query: `query {
           blogs (sort: "published_at:desc"){
@@ -193,10 +193,10 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
             youtube_embed
           }
       }`};
-      setBlogCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs/count')).json());
+      setBlogCount(await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count`)).json());
     } else if (selectedTag.length > 0) {
       // param = filterSectSlug.concat(filterNonSectSlug).join('&slug=')
-      // url = 'http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/tags?slug=' + param;
+      // url = `${process.env.NEXT_PUBLIC_API_URL}/tags?slug=` + param;
       url = {
         query: `query ($tags: JSON){
           blogs (sort: "published_at:desc", where:$tags){
@@ -229,7 +229,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
       setBlogCount(null)
     }
 
-    const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/graphql`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/graphql`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -267,7 +267,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
   }
 
   const getNewsInfo = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos?_sort=date:desc');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/infos?_sort=date:desc`);
     const json = await response.json();
 
     const newsList = json.map(news => {
@@ -279,11 +279,11 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
       }
     });
     setNewsInfoList(newsList);
-    setNewsCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos/count')).json())
+    setNewsCount(await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/infos/count`)).json())
   }
 
   const getEventInfo = async () => {
-    const response = await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events?_sort=Event_date:desc');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events?_sort=Event_date:desc`);
     const json = await response.json();
 
     const eventList = json.map(event => {
@@ -295,7 +295,7 @@ export const Menu: React.FC<propType> = ({ mobile }) => {
       }
     });
     setEventInfoList(eventList);
-    setEventCount(await (await fetch('http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events/count')).json())
+    setEventCount(await (await fetch('${process.env.NEXT_PUBLIC_API_URL}/events/count')).json())
   }
 
   const { data: { appConfig: navMenuState } } = useQuery(appConfiqQuery.GET_NAV_MENU_STATE);

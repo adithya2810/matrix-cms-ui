@@ -12,7 +12,7 @@ function DetailsPage(props) {
 export async function getServerSideProps(ctx) {
   const { newsId } = ctx.params;
 
-  const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/infos?slug=${newsId}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/infos?slug=${newsId}`);
   const data = await res.json()
   if (!data || data.length == 0) {
     return {

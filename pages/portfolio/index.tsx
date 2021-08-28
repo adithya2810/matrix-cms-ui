@@ -18,7 +18,7 @@ function PortfolioPage<Props>({ portfolio, deviceType }) {
 
 export async function getServerSideProps() {
 
-  const res = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/companies?_sort=name:ASC`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/companies?_sort=name:ASC`);
   const data = await res.json()
 
   return {

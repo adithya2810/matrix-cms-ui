@@ -40,14 +40,14 @@ const index: FC<propsType> = (props) => {
       }
     }
     let qparams = qs.stringify(params);
-    axios.get(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events?${qparams}`).then(res => {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events?${qparams}`).then(res => {
       setCard(res.data)
     }).catch(err => {
       console.log(err);
     });
 
     let qparamsCount = qs.stringify(countParam);
-    axios.get(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/events/count?${qparamsCount}`).then(res => {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events/count?${qparamsCount}`).then(res => {
       setCount(Math.ceil(res.data / 10))
     }).catch(err => {
       console.log(err);

@@ -238,7 +238,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
 
   const componentDidMount = async () => {
     const psqury = { _where: { _id_in: feature_blogs, FeaturedOne: true } };
-    const response = await fetch(`http://ec2-3-108-61-121.ap-south-1.compute.amazonaws.com:1337/blogs?${qs.stringify(psqury)}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?${qs.stringify(psqury)}`);
     const json = await response.json();
     // console.log(json)
     const featureTwoData = json.map(blogData => {

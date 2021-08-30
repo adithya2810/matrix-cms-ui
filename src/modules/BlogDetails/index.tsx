@@ -7,7 +7,6 @@ import HeroSection from './HeroSection';
 import RelatedVideos from './RelatedVideos';
 import SideContent from './SideContent';
 import _ from "lodash";
-import SocialMetaTags from '@components/SocialMetaTags';
 
 type deviceType = {
   mobile: Boolean;
@@ -38,7 +37,6 @@ const BlogDetails: FC<propsType> = (props) => {
   }
 
   return (<>
-    {blogDetails && <SocialMetaTags title={blogDetails.name ? blogDetails.name : ''} description={blogDetails.content ? blogDetails.content : ''} image={getImage(blogDetails)} />}
     <div className='blog-detail'>
       <HeroSection {...props} blogDetails={blogDetails} />
       <div className="laptop:grid laptop:grid-cols-12 w-full section relative" style={props.deviceType.mobile ? {} : { padding: '0 60px' }}>

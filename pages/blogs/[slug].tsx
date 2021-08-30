@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import BlogDetails from '@modules/BlogDetails'
 import _ from "lodash";
+import SocialMetaTags from '@components/SocialMetaTags';
 
 type deviceType = {
   mobile: Boolean;
@@ -14,7 +15,18 @@ type propsType = {
 };
 
 const BlogDetailsPage: FC<propsType> = (props) => {
+  const getImage = (data) => {
+    if (data?.blog_details_image) {
+      if (props.deviceType.mobile) {
+        return data?.cover_image_mobile;
+      } else
+        return data?.blog_details_image.url;
+    } else {
+      return !props.deviceType.mobile ? data?.cover_desktop : data?.cover_image_mobile;
+    }
+  }
   return (<>
+    <SocialMetaTags title={props.blogDetails.name ? props.blogDetails.name : ''} description={props.blogDetails.content ? props.blogDetails.content : ''} url={`/blogs/${props.blogDetails.slug}`} image={getImage(props.blogDetails)} />
     <BlogDetails {...props} />
   </>)
 }

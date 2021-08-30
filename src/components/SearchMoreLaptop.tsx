@@ -14,8 +14,9 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
+import qs from 'qs';
 
-const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, video: 0 } }) => {
+const SearchMoreLaptop = ({ deviceType, blogCount }) => {
   const router = useRouter();
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const LinkedInIcon = deviceType.mobile ? <LinkedInMobile /> : <LinkedInLaptop />
@@ -28,6 +29,31 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
   const filterRef = useRef(null);
 
   const [footerInView, setFooterInView] = useState(false);
+
+  const [articleCount, setArticleCount] = useState(0);
+  const [audioCount, setAudioCount] = useState(0);
+  const [videoCount, setVideoCount] = useState(0);
+
+  useEffect(() => {
+    const getbglCount = async (search) => {
+      let makeQuery: any = {
+        _or: [
+          { 'name_contains': search },
+          { 'tags.name_contains': search },
+        ]
+      };
+      setArticleCount(await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?${qs.stringify({ _where: { 'content_type.name': 'Article', ...makeQuery } })}`)).json())
+      setAudioCount(await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?${qs.stringify({ _where: { 'content_type.name': 'Audio', ...makeQuery } })}`)).json())
+      setVideoCount(await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/count?${qs.stringify({ _where: { 'content_type.name': 'Video', ...makeQuery } })}`)).json())
+    }
+    if (inputText) {
+      getbglCount(inputText);
+    } else {
+      setArticleCount(blogCount.article);
+      setAudioCount(blogCount.audio);
+      setVideoCount(blogCount.video);
+    }
+  }, [inputText]);
 
   const handleClickEvent = (e: Event) => {
     if (filterRef?.current && !filterRef.current.contains(e.target))
@@ -123,13 +149,13 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
               style={{ height: 'auto' }}
             >
               {/* <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div> */}
-              {<Link href={`/blogs?content_type.name=Article`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.article}</h5>
+              {<Link href={`/blogs?content_type.name=Article`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{articleCount}</h5>
                 <div className="body1 text-accent-dark mb-3">Articles</div></a></Link>}
 
-              {<Link href={`/blogs?content_type.name=Audio`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.audio}</h5>
+              {<Link href={`/blogs?content_type.name=Audio`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{audioCount}</h5>
                 <div className="body1 text-accent-dark mb-3">Podcasts</div></a></Link>}
 
-              {<Link href={`/blogs?content_type.name=Video`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{blogCount.video}</h5>
+              {<Link href={`/blogs?content_type.name=Video`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{videoCount}</h5>
                 <div className="body1 text-accent-dark pb-16">Videos</div></a></Link>}
 
               <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full">

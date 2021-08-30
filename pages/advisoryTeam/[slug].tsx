@@ -28,6 +28,7 @@ export async function getServerSideProps(context) {
       _id
       name
       description
+      about
       designation
       experience
       education

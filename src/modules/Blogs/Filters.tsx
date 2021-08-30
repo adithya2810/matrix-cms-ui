@@ -146,8 +146,8 @@ const Filters = ({ deviceType }) => {
 
   const handleFilter = (_) => setIsFilterBoxOpen(!isFilterBoxOpen);
 
-  const getTag = ({ isSelected, setSelected, tagName, tagNumber, index }) => {
-    return <div key={tagName + index} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+  const getTag = ({ isSelected, setSelected, tagName, tagNumber, index, filter = '' }) => {
+    return (filter == "sort" || tagNumber > 0) && <div key={tagName + index} onClick={setSelected} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
       {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
     </div>
   }
@@ -388,8 +388,8 @@ const Filters = ({ deviceType }) => {
                     <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Sort By</div>
                   </li>
                   {openedFilter === 'sort' && <div className='flex flex-wrap'>
-                    {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc' })}
-                    {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0, index: 'desc' })}
+                    {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc', filter: 'sort' })}
+                    {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0, index: 'desc', filter: 'sort' })}
                   </div>}
                 </>}
               </ul>

@@ -108,7 +108,7 @@ const heroSlider02_Data = [
         lastName: "MOHAPATRA"
       }
     ],
-    title: "<span>Credit led </span><br> B2B marketplace",
+    title: "<span>B2B Commerce </span><br> Fintech",
     founderImage: '/icons/Asish_Treatment.png',
     background_url: '/icons/andreas-kind.png',
     tagsDetails: "OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,",

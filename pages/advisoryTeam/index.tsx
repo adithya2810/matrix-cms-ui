@@ -20,6 +20,7 @@ export async function getServerSideProps() {
   const data1 = await res1.json()
 
   data.splice(_.findIndex(data, ['_id', "6112641431f3105968351e5d"]), 1);
+  data.splice(_.findIndex(data, ['_id', "611253da31f3105968351e57"]), 1);
 
   return {
     props: {

@@ -59,7 +59,7 @@ const founderData = [
     ],
     title: "We <span>commit </span><br> personally",
     background_url: '/icons/Asish_Treatment.png',
-    tags: ["Fintech", "SME Lending"],
+    tags: ["B2B Commerce", "Fintech"],
     logo: "/icons/OfBusiness Logo 1.svg",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },

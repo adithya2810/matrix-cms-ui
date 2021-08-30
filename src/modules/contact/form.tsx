@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "@components/button/PrimaryButtonIconRight";
 import Link from 'next/link';
+import Swal from 'sweetalert2';
 
 type propType = {
   deviceType: {
@@ -12,7 +13,6 @@ type propType = {
 const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
   const [contact, setContact] = useState({ name: '', company_name: '', company_brief: '', email: '', mobile: '' });
   const [attachment, setAttachment] = useState(null);
-  const [msg, setMsg] = useState({ status: true, message: '' });
 
   const onFileChange = event => {
     setAttachment(event.target.files[0]);
@@ -25,7 +25,7 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
   const submitContact = async event => {
     event.preventDefault() // don't redirect the page
     // where we'll add our form logic
-    var mail_data = { to: 'info@matrixpatners.in', subject: 'New Contact Us Enquery', html: '' };
+    var mail_data = { to: 'salonie@matrixpartners.in,binita@matrixpartners.in,info@matrixpartners.in,komalsaini2010@gmail.com', subject: 'New Contact Us Enquery', html: '' };
 
     var html = '';
     for (var key in contact) {
@@ -37,7 +37,9 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
     }
     mail_data.html = html;
     var fd = new FormData();
-    fd.append("files.file", attachment, attachment.name);
+    if (attachment) {
+      fd.append("files.file", attachment, attachment.name);
+    }
     fd.append('data', JSON.stringify(mail_data));
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send-mail-attachment`, {
@@ -46,15 +48,25 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
     })
 
     if (res.ok) {
-      setMsg({ status: true, message: 'Mail send successfully' })
       var reset: any = {};
       for (var key in contact) {
         reset[key] = '';
       }
       setContact(reset);
-      setTimeout(() => setMsg({ status: false, message: '' }), 6000);
+      Swal.fire({
+        title: 'Success!',
+        text: 'Thanks for your submission, we will be in touch with you shortly.',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        timer: 6000
+      })
     } else {
-      setMsg({ status: false, message: 'Mail not sended!' })
+      Swal.fire({
+        title: 'Failed!',
+        text: 'Mail not sended!',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
     }
   }
 
@@ -109,7 +121,6 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
               style={deviceType.mobile ? { fontSize: 14, marginTop: 0, letterSpacing: 0, fontWeight: 500 } : {}}
             />
           </form>
-          <div className="flex py-5" style={{ color: msg.status ? 'green' : 'red' }}>{msg.message}</div>
         </div>
       </div>
 

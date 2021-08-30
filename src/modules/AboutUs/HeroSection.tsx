@@ -34,9 +34,9 @@ const sliders = [
   },
   {
     text: 'I fondly remember the many midnight calls we’ve had while we worked relentlessly to build Practo. They’ve worked with us like a startup themselves and were always there when needed.',
-    by: '<b>SHASHANK</b>',
+    by: '<b>SHASHANK</b> N.D.',
     img: '/images/about-us/1-laptop.png',
-    logo: '/icons/ola.svg'
+    logo: '/icons/practo.png'
   }
 ];
 

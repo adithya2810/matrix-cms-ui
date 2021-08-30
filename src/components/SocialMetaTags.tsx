@@ -48,10 +48,12 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:author" content="matrix_team" />
+      <meta name="title" property="og:title" content={title} />
+      <meta name="description" property="og:description" content={description} />
+      <meta name="image" property="og:image" content={image} />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
+      <meta name="author" property="og:author" content="matrix_team" />
 
       {/* <!-- Twitter --> */}
       <meta property="twitter:card" content="summary_large_image" />

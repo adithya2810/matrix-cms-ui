@@ -267,7 +267,7 @@ h6 {
   font-family: Manrope;
   font-style: normal;
   font-weight: 200;
-  font-size: 2.5vh;
+  font-size: 3vh;
   line-height: 1.1em;
   letter-spacing: -0.01em;
   color: #ffffff;
@@ -378,7 +378,7 @@ h6 {
 
 // -------------- Advisory Team Page Style ---- start ----
 .team-overlay {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1842,5 +1842,73 @@ textarea {
   ul {
     list-style-type: unset;
     padding-left: 20px;
+  }
+}
+
+.button-filters{
+  display: flex;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  .button-filters-text{
+    flex: 0 30%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .button-filters-btn{
+    display: flex;
+    align-items: center;
+    overflow-x:auto;
+    span{
+      padding: 6px 10px;
+      overflow: hidden;
+      position: relative;
+      font-size: 16px;
+      transition: color 0.25s cubic-bezier( 0.770, 0.000, 0.175, 1.000 );
+      font-weight: 400;
+      line-height: 1.4;
+      margin-right: 25px;
+      cursor: pointer;
+      &:before {
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          content: '';
+          z-index: -1;
+          position: absolute;
+          transform: translateY(100%);
+          transition: transform 0.25s cubic-bezier( 0.770, 0.000, 0.175, 1.000 );
+          background-color: #083a4a;
+      }
+      &:hover, .active{
+        color: #ffffff;
+        &::before{
+          transform: translateY(0%);
+        }
+      }
+    }
+    span.active{
+      color: #ffffff;
+      &::before{
+        transform: translateY(0%);
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    display: block;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    .button-filters-text{
+      margin-bottom: 10px;
+    }
+    .button-filters-btn{
+      height: 35px;
+      display: inline-flex;
+      span{
+        display: inline-table;
+      }
+    }
   }
 }

@@ -12,7 +12,7 @@ export const navMenu = {
     },
     {
       key: "footer_blog",
-      name: "Blog",
+      name: "Matrix Moments",
       link: "/blogs",
     },
   ],

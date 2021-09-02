@@ -11,7 +11,7 @@ const footermenu = [
   },
   {
     key: "footer_blog",
-    name: "Blog",
+    name: "Matrix Moments",
     link: "/blogs",
   },
   {

@@ -120,15 +120,42 @@ const IndividualMember: FC<propsType> = (props) => {
             {advisoryDetail.about && <> <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">About</h3>
               <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
 
+            {advisoryDetail.currentinvest && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Current Investments</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+            </>}
+
+            {advisoryDetail.pastinvset && <>
+              <div className="text-2xl pt-8 sm:text-lg">
+                <span className="font-semibold">Past Investments</span><br />
+                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+              </div>
+            </>}
+            {advisoryDetail.areaofintrest && <>
+              <div className="text-2xl pt-8 sm:text-lg">
+                <span className="font-semibold">Focus Area</span><br />
+                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+              </div>
+            </>}
+
+            {advisoryDetail.experience && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Experience</h2>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }}><p dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></p></div>
+            </>}
+            {advisoryDetail.education && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Education</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            </>}
+
             {advisoryDetail.contact && <>
               <div className="pt-8">
                 <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Contact</h3>
-                <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+                <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
               </div>
             </>}
           </div>}
 
-          <div className="member-more-detail pt-36 sm:px-7 sm:pt-5 sm:hidden">
+          <div className="member-more-detail pt-36 sm:px-7 sm:pt-5 sm:hidden" style={{ display: 'none' }}>
 
             {advisoryDetail.experience && <>
               <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Experience</h2>
@@ -159,7 +186,7 @@ const IndividualMember: FC<propsType> = (props) => {
           </div>
 
           {/* Mobile section */}
-          <div className="member-more-detail pt-5 sm:px-7 sm:pt-4 sm:block hidden">
+          <div className="member-more-detail pt-5 sm:px-7 sm:pt-4 sm:block hidden" style={{ display: 'none' }}>
             {/* <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
             <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p> */}
 
@@ -196,17 +223,44 @@ const IndividualMember: FC<propsType> = (props) => {
         {!props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
 
           <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
-          <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+          <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
 
           {advisoryDetail.about && <>
             <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">About</h3>
-            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div>
+          </>}
+
+          {advisoryDetail.currentinvest && <>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Current Investments</h2>
+            <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+          </>}
+
+          {advisoryDetail.pastinvset && <>
+            <div className="text-2xl pt-8 sm:text-lg">
+              <span className="font-semibold">Past Investments</span><br />
+              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+            </div>
+          </>}
+          {advisoryDetail.areaofintrest && <>
+            <div className="text-2xl pt-8 sm:text-lg">
+              <span className="font-semibold">Focus Area</span><br />
+              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+            </div>
+          </>}
+
+          {advisoryDetail.experience && <>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Experience</h2>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }}><p dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></p></div>
+          </>}
+          {advisoryDetail.education && <>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Education</h2>
+            <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
           </>}
 
           {advisoryDetail.contact && <>
-            <div className="pt-4">
-              <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Contact</h3>
-              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            <div className="pt-8">
+              <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Contact</h3>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
             </div>
           </>}
         </div>}

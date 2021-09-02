@@ -4,6 +4,7 @@ import { NavItem, Image } from "@components";
 import { socialMedia } from "../../../constants/socialMedia";
 import Button from "@components/button/PrimaryButtonIconRight";
 import { useRouter } from 'next/router';
+import { NONAME } from 'dns';
 
 export type Props = {
   mobile: boolean;
@@ -66,7 +67,7 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
       style={{ left: 0, fontSize: 54, lineHeight: "62px" }}
     >
       <div className="block flex flex-col justify-between">
-        <div className="pb-5">
+        <div className="pb-5" style={{ display: 'none' }}>
           {navMenu.primary.map((menuItem: any, index) => {
             return (
               <NavItem
@@ -88,6 +89,15 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
         </div>
 
         <div className="desktop">
+          {navMenu.primary.map((menuItem: any, index) => {
+            return (
+              <div key={menuItem.key} className={`flex justify-between ${menuItem.key} cursor-pointer`}
+                style={{ marginBottom: 10 }} onClick={() => window.location.href = `${menuItem.link}`}
+              >
+                <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
+              </div>
+            );
+          })}
           {navMenu.secondary.map((menuItem: any, index) => {
             return (
               <div
@@ -112,6 +122,15 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
           })}
         </div>
         <div className="mobile">
+          {navMenu.primary.map((menuItem: any, index) => {
+            return (
+              <div key={menuItem.key} className="flex justify-between flex-wrap"
+                style={{ marginBottom: 10 }} onClick={() => window.location.href = `${menuItem.link}`}
+              >
+                <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
+              </div>
+            );
+          })}
           {navMenu.secondary.map((menuItem: any, index) => {
             return (
               <div

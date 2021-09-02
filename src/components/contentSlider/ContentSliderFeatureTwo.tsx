@@ -4,6 +4,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
 
 export type Props = {
   className?: string
@@ -82,6 +83,7 @@ export const ContentSliderFeatureTwo: React.FC<Props> = ({ contentList, classNam
         </Slider>
       </div>
       <button id="featureTwoBlog" className="button" onClick={() => sliderTwo?.current?.slickGoTo(0, false)}></button>
+      <Link href="/blogs"><a className="absolute right-7 bottom-2 text-base text-accent font-medium">See more</a></Link>
     </div>
   );
 };

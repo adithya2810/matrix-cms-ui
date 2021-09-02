@@ -9,12 +9,18 @@ export type Props = {
 };
 
 const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
-
+  const filters = portfolio.filter(v => v.current === true && v.tags)
   return (
     <div className="relative pt-12 sm:pt-5">
       <div className="w-full m-auto">
         <h2 className="text-3md sm:text-xl text-center font-bold text-current">Select Current Investments</h2>
       </div>
+      {/* <div className="button-filters">
+        <div className="button-filters-text">FIlter By:-</div>
+        <div className="button-filters-btn">
+          {[1, 2, 3, 4].map((v, i) => <span key={i} className={`${i == 0 ? 'active' : ''}`}>FIlter {v}</span>)}
+        </div>
+      </div> */}
       <div className="grid grid-cols-4 my-24 ml-5 mr-5 lg:h-96 sm:h-auto mg:grid-cols-3 sm:grid-cols-1 gap-4">
 
         {portfolio.map((e) => e.current === true && (

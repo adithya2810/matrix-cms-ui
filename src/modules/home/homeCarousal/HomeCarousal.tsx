@@ -259,7 +259,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
 
   var settings = {
     dots: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     arrows: true,
     infinite: true,

@@ -76,7 +76,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
   const [timerClass, setTimerClass] = useState('timerWarp0');
 
   useEffect(() => {
-    componentDidMount();
+    //componentDidMount();
   }, []);
 
   const componentDidMount = async () => {
@@ -133,7 +133,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
       // if (i != index) {
       list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.index + '-' + i} style={props.mobile ? { minWidth: 115, color: '#01576e' } : { color: '#01576e' }}>
         <span className="thumbnailIndex" style={props.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', paddingRight: 2, marginTop: -3, color: '#01576e' } : { fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{/*`0${founder.index}`*/}</span>
-        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: 16, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e', maxWidth: 110 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
+        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: props.mobile ? 16 : 20, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e', maxWidth: 110 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
       </div>);
       //   fi++;
       // }
@@ -184,22 +184,22 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
                   </div>
                   <div className={`founderSection-rightOuter heroSlide${(index == 8) ? '5' : (index + 1)} sm:mt-10`}>
                     <h1 className="founderTitle" style={props.mobile ? { fontSize: '4rem', fontWeight: 300, lineHeight: 0.9 } : { letterSpacing: 1.5 }} dangerouslySetInnerHTML={{ __html: founder.title }}></h1>
-                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start', bottom: props.mobile ? '-5px' : '-20px' }}>
+                    <div className="founderTitleSliderBox" style={{ justifyContent: 'flex-start', bottom: props.mobile ? '-5px' : '-20px', width: props.mobile ? '100%' : '100%', maxWidth: props.mobile ? '100%' : '60%', left: props.mobile ? 'auto' : '0', position: 'relative', marginTop: props.mobile ? 'auto' : '10px' }}>
                       {getNumberfounder(founder.small_titles, index)}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="timerOuter">
+              {/* <div className="timerOuter">
                 <div className="timmerInner"></div>
-              </div>
+              </div> */}
             </div>
           )
         })}
       </Slider>
 
-      <ContentSlider
+      {/* <ContentSlider
         style={{
           right: 0,
         }}
@@ -208,7 +208,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
         className={`blogSliderOuter absolute md:relative md:my-8 bottom-0 right-0 text-primary-dark contentItemOuter-w50 ${timerClass}`}
         header={<span style={props.mobile ? { fontSize: 19, display: 'block', paddingRight: '30%' } : { fontWeight: 400 }}>{props.mobile} Insights from market  <span className="text-accent">disruptors & investors</span> </span>}
         mobile={props.mobile}
-      />
+      /> */}
     </React.Fragment>
   );
 };

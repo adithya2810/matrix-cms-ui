@@ -25,7 +25,7 @@ const founderData = [
         lastName: " M.A."
       }
     ],
-    title: "We <span>partner</span><br> closely",
+    title: "We <br><span>partner</span><br> closely",
     background_url: '/icons/rohit-edited.png',
     tags: ["Healthcare"],
     logo: "/icons/Cloudninelogo.svg",
@@ -43,7 +43,7 @@ const founderData = [
         lastName: "DALMIA"
       }
     ],
-    title: "We <span>invest</span><br> early",
+    title: "We <br><span>invest</span><br> early",
     background_url: '/icons/founder3-edited.png',
     tags: ["Student Housing Platform"],
     logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
@@ -57,7 +57,7 @@ const founderData = [
         lastName: "MOHAPATRA"
       }
     ],
-    title: "We <span>commit </span><br> personally",
+    title: "We <br><span>commit </span><br> personally",
     background_url: '/icons/Asish_Treatment.png',
     tags: ["B2B Commerce", "Fintech"],
     logo: "/icons/OfBusiness Logo 1.svg",
@@ -84,7 +84,7 @@ const founderData = [
       { firstName: "Anurag ", lastName: "Sinha" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
-    title: "We <span>partner</span><br> closely",
+    title: "We <br><span>partner</span><br> closely",
     background_url: '/icons/onecard-boiss.png',
     tags: ["Mobile-first credit card"],
     logo: "/icons/onecard-logo.png",
@@ -96,7 +96,7 @@ const founderData = [
       { firstName: "Harshil ", lastName: "Mathur" },
       { firstName: "Shashank ", lastName: "Kumar" }
     ],
-    title: "We <span>invest</span><br> early",
+    title: "We <br><span>invest</span><br> early",
     background_url: '/icons/razorpay-boss.png',
     tags: ["Payments"],
     logo: "/icons/razorpay-white-logo.png",
@@ -107,7 +107,7 @@ const founderData = [
     name: [
       { firstName: "Manish ", lastName: "Patel" }
     ],
-    title: "We <span>commit </span><br> personally",
+    title: "We <br><span>commit </span><br> personally",
     background_url: '/icons/mswipe-manish-patel.png',
     tags: ["Mobile POS"],
     logo: "/icons/mswipe-white-logo.png",
@@ -133,7 +133,7 @@ const founderData = [
         lastName: "LAKSHIPATHY"
       }
     ],
-    title: "We <span>partner</span><br> closely",
+    title: "We <br><span>partner</span><br> closely",
     background_url: '/icons/founder4-edited.png',
     tags: ["Fintech", "NBFC"],
     logo: "/icons/mx-logos-five-star 1.svg",
@@ -151,7 +151,7 @@ const founderData = [
         lastName: "KAUSHAL"
       }
     ],
-    title: "We <span>invest</span><br> early",
+    title: "We <br><span>invest</span><br> early",
     background_url: '/icons/Chakradhar_Nitin.png',
     tags: ["D2C", "Food"],
     logo: "/icons/Country Delight 1.svg",

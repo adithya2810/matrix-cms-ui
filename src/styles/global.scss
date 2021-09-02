@@ -1860,6 +1860,9 @@ textarea {
     display: flex;
     align-items: center;
     overflow-x:auto;
+    select {
+      display: none;
+    }
     span{
       padding: 6px 10px;
       overflow: hidden;
@@ -1897,17 +1900,19 @@ textarea {
     }
   }
   @media only screen and (max-width: 768px) {
-    display: block;
     padding-left: 2.5rem;
-    padding-right: 2.5rem;
     .button-filters-text{
-      margin-bottom: 10px;
+      padding: 5px 0;
     }
     .button-filters-btn{
-      height: 35px;
-      display: inline-flex;
+      flex: 0 70%;
       span{
-        display: inline-table;
+        display: none;
+      }
+      select {
+        display: block;
+        width: 100%;
+        height: 35px;
       }
     }
   }

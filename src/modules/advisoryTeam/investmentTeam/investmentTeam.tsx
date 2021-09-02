@@ -32,7 +32,7 @@ const InvestmentTeam: React.FC<Props> = ({ invesmentTeam }) => {
                 <Image src={t.image_url} alt={t.name} className="team-member-img" />
                 <div className="team-overlay">
                   <div className="team-member-info px-6 py-4">
-                    <h6 className="font-light text-secondary uppercase text-4sm" style={{ lineHeight: "36px", letterSpacing: "0.05em" }}>
+                    <h6 className="font-light text-secondary uppercase font-bold" style={{ fontSize: '1.3rem', lineHeight: "36px", letterSpacing: "0.05em" }}>
                       {t.name}
                     </h6>
                     <h6 className="text-secondary sub-h2 font-medium text-lg leading-6" style={{ letterSpacing: 1 }}>{capitalize(t.designation)}</h6>

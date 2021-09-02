@@ -3,7 +3,7 @@ import React from "react";
 import Portfolio from '../../src/modules/portfolio';
 
 export type Props = {
-  portfolio: any;
+  portfolio: any[];
   deviceType: {
     mobile: boolean
   }

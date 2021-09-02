@@ -13,7 +13,7 @@ const homeContentTabs = [
     link: "",
   },
   {
-    name: "Blogs",
+    name: "Matrix Moments",
     id: "blogs",
     link: "",
   }

@@ -4,7 +4,7 @@ import PastInvestment from './pastInvestment';
 import CurrentInvestment from './currentInvestment';
 
 export type Props = {
-  portfolio: any;
+  portfolio: any[];
   deviceType: {
     mobile: boolean
   }
@@ -33,10 +33,10 @@ const Portfolio: React.FC<Props> = ({ portfolio, deviceType }) => {
           </button>
         </div>
         {tabination === 'currentInvest' &&
-          <CurrentInvestment deviceType={deviceType} portfolio={portfolio} />
+          <CurrentInvestment deviceType={deviceType} portfolio={portfolio.filter(e => e.current === true)} />
         }
         {tabination === 'pastInvest' &&
-          <PastInvestment deviceType={deviceType} portfolio={portfolio} />
+          <PastInvestment deviceType={deviceType} portfolio={portfolio.filter(e => e.current !== true)} />
         }
       </div>
     </div >

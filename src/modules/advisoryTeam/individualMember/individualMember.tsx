@@ -64,7 +64,7 @@ const IndividualMember: FC<propsType> = (props) => {
         <div className="team-member-detail pr-5 sm:pr-0">
           <div style={{ position: 'relative' }} className="pb">
             <div className="card">
-              <div className="member-profile-img ml-12 sm:ml-0">
+              <div className="member-profile-img ml-0 sm:ml-0">
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" />
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:block md:block lg:block hidden" />
                 <div className="sm:hidden" style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>

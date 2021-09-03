@@ -645,7 +645,7 @@ h6 {
       background-image: url('/images/matrixMomentsMobile.png');
     }
     position: relative;
-    z-index: -1;
+    // z-index: -1;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -672,12 +672,18 @@ h6 {
         right: 0px;
       }
     }
+
     @screen sm {
       height: 436px;
       justify-content: flex-start;
       .title {
         width: 300px;
       }
+    }
+  }
+  .listing-hero-section.overlay{
+    &:before {
+      z-index: 0 !important;
     }
   }
   .image-shadow {
@@ -1915,5 +1921,43 @@ textarea {
         height: 35px;
       }
     }
+  }
+}
+
+.top-filter{
+  position: fixed;
+  left: 10px;
+  top: 140px;
+  z-index: 11;
+  width: 400px;
+  height: 500px;
+  padding-top: 5px;
+  @apply bg-accent-dark;
+
+  .filter-lists{
+    height: calc(100% - 72px);
+    .filters-contents{
+      padding: 0 10px;
+      max-height: calc(100% - 154px);
+      overflow-y: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      &::-webkit-scrollbar {
+          display: none;  /* Safari and Chrome */
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: calc(100% - 20px);
+    height: 70%;
+    top: 110px;
+  }
+}
+.scrollbar-none{
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+      display: none;  /* Safari and Chrome */
   }
 }

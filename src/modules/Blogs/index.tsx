@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import _ from "lodash"
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {
@@ -43,19 +43,26 @@ const index: FC<propsType> = (props) => {
 
       let query_str = '';
       if (Object.keys(filters).length > 0) {
-        setAppliedFilters([...filters.topics, ...filters.authors, ...filters.formats, ...filters.moments])
+        let applfltr = [];
+        for (const key in filters) {
+          if (Object.prototype.hasOwnProperty.call(filters, key)) {
+            key != 'sort' && Array.prototype.push.apply(applfltr, filters[key]);
+          }
+        }
+        setAppliedFilters(applfltr)
+        // setAppliedFilters([...filters.topics, ...filters.authors, ...filters.formats, ...filters.moments])
 
         let makeQuery: any = { _where: [], _sort: {} };
-        if (filters?.authors.length > 0) {
+        if (filters.hasOwnProperty('authors') && filters?.authors.length > 0) {
           makeQuery['_where']['author.slug'] = (filters?.authors.length > 0) ? filters?.authors : filters?.authors[0]
         }
-        if (filters?.topics.length > 0) {
+        if (filters.hasOwnProperty('topics') && filters?.topics.length > 0) {
           makeQuery['_where']['tags.slug'] = (filters?.topics.length > 0) ? filters?.topics : filters?.topics[0]
         }
-        if (filters?.formats.length > 0) {
+        if (filters.hasOwnProperty('formats') && filters?.formats.length > 0) {
           makeQuery['_where']['content_type.slug'] = (filters?.formats.length > 0) ? filters?.formats : filters?.formats[0]
         }
-        if (filters?.moments.length > 0) {
+        if (filters.hasOwnProperty('moments') && filters?.moments.length > 0) {
           makeQuery['_where']['type.slug'] = (filters?.moments.length > 0) ? filters?.moments : filters?.moments[0]
         }
 

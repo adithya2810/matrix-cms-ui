@@ -28,7 +28,7 @@ const sliders = [
   },
   {
     text: 'Our journey with Matrix has been of pure partnership over the past nine years. We have worked closely on all aspects of business be it growing & pivoting business, acquiring companies, hiring talent, fund raise so on and so forth.',
-    by: '<b>Umang</b> Bedi<br/><b>Virendra</b> Patel',
+    by: '<b>Umang</b> Bedi<br/><b>Virendra</b> Gupta',
     img: '/icons/dailyhunt-bg.png',
     logo: '/icons/dailyhunt-logo.png'
   },

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import SocialMetaTags from '@components/SocialMetaTags';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

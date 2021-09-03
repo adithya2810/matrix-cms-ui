@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { ContentItem, Image, Tag } from '@components';
 import Link from 'next/link';
 import Icon from './Icon';
@@ -40,7 +40,6 @@ type propsType = {
 const IndividualMember: FC<propsType> = (props) => {
   const { push } = useRouter()
   const advisoryDetail = props.advisoryDetail;
-  const [bgTop, setBgTop] = useState(160);
 
   const capitalize = (str) => {
     if (str) {
@@ -59,43 +58,169 @@ const IndividualMember: FC<propsType> = (props) => {
     return cntarr[type] || "READ";
   };
 
-  function eleTop(el) {
-    if (!el) return 0;
-    var rect = el.getBoundingClientRect();
-    return rect.top >= 0 ? rect.top : 0;
-  }
-
-  const setTopPos = (e) => {
-    setBgTop(eleTop(document.querySelector(".team_detail")));
-  }
-
-  useEffect(() => {
-    document.addEventListener("scroll", setTopPos)
-    return () => {
-      setBgTop(160);
-      document.addEventListener('scroll', setTopPos);
-    }
-  }, []);
-
   return (
-    <div className="team_detail my-40 sm:my-0 sm:px-0" style={props.deviceType.mobile ? {} : { backgroundAttachment: 'fixed', backgroundOrigin: 'content-box', backgroundSize: `50% calc(100% - ${bgTop}px)`, backgroundPosition: 'left bottom', backgroundRepeat: 'no-repeat', backgroundImage: `url(${advisoryDetail.image_url})` }}>
-      <div className="grid grid-cols-2 sm:grid-cols-1 gap-0">
-        <div className="team-member-detail">
-          <div>
+    <div className="team_detail py-40 px-12 sm:py-0 sm:px-0">
+      <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
+        <div className="team-member-detail pr-5 sm:pr-0">
+          <div style={{ position: 'relative' }} className="pb">
             <div className="card">
-              <div className="member-profile-img">
-                {/* <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" /> */}
+              <div className="member-profile-img ml-12 sm:ml-0">
+                <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" />
                 <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:block md:block lg:block hidden" />
+                <div className="sm:hidden" style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>
               </div>
-              <div className="px-7 pt-4 hidden sm:block">
-                <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
-                <p className="text-1xs font-normal pt-1 pb-5" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
+              <div className="team-detail-overlay sm:hidden">
+                <div className="member-position">
+                  <div className="title-white-box p-5">
+                    <h5 className="text-accent text-lg font-medium leading-6" style={{ letterSpacing: 0.5 }}>{advisoryDetail.designation}</h5>
+                  </div>
+                </div>
+                <div className="team-member-info px-6 py-4 flex items-end">
+                  <div className="member-name">
+                    <h6 className="font-extrabold text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
+                      {advisoryDetail.name.substr(0, advisoryDetail.name.indexOf(' '))}
+                    </h6>
+                    <h6 className="font-light text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
+                      {advisoryDetail.name.substr(advisoryDetail.name.indexOf(' ') + 1)}
+                    </h6>
+                  </div>
+                  <div className="member-contact pl-10">
+                    <ul className="flex">
+                      {/* <li className="pr-6">
+                        <a href="#" target="_blank">
+                          <Image src="../icons/media.png" className="cursor-pointer" alt="media" />
+                        </a>
+                      </li> */}
+                      <li className="pr-6 white">
+                        <a href={advisoryDetail.linkedin} target="_blank">
+                          <Image src="../icons/linkedin-clone.png" className="cursor-pointer" alt="LinkedIn" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href={advisoryDetail.twitter} target="_blank">
+                          <Image src="../icons/twitter-clone.png" className="cursor-pointer" alt="Twitter" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          {props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
+
+            <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <p className="text-1xs font-normal pt-1 pb-5" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
+
+
+            <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Brief</h3>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+
+            {advisoryDetail.about && <> <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">About</h3>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
+
+            {advisoryDetail.currentinvest && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Current Investments</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+            </>}
+
+            {advisoryDetail.pastinvset && <>
+              <div className="text-2xl pt-8 sm:text-lg">
+                <span className="font-semibold">Past Investments</span><br />
+                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+              </div>
+            </>}
+            {advisoryDetail.areaofintrest && <>
+              <div className="text-2xl pt-8 sm:text-lg">
+                <span className="font-semibold">Focus Area</span><br />
+                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+              </div>
+            </>}
+
+            {advisoryDetail.experience && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Experience</h2>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }}><p dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></p></div>
+            </>}
+            {advisoryDetail.education && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Education</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            </>}
+
+            {advisoryDetail.contact && <>
+              <div className="pt-8">
+                <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Contact</h3>
+                <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+              </div>
+            </>}
+          </div>}
+
+          <div className="member-more-detail pt-36 sm:px-7 sm:pt-5 sm:hidden" style={{ display: 'none' }}>
+
+            {advisoryDetail.experience && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Experience</h2>
+              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }}><p dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></p></div>
+            </>}
+            {advisoryDetail.education && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Education</h2>
+              <div className="text-lg leading-relaxed font-normal pt-4 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            </>}
+
+            {advisoryDetail.currentinvest && <>
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-5 leading-5">Current Investments</h2>
+              <div className="text-lg leading-relaxed font-normal pt-4 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+            </>}
+
+            {advisoryDetail.pastinvset && <>
+              <div className="text-2xl pt-4 sm:text-lg">
+                <span className="font-semibold">Past Investments</span><br />
+                <div className="text-lg leading-relaxed font-normal" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+              </div>
+            </>}
+            {advisoryDetail.areaofintrest && <>
+              <div className="text-2xl pt-4 sm:text-lg">
+                <span className="font-semibold">Focus Area</span><br />
+                <div className="text-lg leading-relaxed font-normal" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+              </div>
+            </>}
+          </div>
+
+          {/* Mobile section */}
+          <div className="member-more-detail pt-5 sm:px-7 sm:pt-4 sm:block hidden" style={{ display: 'none' }}>
+            {/* <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p> */}
+
+            {advisoryDetail.experience && <>
+              <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Experience</h2>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.experience.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            </>}
+            {advisoryDetail.education && <>
+              <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Education</h2>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.education.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
+            </>}
+
+            {advisoryDetail.currentinvest && <>
+              <h2 className="text-4xl font-medium sm:text-lg sm:font-bold">Current Investments</h2>
+              <div className="text-lg pt-0 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.currentinvest }}></div>
+            </>}
+
+            {advisoryDetail.pastinvset && <>
+              <div className="text-4xl pt-5 sm:text-lg">
+                <span className="font-bold">Past Investments</span><br />
+                <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+              </div>
+            </>}
+            {advisoryDetail.areaofintrest && <>
+              <div className="text-4xl pt-5 sm:text-lg">
+                <span className="font-bold">Focus Area</span><br />
+                <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+              </div>
+            </>}
+          </div>
+          {/* Mobile section */}
         </div>
 
-        <div className="px-10 sm:px-7">
+        {!props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16 scrollbar-none" style={{ maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
 
           <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
           <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
@@ -138,10 +263,10 @@ const IndividualMember: FC<propsType> = (props) => {
               <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.contact.replace(new RegExp('\r?\n', 'g'), '<br />') }}></div>
             </div>
           </>}
-        </div>
+        </div>}
       </div>
 
-      {advisoryDetail.blogs.length > 0 && <div className="px-14 sm:px-0 bg-white grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28" style={{ zIndex: 2 }}>
+      {advisoryDetail.blogs.length > 0 && <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
         <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col" style={{ minHeight: 600 }}>
           <div className="flex justify-between -mt-20">
             <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {capitalize(advisoryDetail.name).replace(' ', '\n')}</h3>

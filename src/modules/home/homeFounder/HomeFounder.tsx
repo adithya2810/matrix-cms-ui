@@ -117,7 +117,7 @@ const founderData = [
     id: "09",
     name: [
       { firstName: "Umang ", lastName: "Bedi" },
-      { firstName: "Virendra ", lastName: "Patel" }
+      { firstName: "Virendra ", lastName: "Gupta" }
     ],
     title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/dailyhunt-boss.png',

@@ -66,7 +66,7 @@ const Card: FC<propsType> = (props) => {
               className="mr-3 sm:w-8"
               src={props.data?.author?.[0]?.image_url}
               alt="profile-pic"
-              style={!props.deviceType?.mobile ? { height: 44, width: 44, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }}
+              style={!props.deviceType?.mobile ? { height: 50, width: 50, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }}
             />
             <div>
               <p className="sub-h2 text-accent-dark Manrope-normal capitalize" style={props.deviceType?.mobile ? { lineHeight: '18px', letterSpacing: 1, paddingBottom: 5 } : { lineHeight: '24px', fontSize: 16, color: '#083A4A' }}>{capitalize(props.data?.author?.[0]?.name)}</p>

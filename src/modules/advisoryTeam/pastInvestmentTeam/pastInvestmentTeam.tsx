@@ -33,7 +33,7 @@ const PastInvestmentTeam: React.FC<Props> = ({ operationsTeam }) => {
                     <h6 className="font-light text-secondary uppercase font-bold" style={{ fontSize: '1.1rem', lineHeight: "36px", letterSpacing: "0.05em" }}>
                       {t.name}
                     </h6>
-                    <h6 className="text-secondary sub-h2 font-medium text-lg leading-6" style={{ fontSize: '0.95rem', letterSpacing: 1 }}>{capitalize(t.designation)}</h6>
+                    <h6 className="text-secondary sub-h2 font-medium text-lg leading-6" style={{ fontSize: '0.9rem', letterSpacing: 1 }}>{capitalize(t.designation)}</h6>
                   </div>
                   <div style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>
                 </div>

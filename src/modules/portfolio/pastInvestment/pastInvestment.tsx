@@ -37,7 +37,7 @@ const PastInvestment: React.FC<Props> = ({ portfolio }) => {
         <h2 className="text-3md sm:text-xl text-center font-bold text-current">Select Past Investments</h2>
       </div> */}
 
-      {/* <div className="button-filters">
+      <div className="button-filters">
         <div className="button-filters-text">FIlter By:-</div>
         <div className="button-filters-btn">
           <span className={`${selected == '' ? 'active' : ''}`} onClick={() => setSelected('')}>All</span>
@@ -47,7 +47,7 @@ const PastInvestment: React.FC<Props> = ({ portfolio }) => {
             {filters.map((v, i) => <option key={i} value={v.slug}>{v.name}</option>)}
           </select>
         </div>
-      </div> */}
+      </div>
 
       <div className="grid grid-cols-4 my-24 ml-5 mr-5 lg:h-96 sm:h-auto mg:grid-cols-3 sm:grid-cols-1 gap-4">
 

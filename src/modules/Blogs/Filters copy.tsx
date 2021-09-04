@@ -20,8 +20,7 @@ import _ from 'lodash';
 import { useRouter } from 'next/router';
 
 
-const initialFilters = { topics: [] }
-// const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
+const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
 const Filters = ({ deviceType }) => {
@@ -63,9 +62,21 @@ const Filters = ({ deviceType }) => {
   const searchFilterOption = value => {
     setInputText(value);
     if (value) {
+      if (momentsf.length > 0) {
+        let mtms = momentsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setMoments(mtms)
+      }
       if (topicsf.length > 0) {
         let src = topicsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
         setTopics(src)
+      }
+      if (authorsf.length > 0) {
+        let atrs = authorsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setAuthors(atrs)
+      }
+      if (formatsf.length > 0) {
+        let frmts = formatsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setFormats(frmts)
       }
     } else {
       setTopics(topicsf)
@@ -81,6 +92,24 @@ const Filters = ({ deviceType }) => {
       const tpc = resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }));
       setTopicsf(tpc)
       setTopics(tpc)
+
+      const resAuthors = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?_sort=name:asc`)
+      const resJsonAuthors = await resAuthors.json();
+      const atrs = resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setAuthorsf(atrs)
+      setAuthors(atrs)
+
+      const resCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contents?_sort=name:asc`)
+      const resJsonCnt = await resCnt.json();
+      const frmt = resJsonCnt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setFormatsf(frmt);
+      setFormats(frmt);
+
+      const mmtCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog-types?_sort=name:asc`)
+      const resJsonmmt = await mmtCnt.json();
+      const frmtmmt = resJsonmmt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
+      setMomentsf(frmtmmt);
+      setMoments(frmtmmt)
     } catch (e) {
       console.log(e)
     }
@@ -122,6 +151,8 @@ const Filters = ({ deviceType }) => {
       {capitalize(tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!tagNumber && `(${tagNumber})`}</span>
     </div>
   }
+
+  // console.log({ filters });
 
   function isElementOutViewport(el) {
     var rect = el.getBoundingClientRect();
@@ -206,7 +237,7 @@ const Filters = ({ deviceType }) => {
           <div
             className="opened duration-300 relative"
             ref={filterRef}
-            style={{ width: deviceType.mobile ? 'auto' : '45vw', height: deviceType.mobile ? 'auto' : '80vh' }}
+            style={{ width: deviceType.mobile ? 'auto' : 400 }}
           >
             <div
               className="laptop:hidden flex justify-end"
@@ -229,18 +260,139 @@ const Filters = ({ deviceType }) => {
             </div>
             <div
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 bg-accent-dark`}
-              style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : '100%' }}
+              style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : 432 }}
             >
-              <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 'calc(100% - 100px)' }}>
-                {topics.map((t, i) => {
-                  const isSelected = filters.topics.includes(t.slug);
-                  return <div key={i} onClick={() => setFilters({
-                    ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
-                  })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
-                    {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
-                  </div>
-                })}
-              </div>
+              <ul className="sub-h1 text-white filters-overflow" style={{ overflowY: 'scroll', maxHeight: 330 }}>
+
+                {/* matrix moments */}
+                {moments.length > 0 && <>
+                  <li className="py-2 sm:py-2  flex items-center ">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'moments') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'moments' ? setOpenedFilter('') : setOpenedFilter('moments')} className="flex items-center cursor-pointer hover:text-accent-light">
+                      <span className='mr-5 sm:mr-2' style={{ display: 'block', zIndex: 1 }}>{openedFilter === 'moments' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Matrix Moments
+                    </div>
+                    {
+                      openedFilter === 'moments' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, moments: filters.moments.length === moments.length ? [] : moments.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.moments.length === moments.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
+                  {
+                    openedFilter === 'moments' &&
+                    <div className='flex flex-wrap '>
+                      {moments.map((t, i) => getTag({
+                        isSelected: filters.moments.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters, moments: filters.moments.includes(t.slug) ? filters.moments.filter(m => m !== t.slug) : [...filters.moments, t.slug]
+                        }),
+                        index: i,
+                        ...t
+                      }))}
+                    </div>
+                  }
+                </>}
+
+                {/* Topics */}
+                {topics.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'topics') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'topics' ? setOpenedFilter('') : setOpenedFilter('topics')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'topics' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Topics</div>
+                    {
+                      openedFilter === 'topics' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, topics: filters.topics.length === topics.length ? [] : topics.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.topics.length === topics.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
+                  {
+                    openedFilter === 'topics' &&
+                    <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                      {topics.map((t, i) => getTag({ isSelected: filters.topics.includes(t.slug), setSelected: _ => setFilters({ ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug] }), ...t, index: i }))}
+                    </div>
+                  }
+                </>}
+
+                {/* Authors */}
+                {authors.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'authors') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'authors' ? setOpenedFilter('') : setOpenedFilter('authors')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'authors' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Authors</div>
+                    {
+                      openedFilter === 'authors' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, authors: filters.authors.length === authors.length ? [] : authors.map(m => m.slug) })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.authors.length === authors.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
+                  {
+                    openedFilter === 'authors' &&
+                    <div className='flex flex-wrap filters-overflow' style={{ overflowY: 'scroll', maxHeight: 200 }}>
+                      {authors.map((t, i) => getTag({
+                        isSelected: filters.authors.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters,
+                          authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug]
+                        }),
+                        ...t,
+                        index: i
+                      })
+                      )}
+                    </div>
+                  }
+                </>}
+
+                {/* Content Format */}
+                {formats.length > 0 && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'formats') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'formats' ? setOpenedFilter('') : setOpenedFilter('formats')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'formats' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Content Formats</div>
+                    {
+                      openedFilter === 'formats' &&
+                      <span className=' sub-h2 ml-auto flex gap-3 text-white items-baseline' style={deviceType.mobile ? {} : { fontSize: 16 }}>
+                        All
+                        <div onClick={e => {
+                          e.stopPropagation();
+                          setFilters({ ...filters, formats: filters.formats.length === formats.length ? [] : formats })
+                        }} className='sm:mt:1 laptop:mt-2 cursor-pointer'>{filters.formats.length === formats.length ? <SelectAllLaptop /> : <SelectNoneLaptop />}</div>
+                      </span>
+                    }
+                  </li>
+                  {
+                    openedFilter === 'formats' &&
+                    <div className='flex flex-wrap'>
+                      {formats.map((t, i) => getTag({
+                        isSelected: filters.formats.includes(t.slug),
+                        setSelected: _ => setFilters({
+                          ...filters,
+                          formats: filters.formats.includes(t.slug) ? filters.formats.filter(m => m !== t.slug) : [...filters.formats, t.slug]
+                        }),
+                        ...t,
+                        index: i
+                      })
+                      )}
+                    </div>
+                  }
+                </>}
+
+                {inputText == '' && <>
+                  <li className="py-4 sm:py-2  flex items-center">
+                    <div style={deviceType.mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Sort By</div>
+                  </li>
+                  {openedFilter === 'sort' && <div className='flex flex-wrap'>
+                    {getTag({ isSelected: filters.sort === 'asc', setSelected: _ => setFilters({ ...filters, sort: 'asc' }), tagName: 'Ascending', tagNumber: 0, index: 'asc', filter: 'sort' })}
+                    {getTag({ isSelected: filters.sort === 'desc', setSelected: _ => setFilters({ ...filters, sort: 'desc' }), tagName: 'Descending', tagNumber: 0, index: 'desc', filter: 'sort' })}
+                  </div>}
+                </>}
+              </ul>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
                 <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All

@@ -53,12 +53,12 @@ const founderData = [
     id: "04",
     name: [
       {
-        firstName: "ASISH ",
-        lastName: "MOHAPATRA"
+        firstName: "OFBUSINESS ",
+        lastName: "TEAM"
       }
     ],
     title: "We <br><span>commit </span><br> personally",
-    background_url: '/icons/Asish_Treatment.png',
+    background_url: '/icons/offbuisiness_teams.png',
     tags: ["B2B Commerce", "Fintech"],
     logo: "/icons/OfBusiness Logo 1.svg",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]

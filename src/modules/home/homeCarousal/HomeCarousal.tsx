@@ -104,12 +104,12 @@ const heroSlider02_Data = [
     id: "04",
     name: [
       {
-        firstName: "ASISH ",
-        lastName: "MOHAPATRA"
+        firstName: "OFBUSINESS ",
+        lastName: "TEAM"
       }
     ],
     title: "<span>B2B Commerce, </span><br> Fintech",
-    founderImage: '/icons/Asish_Treatment.png',
+    founderImage: '/icons/offbuisiness_teams.png',
     background_url: '/icons/andreas-kind.png',
     tagsDetails: "OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,",
     logo: "/icons/OfBusiness Logo 1.svg",

@@ -14,6 +14,8 @@ type deviceType = {
 
 type propsType = {
   deviceType: deviceType;
+  filter1: any[];
+  filter2: any;
 };
 
 const index: FC<propsType> = (props) => {
@@ -24,6 +26,8 @@ const index: FC<propsType> = (props) => {
   const [page, setPage] = useState(+query.page || 1)
   const [appiedfilters, setAppliedFilters] = useState([])
   const [isPaginationOn, setIsPaginationOn] = useState(true)
+  // const [filter1, setFilter1] = useState(null);
+  // const [filter2, setFilter2] = useState(null);
 
   useEffect(() => {
     if (data == null) {
@@ -34,6 +38,7 @@ const index: FC<propsType> = (props) => {
   const getQueryStr = (str: any) => {
     return str;
   }
+
 
   const fetchBlogsData = async (page = 1) => {
     const filters: any = query.hasOwnProperty('filters') ? JSON.parse(getQueryStr(query.filters)) : {};
@@ -116,10 +121,10 @@ const index: FC<propsType> = (props) => {
 
   return (
     <div className="listing">
-      <HeroSection mobile={props.deviceType.mobile} />
+      <HeroSection mobile={props.deviceType.mobile} data={props.filter1} />
       <AppliedFilters mobile={props.deviceType.mobile} appliedFilters={appiedfilters} totalPages={totalPages > 9 ? totalPages : `0${totalPages}`} page={page ? page : 1} />
       <List {...props} data={data} />
-      <Filters {...props} />
+      <Filters {...props} data={props.filter2} />
       <br />
       <br />
       {isPaginationOn && <Pagination totalPages={totalPages} mobile={props.deviceType.mobile} />}

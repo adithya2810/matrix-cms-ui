@@ -2,11 +2,11 @@ import { ClostBtn, SelectAllLaptop, SelectNoneLaptop } from '@components/Icons';
 import { useRouter } from 'next/router';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
-const HeroSection: FC<{ mobile: boolean; }> = ({ mobile }) => {
+const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => {
   const { query } = useRouter();
   const [openFilter, setOpenFilter] = useState(false);
-  const [data, setData] = useState(null)
-  const [filters, setFilters] = useState({ moments: [], authors: [], formats: [] })
+  // const [data, setData] = useState(null)
+  const [filters, setFilters] = useState({ moments: [], authors: [], formats: [], sort: 'desc' })
   const [openedFilter, setOpenedFilter] = useState('')
   const filterRef = useRef(null);
 
@@ -28,37 +28,6 @@ const HeroSection: FC<{ mobile: boolean; }> = ({ mobile }) => {
     if (query.hasOwnProperty('filters'))
       setFilters(JSON.parse(getQueryStr(query.filters)))
   }, [query.filters])
-
-  useEffect(() => {
-    if (data == null) {
-      fetchData();
-    }
-    return () => setData([]);
-  }, [])
-
-  const fetchData = async () => {
-    try {
-      const mmtCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog-types?_sort=name:asc`)
-      const resJsonmmt = await mmtCnt.json();
-      const frmtmmt = resJsonmmt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
-
-      const resAuthors = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?_sort=name:asc`)
-      const resJsonAuthors = await resAuthors.json();
-      const atrs = resJsonAuthors.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
-
-      const resCnt = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contents?_sort=name:asc`)
-      const resJsonCnt = await resCnt.json();
-      const frmt = resJsonCnt.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }))
-
-      setData([
-        { id: 'moments', data: frmtmmt, name: 'Matrix Moments' },
-        { id: 'authors', data: atrs, name: 'Authers' },
-        { id: 'formats', data: frmt, name: 'Content Formats' }
-      ]);
-    } catch (e) {
-      console.log(e)
-    }
-  };
 
   const capitalize = (str) => {
     if (str) {
@@ -126,6 +95,17 @@ const HeroSection: FC<{ mobile: boolean; }> = ({ mobile }) => {
               </div>}
             </div>)
           })}
+          <li className="py-4 sm:py-2  flex items-center">
+            <div style={mobile ? { fontWeight: 300 } : { fontSize: 23, fontWeight: 200, color: (openedFilter && openedFilter != 'sort') ? '#ffffff8f' : '#ffffff' }} onClick={_ => openedFilter === 'sort' ? setOpenedFilter('') : setOpenedFilter('sort')} className="mr-6 flex items-center cursor-pointer hover:text-accent-light"><span className='mr-5 sm:mr-2'>{openedFilter === 'sort' ? <img src="/icons/downArrow.svg" /> : <img src="/icons/upArrow.svg" />}</span>Sort By</div>
+          </li>
+          {openedFilter === 'sort' && <div className='flex flex-wrap filters-contents'>
+            <div onClick={() => setFilters({ ...filters, sort: 'asc' })} className={`${filters.sort === 'asc' ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+              Ascending <span className="laptop:font-normal" style={mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}></span>
+            </div>
+            <div onClick={() => setFilters({ ...filters, sort: 'desc' })} className={`${filters.sort === 'desc' ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={mobile ? {} : { fontSize: 16, fontWeight: 300 }}>
+              Descending <span className="laptop:font-normal" style={mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}></span>
+            </div>
+          </div>}
         </ul>
         <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
           <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">

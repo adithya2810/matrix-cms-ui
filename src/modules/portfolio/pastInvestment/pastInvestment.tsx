@@ -21,6 +21,8 @@ const PastInvestment: React.FC<Props> = ({ portfolio }) => {
     }
   }
 
+  filters = _.uniqBy(filters, 'slug');
+
   useEffect(() => {
     if (selected) {
       setFilteredData(_.filter(portfolio, (v) => {

@@ -24,7 +24,7 @@ const initialFilters = { topics: [] }
 // const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
-const Filters = ({ deviceType }) => {
+const Filters = ({ deviceType, data }) => {
   const { query } = useRouter();
   const [inputText, setInputText] = useState('');
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
@@ -34,12 +34,12 @@ const Filters = ({ deviceType }) => {
   const [openedFilter, setOpenedFilter] = useState('')
 
   const [momentsf, setMomentsf] = useState([])
-  const [topicsf, setTopicsf] = useState([])
+  const [topicsf, setTopicsf] = useState(data)
   const [authorsf, setAuthorsf] = useState([])
   const [formatsf, setFormatsf] = useState([])
 
   const [moments, setMoments] = useState([])
-  const [topics, setTopics] = useState([])
+  const [topics, setTopics] = useState(data)
   const [authors, setAuthors] = useState([])
   const [formats, setFormats] = useState([])
 
@@ -47,9 +47,10 @@ const Filters = ({ deviceType }) => {
   const [footerInView, setFooterInView] = useState(false);
   const [footerbottom, setFooterHeight] = useState(0);
 
-  useEffect(() => {
-    fetchFiltersMetaData();
-  }, [])
+  // useEffect(() => {
+  //   setTopicsf(data)
+  //   setTopics(data)
+  // }, [])
 
   const getQueryStr = (str: any) => {
     return str;
@@ -74,17 +75,17 @@ const Filters = ({ deviceType }) => {
     }
   }
 
-  const fetchFiltersMetaData = async () => {
-    try {
-      const resTopics = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tags?_sort=name:asc`)
-      const resJsonTopics = await resTopics.json();
-      const tpc = resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }));
-      setTopicsf(tpc)
-      setTopics(tpc)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  // const fetchFiltersMetaData = async () => {
+  //   try {
+  //     const resTopics = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tags?_sort=name:asc`)
+  //     const resJsonTopics = await resTopics.json();
+  //     const tpc = resJsonTopics.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug }));
+  //     setTopicsf(tpc)
+  //     setTopics(tpc)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
 
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const SearchAccentIcon = deviceType.mobile ? (

@@ -27,7 +27,7 @@ const initialFilters = { topics: [] }
 const Filters = ({ deviceType, data }) => {
   const { query } = useRouter();
   const [inputText, setInputText] = useState('');
-  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
+  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(true);
   const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const [isLinkedInBoxOpen, setIsLinkedInBoxOpen] = useState(false);
   const filterRef = useRef(null);

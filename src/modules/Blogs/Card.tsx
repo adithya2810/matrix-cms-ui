@@ -30,8 +30,15 @@ const Card: FC<propsType> = (props) => {
     return cntarr[type] || "READ";
   };
   const getAuthorImage = (data) => {
-    if (data.hasOwnProperty("icon_image") && data.icon_image) {
-      return data.icon_image.formats.thumbnail.url;
+    if (data.hasOwnProperty("icon_image")) {
+      if (data.icon_image) {
+        if (data.icon_image.hasOwnProperty("formats")) {
+          return data.icon_image.formats.thumbnail.url;
+        }
+        return data.icon_image.url;
+      } else {
+        return data.image_url;
+      }
     } else {
       return data.image_url;
     }

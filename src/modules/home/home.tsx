@@ -17,7 +17,7 @@ const Home: React.FC<propType> = ({ deviceType }) => {
       <div className="SectionTitleOuter">
         <div className="page-center">
           <div className="SectionTitleInner">
-            <h4 className="font-extralight text-primary-dark sm:font-normal" style={deviceType?.mobile ? { fontSize: 26 } : {}}>
+            {/* <h4 className="font-extralight text-primary-dark sm:font-normal" style={deviceType?.mobile ? { fontSize: 26 } : {}}>
               {deviceType?.mobile ?
                 <>
                   {" "}
@@ -30,11 +30,11 @@ const Home: React.FC<propType> = ({ deviceType }) => {
                   <span className="text-accent">Matrix Moments </span> series.{" "}
                 </>
               }
-            </h4>
+            </h4> */}
           </div>
         </div>
       </div>
-      <HomeContent mobile={deviceType?.mobile} />
+      {/* <HomeContent mobile={deviceType?.mobile} /> */}
     </div>
   );
 };

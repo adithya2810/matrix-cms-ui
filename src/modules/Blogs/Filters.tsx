@@ -232,15 +232,33 @@ const Filters = ({ deviceType, data }) => {
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 bg-accent-dark`}
               style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : '100%' }}
             >
-              <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 'calc(100% - 100px)' }}>
-                {topics.map((t, i) => {
-                  const isSelected = filters.topics.includes(t.slug);
-                  return <div key={i} onClick={() => setFilters({
-                    ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
-                  })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
-                    {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+              <div className="flex flex-col scrollbar-none" style={{ overflowY: 'scroll', maxHeight: 'calc(100% - 100px)' }}>
+                <div className="flex flex-col">
+                  <p className="text-lg font-medium text-white">SECTORAL</p>
+                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                    {topics.filter(v => v.sectoral).map((t, i) => {
+                      const isSelected = filters.topics.includes(t.slug);
+                      return <div key={i} onClick={() => setFilters({
+                        ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
+                      })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
+                        {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+                      </div>
+                    })}
                   </div>
-                })}
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-lg font-medium text-white">NON-SECTORAL</p>
+                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                    {topics.filter(v => !v.sectoral).map((t, i) => {
+                      const isSelected = filters.topics.includes(t.slug);
+                      return <div key={i} onClick={() => setFilters({
+                        ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
+                      })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
+                        {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+                      </div>
+                    })}
+                  </div>
+                </div>
               </div>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
                 <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">

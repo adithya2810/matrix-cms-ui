@@ -48,6 +48,7 @@ export async function getServerSideProps() {
       tags (sort: "name:desc"){
         name
         slug
+        sectorial
         blogs {
           name
         }
@@ -85,7 +86,7 @@ export async function getServerSideProps() {
         name = "Content Formats"
       }
       if (key == 'tags') {
-        fltr2 = f;
+        fltr2 = element.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug, sectoral: r.sectorial }));
       } else {
         fltr.push({ id: id, data: f, name: name });
       }

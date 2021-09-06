@@ -51,7 +51,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 my-24 ml-5 mr-5 lg:h-96 sm:h-auto mg:grid-cols-3 sm:grid-cols-1 gap-4">
+      <div className="grid grid-cols-4 my-20 ml-5 mr-5 lg:h-96 sm:h-auto mg:grid-cols-3 sm:grid-cols-1 gap-4">
 
         {filteredData.map((e) => (
           <div className="flex self-center justify-center" key={e._id}>

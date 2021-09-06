@@ -29,6 +29,14 @@ const Card: FC<propsType> = (props) => {
     let cntarr = { Video: 'WATCH', Audio: 'LISTEN', Article: 'READ' }
     return cntarr[type] || "READ";
   };
+  const getAuthorImage = (data) => {
+    if (data.hasOwnProperty("icon_image") && data.icon_image) {
+      return data.icon_image.formats.thumbnail.url;
+    } else {
+      return data.image_url;
+    }
+  };
+
   return (
     <div className="laptop:flex">
       <div className="self-start cursor-pointer relative flex-shrink-0 w-90 sm:w-full sm:ml-5 sm:pr-5" onClick={_ => push(`/blogs/${props.data?.slug}`)}>
@@ -64,7 +72,7 @@ const Card: FC<propsType> = (props) => {
           <div className="flex">
             <img
               className="mr-3 sm:w-8"
-              src={props.data?.author?.[0]?.image_url}
+              src={getAuthorImage(props.data?.author?.[0])}
               alt="profile-pic"
               style={!props.deviceType?.mobile ? { height: 50, width: 50, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }}
             />

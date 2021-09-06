@@ -43,6 +43,7 @@ export async function getServerSideProps(context) {
       image_url
       currentinvest
       pastinvset
+      areaofintrest
       slug
       blogs {
         _id

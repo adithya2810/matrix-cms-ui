@@ -12,7 +12,7 @@ export type Props = {
 export const Header: React.FC<Props> = ({ toggle, mobile }) => {
   const router = useRouter();
   const [brightSts, setBrightSts] = useState(true);
-  const siteLogoBlock = '/icons/matrixLogo.svg';
+  const siteLogoBlock = '/img/logo.jpg';//'/icons/matrixLogo.svg';
   const siteLogoWhite = '/icons/MatrixLogoFinal_White.svg';
 
   const isSiteBgtrans = () => {

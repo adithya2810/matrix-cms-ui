@@ -236,16 +236,13 @@ const IndividualMember: FC<propsType> = (props) => {
           </>}
 
           {advisoryDetail.pastinvset && <>
-            <div className="text-2xl pt-8 sm:text-lg">
-              <span className="font-semibold">Past Investments</span><br />
-              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
-            </div>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Past Investments</h2>
+            <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
           </>}
           {advisoryDetail.areaofintrest && <>
-            <div className="text-2xl pt-8 sm:text-lg">
-              <span className="font-semibold">Focus Area</span><br />
-              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
-            </div>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Focus Area</h2>
+            <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+
           </>}
 
           {advisoryDetail.experience && <>

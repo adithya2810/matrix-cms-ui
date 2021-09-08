@@ -49,7 +49,8 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
               <Link href="/about-us"><a className="mr-4">About</a></Link>
               <Link href="/portfolio"><a className="mr-4">Portfolio</a></Link>
               <Link href="/advisoryTeam"><a className="mr-4">Advisory Team</a></Link>
-              <Link href="/blogs"><a>Matrix Moments</a></Link>
+              <Link href="/blogs"><a className="mr-4">Matrix Moments</a></Link>
+              <Link href="/news"><a>Media</a></Link>
             </p>
             <div className="flex cursor-pointer" onClick={() => toggle()}>
               <h6 className={`sub-h1 -mb-2 menu-text ${brightSts ? 'black' : 'white'}`} style={mobile ? { lineHeight: '20px', fontWeight: 500, fontSize: 18, width: 50 } : { lineHeight: '34px', fontWeight: 400, fontSize: 22, width: 60 }}>Menu</h6>

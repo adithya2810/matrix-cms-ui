@@ -14,7 +14,17 @@ const Portfolio: React.FC<Props> = ({ portfolio, deviceType }) => {
   const [tabination, setTabination] = useState('currentInvest');
   return (
     <div>
-      <PortfolioHero deviceType={deviceType} />
+      {/* <PortfolioHero deviceType={deviceType} /> */}
+      <div className="w-full bg-cover bg-center bg-accent relative" style={{ boxShadow: 'inset 0 0 0 2000px rgb(0 0 0 / 40%)', backgroundSize: '100% 100%', height: '25rem' }}>
+        <div className="flex border-b-4 border-accent border-solid items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
+          <div className="text-center">
+            <h4 className="text-white text-6xl md:leading-10 font-bold xl:text-4xl sm:text-2xl">We take pride in our partners’ achievements.</h4>
+            <p className="text-white sub-h1 md:text-xl"></p>
+            <div className="flex w-full relative position-bottom">
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="relative">
         <div className="content-center m-auto tabination" style={deviceType.mobile ? {} : { top: '-3.8rem' }}>
           <button onClick={() => setTabination('currentInvest')}

@@ -53,7 +53,7 @@ const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => 
 
   return (
     <>
-      <div className={`listing-hero-section overlay`} style={mobile ? { height: '69vh' } : { height: '51vh' }}>
+      <div className={`listing-hero-section overlay`} style={{ height: mobile ? '69vh' : '51vh', backgroundImage: 'url(/img/matrixmoments-newsletter-1.jpg)' }}>
         <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
           <h2 style={!mobile ? { lineHeight: '6.5rem', fontWeight: 400, fontSize: '6rem', letterSpacing: -2.5 } : {}}>
             The Matrix <br /> Moments Series

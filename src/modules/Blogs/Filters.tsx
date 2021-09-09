@@ -239,10 +239,10 @@ const Filters = ({ deviceType, data }) => {
               className={`transition-colors duration-700 filter-list px-14 py-10 sm:px-7 sm:py-5 bg-accent-dark`}
               style={{ height: deviceType.mobile ? 'calc(100vh - 230px)' : '100%' }}
             >
-              <div className="flex flex-col scrollbar-none" style={{ overflowY: 'scroll', maxHeight: 'calc(100% - 100px)' }}>
+              <div className="flex flex-col" style={{ overflowY: 'auto', maxHeight: 'calc(100% - 100px)' }}>
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Sectoral</p>
-                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                  <div className='flex flex-wrap text-white'>
                     {topics.filter(v => v.sectoral).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({
@@ -255,7 +255,7 @@ const Filters = ({ deviceType, data }) => {
                 </div>
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Topics</p>
-                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                  <div className='flex flex-wrap text-white'>
                     {topics.filter(v => !v.sectoral).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({
@@ -268,7 +268,7 @@ const Filters = ({ deviceType, data }) => {
                 </div>
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Authors</p>
-                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                  <div className='flex flex-wrap text-white'>
                     {authors.length > 0 && authors.map((t, i) => {
                       const isSelected = filters.authors.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({

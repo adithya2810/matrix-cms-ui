@@ -53,17 +53,17 @@ const HeroSection: FC<{ mobile: boolean; data?: any[] }> = ({ mobile, data }) =>
 
   return (
     <>
-      <div className={`listing-hero-section overlay`} style={{ height: mobile ? '69vh' : '51vh', backgroundImage: 'url(/img/matrixmoments-newsletter-1.jpg)' }}>
+      <div className={`listing-hero-section`} style={{ height: mobile ? '69vh' : '51vh', backgroundImage: 'url(/img/MatrixMoments-Series-01.jpg)' }}>
         <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
           <h2 style={!mobile ? { lineHeight: '6.5rem', fontWeight: 400, fontSize: '6rem', letterSpacing: -2.5 } : {}}>
-            The Matrix <br /> Moments Series
+            {/* The Matrix <br /> Moments Series */}
           </h2>
         </div>
-        <div className="info Manrope-normal cursor-pointer" style={mobile ? { width: 235, fontWeight: 500, fontSize: 14, lineHeight: 18, letterSpacing: 1 } : { width: 320 }}>
+        {/* <div className="info Manrope-normal cursor-pointer" style={mobile ? { width: 235, fontWeight: 500, fontSize: 14, lineHeight: 18, letterSpacing: 1 } : { width: 320 }}>
           <p className="body1">
             Use the filter panel to find your specific topic of interest
           </p>
-        </div>
+        </div> */}
       </div>
       {openFilter && <div className="fixed z-10 top-0 left-0 h-screen w-full bg-black opacity-40 overflow-y-hidden" />}
       <div ref={filterRef} className="top-filter duration-300 overflow-y-hidden" style={{ display: openFilter ? 'block' : 'none' }}>

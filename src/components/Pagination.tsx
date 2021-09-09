@@ -61,7 +61,7 @@ const Pagination: React.FC<prop> = ({ totalPages = 0, mobile }) => {
     let search_str = Object.keys(query).map(function (k) {
       return encodeURIComponent(k) + '=' + encodeURIComponent(getQueryString(query[k]))
     }).join('&')
-    window.location.href = `/blogs?${search_str}`;
+    window.location.href = `/matrixmoments?${search_str}`;
   }
 
   const handlePrevPage = _ => currentPage !== 1 && click(currentPage - 1)

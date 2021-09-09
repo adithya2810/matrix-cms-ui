@@ -1,9 +1,8 @@
 import React, { FC, ReactNode, useEffect, useState } from 'react';
-import HeroSection from './HeroSection';
-import AppliedFilters from './AppliedFilters';
-import List from './List';
-import Pagination from './Pagination';
-import Filters from './Filters';
+import AppliedFilters from '@components/Event_listing/AppliedFilters';
+import List from '@components/Event_listing/List';
+import Pagination from '@components/Event_listing/Pagination';
+import Filters from '@components/Event_listing/Filters';
 import { useRouter } from 'next/router'
 import axios from 'axios';
 import qs from 'qs';
@@ -18,7 +17,7 @@ type propsType = {
   deviceType: deviceType;
 };
 
-const index: FC<propsType> = (props) => {
+const MediaEvent: FC<propsType> = (props) => {
   const router = useRouter();
   const [current, setCurrent] = useState(Number(router.query.page) || 1);
   const [card, setCard] = useState([]);
@@ -56,13 +55,12 @@ const index: FC<propsType> = (props) => {
 
   return (
     <div className="listing">
-      <HeroSection {...props} />
       <AppliedFilters {...props} total={count} />
       <List {...props} cards={card} />
       <Filters {...props} />
-      <Pagination total={count} />
+      <Pagination {...props} total={count} />
     </div>
   );
 };
 
-export default index;
+export default MediaEvent;

@@ -201,7 +201,7 @@ span.thumbnailIndex {
 
 .founder-coverImage {
   width: 100%;
-  min-height: 50vh;
+  min-height: 43vh;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -260,7 +260,7 @@ span.thumbnailIndex {
   }
 
   .pageBannerOuter {
-    height: calc(100vh);
+    height: calc(90vh);
     min-height: 100% !important;
   }
 
@@ -305,8 +305,8 @@ span.thumbnailIndex {
     }
 
     .founderTitle {
-      // font-size: calc(35px + 12vh);
-      font-size: calc(60px + 12vh);
+      font-size: calc(35px + 12vh);
+      // font-size: calc(60px + 12vh);
     }
 
     .founder-name-container {

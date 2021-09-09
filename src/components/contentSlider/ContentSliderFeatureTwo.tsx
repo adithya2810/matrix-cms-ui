@@ -83,7 +83,9 @@ export const ContentSliderFeatureTwo: React.FC<Props> = ({ contentList, classNam
         </Slider>
       </div>
       <button id="featureTwoBlog" className="button" onClick={() => sliderTwo?.current?.slickGoTo(0, false)}></button>
-      <Link href="/blogs"><a className="absolute right-7 bottom-2 text-base text-accent font-medium">See more</a></Link>
-    </div>
+      <Link href="/matrixmoments"><a className="absolute right-7 bottom-2 text-base text-accent font-medium" style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}>See more
+        {/* <img className="pl-2 " style={{ display: 'flex' }} src="/icons/rightArrowGray.svg"></img> */}
+      </a></Link>
+    </div >
   );
 };

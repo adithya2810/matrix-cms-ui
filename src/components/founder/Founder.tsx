@@ -81,7 +81,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
 
   const componentDidMount = async () => {
     const psqury = { _where: { _id_in: feature_blogs, FeaturedOne: 1 } };
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?${qs.stringify(psqury)}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/matrixmoments?${qs.stringify(psqury)}`);
     const json = await response.json();
     const featureOneData = json.map(blogData => {
       //console.log(json)

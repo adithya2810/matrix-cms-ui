@@ -53,7 +53,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
         {
           blogDetails?.tags?.map(tag => (
             <div key={tag.name} className="sub-h2 border border-accent-dark laptop:p-2.5 sm:px-4 sm:py-1 cursor-pointer flex items-baseline" style={mobile ? {} : { fontSize: 16 }}>
-              <Link href={`/blogs?tags.slug=${tag.slug}`}>
+              <Link href={`/matrixmoments?tags.slug=${tag.slug}`}>
                 <a>
                   {tag.name} <small className="text-xs pl-2 opacity-70" style={mobile ? {} : { fontSize: 11 }}>({tag.blogs.length})</small>
                 </a>

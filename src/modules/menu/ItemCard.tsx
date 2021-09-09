@@ -124,7 +124,7 @@ export const ContentItem: React.FC<CardProps> = ({
     <div className={`${className} relative mb-8 ml-0`} style={style} >
       <div className="relative hover-cover-div">
         <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
-          <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+          <a href={`/matrixmoments/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
         </div>
         <div className="cover-hover"></div>
       </div>
@@ -132,7 +132,7 @@ export const ContentItem: React.FC<CardProps> = ({
         style={mobile ? {} : { bottom: "-1rem", left: "7.5rem" }}
       >
         <h5 className="text-sm font-medium leading-6 text-primary-dark ml-2" style={mobile ? { fontSize: 15, lineHeight: '20px', WebkitBoxOrient: 'unset' } : { lineHeight: '24px' }}>
-          <a href={`/blogs/${blog_url}`}>{title}</a>
+          <a href={`/matrixmoments/${blog_url}`}>{title}</a>
         </h5>
         <div className="flex justify-between ml-2 pt-1">
           <span className="font-normal text-xs leading-3 text-primary-dark opacity-50" style={{ lineHeight: '14px', letterSpacing: 1 }}>
@@ -150,7 +150,7 @@ export const ContentItem: React.FC<CardProps> = ({
         </div>
         {!mobile &&
           <div className="flex ml-2 justify-between mt-2 contentButtonWrap" >
-            <Link href={`/blogs/${blog_url}`}>
+            <Link href={`/matrixmoments/${blog_url}`}>
               <a className="flex p-0.5 pl-0 items-center mt-2 h-7 w-36 text-accent text-base" style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}>
                 Read More
                 <img className="pl-2" src="/icons/rightArrowGray.svg" />

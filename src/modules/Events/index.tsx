@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Event_listing from '@components/Event_listing';
 
 const data = {
-  pageType: 'matrix_moments',
+  pageType: '',
   title: (
     <h2 className='header'>
       Past Events
@@ -11,7 +11,7 @@ const data = {
 };
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

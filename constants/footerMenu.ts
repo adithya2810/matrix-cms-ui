@@ -12,7 +12,7 @@ const footermenu = [
   {
     key: "footer_blog",
     name: "Matrix Moments",
-    link: "/blogs",
+    link: "/matrixmoments",
   },
   {
     key: "footer_advisory_team",

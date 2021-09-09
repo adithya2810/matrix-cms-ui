@@ -4,7 +4,7 @@ import { Markup } from 'interweave';
 import moment from 'moment';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

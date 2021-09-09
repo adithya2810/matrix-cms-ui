@@ -53,13 +53,13 @@ export const ContentItem: React.FC<Props> = ({
   return (
     <div className={`${className} relative mb-8 ml-0`} style={style} >
       <div className="itemCoverImage" style={{ backgroundImage: `url(${image_url})` }}>
-        <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+        <a href={`/matrixmoments/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
       </div>
       <div className="content-item-desc bg-secondary-light absolute p-3 pb-1"
         style={mobile ? {} : { bottom: "-1rem", left: "7.5rem" }}
       >
         <h5 className="text-sm font-medium leading-6 text-primary-dark ml-2" style={mobile ? { fontSize: 15, lineHeight: '20px', WebkitBoxOrient: 'unset' } : { fontSize: 18, lineHeight: '24px' }}>
-          <a href={`/blogs/${blog_url}`}>{title}</a>
+          <a href={`/matrixmoments/${blog_url}`}>{title}</a>
         </h5>
         <div className="flex justify-between ml-2 pt-1">
           <span className="font-normal text-xs leading-3 text-primary-dark opacity-50" style={{ lineHeight: '14px', letterSpacing: 1 }}>
@@ -82,7 +82,7 @@ export const ContentItem: React.FC<Props> = ({
               title={`Read More`}
               className="h-7 w-36 text-accent text-base"
               url="/icons/rightArrowGray.svg"
-              onClick={() => { location.href = `/blogs/${blog_url}` }}
+              onClick={() => { location.href = `/matrixmoments/${blog_url}` }}
               style={{ fontWeight: 500, fontSize: 18, lineHeight: '24px' }}
             />
             <Image

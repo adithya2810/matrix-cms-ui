@@ -6,7 +6,7 @@ const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => 
   const { query } = useRouter();
   const [openFilter, setOpenFilter] = useState(false);
   // const [data, setData] = useState(null)
-  const [filters, setFilters] = useState({ moments: [], authors: [], formats: [], sort: 'desc' })
+  const [filters, setFilters] = useState({ moments: [], formats: [], sort: 'desc' })
   const [openedFilter, setOpenedFilter] = useState('')
   const filterRef = useRef(null);
 
@@ -47,7 +47,7 @@ const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => 
   const clickSearch = () => {
     setOpenFilter(false);
     if (Object.keys(filters).length > 0) {
-      window.location.href = `/blogs?filters=${JSON.stringify(filters)}`;
+      window.location.href = `/matrixmoments?filters=${JSON.stringify(filters)}`;
     }
   }
 
@@ -108,7 +108,7 @@ const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => 
           </div>}
         </ul>
         <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
-          <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
+          <div onClick={() => window.location.href = "/matrixmoments"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
             Clear All
           </div>
           <div onClick={() => clickSearch()} className="sub-h2 text-white cursor-pointer hover:opacity-80">

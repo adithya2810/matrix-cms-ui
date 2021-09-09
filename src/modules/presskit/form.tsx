@@ -6,11 +6,12 @@ type propType = {
   deviceType: {
     mobile: boolean;
   }
+  pageType?: string;
 }
 
-const PresskitForm: React.FC<propType> = ({ deviceType }) => {
+const PresskitForm: React.FC<propType> = ({ deviceType, pageType }) => {
   return (
-    <div className="relative m-auto w-11/12" style={{ marginTop: deviceType.mobile ? 85 : 190, marginBottom: deviceType.mobile ? 90 : 150 }}>
+    <div className="relative m-auto w-11/12" style={{ marginTop: deviceType.mobile ? 85 : (pageType == 'media' ? 50 : 190), marginBottom: deviceType.mobile ? 90 : 150 }}>
       <div className="row">
         <div style={{ flex: '40%' }}>
           <div>

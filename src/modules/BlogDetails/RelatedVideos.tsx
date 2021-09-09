@@ -59,13 +59,13 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
                 <div className="absolute sm:hidden" style={{ top: -6, left: 9, width: 'calc(100% - 20px)', height: 'calc(100% - 20px)', background: "#01576E" }}></div>
                 {v.displaytag && <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptop:bottom-0 left-0 sm:top-0" style={mobile ? { zIndex: 2, left: 10, top: -6 } : {}}>{v.displaytag}</div>}
               </>}
-              <img onClick={_ => push(`/blogs/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 132, width: 151 } : { height: 178, width: '100%' }} />
+              <img onClick={_ => push(`/matrixmoments/${v.slug}`)} src={mobile ? v.cover_image_mobile : v.cover_desktop} alt="related-video-image" className='sm:left-2 sm:px-2 relative cursor-pointer' style={!mobile ? { height: 132, width: 151 } : { height: 178, width: '100%' }} />
             </div>
           </div>
           <div className="content-card bg-white sm:relative sm:-top-12 laptop:absolute laptop:top-5 laptop:-bottom-6 laptop:left-28 laptop:w-3/4 sm:w-10/12 laptop:py-3 laptop:px-6 sm:p-3" style={mobile ? {} : { width: 'calc(100% - 115px)' }}>
             <div className='caption opacity-70 laptop:hidden sm:mb-2'>{v.readtime?.toUpperCase()} {contentRead(v.content_type.name)}</div>
             <div className="sub-h2 laptop:mb-2 sm:mb-3" style={mobile ? { fontSize: 18, lineHeight: '20px' } : { lineHeight: '20px', fontSize: 14 }}>
-              <Link href={`/blogs/${v.slug}`}><a>{v.name}</a></Link>
+              <Link href={`/matrixmoments/${v.slug}`}><a>{v.name}</a></Link>
             </div>
             {v.author.length > 0 && <>
               {!mobile ? <div className='flex justify-between laptop:mb-4 sm:mb-2.5'>
@@ -90,7 +90,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos }) => {
             </>}
             <div className='flex justify-between items-center'>
               {!mobile && <div className="sub-h2 text-accent-dark" style={mobile ? {} : { fontSize: 16 }}>
-                <Link href={`/blogs/${v.slug}`}>
+                <Link href={`/matrixmoments/${v.slug}`}>
                   <a>Read More <img src='../../images/blog-details/arrow.png' alt='arrow' className='inline-block ml-2' /></a>
                 </Link>
               </div>}

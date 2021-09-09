@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { Markup } from 'interweave';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {
-  pageType: String;
+  pageType: string;
   deviceType: deviceType;
   cover_image_url: any;
   createdAt: any;

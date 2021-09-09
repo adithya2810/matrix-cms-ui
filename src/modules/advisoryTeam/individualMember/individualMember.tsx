@@ -275,7 +275,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </Link>
           </div>
           {advisoryDetail.blogs.length > 0 &&
-            <Link href={'/blogs'} passHref>
+            <Link href={'/matrixmoments'} passHref>
               <p className="cursor-pointer mt-14">View more content -{'>'}</p>
             </Link>
           }
@@ -287,8 +287,8 @@ const IndividualMember: FC<propsType> = (props) => {
         <div className="overflow-auto home-content-container col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8" style={props.deviceType.mobile ? { scrollbarWidth: 'none' } : { maxHeight: 850, scrollbarWidth: 'none', margin: '40px 0' }}>
           {advisoryDetail.blogs.map((blog, index) => {
             return <div className="relative laptop:flex mb-6 sm:mb-2 lg:mb-5 justify-center" key={index}>
-              <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" onClick={_ => push(`/blogs/${blog.slug}`)}>
-                <Link href={`/blogs/${blog.slug}`}><a>
+              <div className="self-start relative flex-shrink-0 w-90 sm:w-full sm:ml-3" onClick={_ => push(`/matrixmoments/${blog.slug}`)}>
+                <Link href={`/matrixmoments/${blog.slug}`}><a>
                   <img
                     className="image-shadow"
                     width="100%"
@@ -315,7 +315,7 @@ const IndividualMember: FC<propsType> = (props) => {
                 /></div>}
                 {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} {contentRead(blog.content_type.name)}</div>}
                 <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>
-                  <Link href={`/blogs/${blog.slug}`}><a>{blog.name}</a></Link>
+                  <Link href={`/matrixmoments/${blog.slug}`}><a>{blog.name}</a></Link>
                 </div>
                 <div className="flex mt-4 mb-4 items-center">
                   {!props.deviceType.mobile && <Image

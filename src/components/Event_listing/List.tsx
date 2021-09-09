@@ -2,11 +2,11 @@ import React, { FC, useEffect, useState } from 'react';
 import Card from './Card';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {
-  pageType: String;
+  pageType: string;
   deviceType: deviceType;
   cards: any[];
 };

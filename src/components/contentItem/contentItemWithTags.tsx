@@ -56,7 +56,7 @@ const ContentItemWithTags: React.FC<Props> = ({
           style={{ width: 'calc(100% - 15px)', height: 'calc(100% - 15px)', background: "#01576E", bottom: 0 }}
         ></div>
         <div className="blogCoverImage" style={{ backgroundImage: `url(${image_url})`, width: '100%', height: '100%', backgroundSize: 'cover' }}>
-          <a href={`/blogs/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
+          <a href={`/matrixmoments/${blog_url}`} style={{ display: 'block', width: '100%', height: '100%' }}></a>
         </div>
 
         <div
@@ -102,7 +102,7 @@ const ContentItemWithTags: React.FC<Props> = ({
             className="text-primary-dark font-normal mt-3"
             style={mobile ? { fontSize: "20px", lineHeight: "20px" } : { fontSize: "28px", lineHeight: "34px" }}
           >
-            <a href={`/blogs/${blog_url}`}>{title}</a>
+            <a href={`/matrixmoments/${blog_url}`}>{title}</a>
 
           </div>
           <div className="flex items-center mt-4 pt-1">

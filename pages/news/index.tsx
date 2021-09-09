@@ -4,7 +4,7 @@ import News from '@modules/News/index';
 import React, { FC } from 'react';
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

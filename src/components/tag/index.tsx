@@ -15,7 +15,7 @@ export type Props = {
 export const Tag: React.FC<Props> = ({ selected, title, id, onClick, className = "", style = {}, hrefSts = true }: Props) => {
   const _className = selected ? "tag-selected" : "tag";
   return (<>
-    {hrefSts ? <Link href={`/blogs?tags.slug=${id}`}><a>
+    {hrefSts ? <Link href={`/matrixmoments?tags.slug=${id}`}><a>
       <span className={className + " " + _className} style={style} onClick={() => { if (onClick) onClick(id) }}>
         {title}
       </span>

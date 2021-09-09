@@ -210,19 +210,20 @@ const heroSlider02_Data = [
   }
 ];
 
-const feature_blogs = [
-  "60f55ea43e54f918dc97b3b0", //ola
-  "61154f5e7acdcae02c64ddc1", //Cloudnine
-  "6115fd037acdcae02c64dde0", //Stanza
-  "611606d37acdcae02c64ddf2", //OfBusiness
-  "611521947acdcae02c64dda7", //five-star
-  "611604bc7acdcae02c64ddef", //Country Delight
-  "611547307acdcae02c64ddaf", //Dealshare
-  "611557237acdcae02c64ddcc", //onecard
-  "611608a67acdcae02c64ddf5", //razorpay
-  "611522037acdcae02c64dda8", //mswipe
-  "611548d47acdcae02c64ddb3", //dailyhunt
-];
+const feature_blogs = [];
+// [
+//   "60f55ea43e54f918dc97b3b0", //ola
+//   "61154f5e7acdcae02c64ddc1", //Cloudnine
+//   "6115fd037acdcae02c64dde0", //Stanza
+//   "611606d37acdcae02c64ddf2", //OfBusiness
+//   "611521947acdcae02c64dda7", //five-star
+//   "611604bc7acdcae02c64ddef", //Country Delight
+//   "611547307acdcae02c64ddaf", //Dealshare
+//   "611557237acdcae02c64ddcc", //onecard
+//   "611608a67acdcae02c64ddf5", //razorpay
+//   "611522037acdcae02c64dda8", //mswipe
+//   "611548d47acdcae02c64ddb3", //dailyhunt
+// ];
 
 const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
 
@@ -237,7 +238,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   }, [])
 
   const componentDidMount = async () => {
-    const psqury = { _where: { _id_in: feature_blogs, FeaturedOne: true } };
+    const psqury = { _where: { _id_in: feature_blogs, FeaturedTwo: true } };
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?${qs.stringify(psqury)}`);
     const json = await response.json();
     // console.log(json)
@@ -253,7 +254,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         order: _.indexOf(feature_blogs, blogData._id)
       }
     })
-    setFeatureData(_.sortBy(featureTwoData, ["order"]));
+    setFeatureData(feature_blogs.length > 0 ? _.sortBy(featureTwoData, ["order"]) : featureTwoData);
   }
 
 

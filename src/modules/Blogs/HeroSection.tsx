@@ -2,7 +2,7 @@ import { ClostBtn, SelectAllLaptop, SelectNoneLaptop } from '@components/Icons';
 import { useRouter } from 'next/router';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
-const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => {
+const HeroSection: FC<{ mobile: boolean; data?: any[] }> = ({ mobile, data }) => {
   const { query } = useRouter();
   const [openFilter, setOpenFilter] = useState(false);
   // const [data, setData] = useState(null)
@@ -59,7 +59,7 @@ const HeroSection: FC<{ mobile: boolean; data: any[] }> = ({ mobile, data }) => 
             The Matrix <br /> Moments Series
           </h2>
         </div>
-        <div className="info Manrope-normal cursor-pointer" onClick={() => setOpenFilter(!openFilter)} style={mobile ? { width: 235, fontWeight: 500, fontSize: 14, lineHeight: 18, letterSpacing: 1 } : { width: 320 }}>
+        <div className="info Manrope-normal cursor-pointer" style={mobile ? { width: 235, fontWeight: 500, fontSize: 14, lineHeight: 18, letterSpacing: 1 } : { width: 320 }}>
           <p className="body1">
             Use the filter panel to find your specific topic of interest
           </p>

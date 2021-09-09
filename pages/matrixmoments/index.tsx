@@ -22,7 +22,7 @@ const BlogsPage: FC<propsType> = (props) => {
 };
 
 export async function getServerSideProps() {
-  const QUERY = {
+  const QUERY_old = {
     query: `query {
       blogTypes (sort: "name:desc"){
         name
@@ -39,6 +39,24 @@ export async function getServerSideProps() {
         }
       }
       contents (sort: "name:desc"){
+        name
+        slug
+        blogs {
+          name
+        }
+      }
+      tags (sort: "name:desc"){
+        name
+        slug
+        sectorial
+        blogs {
+          name
+        }
+      }
+  }`};
+  const QUERY = {
+    query: `query {
+      people (sort: "name:desc"){
         name
         slug
         blogs {

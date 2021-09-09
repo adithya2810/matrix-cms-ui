@@ -1969,10 +1969,11 @@ textarea {
 
 .media_page {
   .media-hero-section {
-    background-image: url('/images/matrixMomentsLaptop.png');
-    @screen sm {
-      background-image: url('/images/matrixMomentsMobile.png');
-    }
+    // background-image: url('/images/matrixMomentsLaptop.png');
+    // @screen sm {
+    //   background-image: url('/images/matrixMomentsMobile.png');
+    // }
+    background-color: rgba(1, 87, 110, 1);
     position: relative;
     width: 100%;
     background-repeat: no-repeat;

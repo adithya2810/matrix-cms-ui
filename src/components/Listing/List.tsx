@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

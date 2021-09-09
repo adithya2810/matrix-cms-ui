@@ -87,7 +87,7 @@ const SearchMoreLaptop = ({ deviceType, blogCount }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && inputText.trim() != "") {
-      router.push(`/blogs?search=${inputText}`);
+      router.push(`/matrixmoments?search=${inputText}`);
     }
   }
 
@@ -149,17 +149,17 @@ const SearchMoreLaptop = ({ deviceType, blogCount }) => {
               style={{ height: 'auto' }}
             >
               {/* <div className="caption text-accent-dark opacity-70 mb-3">FOUND..</div> */}
-              {<Link href={`/blogs?content_type.name=Article`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{articleCount}</h5>
+              {<Link href={`/matrixmoments?content_type.name=Article`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{articleCount}</h5>
                 <div className="body1 text-accent-dark mb-3">Articles</div></a></Link>}
 
-              {<Link href={`/blogs?content_type.name=Audio`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{audioCount}</h5>
+              {<Link href={`/matrixmoments?content_type.name=Audio`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{audioCount}</h5>
                 <div className="body1 text-accent-dark mb-3">Podcasts</div></a></Link>}
 
-              {<Link href={`/blogs?content_type.name=Video`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{videoCount}</h5>
+              {<Link href={`/matrixmoments?content_type.name=Video`}><a><h5 className='text-accent' style={deviceType.mobile ? {} : { fontSize: 35, lineHeight: '40px' }}>{videoCount}</h5>
                 <div className="body1 text-accent-dark pb-16">Videos</div></a></Link>}
 
               <div className="px-14 py-10 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full">
-                <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center" onClick={() => inputText && router.push(`/blogs?search=${inputText}`)}>
+                <div className="sub-h2 text-accent cursor-pointer hover:opacity-80 flex items-center" onClick={() => inputText && router.push(`/matrixmoments?search=${inputText}`)}>
                   See All Results <div className='relative top-0.5 left-2' ><RightArrowAccentLaptop /></div>
                 </div>
               </div>

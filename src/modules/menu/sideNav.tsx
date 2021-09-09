@@ -78,10 +78,10 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                     ? ` text-secondary-light opacity-50`
                     : `text-secondary-light opacity-100`
                 }
-                arrow={mobile ? false : menuItem.name === "Blog"}
+                arrow={mobile ? false : menuItem.key === "footer_blog"}
                 key={menuItem.key}
                 id={menuItem.key}
-                onClick={() => (mobile && menuItem.name == "Blog") ? location.href = menuItem.link : menuClicked("PRIMARY_MENU", menuItem.key, index)}
+                onClick={() => (mobile && menuItem.key == "footer_blog") ? location.href = menuItem.link : menuClicked("PRIMARY_MENU", menuItem.key, index)}
                 selected={isSelected(index)}
               />
             );

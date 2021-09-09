@@ -20,7 +20,7 @@ import _ from 'lodash';
 import { useRouter } from 'next/router';
 
 
-const initialFilters = { topics: [] }
+const initialFilters = { topics: [], authors: [] };
 // const initialFilters = { moments: [], sort: 'asc', topics: [], authors: [], formats: [] }
 
 
@@ -34,16 +34,16 @@ const Filters = ({ deviceType, data }) => {
   const [openedFilter, setOpenedFilter] = useState('')
 
   const [momentsf, setMomentsf] = useState([])
-  const [topicsf, setTopicsf] = useState(data)
-  const [authorsf, setAuthorsf] = useState([])
+  const [topicsf, setTopicsf] = useState(data.tags)
+  const [authorsf, setAuthorsf] = useState(data.author)
   const [formatsf, setFormatsf] = useState([])
 
   const [moments, setMoments] = useState([])
-  const [topics, setTopics] = useState(data)
-  const [authors, setAuthors] = useState([])
+  const [topics, setTopics] = useState(data.tags)
+  const [authors, setAuthors] = useState(data.author)
   const [formats, setFormats] = useState([])
 
-  const [filters, setFilters] = useState(() => initialFilters)
+  const [filters, setFilters] = useState(initialFilters)
   const [footerInView, setFooterInView] = useState(false);
   const [footerbottom, setFooterHeight] = useState(0);
 
@@ -57,8 +57,11 @@ const Filters = ({ deviceType, data }) => {
   }
 
   useEffect(() => {
-    if (query.hasOwnProperty('filters'))
-      setFilters(JSON.parse(getQueryStr(query.filters)))
+    if (query.hasOwnProperty('filters')) {
+      let dt = JSON.parse(getQueryStr(query.filters));
+      if (dt.hasOwnProperty('topics') && dt.hasOwnProperty('authors'))
+        setFilters({ topics: dt.topics, authors: dt.authors });
+    }
   }, [query.filters])
 
   const searchFilterOption = value => {
@@ -66,12 +69,16 @@ const Filters = ({ deviceType, data }) => {
     if (value) {
       if (topicsf.length > 0) {
         let src = topicsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
-        setTopics(src)
+        setTopics(src);
+      }
+      if (authorsf.length > 0) {
+        let src = authorsf.filter((v) => v.tagName.match(new RegExp(value, 'gi')));
+        setAuthors(src);
       }
     } else {
       setTopics(topicsf)
       setAuthors(authorsf)
-      setFormats(formatsf)
+      // setFormats(formatsf)
     }
   }
 
@@ -153,7 +160,7 @@ const Filters = ({ deviceType, data }) => {
 
   const clickSearch = () => {
     if (Object.keys(filters).length > 0) {
-      window.location.href = `/blogs?filters=${JSON.stringify(filters)}`;
+      window.location.href = `/matrixmoments?filters=${JSON.stringify(filters)}`;
     }
   }
 
@@ -234,7 +241,7 @@ const Filters = ({ deviceType, data }) => {
             >
               <div className="flex flex-col scrollbar-none" style={{ overflowY: 'scroll', maxHeight: 'calc(100% - 100px)' }}>
                 <div className="flex flex-col">
-                  <p className="text-lg font-medium text-white">SECTORAL</p>
+                  <p className="text-lg font-medium text-white">Sectoral</p>
                   <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
                     {topics.filter(v => v.sectoral).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
@@ -247,7 +254,7 @@ const Filters = ({ deviceType, data }) => {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-lg font-medium text-white">NON-SECTORAL</p>
+                  <p className="text-lg font-medium text-white">Topics</p>
                   <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
                     {topics.filter(v => !v.sectoral).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
@@ -259,9 +266,22 @@ const Filters = ({ deviceType, data }) => {
                     })}
                   </div>
                 </div>
+                <div className="flex flex-col">
+                  <p className="text-lg font-medium text-white">Authors</p>
+                  <div className='flex flex-wrap text-white scrollbar-none' style={{ overflowY: 'scroll', maxHeight: 250 }}>
+                    {authors.length > 0 && authors.map((t, i) => {
+                      const isSelected = filters.authors.includes(t.slug);
+                      return <div key={i} onClick={() => setFilters({
+                        ...filters, authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug]
+                      })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
+                        {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+                      </div>
+                    })}
+                  </div>
+                </div>
               </div>
               <div className="bg-accent-dark px-14 py-5 sm:px-7 sm:py-5 absolute left-0 bottom-0 w-full flex justify-between">
-                <div onClick={() => window.location.href = "/blogs"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
+                <div onClick={() => window.location.href = "/matrixmoments"} className="sub-h2 text-accent-light underline cursor-pointer hover:opacity-80">
                   Clear All
                 </div>
                 <div onClick={_ => {

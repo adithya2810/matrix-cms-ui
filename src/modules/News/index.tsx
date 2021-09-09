@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Listing from '@components/Listing';
 
 const data = {
-  pageType: 'matrix_moments',
+  pageType: '',
   title: (
     <h2 className='header'>
       Matrix in the News
@@ -11,7 +11,7 @@ const data = {
 };
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {

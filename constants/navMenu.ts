@@ -13,7 +13,7 @@ export const navMenu = {
     {
       key: "footer_blog",
       name: "Matrix Moments",
-      link: "/blogs",
+      link: "/matrixmoments",
     },
   ],
   secondary: [

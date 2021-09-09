@@ -46,7 +46,7 @@ const Card: FC<propsType> = (props) => {
 
   return (
     <div className="laptop:flex">
-      <div className="self-start cursor-pointer relative flex-shrink-0 w-90 sm:w-full sm:ml-5 sm:pr-5" onClick={_ => push(`/blogs/${props.data?.slug}`)}>
+      <div className="self-start cursor-pointer relative flex-shrink-0 w-90 sm:w-full sm:ml-5 sm:pr-5" onClick={_ => push(`/matrixmoments/${props.data?.slug}`)}>
         <img
           style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: 'auto', width: '100%' }}
           className="image-shadow2"
@@ -70,7 +70,7 @@ const Card: FC<propsType> = (props) => {
       >
         <div className="caption text-accent-dark mb-1 sm:mb-2 Manrope-normal" style={props.deviceType?.mobile ? { fontWeight: 500, letterSpacing: 0.6, color: 'rgba(8, 58, 74, 1)' } : { fontWeight: 400, color: '#083A4A' }}>{`${props.data?.readtime?.toUpperCase()}`} {contentRead(props.data?.content_type?.name)}</div>
         <div className="sub-h1 Manrope-normal rrr" style={props.deviceType?.mobile ? { fontWeight: 500, letterSpacing: 1, lineHeight: '20px' } : { fontWeight: 400, fontSize: 24, lineHeight: '34px', color: '#000000', letterSpacing: 1 }}>
-          <Link href={`/blogs/${props.data?.slug}`}><a>{props.data?.name}</a></Link>
+          <Link href={`/matrixmoments/${props.data?.slug}`}><a>{props.data?.name}</a></Link>
         </div>
         <div className="flex mt-3 mb-4 items-center">
           <span className='flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0'>

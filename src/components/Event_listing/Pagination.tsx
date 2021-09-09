@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
-const getPagination = (currentPage, totalPages, appendSearch) => {
+const getPagination = (currentPage, totalPages, appendSearch, pageType) => {
   let current = currentPage;
   let last = totalPages;
   let delta = 1;
@@ -30,13 +30,13 @@ const getPagination = (currentPage, totalPages, appendSearch) => {
   }
   return rangeWithDots.reduce((acc, n) => {
     acc.push(<div key={n} onClick={_ => {
-      if (+n != current) window.location.href = `/events?page=${n}${appendSearch}`;
+      if (+n != current) window.location.href = `${pageType ? '/' + pageType : ''}/events?page=${n}${appendSearch}`;
     }} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-4 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`}>{(n < 10) ? `0${n}` : n}</div>)
     return acc
   }, []);
 }
 
-const Pagination: React.FC<{ total: number; }> = ({ total }) => {
+const Pagination: React.FC<{ total: number; pageType?: string; }> = ({ total, pageType }) => {
   const { query } = useRouter()
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = total;
@@ -57,8 +57,8 @@ const Pagination: React.FC<{ total: number; }> = ({ total }) => {
     }
   }, [query]);
 
-  const handlePrevPage = _ => { if (currentPage > 1) window.location.href = `/events?page=${currentPage - 1}${appendSearch}`; }
-  const handleNextPage = _ => { if (currentPage != totalPages) window.location.href = `/events?page=${currentPage + 1}${appendSearch}`; }
+  const handlePrevPage = _ => { if (currentPage > 1) window.location.href = `${pageType ? '/' + pageType : ''}/events?page=${Number(currentPage) - 1}${appendSearch}`; }
+  const handleNextPage = _ => { if (currentPage != totalPages) window.location.href = `${pageType ? '/' + pageType : ''}/events?page=${Number(currentPage) + 1}${appendSearch}`; }
 
   return (
     <div className='flex justify-center sm:block mt-20 mb-16'>
@@ -66,7 +66,7 @@ const Pagination: React.FC<{ total: number; }> = ({ total }) => {
         <div onClick={handlePrevPage} className="cursor-pointer body2 text-accent-dark sm:hidden hover:opacity-80"> {`<`} Prev</div>
         <div onClick={handlePrevPage} className="cursor-pointer body2 text-accent-dark laptop:hidden hover:opacity-80"> {`<`}</div>
         <div className='flex px-20 sm:px-2'>
-          {getPagination(currentPage, totalPages, appendSearch)}
+          {getPagination(currentPage, totalPages, appendSearch, pageType)}
         </div>
         <div onClick={handleNextPage} className="cursor-pointer body2 text-accent-dark sm:hidden hover:opacity-80">Next {`>`}</div>
         <div onClick={handleNextPage} className="cursor-pointer body2 text-accent-dark laptop:hidden hover:opacity-80">{`>`}</div>

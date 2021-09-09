@@ -9,12 +9,12 @@ import axios from 'axios';
 import qs from "qs";
 
 type deviceType = {
-  mobile: Boolean;
+  mobile: boolean;
 };
 
 type propsType = {
   title: ReactNode;
-  pageType: String;
+  pageType: string;
   deviceType: deviceType;
 };
 

@@ -23,7 +23,7 @@ const AppliedFilters = ({ mobile, appliedFilters, totalPages, page }) => {
     return str;
   }
   const removeFilter = (v) => {
-    if (v == 'all') window.location.href = '/blogs';
+    if (v == 'all') window.location.href = '/matrixmoments';
     else {
       const filters: any = query.hasOwnProperty('filters') ? JSON.parse(getQueryStr(query.filters)) : {};
       let rmflt = filters;
@@ -70,7 +70,7 @@ const AppliedFilters = ({ mobile, appliedFilters, totalPages, page }) => {
       let search_str = Object.keys(query).map(function (k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(getQueryStr(query[k]))
       }).join('&')
-      window.location.href = `/blogs${search_str ? '?' + search_str : ''}`;
+      window.location.href = `/matrixmoments${search_str ? '?' + search_str : ''}`;
     }
   }
   return (

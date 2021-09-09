@@ -10,7 +10,7 @@ import {
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
-const Filters = ({ deviceType }) => {
+const Filters = ({ deviceType, pageType }) => {
   const router = useRouter();
   const SearchIcon = deviceType.mobile ? <SearchMobile /> : <SearchLaptop />;
   const LinkedInIcon = deviceType.mobile ? <LinkedInMobile /> : <LinkedInLaptop />
@@ -39,7 +39,12 @@ const Filters = ({ deviceType }) => {
   const handleFilter = (_) => {
     !deviceType.mobile && setIsFilterBoxOpen(!isFilterBoxOpen)
     setIsTwitterBoxOpen(false);
-    if (deviceType.mobile && inputText) window.location.href = `/news?search=${inputText}`;
+    if (deviceType.mobile && inputText) {
+      if (pageType)
+        window.location.href = `/${pageType}/news?search=${inputText}`;
+      else
+        window.location.href = `/news?search=${inputText}`;
+    };
   };
 
   function isElementOutViewport(el) {
@@ -56,7 +61,10 @@ const Filters = ({ deviceType }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && inputText.trim() != "") {
-      window.location.href = `/news?search=${inputText}`;
+      if (pageType)
+        window.location.href = `/${pageType}/news?search=${inputText}`;
+      else
+        window.location.href = `/news?search=${inputText}`;
     }
   }
 

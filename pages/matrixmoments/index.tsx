@@ -66,7 +66,7 @@ export async function getServerSideProps() {
   const json = await response.json();
 
   let fltr = [];
-  let fltr2 = [];
+  let fltr2 = { tags: [], author: [] };
   for (const key in json.data) {
     if (Object.prototype.hasOwnProperty.call(json.data, key)) {
       const element = json.data[key];
@@ -77,16 +77,18 @@ export async function getServerSideProps() {
         id = "moments";
         name = "Matrix Moments"
       }
-      if (key == 'people') {
-        id = "authors";
-        name = "Authors"
-      }
+      // if (key == 'people') {
+      //   id = "authors";
+      //   name = "Authors"
+      // }
       if (key == 'contents') {
         id = "formats";
         name = "Content Formats"
       }
-      if (key == 'tags') {
-        fltr2 = element.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug, sectoral: r.sectorial }));
+      if (key == 'people') {
+        fltr2.author = f;
+      } else if (key == 'tags') {
+        fltr2.tags = element.map(r => ({ tagName: r.name, tagNumber: r?.blogs?.length || 0, slug: r.slug, sectoral: r.sectorial }));
       } else {
         fltr.push({ id: id, data: f, name: name });
       }

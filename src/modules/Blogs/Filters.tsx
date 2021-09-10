@@ -231,7 +231,7 @@ const Filters = ({ deviceType, data }) => {
                 className={`transition-colors duration-500 w-full pl-6 sm:pl-3 sub-h1 border-none outline-none placeholder-accent bg-input text-accent`}
                 value={inputText}
                 onChange={(e) => searchFilterOption(e.target.value)}
-                placeholder="Search Knowledgebase..."
+                placeholder="Search matrix moments..."
                 style={deviceType.mobile ? { fontSize: 18, fontWeight: 400, lineHeight: '24px' } : { fontSize: 22 }}
               />
             </div>

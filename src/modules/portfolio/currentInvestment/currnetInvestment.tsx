@@ -22,6 +22,7 @@ const CurrentInvestment: React.FC<Props> = ({ portfolio }) => {
   }
 
   filters = _.uniqBy(filters, 'slug');
+  filters = _.sortBy(filters, 'name');
 
   useEffect(() => {
     if (selected) {

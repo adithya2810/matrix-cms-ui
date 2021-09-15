@@ -18,7 +18,7 @@ const sliders = [
     text: 'I have always found Matrix to be a great partner in our journey - strategic in thinking and yet connected to the realities of execution. Its a great combo that is hard to beat!',
     by: '<b>PRANAY</b> CHULET',
     img: '/images/about-us/1-laptop.png',
-    logo: '/icons/ola.svg'
+    logo: '/icons/quikr_logo.png'
   },
   {
     text: 'Not once during these years of association that I have had with Matrix, have I ever felt them as an outsider. They have been with us through the thick and thin of things.',
@@ -54,7 +54,7 @@ const HeroSection: FC<propsType> = ({ deviceType }) => {
       <Carousel autoPlay={false} showThumbs={false} showArrows={false} showStatus={false} infiniteLoop={true} interval={6000} stopOnHover={false} transitionTime={1000} centerMode={false}>
         {sliders.map((ele, i) => (
           <div key={i} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${ele.img})`, height: '80vh', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
-            <div className="text-white relative -top-8 sm:-top-14" style={{ textAlign: 'start' }}>
+            <div className="text-white relative -top-5 sm:-top-14" style={{ textAlign: 'start', height: '70%' }}>
               <h3 className='opacity-40 mb-10 sm:mb-16 slider-num-ma'>{i > 8 ? (i + 1) : `0${i + 1}`}/{sliders.length > 9 ? sliders.length : `${sliders.length}`}</h3>
               <h5 className='relative mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light' style={deviceType.mobile ? { textIndent: '3rem' } : { fontSize: 35, lineHeight: '45px', textIndent: '6rem', zIndex: 1 }}>
                 <img className="absolute -top-10 sm:-top-3 left-0 h-20 w-20 sm:h-8" style={deviceType.mobile ? { width: '2rem', zIndex: -1 } : { width: '5rem', zIndex: -1 }} src="/quote-mark.png" />

@@ -53,7 +53,7 @@ const HeroSection: FC<{ mobile: boolean; data?: any[] }> = ({ mobile, data }) =>
 
   return (
     <>
-      <div className={`listing-hero-section`} style={{ height: mobile ? '69vh' : '51vh', backgroundImage: 'url(/img/MatrixMoments-Series-01.jpg)', ...mobile ? { backgroundSize: '200% 100%', backgroundPositionX: -56 } : {} }}>
+      <div className={`listing-hero-section`} style={{ height: mobile ? '69vh' : '51vh', backgroundImage: mobile ? 'url(/img/MatrixMoments-Series-02.jpg)' : 'url(/img/MatrixMoments-Series-01.jpg)' }}>
         <div className="title section laptop:ml-40 laptop:mt-20 laptop:mb-12">
           <h2 style={!mobile ? { lineHeight: '6.5rem', fontWeight: 400, fontSize: '6rem', letterSpacing: -2.5 } : {}}>
             {/* The Matrix <br /> Moments Series */}

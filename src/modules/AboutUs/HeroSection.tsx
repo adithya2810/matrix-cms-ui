@@ -54,16 +54,16 @@ const HeroSection: FC<propsType> = ({ deviceType }) => {
       <Carousel autoPlay={false} showThumbs={false} showArrows={false} showStatus={false} infiniteLoop={true} interval={6000} stopOnHover={false} transitionTime={1000} centerMode={false}>
         {sliders.map((ele, i) => (
           // <div key={i} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${ele.img})`, height: '80vh', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
-          <div key={i} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${ele.img})`, height: 'calc(100vh - 325px)', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
-            <div className="text-white relative top-20 sm:top-14" style={{ textAlign: 'start', height: '70%' }}>
+          <div key={i} className={`overlay bg-cover relative section flex items-center`} style={{ backgroundImage: `url(${ele.img})`, height: deviceType.mobile ? '80vh' : 'calc(100vh - 325px)', backgroundSize: deviceType.mobile ? 'cover' : 'auto', zIndex: 0 }}>
+            <div className="text-white relative top-10 sm:top-14 flex flex-col justify-center" style={{ textAlign: 'start', height: deviceType.mobile ? '70%' : '100%' }}>
               {/* <h3 className='opacity-40 mb-10 sm:mb-16 slider-num-ma'>{i > 8 ? (i + 1) : `0${i + 1}`}/{sliders.length > 9 ? sliders.length : `${sliders.length}`}</h3> */}
               {/* <h5 className='relative mb-10 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light' style={deviceType.mobile ? { textIndent: '3rem' } : { fontSize: 35, lineHeight: '45px', textIndent: '6rem', zIndex: 1 }}> */}
-              <h5 className='relative mb-5 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light' style={deviceType.mobile ? { textIndent: '3rem' } : { fontSize: 30, lineHeight: '38px', textIndent: '5rem', zIndex: 1 }}>
+              <h5 className='relative mb-2 sm:mb-9 ma-slider-fix text-6xl sm:text-lg leading-snug sm:leading-6 sm:font-light' style={deviceType.mobile ? { textIndent: '3rem' } : { fontSize: '4vh', lineHeight: '5vh', textIndent: '4.5rem', marginBottom: '2vh', zIndex: 1 }}>
                 {/* <img className="absolute -top-10 sm:-top-3 left-0 h-20 w-20 sm:h-8" style={deviceType.mobile ? { width: '2rem', zIndex: -1 } : { width: '5rem', zIndex: -1 }} src="/quote-mark.png" /> */}
-                <img className="absolute -top-6 sm:-top-3 left-0 h-14 w-14 sm:h-8" style={deviceType.mobile ? { width: '2rem', zIndex: -1 } : { width: '4rem', zIndex: -1 }} src="/quote-mark.png" />
+                <img className="absolute -top-7 sm:-top-3 left-0 h-14 w-14 sm:h-8" style={deviceType.mobile ? { width: '2rem', zIndex: -1 } : { width: '4rem', zIndex: -1 }} src="/quote-mark.png" />
                 {ele.text}
               </h5>
-              <h6 className="font-normal leading-normal sm:text-sm" dangerouslySetInnerHTML={{ __html: ele.by }} style={deviceType.mobile ? { letterSpacing: 0.1 } : { fontSize: 30 }}></h6>
+              <h6 className="font-normal leading-normal sm:text-sm" dangerouslySetInnerHTML={{ __html: ele.by }} style={deviceType.mobile ? { letterSpacing: 0.1 } : { fontSize: '4vh', lineHeight: '5vh' }}></h6>
               <img className="absolute bottom-0 right-0" src={ele.logo} style={deviceType.mobile ? { width: 60 } : { display: 'none' }} />
             </div>
             <img className="absolute bottom-12 right-8" src={ele.logo} style={deviceType.mobile ? { display: 'none', } : { width: 100 }} />

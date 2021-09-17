@@ -15,7 +15,7 @@ type propsType = {
 
 const index: FC<propsType> = (props) => {
   return (
-    <div>
+    <div className="about-page-container">
       <HeroSection deviceType={props.deviceType} />
       <div className='grid grid-cols-2 sm:grid-cols-1'>
         <AboutMatrix {...props} />

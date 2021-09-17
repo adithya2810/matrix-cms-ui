@@ -2030,3 +2030,11 @@ textarea {
     }
   }
 }
+
+.about-page-container{
+  @media (min-width: 640px){
+    .control-dots {
+        padding: 0 75px 25px !important;
+    }
+  }
+}

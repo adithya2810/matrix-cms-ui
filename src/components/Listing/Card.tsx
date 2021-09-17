@@ -21,7 +21,7 @@ type propsType = {
 
 const Card: FC<propsType> = (props) => {
   // const url = 'news/' + props.title.split(' ').join('-')
-  const url = 'news/' + props.slug
+  const url = '/news/' + props.slug
   return (
 
     <div className="laptopCustom:flex">
@@ -45,7 +45,7 @@ const Card: FC<propsType> = (props) => {
       >
         <div className="caption text-accent-dark mb-2 lg:mb-2">{moment(props?.date).format('YYYY-MM-DD')}</div>
         <div className="sub-h1 Manrope-normal" style={{ fontWeight: 400, fontSize: '24px', lineHeight: '34px', letterSpacing: '1px' }}>{props.title}</div>
-        <p className="caption news-body" dangerouslySetInnerHTML={{ __html: props.body.slice(0, 200) }}></p>
+        <p className="caption news-body" style={{ color: '#000000' }} dangerouslySetInnerHTML={{ __html: props.body.slice(0, 200) }}></p>
         <div className="read-or-hide">
           {<Link href={url}><a className="flex">Read More <img className="pl-2 pt-1" src='/icons/arrow_b.svg' /></a></Link>}
         </div>

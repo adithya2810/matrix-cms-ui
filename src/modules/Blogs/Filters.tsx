@@ -27,19 +27,19 @@ const initialFilters = { topics: [], authors: [] };
 const Filters = ({ deviceType, data }) => {
   const { query } = useRouter();
   const [inputText, setInputText] = useState('');
-  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(true);
+  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [isTwitterBoxOpen, setIsTwitterBoxOpen] = useState(false);
   const [isLinkedInBoxOpen, setIsLinkedInBoxOpen] = useState(false);
   const filterRef = useRef(null);
   const [openedFilter, setOpenedFilter] = useState('')
 
   const [momentsf, setMomentsf] = useState([])
-  const [topicsf, setTopicsf] = useState(data.tags)
+  const [topicsf, setTopicsf] = useState(_.sortBy(data.tags, 'name'))
   const [authorsf, setAuthorsf] = useState(data.author)
   const [formatsf, setFormatsf] = useState([])
 
   const [moments, setMoments] = useState([])
-  const [topics, setTopics] = useState(data.tags)
+  const [topics, setTopics] = useState(_.sortBy(data.tags, 'name'))
   const [authors, setAuthors] = useState(data.author)
   const [formats, setFormats] = useState([])
 

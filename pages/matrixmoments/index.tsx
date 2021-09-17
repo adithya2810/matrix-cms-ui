@@ -56,14 +56,14 @@ export async function getServerSideProps() {
   }`};
   const QUERY = {
     query: `query {
-      people (sort: "name:desc"){
+      people (sort: "name:asc"){
         name
         slug
         blogs {
           name
         }
       }
-      tags (sort: "name:desc"){
+      tags (sort: "name:asc"){
         name
         slug
         sectorial

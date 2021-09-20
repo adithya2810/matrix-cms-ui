@@ -104,8 +104,8 @@ const heroSlider02_Data = [
     id: "04",
     name: [
       {
-        firstName: "OFBUSINESS ",
-        lastName: "TEAM"
+        firstName: "OfBusiness ",
+        lastName: "Team"
       }
     ],
     title: "<span>B2B Commerce, </span><br> Fintech",

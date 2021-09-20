@@ -30,7 +30,7 @@ const Card: FC<propsType> = (props) => {
     return cntarr[type] || "READ";
   };
   const getAuthorImage = (data) => {
-    if (data.hasOwnProperty("icon_image")) {
+    if (data && data.hasOwnProperty("icon_image")) {
       if (data.icon_image) {
         if (data.icon_image.hasOwnProperty("formats")) {
           return data.icon_image.formats.thumbnail.url;
@@ -40,7 +40,7 @@ const Card: FC<propsType> = (props) => {
         return data.image_url;
       }
     } else {
-      return data.image_url;
+      return data?.image_url;
     }
   };
 
@@ -76,7 +76,7 @@ const Card: FC<propsType> = (props) => {
           <span className='flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0'>
             <Icon {...props} iconType={props.data?.content_type?.name} />
           </span>
-          <div className="flex">
+          {props.data?.author?.length > 0 && <div className="flex">
             <img
               className="mr-3 sm:w-8"
               src={getAuthorImage(props.data?.author?.[0])}
@@ -87,7 +87,7 @@ const Card: FC<propsType> = (props) => {
               <p className="sub-h2 text-accent-dark Manrope-normal capitalize" style={props.deviceType?.mobile ? { lineHeight: '18px', letterSpacing: 1, paddingBottom: 5 } : { lineHeight: '24px', fontSize: 16, color: '#083A4A' }}>{capitalize(props.data?.author?.[0]?.name)}</p>
               <p className="caption Manrope-normal" style={props.deviceType?.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : { fontWeight: 300, letterSpacing: 1, color: '#000000' }}>{props.data?.author?.[0]?.designation}</p>
             </div>
-          </div>
+          </div>}
         </div>
         <div className="flex flex-wrap gap-2 ">
           {

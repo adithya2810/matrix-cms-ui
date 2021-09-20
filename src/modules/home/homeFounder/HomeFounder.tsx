@@ -53,8 +53,8 @@ const founderData = [
     id: "04",
     name: [
       {
-        firstName: "OFBUSINESS ",
-        lastName: "TEAM"
+        firstName: "OfBusiness ",
+        lastName: "Team"
       }
     ],
     title: "We <br><span>commit </span><br> personally",

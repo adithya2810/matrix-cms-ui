@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
       pastinvset
       areaofintrest
       slug
-      blogs {
+      blogs (sort: "createdAt:asc"){
         _id
         FeaturedOne
         FeaturedTwo

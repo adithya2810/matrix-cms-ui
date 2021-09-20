@@ -145,7 +145,6 @@ const Filters = ({ deviceType, data }) => {
 
   const capitalize = (str) => {
     if (str) {
-      return str;
       const words = str.split(" ");
 
       for (let i = 0; i < words.length; i++) {
@@ -244,12 +243,12 @@ const Filters = ({ deviceType, data }) => {
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Sectoral</p>
                   <div className='flex flex-wrap text-white'>
-                    {topics.filter(v => v.sectoral).map((t, i) => {
+                    {topics.filter(v => v.sectoral && v.tagNumber > 0).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({
                         ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
                       })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
-                        {t.slug == "d2c" ? t.tagName : capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+                        {t.tagName} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
                       </div>
                     })}
                   </div>
@@ -257,12 +256,12 @@ const Filters = ({ deviceType, data }) => {
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Topics</p>
                   <div className='flex flex-wrap text-white'>
-                    {topics.filter(v => !v.sectoral).map((t, i) => {
+                    {topics.filter(v => !v.sectoral && v.tagNumber > 0).map((t, i) => {
                       const isSelected = filters.topics.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({
                         ...filters, topics: filters.topics.includes(t.slug) ? filters.topics.filter(m => m !== t.slug) : [...filters.topics, t.slug]
                       })} className={`${isSelected ? 'bg-accent' : ''} sub-h2 border border-accent laptop:px-2 laptop:py-1 sm:py-1 sm:px-2 mr-2.5 mb-2.5 cursor-pointer hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 14, fontWeight: 300 }}>
-                        {capitalize(t.tagName)} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
+                        {t.tagName} <span className="laptop:font-normal" style={deviceType.mobile ? { fontSize: 10, lineHeight: '14px' } : { fontSize: 10, lineHeight: '14px' }}>{!!t.tagNumber && `(${t.tagNumber})`}</span>
                       </div>
                     })}
                   </div>
@@ -270,7 +269,7 @@ const Filters = ({ deviceType, data }) => {
                 <div className="flex flex-col">
                   <p className="text-lg font-medium text-white">Authors</p>
                   <div className='flex flex-wrap text-white'>
-                    {authors.length > 0 && authors.map((t, i) => {
+                    {authors.length > 0 && authors.filter(v => v.tagNumber > 0).map((t, i) => {
                       const isSelected = filters.authors.includes(t.slug);
                       return <div key={i} onClick={() => setFilters({
                         ...filters, authors: filters.authors.includes(t.slug) ? filters.authors.filter(m => m !== t.slug) : [...filters.authors, t.slug]

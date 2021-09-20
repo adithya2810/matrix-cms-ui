@@ -55,8 +55,8 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
             <div className="flex cursor-pointer" onClick={() => toggle()}>
               {/* <h6 className={`sub-h1 -mb-2 menu-text ${brightSts ? 'black' : 'white'}`} style={mobile ? { lineHeight: '20px', fontWeight: 500, fontSize: 18, width: 50 } : { lineHeight: '34px', fontWeight: 400, fontSize: 22, width: 60 }}>Menu</h6> */}
               {brightSts ?
-                <img src={`${mobile ? '/icons/menu-mobile.svg' : '/icons/menu.svg'}`} className="pl-2 text-blue" /> :
-                <img src="/icons/Symbol_All_white.svg" className="pl-2 sm:pl-2 text-blue" />
+                <>{mobile && <img src={`${mobile ? '/icons/menu-mobile.svg' : '/icons/menu.svg'}`} className="pl-2 text-blue" />}</> :
+                <>{mobile && <img src="/icons/Symbol_All_white.svg" className="pl-2 sm:pl-2 text-blue" />}</>
               }
             </div>
           </div>

@@ -45,11 +45,12 @@ export async function getServerSideProps(context) {
       pastinvset
       areaofintrest
       slug
-      blogs (sort: "createdAt:asc"){
+      blogs (sort: "date:desc"){
         _id
         FeaturedOne
         FeaturedTwo
         displaytag
+        date
         author {
           designation
           image_url

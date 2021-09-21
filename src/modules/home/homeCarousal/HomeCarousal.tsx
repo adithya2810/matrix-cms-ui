@@ -62,7 +62,7 @@ const heroSlider02_Data = [
         lastName: "AGGARWAL"
       }
     ],
-    title: "India’s leading <span>mobility</span> player",
+    title: "India’s largest <span>mobility</span> player",
     founderImage: '/icons/Bhavish_image.png',
     background_url: '/icons/raybay.png',
     tagsDetails: "Ola is India’s largest mobility platform and one of the world’s largest ride-hailing companies, serving 250+ cities across India, Australia, New Zealand, and the UK.",
@@ -112,14 +112,14 @@ const heroSlider02_Data = [
     founderImage: '/icons/offbuisiness_teams.png',
     background_url: '/icons/andreas-kind.png',
     tagsDetails: "OFB Tech (OfBusiness) is a tech-enabled platform that facilitates raw material procurement and credit for SMEs,",
-    logo: "/icons/OfBusiness Logo 1.svg",
+    logo: "/icons/OfBusiness.svg",
   },
   {
     id: "05",
     name: [
       {
         firstName: "Mr.  ",
-        lastName: "LAKSHIPATHY"
+        lastName: "Lakshmipathy"
       }
     ],
     title: "<span>SME </span><br> lending",
@@ -149,12 +149,12 @@ const heroSlider02_Data = [
   {
     id: "07",
     name: [
-      { firstName: "Sourjyende ", lastName: "Medda" },
+      { firstName: "Sourjyendu ", lastName: "Medda" },
       { firstName: "Rajat ", lastName: "Shikhar" },
-      { firstName: "Vinnet ", lastName: "Rao" },
+      { firstName: "Vineet ", lastName: "Rao" },
       { firstName: "Sankar ", lastName: "Bora" }
     ],
-    title: "<span>Social</span><br>  Commerce",
+    title: "India's leading <span>Social</span><br> Commerce platform",
     founderImage: '/icons/Sourjyende-Rajat-Vinnet.png',
     background_url: '/icons/Sourjyende-Rajat-Vinnet-bg.png',
     tagsDetails: "DealShare is building a India-centric, “E-commerce 2.0” platform to satisfy the FMCG/grocery and general merchandize needs of lower-middle income consumers in Tier-2/3 cities.",
@@ -163,11 +163,11 @@ const heroSlider02_Data = [
   {
     id: "08",
     name: [
-      { firstName: "Vaibhav ", lastName: "Hathi" },
+      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Anurag ", lastName: "Sinha" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
-    title: "<span>Mobile-first</span><br> credit card",
+    title: "<span>mobile-first</span><br> credit card",
     founderImage: '/icons/onecard-boiss.png',
     background_url: '/icons/onecard-bg.png',
     tagsDetails: "India's best metal credit card. Built with full-stack tech. Backed by the principles of simplicity, transparency, and giving back control to the user.",
@@ -179,7 +179,7 @@ const heroSlider02_Data = [
       { firstName: "Harshil ", lastName: "Mathur" },
       { firstName: "Shashank ", lastName: "Kumar" }
     ],
-    title: "<span>Full-Stack</span><br/> financial service company",
+    title: "India's leading <span>online payments</span><br/> and SME Neobank",
     founderImage: '/icons/razorpay-boss.png',
     background_url: '/icons/razorpay-bg.png',
     tagsDetails: "Razorpay, a full-stack financial services company, helps Indian businesses with comprehensive and innovative solutions built to address the entire length and breadth of the payment and banking journey.",

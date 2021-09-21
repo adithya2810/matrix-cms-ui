@@ -63,7 +63,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
         }
       </div>
       {!mobile &&
-        <RelatedVideos mobile={mobile} relatedVideos={relatedVideos} />
+        <RelatedVideos blogDetails={blogDetails} mobile={mobile} relatedVideos={relatedVideos} />
       }
     </div>
   )

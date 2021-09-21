@@ -29,7 +29,7 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
       body: JSON.stringify(mail_data)
     });
     if (res.ok) {
-      setMsg({ status: true, message: 'Subscribe successfully' })
+      setMsg({ status: true, message: 'Subscribed Successfully' })
       setSubscribe('')
       setTimeout(() => setMsg({ status: false, message: '' }), 6000);
     } else {
@@ -54,8 +54,8 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
             </div>
             <div className="p-0.5 sm:flex sm:justify-between ">
               <div>
-                <h6 className="sub-h2 font-medium text-lg" style={{ letterSpacing: 1 }}> Matrix Partner Us </h6>
-                <h6 className=" sub-h2 font-medium text-lg" style={{ letterSpacing: 1 }}> Matrix Partner China</h6>
+                <h6 className="sub-h2 font-medium text-lg" style={{ letterSpacing: 1 }}><a href="https://www.matrixpartners.com/" target="__blank">Matrix Partner US</a></h6>
+                <h6 className=" sub-h2 font-medium text-lg" style={{ letterSpacing: 1 }}><a href="https://www.matrixpartners.com.cn/index.php/zh/" target="__blank">Matrix Partner China</a></h6>
               </div>
               <div className="flex mt-2 laptop:mt-4 items-start p-0.5">
                 <a className="pl-0" href="https://www.linkedin.com/company/matrix-partners-india/" target="__blank"><img src="/icons/linkedin.svg" /></a>

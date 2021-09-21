@@ -43,7 +43,7 @@ const BlogDetails: FC<propsType> = (props) => {
         <SideContent {...props} blogDetails={blogDetails} relatedVideos={relatedVideos} />
         <Blog {...props} blogDetails={blogDetails} />
         {props.deviceType.mobile &&
-          <RelatedVideos mobile={props.deviceType.mobile} relatedVideos={relatedVideos} />
+          <RelatedVideos {...props} mobile={props.deviceType.mobile} relatedVideos={relatedVideos} />
         }
         {!props.deviceType.mobile ?
           <SearchMoreLaptop {...props} blogCount={blogCount} />

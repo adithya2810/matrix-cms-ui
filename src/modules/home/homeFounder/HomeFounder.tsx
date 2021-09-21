@@ -13,7 +13,7 @@ const founderData = [
     ],
     title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Bhavish_image.png',
-    tags: ["Mobility", "Electric Cars"],
+    tags: ["Mobility", "Electric Vehicles"],
     logo: "/icons/ola.svg",
     small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   },
@@ -60,33 +60,33 @@ const founderData = [
     title: "We <br><span>commit </span><br> personally",
     background_url: '/icons/offbuisiness_teams.png',
     tags: ["B2B Commerce", "Fintech"],
-    logo: "/icons/OfBusiness Logo 1.svg",
+    logo: "/icons/OfBusiness.svg",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },
   {
     id: "05",
     name: [
-      { firstName: "Sourjyende ", lastName: "Medda" },
+      { firstName: "Sourjyendu ", lastName: "Medda" },
       { firstName: "Rajat ", lastName: "Shikhar" },
-      { firstName: "Vinnet ", lastName: "Rao" },
+      { firstName: "Vineet ", lastName: "Rao" },
       { firstName: "Sankar ", lastName: "Bora" }
     ],
     title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Sourjyende-Rajat-Vinnet.png',
-    tags: ["Social", "Commerce"],
+    tags: ["Social Commerce", "Grocery"],
     logo: "/icons/Dealshare-logo-white.png",
     small_titles: [{ index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }]
   },
   {
     id: "06",
     name: [
-      { firstName: "Vaibhav ", lastName: "Hathi" },
+      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Anurag ", lastName: "Sinha" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
     title: "We <br><span>partner</span><br> closely",
     background_url: '/icons/onecard-boiss.png',
-    tags: ["Mobile-first credit card"],
+    tags: ["Fintech", "Neobank"],
     logo: "/icons/onecard-logo.png",
     small_titles: [{ index: 3, title: "We invest <br> early" }, { index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br>founders first" }]
   },
@@ -98,7 +98,7 @@ const founderData = [
     ],
     title: "We <br><span>invest</span><br> early",
     background_url: '/icons/razorpay-boss.png',
-    tags: ["Payments"],
+    tags: ["Fintech", "Payments"],
     logo: "/icons/razorpay-white-logo.png",
     small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   },
@@ -130,7 +130,7 @@ const founderData = [
     name: [
       {
         firstName: "Mr.  ",
-        lastName: "LAKSHIPATHY"
+        lastName: "Lakshmipathy"
       }
     ],
     title: "We <br><span>partner</span><br> closely",

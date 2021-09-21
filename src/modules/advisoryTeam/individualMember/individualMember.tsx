@@ -115,10 +115,10 @@ const IndividualMember: FC<propsType> = (props) => {
 
 
             <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Brief</h3>
-            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
 
             {advisoryDetail.about && <> <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">About</h3>
-              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
+              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
 
             {advisoryDetail.currentinvest && <>
               <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Current Investments</h2>
@@ -133,7 +133,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </>}
             {advisoryDetail.areaofintrest && <>
               <div className="text-2xl pt-8 sm:text-lg">
-                <span className="font-semibold">Focus Area</span><br />
+                <span className="font-semibold">Focus Area's</span><br />
                 <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}
@@ -179,7 +179,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </>}
             {advisoryDetail.areaofintrest && <>
               <div className="text-2xl pt-4 sm:text-lg">
-                <span className="font-semibold">Focus Area</span><br />
+                <span className="font-semibold">Focus Area's</span><br />
                 <div className="text-lg leading-relaxed font-normal" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}
@@ -212,7 +212,7 @@ const IndividualMember: FC<propsType> = (props) => {
             </>}
             {advisoryDetail.areaofintrest && <>
               <div className="text-4xl pt-5 sm:text-lg">
-                <span className="font-bold">Focus Area</span><br />
+                <span className="font-bold">Focus Area's</span><br />
                 <div className="text-lg pt-2 text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}
@@ -223,11 +223,11 @@ const IndividualMember: FC<propsType> = (props) => {
         {!props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16 scrollbar-none" style={{ maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
 
           <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">Brief</h3>
-          <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+          <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
 
           {advisoryDetail.about && <>
             <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg">About</h3>
-            <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div>
+            <div className="text-justify text-lg leading-relaxed font-normal pt-3 sm:text-lg sm:pt-3 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div>
           </>}
 
           {advisoryDetail.currentinvest && <>
@@ -240,7 +240,7 @@ const IndividualMember: FC<propsType> = (props) => {
             <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
           </>}
           {advisoryDetail.areaofintrest && <>
-            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Focus Area</h2>
+            <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Focus Area's</h2>
             <div className="text-lg leading-relaxed font-normal pt-3 sm:text-lg" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
 
           </>}
@@ -310,14 +310,14 @@ const IndividualMember: FC<propsType> = (props) => {
                   alt={blog.content_type.name}
                   className="flex items-center w-8 h-8"
                 /></div>}
-                {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} {contentRead(blog.content_type.name)}</div>}
+                {blog.readtime && <div className="caption text-accent-dark mb-3 sm:mb-2">{blog.readtime.toUpperCase()} {contentRead(blog?.content_type?.name)}</div>}
                 <div className="sub-h1" style={props.deviceType.mobile ? {} : { fontSize: 24, lineHeight: '30px' }}>
                   <Link href={`/matrixmoments/${blog.slug}`}><a>{blog.name}</a></Link>
                 </div>
                 <div className="flex mt-4 mb-4 items-center">
                   {!props.deviceType.mobile && <Image
-                    src={getContentTypeImageUrl(blog.content_type.name, true)}
-                    alt={blog.content_type.name}
+                    src={getContentTypeImageUrl(blog?.content_type?.name, true)}
+                    alt={blog?.content_type?.name}
                     className="flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0"
                   />}
                   <div className="flex">

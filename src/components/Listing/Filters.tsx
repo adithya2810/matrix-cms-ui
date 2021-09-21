@@ -144,13 +144,13 @@ const Filters = ({ deviceType, pageType }) => {
 
         {!deviceType.mobile && <div className={`twitter_outerWarp opened duration-300 relative`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}` }}>
           <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
-            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <a className="twitter-timeline" href="https://twitter.com/MatrixPartners?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>}
         {deviceType.mobile && <div className={`twitter_outerWarp opened duration-300 absolute`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}`, bottom: footerInView ? 'auto' : '55px' }}>
           <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>
-            <a className="twitter-timeline" href="https://twitter.com/matrixindiavc?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
+            <a className="twitter-timeline" href="https://twitter.com/MatrixPartners?ref_src=twsrc%5Etfw">Tweets by matrixindiavc</a>
             <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>}

@@ -2038,3 +2038,7 @@ textarea {
     }
   }
 }
+
+.advisory_details_linespacing p:not(:first-child){
+  padding-top: 10px;
+}

@@ -505,7 +505,7 @@ h6 {
 .flip-card-front {
   background-color: transparent;
   color: black;
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -533,7 +533,8 @@ h6 {
 }
 
 .flip-card-front img {
-  object-fit: cover;
+  width: 198px;
+  object-fit: scale-down;
 }
 
 @media (max-width: 639px) {

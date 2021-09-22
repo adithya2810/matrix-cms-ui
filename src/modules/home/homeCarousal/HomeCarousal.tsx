@@ -97,7 +97,7 @@ const heroSlider02_Data = [
     title: "Tech-enabled   <span>student housing</span><br> platform",
     founderImage: '/icons/founder3-edited.png',
     background_url: '/icons/backgroundCarousalImage.png',
-    tagsDetails: "Stanza Living provides fully-managed shared living accommodations to students and young professionals.",
+    tagsDetails: "Tech-enabled student accommodation platform.",
     logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
   },
   {
@@ -157,7 +157,7 @@ const heroSlider02_Data = [
     title: "India's leading <span>Social</span><br> Commerce platform",
     founderImage: '/icons/Sourjyende-Rajat-Vinnet.png',
     background_url: '/icons/Sourjyende-Rajat-Vinnet-bg.png',
-    tagsDetails: "DealShare is building a India-centric, “E-commerce 2.0” platform to satisfy the FMCG/grocery and general merchandize needs of lower-middle income consumers in Tier-2/3 cities.",
+    tagsDetails: "India's leading social commerce platform Tier 2/3 focused grocery social-commerce platform.",
     logo: "/icons/Dealshare-logo-white.png",
   },
   {

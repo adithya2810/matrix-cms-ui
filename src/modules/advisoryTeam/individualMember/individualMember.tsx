@@ -59,7 +59,7 @@ const IndividualMember: FC<propsType> = (props) => {
   };
 
   return (
-    <div className="team_detail py-40 px-12 sm:py-0 sm:px-0">
+    <div className="team_detail py-40 px-20 sm:py-0 sm:px-0">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
         <div className="team-member-detail pr-5 sm:pr-0">
           <div style={{ position: 'relative' }} className="pb">

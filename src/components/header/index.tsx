@@ -29,7 +29,7 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
   return (
     <div className="headerOuter-warpper transparentMenu"> {/*flex w-full z-20 justify-between items-start laptop:pl-8 mt-11 sm:mt-0 sm:p-5 */}
       <div className="page-center">
-        <div className={`headerInner-warpper ${brightSts ? 'laptop:pl-0' : 'laptop:pl-12'} sm:mt-5`}>
+        <div className={`headerInner-warpper ${brightSts ? 'laptop:pl-5' : 'laptop:pl-12'} sm:mt-5`}>
           <Link href="/"><a>
             {brightSts ? <>
               <Logo src={siteLogoBlock} alt={"nextjs"} className="black block sm:hidden" />

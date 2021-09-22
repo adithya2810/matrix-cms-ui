@@ -45,7 +45,7 @@ const founderData = [
     ],
     title: "We <br><span>invest</span><br> early",
     background_url: '/icons/founder3-edited.png',
-    tags: ["Student Housing Platform"],
+    tags: ["Student accommodation platform"],
     logo: "/icons/Stanza_Living_Logo_3x_W 1.svg",
     small_titles: [{ index: 4, title: "We commit <br> personally" }, { index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }]
   },

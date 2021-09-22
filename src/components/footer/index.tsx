@@ -70,9 +70,9 @@ export const Footer: React.FC<{ mobile: boolean }> = ({ mobile }) => {
         <div className="page-center">
           <div className="footer-section-col02-inner laptop:flex laptop:items-center" style={{ padding: '0 30px' }}>
             <FooterMenu mobile={mobile} />
-            <div className="privacyMenuWrap text-secondary flex items-center sm:mt-2 sm:grid sm:grid-cols-2 sm:gap-0  laptop:ml-20 ">
+            {/* <div className="privacyMenuWrap text-secondary flex items-center sm:mt-2 sm:grid sm:grid-cols-2 sm:gap-0  laptop:ml-20 ">
               <span className="caption p-1 w-28 text-sm sm:mt-2" style={mobile ? { fontSize: 11, fontWeight: 300 } : { letterSpacing: 1 }}>PRIVACY POLICY</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

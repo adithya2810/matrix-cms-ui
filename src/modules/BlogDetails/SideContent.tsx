@@ -41,12 +41,14 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
               <div className="caption" style={mobile ? {} : { lineHeight: '15px' }}>{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>
-          {!showMore ? <>
-            <div className="sub-h2" style={mobile ? { fontWeight: 400, lineHeight: '20px' } : { lineHeight: '23px', fontSize: 15, fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: `${blogDetails?.author?.[0]?.description?.slice(0, 200)}` }}></div>
-            <span onClick={_ => setShowMore(true)} style={{ fontWeight: 700, cursor: 'pointer' }}> ...</span>
-          </> :
-            <div className="sub-h2" style={mobile ? { fontWeight: 400, lineHeight: '20px' } : { lineHeight: '23px', fontSize: 15, fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: blogDetails?.author?.[0]?.description }}></div>
-          }
+          <div>
+            {!showMore ? <>
+              <div className="sub-h2" style={mobile ? { fontWeight: 400, lineHeight: '20px' } : { lineHeight: '23px', fontSize: 15, fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: `${blogDetails?.author?.[0]?.description?.split(".")[0]}.` }}></div>
+              <span onClick={_ => setShowMore(true)} style={{ fontWeight: 700, cursor: 'pointer' }}> ...</span>
+            </> :
+              <div className="sub-h2" style={mobile ? { fontWeight: 400, lineHeight: '20px' } : { lineHeight: '23px', fontSize: 15, fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: blogDetails?.author?.[0]?.description }}></div>
+            }
+          </div>
         </div>
       </div>
       <div className="tags flex gap-2 laptop:py-6 sm:py-3 flex-wrap">

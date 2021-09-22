@@ -118,12 +118,14 @@ const SearchMoreLaptop = ({ deviceType, blogCount = { article: 0, audio: 0, vide
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </a>
-          <div className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center" onClick={() => {
-            setIsTwitterBoxOpen(!isTwitterBoxOpen)
-          }}>
+          <a className="relative bg-white laptop:h-24 flex sm:w-10 justify-center items-center" href="https://twitter.com/matrixindiavc" target="__blank"
+          // onClick={() => {
+          //   setIsTwitterBoxOpen(!isTwitterBoxOpen)
+          // }}
+          >
             {TwitterIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-4 laptop:border-l-4 laptop:border-r-4 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
-          </div>
+          </a>
         </div>
         <div className={`twitter_outerWarp opened duration-300 absolute`} style={{ display: `${isTwitterBoxOpen ? 'block' : 'none'}`, bottom: footerInView ? 'auto' : '55px' }}>
           <div className={`bg-white ${deviceType.mobile ? 'px-5 pt-5' : 'px-10 pt-10'}`}>

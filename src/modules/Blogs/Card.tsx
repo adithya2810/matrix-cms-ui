@@ -91,7 +91,7 @@ const Card: FC<propsType> = (props) => {
         </div>
         <div className="flex flex-wrap gap-2 ">
           {
-            props.data?.tags?.map(tag => <div key={tag.id} className="caption px-3 py-3 sm:px-2 sm:py-2 Manrope-normal" style={props.deviceType?.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', letterSpacing: 0.6, background: 'rgba(0, 0, 0, 0.08)', color: 'rgba(0, 0, 0, 0.65)' } : { background: 'rgba(0, 0, 0, 0.08)', fontWeight: 300, color: 'rgba(0, 0, 0, 0.65)', letterSpacing: 1, lineHeight: '10px', fontSize: '11px' }} >{tag.name?.toUpperCase()}</div>)
+            props.data?.tags?.map(tag => <div key={tag.id} className="caption px-3 py-2 sm:px-2 sm:py-2 Manrope-normal" style={props.deviceType?.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', letterSpacing: 0.6, background: 'rgba(0, 0, 0, 0.08)', color: 'rgba(0, 0, 0, 0.65)' } : { background: 'rgba(0, 0, 0, 0.08)', fontWeight: 300, color: 'rgba(0, 0, 0, 0.65)', letterSpacing: 1, lineHeight: '9px', fontSize: '11px' }} >{tag.name?.toUpperCase()}</div>)
           }
         </div>
       </div>

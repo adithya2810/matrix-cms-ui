@@ -150,9 +150,9 @@ const heroSlider02_Data = [
     id: "07",
     name: [
       { firstName: "Sourjyendu ", lastName: "Medda" },
-      { firstName: "Rajat ", lastName: "Shikhar" },
       { firstName: "Vineet ", lastName: "Rao" },
-      { firstName: "Sankar ", lastName: "Bora" }
+      { firstName: "Sankar ", lastName: "Bora" },
+      { firstName: "Rajat ", lastName: "Shikhar" }
     ],
     title: "India's leading <span>Social</span><br> Commerce platform",
     founderImage: '/icons/Sourjyende-Rajat-Vinnet.png',
@@ -163,11 +163,11 @@ const heroSlider02_Data = [
   {
     id: "08",
     name: [
-      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Anurag ", lastName: "Sinha" },
+      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
-    title: "<span>mobile-first</span><br> credit card",
+    title: "<span>Mobile-first</span><br> credit card",
     founderImage: '/icons/onecard-boiss.png',
     background_url: '/icons/onecard-bg.png',
     tagsDetails: "India's best metal credit card. Built with full-stack tech. Backed by the principles of simplicity, transparency, and giving back control to the user.",

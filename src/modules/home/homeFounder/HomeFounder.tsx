@@ -67,9 +67,9 @@ const founderData = [
     id: "05",
     name: [
       { firstName: "Sourjyendu ", lastName: "Medda" },
-      { firstName: "Rajat ", lastName: "Shikhar" },
       { firstName: "Vineet ", lastName: "Rao" },
-      { firstName: "Sankar ", lastName: "Bora" }
+      { firstName: "Sankar ", lastName: "Bora" },
+      { firstName: "Rajat ", lastName: "Shikhar" }
     ],
     title: "We are <br><span>founders</span><br> first",
     background_url: '/icons/Sourjyende-Rajat-Vinnet.png',
@@ -80,8 +80,8 @@ const founderData = [
   {
     id: "06",
     name: [
-      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Anurag ", lastName: "Sinha" },
+      { firstName: "Vibhav ", lastName: "Hathi" },
       { firstName: "Rupesh ", lastName: "Kumar" }
     ],
     title: "We <br><span>partner</span><br> closely",

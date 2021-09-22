@@ -118,15 +118,15 @@ const SearchMoreLaptop = ({ deviceType, blogCount }) => {
             {LinkedInIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
           </a>
-          <div className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }}
-            onClick={() => {
-              setIsTwitterBoxOpen(!isTwitterBoxOpen)
-              setIsFilterBoxOpen(false)
-            }}
+          <a className="relative bg-white laptop:h-16 flex sm:w-10 justify-center items-center" style={deviceType.mobile ? {} : { width: 105, height: 70 }} href="https://twitter.com/matrixindiavc" target="__blank"
+          // onClick={() => {
+          //   setIsTwitterBoxOpen(!isTwitterBoxOpen)
+          //   setIsFilterBoxOpen(false)
+          // }}
           >
             {TwitterIcon}
             <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
-          </div>
+          </a>
         </div>
         {isFilterBoxOpen &&
 

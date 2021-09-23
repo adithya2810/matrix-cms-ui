@@ -109,7 +109,7 @@ const founderData = [
     ],
     title: "We <br><span>commit </span><br> personally",
     background_url: '/icons/mswipe-manish-patel.png',
-    tags: ["Mobile POS"],
+    tags: ["Fintech", "Mobile POS"],
     logo: "/icons/mswipe-white-logo.png",
     small_titles: [{ index: 1, title: "We are <br> founders first" }, { index: 2, title: "We partner <br> closely" }, { index: 3, title: "We invest <br> early" }]
   },

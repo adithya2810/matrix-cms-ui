@@ -126,16 +126,16 @@ const IndividualMember: FC<propsType> = (props) => {
             </>}
 
             {advisoryDetail.pastinvset && <>
-              <div className="text-2xl pt-8 sm:text-lg">
-                <span className="font-bold">Past Investments</span><br />
-                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
-              </div>
+              {/* <div className="text-2xl pt-8 sm:text-lg"> */}
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Past Investments</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
+              {/* </div> */}
             </>}
             {advisoryDetail.areaofintrest && <>
-              <div className="text-2xl pt-8 sm:text-lg">
-                <span className="font-bold">Focus Area's</span><br />
-                <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
-              </div>
+              {/* <div className="text-2xl pt-8 sm:text-lg"> */}
+              <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Focus Area's</h2>
+              <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
+              {/* </div> */}
             </>}
 
             {advisoryDetail.experience && <>

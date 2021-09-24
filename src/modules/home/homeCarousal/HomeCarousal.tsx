@@ -94,7 +94,7 @@ const heroSlider02_Data = [
         lastName: "DALMIA"
       }
     ],
-    title: "Tech-enabled   <span>student housing</span><br> platform",
+    title: "Tech-enabled <span>student accommodation</span><br> platform",
     founderImage: '/icons/founder3-edited.png',
     background_url: '/icons/backgroundCarousalImage.png',
     tagsDetails: "Tech-enabled student accommodation platform.",

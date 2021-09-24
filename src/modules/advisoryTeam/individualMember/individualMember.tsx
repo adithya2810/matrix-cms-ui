@@ -127,13 +127,13 @@ const IndividualMember: FC<propsType> = (props) => {
 
             {advisoryDetail.pastinvset && <>
               <div className="text-2xl pt-8 sm:text-lg">
-                <span className="font-semibold">Past Investments</span><br />
+                <span className="font-bold">Past Investments</span><br />
                 <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.pastinvset }}></div>
               </div>
             </>}
             {advisoryDetail.areaofintrest && <>
               <div className="text-2xl pt-8 sm:text-lg">
-                <span className="font-semibold">Focus Area's</span><br />
+                <span className="font-bold">Focus Area's</span><br />
                 <div className="text-lg leading-relaxed font-normal pt-3" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.areaofintrest }}></div>
               </div>
             </>}

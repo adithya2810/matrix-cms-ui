@@ -139,15 +139,15 @@ export const SideNav: React.FC<Props> = ({ onMenuClicked, menuIndex, mobile }: P
                 style={{ marginBottom: 10 }}
                 onClick={() => toggle(index)}
               >
-                {menuItem.name != "Media" && <><a href={menuItem.link}>
+                <a href={menuItem.link}>
                   <h5 className="menu-secondary-nav-text">{menuItem.name}</h5>
                 </a>
-                  {/* {menuItem.subMenu.length > 0 && <>{isSecondaryMenu(index) ?
+                {/* {menuItem.subMenu.length > 0 && <>{isSecondaryMenu(index) ?
                     <span className={`menu-secondary-nav-icon inverted`}> {">"} </span>
                     :
                     <span className="menu-secondary-nav-icon"> {">"} </span>
                   } */}
-                </>}
+
                 {menuItem.subMenu.length > 0 &&
                   <div className="subMenuOuter flex-wrap flex flex-col">
                     {menuItem.subMenu.map((menu, i) => {

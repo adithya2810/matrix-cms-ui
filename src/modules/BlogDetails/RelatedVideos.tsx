@@ -50,7 +50,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos, blogDetails }) =
           </div>
         </div>
       </div>
-      {relatedVideos.lenght > 0 && <h5 className='pb-8' style={{ fontSize: mobile ? 25 : 40 }}>Related Posts</h5>}
+      {relatedVideos.length > 0 && <h5 className='pb-5 font-normal' style={{ fontSize: mobile ? 25 : 30 }}>Related Content</h5>}
 
       {relatedVideos?.map((v, i) => (
         <div key={`${i}-relativevideos`} className="card laptop:flex relative laptop:mb-16">

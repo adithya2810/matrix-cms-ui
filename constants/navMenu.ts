@@ -38,18 +38,18 @@ export const navMenu = {
     {
       key: "footer_media",
       name: "Media",
-      link: "",
+      link: "/media",
       subMenu: [
-        {
-          key: "footer_news",
-          name: "News",
-          link: "/news",
-        },
-        {
-          key: "footer_event",
-          name: "Event",
-          link: "/events",
-        }
+        // {
+        //   key: "footer_news",
+        //   name: "News",
+        //   link: "/news",
+        // },
+        // {
+        //   key: "footer_event",
+        //   name: "Event",
+        //   link: "/events",
+        // }
       ]
     }
   ],

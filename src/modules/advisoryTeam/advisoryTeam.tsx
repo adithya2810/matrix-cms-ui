@@ -36,7 +36,7 @@ const Home: React.FC<Props> = ({ invesmentTeam, operationsTeam, deviceType }) =>
         </div>
       </div>
 
-      <div className="sm:block hidden w-full bg-cover bg-center bg-accent relative c-bg" style={deviceType.mobile ? { height: 365 } : {}}>
+      <div className="sm:block hidden w-full bg-cover bg-center bg-accent relative c-bg" style={deviceType.mobile ? { height: 365, backgroundImage: 'url(/images/matrix-websitebanner-team1.jpg)' } : {}}>
         <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
           <div className="p-8">
             <h1 className="text-white leading-tight text-5sm font-medium sm:text-left" style={deviceType.mobile ? { fontSize: 35, lineHeight: '40px' } : {}}>We are company builders first.</h1>

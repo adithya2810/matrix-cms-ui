@@ -27,6 +27,12 @@ const sliders = [
     logo: '/icons/dailyhunt-logo.png'
   },
   {
+    text: 'Matrix has always believed in our mission. It has been our immense pleasure to have Matrix back us from the start of our journey.  Their willingness to mentor, ideate and contribute to our business and growth has been unparalleled.',
+    by: '<b>Mr. Vineet</b> Rao<br/><b>Mr. Sourjyendu</b> Medda',
+    img: '/icons/Sourjyende-Rajat-Vinnet-bg.png',
+    logo: '/icons/Dealshare-logo-white.png'
+  },
+  {
     text: 'Matrix came on board at an early stage of our journey, and the support received has been truly invaluable! We couldn’t have asked for a better partner to build one of the world’s most loved tech-enabled managed living company.',
     by: '<b>Anindya</b> Dutta<br/><b>Sandeep</b> Dalmia',
     img: '/images/about-us/1-laptop.png',

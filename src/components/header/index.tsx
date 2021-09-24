@@ -12,8 +12,8 @@ export type Props = {
 export const Header: React.FC<Props> = ({ toggle, mobile }) => {
   const router = useRouter();
   const [brightSts, setBrightSts] = useState(true);
-  const siteLogoBlock = '/img/logo.jpg';//'/icons/matrixLogo.svg';
-  const siteLogoWhite = '/icons/MatrixLogoFinal_White.svg';
+  const siteLogoBlock = '/img/logo.png';//'/icons/matrixLogo.svg';
+  const siteLogoWhite = '/img/logo-white.png'//'/icons/MatrixLogoFinal_White.svg';
 
   const isSiteBgtrans = () => {
     const brightPages = ['/', '/home', '/advisoryTeam/[slug]', '/events/[eventsId]', '/presskit', '/news/[newsId]', '/contact'];
@@ -32,12 +32,12 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
         <div className={`headerInner-warpper ${brightSts ? 'laptop:pl-5' : 'laptop:pl-12'} sm:mt-5`}>
           <Link href="/"><a>
             {brightSts ? <>
-              <Logo src={siteLogoBlock} alt={"nextjs"} className="black block sm:hidden" />
-              <Logo src={siteLogoBlock} alt={"nextjs"} className="black hidden sm:block" width={91} height={40} />
+              <Logo src={siteLogoBlock} alt={"nextjs"} className="black block sm:hidden" style={{ height: 50 }} />
+              <Logo src={siteLogoBlock} alt={"nextjs"} className="black hidden sm:block" style={{ height: 50 }} />
             </> :
               <>
-                <Logo src={siteLogoWhite} alt={"nextjs"} className="white block sm:hidden" />
-                <Logo src={siteLogoWhite} alt={"nextjs"} className="white hidden sm:block" width={91} height={40} />
+                <Logo src={siteLogoWhite} alt={"nextjs"} className="white block sm:hidden" style={{ height: 50 }} />
+                <Logo src={siteLogoWhite} alt={"nextjs"} className="white hidden sm:block" style={{ height: 50 }} />
               </>}
           </a>
           </Link>

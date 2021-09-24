@@ -295,7 +295,7 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
   };
 
   return (
-    <div className="relative blogSliderOuter heroSlider02Outer" style={{ minHeight: 800 }}>
+    <div className="relative blogSliderOuter heroSlider02Outer" style={{ minHeight: mobile ? 500 : 800 }}>
       <Slider {...settings}>
         {heroSlider02_Data.map(slider => {
           return (

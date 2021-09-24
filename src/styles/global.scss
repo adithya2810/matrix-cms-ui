@@ -2043,3 +2043,7 @@ textarea {
 .advisory_details_linespacing p:not(:first-child){
   padding-top: 10px;
 }
+
+.swal2-styled.swal2-confirm{
+  background-color: #083a4a !important;
+}

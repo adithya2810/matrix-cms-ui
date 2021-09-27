@@ -24,11 +24,11 @@ const footermenu = [
     name: "Contact",
     link: "/contact",
   },
-  {
-    key: "footer_careers",
-    name: "Careers",
-    link: "/careers",
-  },
+  // {
+  //   key: "footer_careers",
+  //   name: "Careers",
+  //   link: "/careers",
+  // },
   {
     key: "footer_presskit",
     name: "Press Kit",

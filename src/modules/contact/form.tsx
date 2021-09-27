@@ -98,7 +98,7 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
           ))}
         </div>
         <div className="sm:order-first" style={{ flex: '35%' }}>
-          <h1 className="main-txt text-4xl lg:text-3xl font-bold form-heading sm:font-normal" style={deviceType.mobile ? { fontSize: 48, lineHeight: '60px', letterSpacing: -2 } : { lineHeight: '80px' }}>Share your Business Plans</h1>
+          <h1 className="main-txt text-4xl lg:text-3xl font-bold form-heading sm:font-normal" style={deviceType.mobile ? { fontSize: 48, lineHeight: '60px', letterSpacing: -2 } : { lineHeight: '80px' }}>Share your Business Plan</h1>
           <form className='contact-form pt-10 sm:pt-5' onSubmit={submitContact}>
             <label className="sm:font-extrabold" style={deviceType.mobile ? { fontSize: 19 } : {}}>Name</label>
             <input type="text" name="name" required value={contact.name} onChange={(e) => handleChange(e, 'name')} placeholder="Name" />

@@ -63,7 +63,7 @@ const index: FC<propsType> = (props) => {
       <AppliedFilters {...props} total={count} />
       <List {...props} cards={card} />
       <Filters {...props} />
-      <Pagination total={count} />
+      <Pagination {...props} total={count} />
     </div>
   );
 };

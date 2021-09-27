@@ -17,10 +17,10 @@ export async function getServerSideProps() {
   let data = await res.json()
 
   const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?type=operations&_sort=name:ASC`);
-  const data1 = await res1.json()
+  let data1 = await res1.json()
 
   data.splice(_.findIndex(data, ['_id', "6112641431f3105968351e5d"]), 1);
-  data1.splice(_.findIndex(data1, ['_id', "6112641431f3105968351e5d"]), 1);
+  //data1.splice(_.findIndex(data1, ['_id', "6112641431f3105968351e5d"]), 1);
   data.splice(_.findIndex(data, ['_id', "611253da31f3105968351e57"]), 1);
 
   return {

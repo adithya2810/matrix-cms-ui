@@ -29,12 +29,12 @@ export const navMenu = {
       link: "/contact",
       subMenu: []
     },
-    {
-      key: "footer_careers",
-      name: "Careers",
-      link: "/careers",
-      subMenu: []
-    },
+    // {
+    //   key: "footer_careers",
+    //   name: "Careers",
+    //   link: "/careers",
+    //   subMenu: []
+    // },
     {
       key: "footer_media",
       name: "Media",

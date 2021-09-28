@@ -242,11 +242,19 @@ const HomeCarousal: React.FC<{ mobile: boolean }> = ({ mobile }) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?${qs.stringify(psqury)}`);
     const json = await response.json();
     // console.log(json)
+    const getFullName = (v: any) => {
+      if (v?.hasOwnProperty("first_name")) {
+        return `${v.first_name} ${v?.last_name}`;
+      } else {
+        return v?.name;
+      }
+    };
+
     const featureTwoData = json.map(blogData => {
       return {
         image_url: blogData.cover_desktop,
         title: blogData.name,
-        author: blogData.author[0]?.name || "",
+        author: getFullName(blogData.author[0]) || "",
         content_id: blogData.id || "",
         content_type: blogData.content_type.name,
         read_duration: blogData.readtime,

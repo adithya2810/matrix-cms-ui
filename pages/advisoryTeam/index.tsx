@@ -13,10 +13,10 @@ function AdvisoryTeamPage(props) {
 
 export async function getServerSideProps() {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?type=investment&_sort=name:ASC`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?type=investment&_sort=last_name:ASC`);
   let data = await res.json()
 
-  const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?type=operations&_sort=name:ASC`);
+  const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/people?type=operations&_sort=last_name:ASC`);
   let data1 = await res1.json()
 
   data.splice(_.findIndex(data, ['_id', "6112641431f3105968351e5d"]), 1);

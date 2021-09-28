@@ -44,6 +44,14 @@ const Card: FC<propsType> = (props) => {
     }
   };
 
+  const getFullName = (v: any) => {
+    if (v.hasOwnProperty("first_name")) {
+      return `${v.first_name} ${v.last_name}`;
+    } else {
+      return v.name;
+    }
+  };
+
   return (
     <div className="laptop:flex">
       <div className="self-start cursor-pointer relative flex-shrink-0 w-90 sm:w-full sm:ml-5 sm:pr-5" onClick={_ => push(`/matrixmoments/${props.data?.slug}`)}>
@@ -84,7 +92,7 @@ const Card: FC<propsType> = (props) => {
               style={!props.deviceType?.mobile ? { height: 50, width: 50, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }}
             />
             <div>
-              <p className="sub-h2 text-accent-dark Manrope-normal capitalize" style={props.deviceType?.mobile ? { lineHeight: '18px', letterSpacing: 1, paddingBottom: 5 } : { lineHeight: '24px', fontSize: 16, color: '#083A4A' }}>{capitalize(props.data?.author?.[0]?.name)}</p>
+              <p className="sub-h2 text-accent-dark Manrope-normal capitalize" style={props.deviceType?.mobile ? { lineHeight: '18px', letterSpacing: 1, paddingBottom: 5 } : { lineHeight: '24px', fontSize: 16, color: '#083A4A' }}>{capitalize(getFullName(props.data?.author?.[0]))}</p>
               <p className="caption Manrope-normal" style={props.deviceType?.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', letterSpacing: 0.6 } : { fontWeight: 300, letterSpacing: 1, color: '#000000' }}>{props.data?.author?.[0]?.designation}</p>
             </div>
           </div>}

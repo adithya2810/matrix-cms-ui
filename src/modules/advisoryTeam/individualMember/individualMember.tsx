@@ -13,6 +13,8 @@ type deviceType = {
 type propsType = {
   deviceType: deviceType;
   advisoryDetail: {
+    first_name: string;
+    last_name: string;
     name: string;
     designation: string;
     about: string;
@@ -58,6 +60,14 @@ const IndividualMember: FC<propsType> = (props) => {
     return cntarr[type] || "READ";
   };
 
+  const getFullName = (v: any) => {
+    if (v.hasOwnProperty("first_name")) {
+      return `${v.first_name} ${v.last_name}`;
+    } else {
+      return v.name;
+    }
+  };
+
   return (
     <div className="team_detail py-40 px-20 sm:py-0 sm:px-0">
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 sm:gap-0 md:gap-0">
@@ -65,8 +75,8 @@ const IndividualMember: FC<propsType> = (props) => {
           <div style={{ position: 'relative' }} className="pb">
             <div className="card">
               <div className="member-profile-img ml-0 sm:ml-0">
-                <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:hidden md:hidden lg:hidden" />
-                <Image src={advisoryDetail.image_url} alt={advisoryDetail.name} className="team-member-img sm:block md:block lg:block hidden" />
+                <Image src={advisoryDetail.image_url} alt={getFullName(advisoryDetail)} className="team-member-img sm:hidden md:hidden lg:hidden" />
+                <Image src={advisoryDetail.image_url} alt={getFullName(advisoryDetail)} className="team-member-img sm:block md:block lg:block hidden" />
                 <div className="sm:hidden" style={{ width: '100%', height: '100%', position: "absolute", background: "#083A4A", bottom: -10, left: -10, zIndex: 11, }}></div>
               </div>
               <div className="team-detail-overlay sm:hidden">
@@ -78,10 +88,10 @@ const IndividualMember: FC<propsType> = (props) => {
                 <div className="team-member-info px-6 py-4 flex items-end">
                   <div className="member-name">
                     <h6 className="font-extrabold text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
-                      {advisoryDetail.name.substr(0, advisoryDetail.name.indexOf(' '))}
+                      {advisoryDetail.hasOwnProperty("first_name") ? advisoryDetail.first_name : advisoryDetail.name.substr(0, advisoryDetail.name.indexOf(' '))}
                     </h6>
                     <h6 className="font-light text-secondary uppercase text-3md" style={{ lineHeight: "31px", letterSpacing: "0.1em" }}>
-                      {advisoryDetail.name.substr(advisoryDetail.name.indexOf(' ') + 1)}
+                      {advisoryDetail.hasOwnProperty("last_name") ? advisoryDetail.last_name : advisoryDetail.name.substr(advisoryDetail.name.indexOf(' ') + 1)}
                     </h6>
                   </div>
                   <div className="member-contact pl-10">
@@ -110,7 +120,7 @@ const IndividualMember: FC<propsType> = (props) => {
 
           {props.deviceType.mobile && <div className="col-span-2 pl-32 sm:pl-7 md:pl-0 md:pr-0 md:pt-11 sm:pt-5 sm:pr-5 sm:pb-5 lg:pl-16">
 
-            <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            <h3 className="text-accent leading-snug font-normal text-xl">{getFullName(advisoryDetail)}</h3>
             <p className="text-1xs font-normal pt-1 pb-5" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p>
 
 
@@ -187,7 +197,7 @@ const IndividualMember: FC<propsType> = (props) => {
 
           {/* Mobile section */}
           <div className="member-more-detail pt-5 sm:px-7 sm:pt-4 sm:block hidden" style={{ display: 'none' }}>
-            {/* <h3 className="text-accent leading-snug font-normal text-xl">{advisoryDetail.name}</h3>
+            {/* <h3 className="text-accent leading-snug font-normal text-xl">{getFullName(advisoryDetail)}</h3>
             <p className="text-1xs font-normal pt-1" style={{ color: 'rgba(156, 163, 175, 1)', fontSize: 11 }}>{advisoryDetail.designation}</p> */}
 
             {advisoryDetail.experience && <>
@@ -266,7 +276,7 @@ const IndividualMember: FC<propsType> = (props) => {
       {advisoryDetail.blogs.length > 0 && <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-0 md:gap-0 pt-28">
         <div className="hide-mobile hide-tab pl-16 justify-center bg-secondary flex flex-col" style={{ minHeight: 600 }}>
           <div className="flex justify-between -mt-20">
-            <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {capitalize(advisoryDetail.name).replace(' ', '\n')}</h3>
+            <h3 className="text-5xl leading-tight text-accent font-normal">Latest <br />content<br /> from<br /> {capitalize(getFullName(advisoryDetail)).replace(' ', '\n')}</h3>
             <Link href="#" passHref>
               <Image src="../icons/sideNavButton.svg" alt="arrow-icon" className="-mr-5 cursor-pointer -mt-40" style={{ maxWidth: 80 }}></Image>
             </Link>
@@ -278,7 +288,7 @@ const IndividualMember: FC<propsType> = (props) => {
           }
         </div>
         {/* Mobile Section */}
-        <h3 className="hidden sm:block md:block lg:block text-2xl leading-tight text-accent font-normal px-7">Latest content from {advisoryDetail.name}</h3>
+        <h3 className="hidden sm:block md:block lg:block text-2xl leading-tight text-accent font-normal px-7">Latest content from {getFullName(advisoryDetail)}</h3>
         {/* Mobile Section */}
 
         <div className="overflow-auto home-content-container col-span-2 pl-32 sm:px-7 sm:py-8 md:px-7 md:py-8 lg:px-7 lg:py-8" style={props.deviceType.mobile ? { scrollbarWidth: 'none' } : { maxHeight: 850, scrollbarWidth: 'none', margin: '40px 0' }}>
@@ -328,7 +338,7 @@ const IndividualMember: FC<propsType> = (props) => {
                       style={props.deviceType.mobile ? { width: 30, height: 30, borderRadius: 50 } : { width: 48, height: 48, borderRadius: 50 }}
                     />
                     <div>
-                      <p className="sub-h2 text-accent-dark" style={props.deviceType.mobile ? {} : { fontSize: 17 }}>{advisoryDetail.name}</p>
+                      <p className="sub-h2 text-accent-dark" style={props.deviceType.mobile ? {} : { fontSize: 17 }}>{getFullName(advisoryDetail)}</p>
                       <p className="caption uppercase">{advisoryDetail.designation}</p>
                     </div>
                   </div>

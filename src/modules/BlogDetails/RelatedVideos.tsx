@@ -38,6 +38,14 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos, blogDetails }) =
     return cntarr[type] || "READ";
   };
 
+  const getFullName = (v: any) => {
+    if (v?.hasOwnProperty("first_name")) {
+      return `${v.first_name} ${v?.last_name}`;
+    } else {
+      return v?.name;
+    }
+  };
+
   return (
     <div>
       <div className="sub-h1 flex items-center flex-wrap py-10 sm:py-5 sm:pl-5 sm:my-10 laptop:font-light" style={mobile ? { backgroundColor: 'rgba(235,235,235,1)' } : { fontSize: 23 }}>
@@ -77,7 +85,7 @@ const RelatedVideos: FC<deviceType> = ({ mobile, relatedVideos, blogDetails }) =
                   <Image src={v.author[0].image_url} alt="profileImage" style={mobile ? { height: 28, minWidth: 28, borderRadius: 50 } : { height: 48, width: 48, borderRadius: 50 }} />
                   <div style={{ marginLeft: 15 }}>
                     <div className="font-medium text-lg leading-6 text-primary-dark sm:mb-1" style={mobile ? { fontSize: 14, lineHeight: '18px', letterSpacing: 1 } : { letterSpacing: 1 }}>
-                      {v.author[0].name}
+                      {getFullName(v.author[0])}
                     </div>
                     <div
                       className="mt-0.5 font-normal text-xs"

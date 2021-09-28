@@ -24,26 +24,60 @@ const getPagination = (currentPage, totalPages, appendSearch, pageType, deviceTy
   let l;
 
   for (let i = 1; i <= last; i++) {
-    if (i == 1 || i == last || i >= left && i < right) {
-      range.push(i);
+    // if (i == 1 || i == last || i >= left && i < right) {
+    range.push(i);
+    // }
+  }
+
+  let dotcount = 0;
+  for (let i of range) {
+    if (last <= 5) {
+      rangeWithDots.push(i);
+    } else {
+      if (i == currentPage || i == (currentPage - 1) || i == (currentPage + 1)) {
+        rangeWithDots.push(i);
+      } else if (i == 1 || i == 2 || i == last || i == (last - 1)) {
+        rangeWithDots.push(i);
+      } else {
+        if (currentPage > 2 && i < currentPage && dotcount == 0) {
+          rangeWithDots.push('...');
+          dotcount++;
+        }
+        if (currentPage < (last - 1) && i > currentPage && dotcount == 1) {
+          rangeWithDots.push('...');
+          dotcount++;
+        }
+      }
+    }
+    // if (l) {
+    //   if (i - l === 2) {
+    //     rangeWithDots.push(l + 1);
+    //   } else if (i - l !== 1) {
+    //     rangeWithDots.push('...');
+    //   }
+    // }
+    // rangeWithDots.push(i);
+    // l = i;
+  }
+
+  if (rangeWithDots.findIndex(v => v == '...') == -1) {
+    let prevind = 0;
+    let dotdsts = true;
+    let j = 0;
+    for (const k of rangeWithDots) {
+      if (dotdsts && k !== (prevind + 1)) {
+        rangeWithDots.splice(j, 0, '...');
+        dotdsts = false;
+      }
+      prevind = k;
+      j++;
     }
   }
 
-  for (let i of range) {
-    if (l) {
-      if (i - l === 2) {
-        rangeWithDots.push(l + 1);
-      } else if (i - l !== 1) {
-        rangeWithDots.push('...');
-      }
-    }
-    rangeWithDots.push(i);
-    l = i;
-  }
   return rangeWithDots.reduce((acc, n) => {
     acc.push(<div key={n} onClick={_ => {
       if (+n != current) window.location.href = `${pageType ? '/' + pageType : ''}/news?page=${n}${appendSearch}`;
-    }} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-2 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80 ${getPrevNextActive(currentPage, +n)}`} style={deviceType.mobile ? {} : { fontSize: 17, lineHeight: '20px' }}>{n}</div>)
+    }} className={`${+n ? 'cursor-pointer' : ''} body1 mx-2 px-2 sm:mx-1 sm:px-2 ${currentPage == +n ? 'text-white bg-accent-dark py-1' : +n ? 'bg-grey-dark text-accent-dark' : ''} py-1 hover:opacity-80`} style={deviceType.mobile ? {} : { fontSize: 17, lineHeight: '20px' }}>{n}</div>)
     return acc
   }, []);
 }

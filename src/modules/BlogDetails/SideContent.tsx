@@ -21,6 +21,14 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
     Article: <ArticleIconBlog />
   }
 
+  const getFullName = (v: any) => {
+    if (v?.hasOwnProperty("first_name")) {
+      return `${v.first_name} ${v?.last_name}`;
+    } else {
+      return v?.name;
+    }
+  };
+
   return (
     <div className='col-span-4 laptop:mr-16'>
       <div className="blog-author-card relative bg-accent-dark text-white ">
@@ -37,7 +45,7 @@ const SideContent: FC<propsType> = ({ deviceType: { mobile }, blogDetails, relat
               src={blogDetails?.author?.[0]?.image_url}
               style={!mobile ? { height: 55, width: 55, borderRadius: 50 } : { height: 27, width: 27, borderRadius: 50 }} />
             <div>
-              <h6 className='mb-2 font-light' style={!mobile ? { lineHeight: '25px', fontSize: 25, letterSpacing: 1.5 } : { fontSize: 14, letterSpacing: 2 }}>{blogDetails?.author?.[0]?.name}</h6>
+              <h6 className='mb-2 font-light' style={!mobile ? { lineHeight: '25px', fontSize: 25, letterSpacing: 1.5 } : { fontSize: 14, letterSpacing: 2 }}>{getFullName(blogDetails?.author?.[0])}</h6>
               <div className="caption" style={mobile ? {} : { lineHeight: '15px' }}>{blogDetails?.author?.[0]?.designation}</div>
             </div>
           </div>

@@ -133,7 +133,7 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
       // if (i != index) {
       list.push(<div className={`heroSlider01-thumbnailInner heroTitleSlider`} key={founder.index + '-' + i} style={props.mobile ? { minWidth: 115, color: '#01576e' } : { color: '#01576e' }}>
         <span className="thumbnailIndex" style={props.mobile ? { fontWeight: 500, fontSize: 11, lineHeight: '14px', paddingRight: 2, marginTop: -3, color: '#01576e' } : { fontWeight: 400, fontSize: 12, lineHeight: '14px' }}>{/*`0${founder.index}`*/}</span>
-        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: props.mobile ? 16 : 20, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e', maxWidth: props.mobile ? 110 : 130 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
+        <div className="heroSlider01-thumbnailText" style={{ fontWeight: 400, fontSize: props.mobile ? 16 : 20, color: props.mobile ? 'rgb(0 0 0 / 65%)' : '#01576e', maxWidth: props.mobile ? 100 : 130 }} dangerouslySetInnerHTML={{ __html: founder.title }}></div>
       </div>);
       //   fi++;
       // }
@@ -166,7 +166,6 @@ export const Founder: React.FC<{ foundersData: Array<any>, mobile: boolean }> = 
                               <strong>{name.firstName} </strong> {name.lastName}
                             </h6>
                           })}
-
                         </div>
                         <div className="founder-field-container" style={props.mobile ? { height: 'auto' } : { height: 65 }}>
                           <div>

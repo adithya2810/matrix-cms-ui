@@ -22,6 +22,7 @@ export async function getServerSideProps() {
   data.splice(_.findIndex(data, ['_id', "6112641431f3105968351e5d"]), 1);
   //data1.splice(_.findIndex(data1, ['_id', "6112641431f3105968351e5d"]), 1);
   data.splice(_.findIndex(data, ['_id', "611253da31f3105968351e57"]), 1);
+  data.splice(_.findIndex(data, ['_id', "60d42e18f4ab72cb2ac8128f"]), 1);
 
   return {
     props: {

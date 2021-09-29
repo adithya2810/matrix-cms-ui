@@ -73,7 +73,7 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
   return (
     <div className="relative m-auto w-11/12	" style={deviceType.mobile ? {} : { marginTop: 100, marginBottom: 150 }}>
       <div className="row">
-        <div className="pr-24 sm:pr-0" style={deviceType.mobile ? {} : { flex: '65%' }}>
+        <div className="pr-24 sm:pr-0 sm:pt-10" style={deviceType.mobile ? {} : { flex: '65%' }}>
           <h1 className="main-txt text-4xl first-head font-bold" style={deviceType.mobile ? { fontSize: 47, lineHeight: '60px', letterSpacing: -0.1, fontWeight: 400 } : { lineHeight: '80px' }}>Vist our India Advisory Team Offices</h1>
           {details.map((data, i) => (
             <div key={i} className="row pb-7 pr-2 sm:pb-0 sm:pr-4" style={deviceType.mobile ? {} : { marginTop: '50px', borderBottom: (details.length - 1) != i ? '1px solid rgba(1, 87, 110, 1)' : 'unset' }}>

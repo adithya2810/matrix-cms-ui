@@ -214,7 +214,7 @@ const Filters = ({ deviceType }) => {
               </div>
               {FilterIcon}
             </div>
-            <a className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center" href="https://www.linkedin.com/company/matrix-partners/" target="__blank">
+            <a className="relative  bg-white laptop:h-16 sm:w-10 flex justify-center items-center" href="https://www.linkedin.com/company/matrix-partners-india/" target="__blank">
               {LinkedInIcon}
               <span className="absolute laptop:bottom-0 sm:right-0 laptop:w-full sm:h-full laptop:h-1/2 sm:w-1/2 laptop:border-b-2 laptop:border-l-2 laptop:border-r-2 sm:border-t-2 sm:border-r-2 sm:border-b-2 border-accent" />
             </a>

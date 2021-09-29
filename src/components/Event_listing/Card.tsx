@@ -36,14 +36,14 @@ const Card: FC<propsType> = (props) => {
   return (
 
     <div className="laptopCustom:flex">
-      {/* <div className="self-start relative flex-shrink-0 w-90 lg:w-full lg:ml-12 sm:ml-4 listing_card_image_outer" >
+      <div className="self-start relative flex-shrink-0 w-90 lg:w-full lg:ml-12 sm:ml-4 listing_card_image_outer" >
         <img style={!props.deviceType?.mobile ? { height: 178, width: 220 } : { height: '220', width: '300' }}
           className="image-shadow"
           src={getImage(props)}
           alt="image"
         />
         {/* <div className="sub-h2 py-1.5 px-3 bg-accent text-white absolute laptopCustom:bottom-0 left-0 lg:top-0">Pined</div> */}
-      {/*</div> */}
+      </div>
       <div
         className="p-4 lg:p-4 relative mt-8 -left-6 w-full lg:left-0 lg:mt-0 lg:-top-16 lg:-ml-2 listing_card_content_outer"
         style={{

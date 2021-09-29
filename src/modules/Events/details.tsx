@@ -5,7 +5,7 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
   return (
     <div className='event-container'>
       <p className='event-heading-1'>{eventsdata.name}</p>
-      <img src={eventsdata.cover_image_url} alt="nextjs" />
+      {/* <img src={eventsdata.cover_image_url} alt="nextjs" /> */}
       <div className='row'>
         <div className='go-back' style={{ flex: '35%' }}>
           <Link href='/events'>Go back</Link>

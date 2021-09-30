@@ -50,23 +50,23 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <meta itemProp="image" content={image} />
 
       {/* <!-- Open Graph / Facebook --> */}
-      <meta name="og:type" content="website" />
-      <meta name="og:url" content={url} />
-      <meta name="og:title" content={title} />
-      <meta name="og:description" content={description} />
-      <meta name="og:image" content={image} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
       {/* <meta name="og:image:width" content="512" />
       <meta name="og:image:height" content="512" /> */}
       {/* <meta name="og:author" content="matrix_team" /> */}
 
       {/* <!-- Twitter --> */}
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:url" content={url} />
-      <meta name="twitter:title" content={title} />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:url" content={url} />
+      <meta property="twitter:title" content={title} />
       {/* <meta name="twitter:site" content="@matrixindiavc" />
       <meta name="twitter:creator" content="@author" /> */}
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={image} />
       <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119875117-1"></script>
       <script dangerouslySetInnerHTML={{

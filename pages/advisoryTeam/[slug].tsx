@@ -1,4 +1,5 @@
 import SocialMetaTags from '@components/SocialMetaTags';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import Individual from "../../src/modules/advisoryTeam/individualMember";
 
@@ -12,10 +13,10 @@ type propsType = {
 };
 
 const AdvisoryIndividual: FC<propsType> = (props: propsType) => {
-
+  const { query } = useRouter();
   return (
     <>
-      <SocialMetaTags title={props.advisoryDetail.name} image={props.advisoryDetail.image_url} description={props.advisoryDetail.description} />
+      <SocialMetaTags title={props.advisoryDetail.name} url={`/advisoryTeam/${query.slug}`} image={props.advisoryDetail.image_url} description={props.advisoryDetail.description} />
       <Individual {...props} />
     </>
   );

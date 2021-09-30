@@ -13,7 +13,7 @@ type propsType = {
 const AboutUsPage: FC<propsType> = (props) => {
   return (
     <>
-      <SocialMetaTags title="About Us" description="Matrix Partners began in Boston in 1977, and today invests actively in the USA, India and China. Matrix Partners India was established in 2006, and invests..." />
+      <SocialMetaTags title="About Us" url="/about-us" description="Matrix Partners began in Boston in 1977, and today invests actively in the USA, India and China. Matrix Partners India was established in 2006, and invests..." />
       <AboutUs {...props} />
     </>
   );

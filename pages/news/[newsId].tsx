@@ -1,10 +1,12 @@
 import SocialMetaTags from '@components/SocialMetaTags';
+import router, { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import Details from "../../src/modules/News/details";
 
 function DetailsPage(props) {
+  const { query } = useRouter();
   return (<>
-    <SocialMetaTags title={props.newsdata.title} description={props.newsdata.body} image={props.newsdata.imageurl} />
+    <SocialMetaTags title={props.newsdata.title} url={`/news/${query.newsId}`} description={props.newsdata.body} image={props.newsdata.imageurl} />
     <Details {...props} />
   </>);
 };

@@ -14,7 +14,7 @@ type propsType = {
 const NewsPage: FC<propsType> = (props) => {
   return (
     <>
-      <SocialMetaTags title="News" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
+      <SocialMetaTags title="News" url="/news" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
       <News {...props} />
     </>
   );

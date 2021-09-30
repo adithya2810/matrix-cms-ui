@@ -43,13 +43,12 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <link rel="icon" type="image/x-icon" href={`${process.env.NEXT_PUBLIC_APP_URL}/favicon.ico`}></link>
-      <meta name="author" content="author" />
 
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta name="title" property="og:title" content={title} />
-      <meta name="description" property="og:description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
       <meta name="image" property="og:image" content={image} />
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />

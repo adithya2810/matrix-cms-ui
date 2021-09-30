@@ -15,9 +15,9 @@ type Props = {
 
 const Media: React.FC<Props> = (props) => {
   const { query } = useRouter();
-  return (
+  return (<>
+    <SocialMetaTags title={props.title} image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
     <div className="media_page">
-      <SocialMetaTags title={props.title} image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
       <div className="media-hero-section" style={{ backgroundImage: 'url(/images/matrix-websitebanner-media1.jpg)', backgroundSize: '100% 100%' }}>
         <div className="media-title laptop:ml-40 laptop:mt-20 laptop:mb-12">
           {props.title}
@@ -47,7 +47,7 @@ const Media: React.FC<Props> = (props) => {
       {query.slug == 'events' && <MediaEvent {...props} pageType="media" />}
       {query.slug == 'presskit' && <PresskitForm {...props} pageType="media" />}
     </div>
-  )
+  </>)
 };
 
 export async function getServerSideProps(ctx) {

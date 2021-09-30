@@ -42,26 +42,31 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+      <meta name="image" content={image} />
       <link rel="icon" type="image/x-icon" href={`${process.env.NEXT_PUBLIC_APP_URL}/favicon.ico`}></link>
 
+      <meta itemProp="name" content={title} />
+      <meta itemProp="description" content={description} />
+      <meta itemProp="image" content={image} />
+
       {/* <!-- Open Graph / Facebook --> */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta name="image" property="og:image" content={image} />
-      <meta property="og:image:width" content="512" />
-      <meta property="og:image:height" content="512" />
-      <meta name="author" property="og:author" content="matrix_team" />
+      <meta name="og:type" content="website" />
+      <meta name="og:url" content={url} />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
+      <meta name="og:image" content={image} />
+      {/* <meta name="og:image:width" content="512" />
+      <meta name="og:image:height" content="512" /> */}
+      {/* <meta name="og:author" content="matrix_team" /> */}
 
       {/* <!-- Twitter --> */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:site" content="@matrixindiavc" />
-      <meta property="twitter:creator" content="@author" />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={title} />
+      {/* <meta name="twitter:site" content="@matrixindiavc" />
+      <meta name="twitter:creator" content="@author" /> */}
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
       <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119875117-1"></script>
       <script dangerouslySetInnerHTML={{

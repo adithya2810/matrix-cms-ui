@@ -16,7 +16,7 @@ type Props = {
 const Media: React.FC<Props> = (props) => {
   const { query } = useRouter();
   return (<>
-    <SocialMetaTags title={props.title} image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
+    <SocialMetaTags title={props.title} url={`/media${(query.slug) ? '/' + query.slug : ''}`} image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
     <div className="media_page">
       <div className="media-hero-section" style={{ backgroundImage: 'url(/images/matrix-websitebanner-media1.jpg)', backgroundSize: '100% 100%' }}>
         <div className="media-title laptop:ml-40 laptop:mt-20 laptop:mb-12">

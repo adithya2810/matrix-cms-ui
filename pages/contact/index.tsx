@@ -25,7 +25,7 @@ function ContactPage(props) {
   }
 
   return (<>
-    <SocialMetaTags title="Contact Us" description={description()} image={`${process.env.NEXT_PUBLIC_APP_URL}/img/image 26.png`} />
+    <SocialMetaTags title="Contact Us" description={description()} image={`${process.env.NEXT_PUBLIC_APP_URL}img/Matrix_Contact_Delhi.png`} />
     <Contact {...{ ...props, details: details }} />
   </>);
 }

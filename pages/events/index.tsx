@@ -14,7 +14,7 @@ type propsType = {
 const EventssPage: FC<propsType> = (props) => {
   return (
     <>
-      <SocialMetaTags title="Events" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrixMomentsLaptop.png`} />
+      <SocialMetaTags title="Events" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-media1.jpg`} />
       <Events {...props} />
     </>
   );

@@ -26,7 +26,7 @@ const BlogDetailsPage: FC<propsType> = (props) => {
     }
   }
   return (<>
-    <SocialMetaTags title={props.blogDetails.name ? props.blogDetails.name : ''} description={props.blogDetails.content ? props.blogDetails.content : ''} url={`/blogs/${props.blogDetails.slug}`} image={getImage(props.blogDetails)} />
+    <SocialMetaTags title={props.blogDetails.name ? props.blogDetails.name : ''} description={props.blogDetails.content ? props.blogDetails.content : ''} url={`/matrixmoments/${props.blogDetails.slug}`} image={getImage(props.blogDetails)} />
     <BlogDetails {...props} />
   </>)
 }

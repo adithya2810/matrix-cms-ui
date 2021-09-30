@@ -15,7 +15,7 @@ type propsType = {
 const BlogsPage: FC<propsType> = (props) => {
   return (
     <>
-      <SocialMetaTags title="All Blogs" />
+      <SocialMetaTags title="Matrix Moments" />
       <Blogs {...props} />
     </>
   );

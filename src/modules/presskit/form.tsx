@@ -14,7 +14,7 @@ const PresskitForm: React.FC<propType> = ({ deviceType, pageType }) => {
   const [form, setForm] = useState({ firstname: "", lastname: "", email: "", message: "" });
   const submitForm = async event => {
     event.preventDefault() // don't redirect the page  //salonie@matrixpartners.in,binita@matrixpartners.in,info@matrixpartners.in,
-    var mail_data = { to: 'salonie@matrixpartners.in,binita@matrixpartners.in,info@matrixpartners.in,komalsaini2010@gmail.com', subject: 'New Presskit Enquery', html: '' };
+    var mail_data = { to: 'salonie@matrixpartners.in,binita@matrixpartners.in,info@matrixpartners.in', subject: 'New Presskit Enquery', html: '' };
     var html = '';
     for (var key in form) {
       if (form.hasOwnProperty(key)) {

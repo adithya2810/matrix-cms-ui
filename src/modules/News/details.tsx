@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Details: FC<{ newsdata: any; tags: any[] }> = ({ newsdata, tags }) => {
   return (
     <div className='news-container'>
-      <Link href='/news'>Go back</Link>
+      <Link href='/media/news'>Go back</Link>
       <h1 className="news-header pb-10 sm:pt-5 sm:pb-5" style={{ color: '#000000', fontSize: 65, lineHeight: '80px', fontWeight: 700 }}>
         {newsdata?.title}
       </h1>

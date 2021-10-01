@@ -8,7 +8,7 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
       {/* <img src={eventsdata.cover_image_url} alt="nextjs" /> */}
       <div className='row'>
         <div className='go-back' style={{ flex: '35%' }}>
-          <Link href='/events'>Go back</Link>
+          <Link href='/media/events'>Go back</Link>
         </div>
         <div style={{ flex: '65%' }}></div>
       </div>

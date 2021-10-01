@@ -20,7 +20,7 @@ export const navMenu = {
     {
       key: "footer_advisory_team",
       name: "Advisory Team",
-      link: "/advisoryTeam",
+      link: "/advisory-team",
       subMenu: []
     },
     {

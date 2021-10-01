@@ -16,8 +16,8 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
   const siteLogoWhite = '/img/logo-white.png'//'/icons/MatrixLogoFinal_White.svg';
 
   const isSiteBgtrans = () => {
-    const brightPages = ['/', '/home', '/advisoryTeam/[slug]', '/events/[eventsId]', '/presskit', '/news/[newsId]', '/contact'];
-    const mobileBrightPages = ['/advisoryTeam/[slug]'];
+    const brightPages = ['/', '/home', '/advisory-team/[slug]', '/events/[eventsId]', '/presskit', '/news/[newsId]', '/contact'];
+    const mobileBrightPages = ['/advisory-team/[slug]'];
     return !(mobile && _.indexOf(mobileBrightPages, router.route) != -1) && _.indexOf(brightPages, router.route) != -1;
   }
 
@@ -48,7 +48,7 @@ export const Header: React.FC<Props> = ({ toggle, mobile }) => {
                 <img className="px-1 pt-1" src="/icons/arrow-white.svg" />} */}
               <Link href="/about-us"><a className="mr-4">About</a></Link>
               <Link href="/portfolio"><a className="mr-4">Portfolio</a></Link>
-              <Link href="/advisoryTeam"><a className="mr-4">Advisory Team</a></Link>
+              <Link href="/advisory-team"><a className="mr-4">Advisory Team</a></Link>
               <Link href="/matrixmoments"><a className="mr-4">Matrix Moments</a></Link>
               <Link href="/media"><a>Media</a></Link>
             </p>

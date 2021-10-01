@@ -33,7 +33,7 @@ const PastInvestmentTeam: React.FC<Props> = ({ operationsTeam }) => {
       <div className="team-member p-5 cursor-pointer grid grid-cols-4 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {operationsTeam?.map((t: any, index) => (
           <div key={t._id} style={{ position: 'relative' }}>
-            <Link href={'/advisoryTeam/' + t.slug} passHref>
+            <Link href={'/advisory-team/' + t.slug} passHref>
               <div className="overflow-hidden shadow-xl card team-hover" >
                 <Image src={t.image_url} alt={getFullName(t)} className="team-member-img" />
                 <div className="team-overlay">

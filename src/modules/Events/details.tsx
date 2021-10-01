@@ -46,7 +46,7 @@ const Details: FC<{ eventsdata: any; }> = ({ eventsdata }) => {
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: eventsdata.description }}></div>
         </div>
         <div className='pl-8 hidden sm:block'>
-          <Link href='/events'>Go back</Link>
+          <Link href='/media/events'>Go back</Link>
         </div>
       </div>
       {/* <Link href='/news'>Go back</Link>

@@ -125,10 +125,10 @@ const IndividualMember: FC<propsType> = (props) => {
 
 
             <h3 className="text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">Brief</h3>
-            <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
+            <div className="text-justify sm:text-left text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.description.replace('Brief', '') }}></div>
 
             {advisoryDetail.about && <> <h3 className="pt-8 text-2xl leading-none font-semibold text-black sm:uppercase sm:text-lg sm:font-bold">About</h3>
-              <div className="text-justify text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
+              <div className="text-justify sm:text-left text-lg leading-relaxed font-normal pt-5 sm:text-lg sm:pt-5 advisory_details_linespacing" style={{ color: 'rgba(0, 0, 0, 1)' }} dangerouslySetInnerHTML={{ __html: advisoryDetail.about }}></div></>}
 
             {advisoryDetail.currentinvest && <>
               <h2 className="text-2xl font-semibold sm:uppercase sm:text-lg pt-8 leading-5">Current Investments</h2>

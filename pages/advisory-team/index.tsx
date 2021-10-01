@@ -5,7 +5,7 @@ import _ from "lodash";
 
 function AdvisoryTeamPage(props) {
   return (<>
-    <SocialMetaTags title="Advisory Team" url="/advisoryTeam" image={`${process.env.NEXT_PUBLIC_APP_URL}/images/matrix-websitebanner-team1.jpg`} description="We are company builders first Our experience supports and amplifies companies over their lifespan" />
+    <SocialMetaTags title="Advisory Team" url="/advisory-team" image={`${process.env.NEXT_PUBLIC_APP_URL}/img/advisory-banner.png`} description="We are company builders first Our experience supports and amplifies companies over their lifespan." />
     <AdvisoryTeam deviceType={props.deviceType} invesmentTeam={props.investment} operationsTeam={props.operations} />
   </>);
 }

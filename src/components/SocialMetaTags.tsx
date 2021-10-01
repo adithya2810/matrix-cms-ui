@@ -42,7 +42,7 @@ const SocialMetaTags: React.FC<Props> = ({ url, title, description, image }) => 
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="image" content={image} />
+      {/* <meta name="image" content={image} /> */}
       <link rel="icon" type="image/x-icon" href={`${process.env.NEXT_PUBLIC_APP_URL}/favicon.ico`}></link>
 
       <meta itemProp="name" content={title} />

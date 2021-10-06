@@ -25,7 +25,7 @@ const ContactForm: React.FC<propType> = ({ deviceType, details }) => {
   const submitContact = async event => {
     event.preventDefault() // don't redirect the page
     // where we'll add our form logic
-    var mail_data = { to: 'salonie@matrixpartners.in,binita@matrixpartners.in,info@matrixpartners.in', subject: 'New Contact Us Enquery', html: '' };
+    var mail_data = { to: 'salonie@matrixpartners.in,info@matrixpartners.in', subject: 'New Contact Us Enquery', html: '' };
 
     var html = '';
     for (var key in contact) {

@@ -70,7 +70,7 @@ const Card: FC<propsType> = (props) => {
         }
       </div>
       <div
-        className="p-8 pl-7 pr-0 sm:p-4 relative mt-8 -left-6 w-full sm:left-0 sm:mt-0 sm:-top-16 sm:-ml-4 sm:pl-7"
+        className="p-8 pl-7 pr-0 sm:p-4 sm:mt-0 sm:pt-3 relative mt-8 -left-6 w-full sm:left-2 sm:mt-0 sm:-ml-4 sm:pl-7"
         style={{
           background: 'white',
           width: props.deviceType?.mobile ? '93%' : '100%',
@@ -81,7 +81,7 @@ const Card: FC<propsType> = (props) => {
           <Link href={`/matrixmoments/${props.data?.slug}`}><a>{props.data?.name}</a></Link>
         </div>
         <div className="flex mt-3 mb-4 items-center">
-          <span className='flex items-center mr-8 w-8 h-10 sm:absolute sm:top-0 sm:-right-8 sm:mr-0'>
+          <span className='flex items-center mr-8 w-8 h-10 sm:absolute sm:top-3 sm:-right-7 sm:mr-0'>
             <Icon {...props} iconType={props.data?.content_type?.name} />
           </span>
           {props.data?.author?.length > 0 && <div className="flex">

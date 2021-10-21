@@ -34,10 +34,11 @@ const PastInvestment: React.FC<Props> = ({ portfolio }) => {
   }, [selected])
 
   return (
-    <div className="relative pt-12 sm:pt-5">
-      {/* <div className="w-full m-auto">
-        <h2 className="text-3md sm:text-xl text-center font-bold text-current">Select Past Investments</h2>
-      </div> */}
+    <div className="relative pt-6 sm:pt-5">
+      <div className="w-full m-auto">
+        <h2 className="text-3md sm:text-xl text-center font-bold text-black">
+          <span className="bord-top">Select Past Investments</span></h2>
+      </div>
 
       {/* <div className="button-filters">
         <div className="button-filters-text">FIlter By:-</div>

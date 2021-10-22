@@ -569,8 +569,506 @@ const config = {
         destination: '/matrixmoments/exit-strategy-for-startups',
         permanent: true,
       },
-
-
+      {
+        source: '/blog/detail/fintech_covid',
+        destination: '/matrixmoments/impact-of-covid-19-on-financial-services-and-fin-tech',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/bcp_1',
+        destination: '/matrixmoments/bcp-sample-case',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Fintech_%20strategy',
+        destination: '/matrixmoments/overreaction-is-the-only-reaction-for-fintechs',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/insights_China',
+        destination: '/matrixmoments/startup-learnings-from-china-in-the-wake-of-covid19',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Resourceguide',
+        destination: '/matrixmoments/covid-19resource-guide',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Covid',
+        destination: '/matrixmoments/covid-19-and-its-implications-on-startup-india',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Zerodha',
+        destination: '/matrixmoments/building-indias-first-discount-broking-model-zerodha',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/founders%20first',
+        destination: '/atrixmoments/a-matrix-moment-foundersfirst',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Earlystage',
+        destination: '/matrixmoments/decoding-the-founder-vc-relationship',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/DINVIBs',
+        destination: '/matrixmoments/creating-new-consumer-brands-digitally',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Culture',
+        destination: '/matrixmoments/crafting-your-company-culture',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/CAP%20-%20TABLE%20BASICS%20%26%20CROSS%20-%20BORDER%20INSIGHTS',
+        destination: '/matrixmoments/cap-table-basics-and-cross-border-insights',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/bcp_1blog/detail/A%20look%20back',
+        destination: '/matrixmoments/a-look-back-at-2019',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/POS',
+        destination: '/matrixmoments/pos-framework',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Founding%20Team',
+        destination: '/matrixmoments/building-a-founding-team',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/NeoBanks',
+        destination: '/matrixmoments/neobanks-the-future-of-banking',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/GTM',
+        destination: '/matrixmoments/gtm-for-startups',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/fundraisingandvaluation',
+        destination: '/matrixmoments/fundraising-and-valutations',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/stanza',
+        destination: '/matrixmoments/stanza-living-transforming-the-student-housing-sector',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/startup-temperature',
+        destination: '/matrixmoments/startup-temperature-check',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Bhavin-turakhia-pt2',
+        destination: '/matrixmoments/learnings-from-serial-entrepreneur-bhavin-turakhia-part-2',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Bhavin-turakhia',
+        destination: '/matrixmoments/learnings-from-serial-entrepreneur-bhavin-turakhia-part-1',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/consumer-businesses',
+        destination: '/matrixmoments/why-new-age-consumer-businesses-are-great-investments',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/exits',
+        destination: '/matrixmoments/exits',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/finding-scaling-pmf',
+        destination: '/mmatrixmoments/finding-and-scaling-pmf',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/journey-of-citrus-pay',
+        destination: '/matrixmoments/the-journey-of-building-citrus-pay-and-learnings-on-the-fintech-landscape',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Investing_in_mobility',
+        destination: '/matrixmoments/investing-in-mobility-the-role-of-ai-and-robotics',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Fintech_or_techfin',
+        destination: '/matrixmoments/fintech-or-techfin-what-is-exciting-investors',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/investor-value-add-engagement',
+        destination: '/matrixmoments/investor-value-add-and-engagement',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/metrics-and-dashboards',
+        destination: '/matrixmoments/metrics-and-dashboards',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/structuring-incentive-plans',
+        destination: '/matrixmoments/structuring-incentive-plans-esop-cash-and-balanced-scorecard',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/ivo',
+        destination: '/matrixmoments/state-of-the-indian-venture-market-2019',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/setting-sail-vikram',
+        destination: '/matrixmoments/vikram-vaidyanathan-on-why-he-chose-to-be-an-investor',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/The_Terms_of_Term_Sheets',
+        destination: '/matrixmoments/the-terms-of-term-sheets',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/LSN-journey',
+        destination: '/matrixmoments/the-journey-of-building-loadshare',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Budget-%26-Burn',
+        destination: '/matrixmoments/budget-and-burn',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/org-3.0',
+        destination: '/matrixmoments/org-30',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/angel-versus-institutional-funding',
+        destination: '/matrixmoments/angel-versus-institutional-funding-at-the-seed-stage',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/journey-behind-ltilite',
+        destination: '/matrixmoments/the-journey-behind-building-itilite',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/inmobi-journey',
+        destination: '/matrixmoments/the-inmobi-journey',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/cods',
+        destination: '/matrixmoments/cods',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/discovering-fintech-religion-2',
+        destination: '/matrixmoments/discovering-fintech-religion-part-2',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/discovering-fintech-religion-1',
+        destination: '/matrixmoments/discovering-fintech-religion-part-1',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/ama-series-with-india-quotient',
+        destination: '/matrixmoments/ama-series-with-india-quotient',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/extreme-hiring',
+        destination: '/matrixmoments/extreme-hiring',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/extreme-referencing',
+        destination: '/matrixmoments/extreme-referencing',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/startup-india',
+        destination: '/matrixmoments/the-indian-startup-opportunity-a-few-personal-beliefs',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/tiecon19',
+        destination: '/matrixmoments/tiecon-mumbai-2019-spotting-future-unicorns',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/state-indian-venture-ecosystem-part2',
+        destination: '/matrixmoments/state-of-the-indian-venture-ecosystem-part-2-forecast-2019',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/state-indian-venture-ecosystem',
+        destination: '/matrixmoments/state-of-the-indian-venture-ecosystem-part-1-a-look-back-at-2018',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/ecommerce-key-takeaways',
+        destination: '/matrixmoments/e-commerce-20-key-takeaways',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/MoFu',
+        destination: '/matrixmoments/living-in-the-middle-of-the-funnel-mofu',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/extreme-productivity',
+        destination: '/matrixmoments/extreme-productivity',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/learnings%20from%20China',
+        destination: '/matrixmoments/learnings-on-commerce-from-china',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/valuations',
+        destination: '/matrixmoments/making-sense-of-valuations',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/matrixmoments-VC',
+        destination: '/matrixmoments/operator-vc-versus-investor-vc',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/matrixmomentsfear-greed',
+        destination: '/matrixmoments/fear-and-greed',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/vernacular',
+        destination: '/matrixmoments/vernacularization-of-digital-india-key-takeaways',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/matrixmoments-intrinsics',
+        destination: '/matrixmoments/Intrinsics',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/india-fintech',
+        destination: '/matrixmoments/india-fintech-boom-bust-boombustb-whats-coming-next',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/fivestarfinancepodcast',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-five-star-business-finance-podcast',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/fivestarfinancemasterclass',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-five-star-business-finance',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/healthcareblog',
+        destination: '/matrixmoments/healthcare-striking-gold-in-the-picks-and-shovels-businesses',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/Healthtech-sector',
+        destination: '/matrixmoments/health-tech-sector-seen-generating-significant-value-over-the-next-decade',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/limeroadpodcast',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-limeroad-podcast',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/cnbc%20masterclass%20limeroad',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-limeroad',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/cnbc%20masterclass%20Quikr',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-quikr-2',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/cnbc%20YT%20masterclass%20Quikr',
+        destination: '/matrixmoments/cnbc-young-turks-master-class-quikr-2',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/47',
+        destination: '/matrixmoments/cnbc-young-turks-masterclass-mswipe',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/43',
+        destination: '/matrixmoments/india-financial-services-disrupt-or-be-disrupted-part-2',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/44',
+        destination: '/matrixmoments/what-does-it-take-to-raise-series-a-funding-from-a-vc',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/46',
+        destination: '/matrixmoments/cnbc-young-turks-masterclass-mswipe',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/42',
+        destination: '/matrixmoments/india-financial-services-disrupt-or-be-disrupted-part-1',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/41',
+        destination: '/matrixmoments/what-they-dont-teach-you-at-hbs',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/40',
+        destination: '/matrixmoments/the-harsh-realities-of-entrepreneurship',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/38',
+        destination: '/matrixmoments/backing-the-best-founders',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/37',
+        destination: '/matrixmoments/evolving-as-a-leader',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/36',
+        destination: '/matrixmoments/sharpening-investing-skills',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/35',
+        destination: '/matrixmoments/misconceptions-around-venture-investing',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/32',
+        destination: '/matrixmoments/venture-investing-supporting-without-intruding',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/30',
+        destination: '/matrixmoments/taking-stock-of-life-after-baazee-sale',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/28',
+        destination: '/matrixmoments/entrepreneurial-resilience',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/25',
+        destination: '/matrixmoments/starting-baazeecom',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/22',
+        destination: '/matrixmoments/goldman-sachs-versus-mckinsey',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/21',
+        destination: '/matrixmoments/why-we-like-consumer-brands',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/20',
+        destination: '/matrixmoments/key-insights-talent-in-the-era-of-digital-disruption',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/18',
+        destination: '/matrixmoments/what-makes-an-entrepreneur',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/14',
+        destination: '/matrixmoments/founders-vs-markets',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/13',
+        destination: '/matrixmoments/forces-of-nature',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/12',
+        destination: '/matrixmoments/welcome-to-the-matrix-partners-india-blog-foundersfirst',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/15',
+        destination: '/matrixmoments/key-takeaways-product-meet-up-with-rahul-ganjoo-vp-product-zomato-hosted-by-matrix-partners',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/11',
+        destination: '/matrixmoments/consumer-internet-20-the-opportunity-ahead',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/5',
+        destination: '/matrixmoments/saas-enabled-marketplaces-and-why-we-like-them',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/consumer-tech-investing-in-india',
+        destination: '/matrixmoments/whats-next-for-consumer-tech-investing-in-india',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/16',
+        destination: '/matrixmoments/the-treebo-story-building-indias-most-loved-budget-hotel-brand',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/6',
+        destination: '/matrixmoments/calculating-liquidation-preference',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/7',
+        destination: '/matrixmoments/why-we-invested-in-myra-a-potent-synthesis-of-technology-and-operations',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/8',
+        destination: '/matrixmoments/india-tech-17-trends-to-watch-out-for-in-2017',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/9',
+        destination: '/matrixmoments/flipkart-ola-and-government-protection-an-alternate-view',
+        permanent: true,
+      },
+      {
+        source: '/blog/detail/10',
+        destination: '/matrixmoments/why-we-invested-in-belong',
+        permanent: true,
+      },
     ];
   },
 };

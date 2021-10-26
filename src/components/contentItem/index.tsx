@@ -45,6 +45,7 @@ export const ContentItem: React.FC<Props> = ({
     return '';
   };
 
+
   const contentRead = (type) => {
     let cntarr = { Video: 'Watch', Audio: 'Listen', Article: 'Read' }
     return cntarr[type] || "Read";
@@ -79,7 +80,7 @@ export const ContentItem: React.FC<Props> = ({
           <div className="flex ml-2 justify-between mt-2 contentButtonWrap" >
             {/* <button onClick={() => onClick(content_id)} /> */}
             <Button
-              title={`Read More`}
+              title={`${contentRead(content_type)} More`}
               className="h-7 w-36 text-accent text-base"
               url="/icons/rightArrowGray.svg"
               onClick={() => { location.href = `/matrixmoments/${blog_url}` }}

@@ -43,6 +43,8 @@ const IndividualMember: FC<propsType> = (props) => {
   const { push } = useRouter()
   const advisoryDetail = props.advisoryDetail;
 
+  console.log('uyguygu', advisoryDetail);
+
   const capitalize = (str) => {
     if (str) {
       const words = str.split(" ");
@@ -349,7 +351,7 @@ const IndividualMember: FC<propsType> = (props) => {
                       <Tag
                         key={index}
                         title={item.name}
-                        id={item.id}
+                        id={item.slug}
                         selected={false}
                         className="text-xs font-normal opacity-80 mr-2 bg-secondary-light"
                         style={{
